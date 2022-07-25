@@ -1,0 +1,873 @@
+<?php
+    $mac=$_POST['mac'];
+    $ip=$_POST['ip'];
+    $username=$_POST['username'];
+    $linklogin=$_POST['link-login'];
+    $linkorig=$_POST['link-orig'];
+    $error=$_POST['error'];
+    $trial=$_POST['trial'];
+    $loginby=$_POST['login-by'];
+    $chapid=$_POST['chap-id'];
+    $chapchallenge=$_POST['chap-challenge'];
+    $linkloginonly=$_POST['link-login-only'];
+    $linkorigesc=$_POST['link-orig-ese'];
+    $macesc=$_POST['mac-esc'];
+    $identity=$_POST['identity'];
+    $bytesinnice=$_POST['bytes-in-nice'];
+    $bytesoutnice=$_POST['bytes-out-nice'];
+    $sessiontimeleft=$_POST['session-time-left'];
+    $uptime=$_POST['uptime'];
+    $refreshtimeout=$_POST['refresh-timeout'];   
+    $linkstatus=$_POST['link-status']; 
+    $domainId=$_POST['domainId'];
+    $domain=$_POST['domain'];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
+    <title>Wi-Fi News</title>
+    <!-- FavIcon-->
+
+    <link rel="shortcut icon" type="image/png" href="https://imgur.com/fPnH0yp" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+    <!-- Google Tag Manager -->
+    <script>
+            google_adtest = "on";
+            (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
+    <!-- End Google Tag Manager -->
+
+   <!-- Start GPT Tag -->
+<script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+<script>
+  google_adtest = "on";
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    var mapping1 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[728, 90]])
+                            .addSize([1200, 0], [[728, 90]])
+                            .addSize([1000, 0], [[728, 90]])
+                            .addSize([700, 0], [[468, 60]])
+                            .addSize([600, 0], [[468, 60]])
+                            .addSize([300, 0], [[320, 50], [300, 250]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    var mapping2 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[320, 480]])
+                            .addSize([1200, 0], [[320, 480]])
+                            .addSize([1000, 0], [[320, 480]])
+                            .addSize([700, 0], [[320, 480]])
+                            .addSize([600, 0], [[320, 480]])
+                            .addSize([300, 0], [[320, 480]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    var mapping3 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[300, 250], [300, 600], [728, 90]])
+                            .addSize([1200, 0], [[728, 90], [300, 250], [300, 600]])
+                            .addSize([1000, 0], [[728, 90], [300, 250], [300, 600]])
+                            .addSize([700, 0], [[468, 60], [300, 250], [300, 600]])
+                            .addSize([600, 0], [[468, 60], [300, 250], [300, 600]])
+                            .addSize([300, 0], [[320, 50], [300, 250], [300, 600]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    var mapping4 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[728, 90]])
+                            .addSize([1200, 0], [[728, 90]])
+                            .addSize([1000, 0], [[728, 90]])
+                            .addSize([700, 0], [[468, 60]])
+                            .addSize([600, 0], [[468, 60]])
+                            .addSize([300, 0], [[320, 50]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[728,90],[300,250],[468,60],'fluid'], 'div-gpt-ad-6628793-1')
+             .defineSizeMapping(mapping1)
+             .addService(googletag.pubads());
+    googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'], 'div-gpt-ad-6628793-2')
+             .defineSizeMapping(mapping3)
+             .addService(googletag.pubads());
+    googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'], 'div-gpt-ad-6628793-3')
+             .defineSizeMapping(mapping3)
+             .addService(googletag.pubads());
+    googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[728,90],[468,60],'fluid'], 'div-gpt-ad-6628793-4')
+             .defineSizeMapping(mapping4)
+             .addService(googletag.pubads());
+
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setCentering(true);
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Tag -->
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div id="grantModal" class="modal">
+        <div class="modal-content">
+            <input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
+        </div>
+    </div>
+    <div id="waitModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="width: 300px;">
+            <p id="waitTxt"></p>
+            <input type="button" class="btn" id="okayBtn" value="Okay" />
+        </div>
+    </div>
+    <header>
+        <!-- Navigation  -->
+        <div class="header-menu">
+            <div class="header-container">
+                <div class="main-nav">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand toggle-logo" href="./index.php">Wi-Fi News</a>
+                        <button class="navbar-toggler navbar-toggler-border" type="button" data-toggle="collapse"
+                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class=""><img src="https://i.imgur.com/cGBqpQY.png" class="open" alt="" />
+                                <img src="https://i.imgur.com/kFs7MhT.png" class="close" alt="">
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./index.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./articles.php">Wifi Articles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./forum.php">Forum</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation  -->
+    </header>
+
+    <style>
+        .button {
+            padding: 10px 16px;
+            text-align: center;
+            background-image: linear-gradient(#00ff00, #0cad0c);
+            color: #f1f1f1;
+            z-index: 10000;
+        }
+
+        .button:hover {
+            background-image: linear-gradient(#077807, #136113);
+        }
+
+        .button:active {
+            background-image: linear-gradient(#077807, #136113);
+            box-shadow: 0 5px #00ff00;
+            transform: translateY(4px);
+        }
+    </style>
+
+<div id="myHeader" class="button" onclick="watchVidModal()">
+        <i class="fa fa-wifi" aria-hidden="true" style="font-size: 2.5em;"></i>
+        <h2 id="connectTxt" style="display: none;">Click HERE to connect to Wi-Fi NOW</h2>
+        <h2 id="countdown">Connect to WIFI in 5 Seconds</h2>
+        <p id="noticeTxt" style="text-align: right; display: none; font-size: 1.2em"></p>
+    </div>
+
+    <main class="content">
+
+        <?php if($error) : ?>
+        <div class="alert alert-danger">
+            <?php echo $error; ?>
+        </div>
+        <?php endif; ?>
+
+        <div class="row">
+            <div class="col-md-6" style="padding-top: 8px; margin: 0 auto; text-align: center;">
+                <div style="width: 100%; margin: 0 auto; text-align: center;">
+               <!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
+<div id='div-gpt-ad-6628793-1' style="margin-top: 20px; margin-bottom: 20px;">
+  <script>
+    google_adtest = "on";
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-1'); });
+  </script>
+</div>
+<!-- End AdSlot 1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section  -->
+        <div class="about-section">
+            <div class="container-fluid about-bottom-border">
+                <div class="row">
+                    <style>
+                        @media only screen AND (max-width: 736px) {
+                            .mobileHidden {
+                                display: none;
+                            }
+                        }
+                    </style>
+                    <div class="col-md-3 mobiCol">
+
+
+
+
+                        <div class="site-link">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="affection-corona-articles">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="./forum.php">
+                                        <div class="affection-corona">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="affection-logo">
+                                                        <img src="https://i.imgur.com/3kacWhm.png" 
+                                                            alt="logo" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="affecting-detail">
+                                                        <h5>Checkout the Forums</h5>
+                                                        <h3>How is the Corona virus Affecting You ?</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="./articles.php">
+                                        <div class="affection-corona checkout-articles">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="affection-logo">
+                                                        <img src="https://i.imgur.com/fPnH0yp.png" alt="logo" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="affecting-detail">
+                                                        <h5>Checkout our Articles</h5>
+                                                        <h3>
+                                                            Read the Latest Wifi News
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="row"
+                                    style="padding-top: 10px; padding-bottom: 10px; margin: 0 auto; text-align: center;">
+                                    <div style="text-align: center; margin: 0 auto; width: 100%;">
+                                       <!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+<div id='div-gpt-ad-6628793-2' style="margin-top: 20px; margin-bottom: 20px;">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-2'); });
+  </script>
+</div>
+<!-- End AdSlot 2 -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="taboola-below-article-thumbnails-1"></div>
+                        
+                        <div class="about-us-section">
+                            <h5>Want to know about us?</h5>
+                            <h3>About Us</h3>
+                            <div class="about-us-inner">
+                                <div class="about-us-inner-img">
+                                    <img src="https://i.imgur.com/9wzKJEp.jpg" title="source: imgur.com" /></a>
+                                </div>
+                                <div class="about-us-inner-description">
+                                    <p class="show-read-more">
+                                        Wi-Fi News provides our users with an interface to connect
+                                        to one of 33 free Wi-Fi Hotspots in South Africa. Wi-Fi
+                                        News Provides both a login portal as well as unique
+                                        interesting content for our users to browse and consume
+                                        for free. The cost of data South Africa is still
+                                        incredibly expensive. Our free Wi-Fi hotspots provide
+                                        South Arricans with the ability to keep up-to-date with
+                                        the latest news, technology developments, connectivity to
+                                        talk with family and friends, the tools to search for work
+                                        oportunities, the ability for students to condunct
+                                        research and submit assignments and many other vital
+                                        benefits for progress and upliffment.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="forum-latest-article-section">
+                            <h5>Latest Articles</h5>
+                            <div class="lates-article-container">
+                                <div class="latest-article">
+                                    <div class="recent-img">
+                                        <img src="https://i.imgur.com/fHVkhHJ.jpg"
+                                            title="How Has Wi-Fi Changed Our World?" /></a>
+                                    </div>
+                                    <div class="recent-title">
+                                        <a href="./articles/how-has-wi-fi-changed-our-world.html">How Has Wi-Fi
+                                            Changed
+                                            Our World?</a>
+                                        <p>In our technologically-advanced era, it’s almost impossible...</p>
+                                    </div>
+                                </div>
+                                <div class="latest-article">
+                                    <div class="recent-img">
+                                        <img src="https://i.imgur.com/VFkOQXz.jpg"
+                                            title="How can Wi-Fi change your life?" /></a>
+                                    </div>
+                                    <div class="recent-title">
+                                        <a href="./articles/how-can-wi-fi-change-your-life.html">How can Wi-Fi
+                                            change
+                                            your life?</a>
+                                        <p>We’re part of a digital age where technology has become part...</p>
+                                    </div>
+                                </div>
+                                <div class="latest-article">
+                                    <div class="recent-img">
+                                        <img src="https://i.imgur.com/RSxBwgt.jpg"
+                                            title="Wi-Fi Origins – Where Did It All Start?" /></a>
+
+                                    </div>
+                                    <div class="recent-title">
+                                        <a href="./articles/wi-fi-origins-where-did-it-all-start.html">Wi-Fi Origins
+                                            –
+                                            Where Did It All Start?</a>
+                                        <p>We all use this technology every day, and few of us stop to think...</p>
+                                    </div>
+                                </div>
+                                <div class="latest-article">
+                                    <div class="recent-img">
+                                        <img src="https://i.imgur.com/yNTwr28.jpg"
+                                            title="When Should You Replace Your Router" /></a>
+
+                                    </div>
+                                    <div class="recent-title">
+                                        <a href="./articles/when-should-you-replace-your-router.html">When Should
+                                            You
+                                            Replace Your Router?</a>
+                                        <p>Have you had the same router for years now and are...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Section  -->
+
+        <!-- Read Articles  -->
+        <div class="article-section">
+            <div class="container">
+                <h5>Read our Latest Articles</h5>
+                <div class="home-article-title">
+                    <h2>Articles</h2>
+                    <a href="./articles.php">View All</a>
+                </div>
+                <div class="article-inner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-article">
+                                <div class="single-article-image">
+                                    <img src="https://i.imgur.com/zywusfQ.jpg" title="Positive Thinking" style="height: auto !important; min-width: 100px;"/></a>
+                                </div>
+                                <div class="single-article-detail">
+                                    <a
+                                        href="./articles/how-to-boost-your-health-with-the-power-of-positive-thinking.html">How
+                                        To Boost Your Health With The Power Of Positive Thinking</a>
+                                    <div class="hint-para">
+                                        <p>
+                                            Yesterday was a special day in South Africa, as we celebrated the wonderful
+                                            mothers in our lives. Be
+                                            it stepmoms, foster moms, moms-to-be, moms-in-law or moms in heaven, we took
+                                            the time on...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-article">
+                                <div class="single-article-image">
+                                    <img src="https://i.imgur.com/Uu4FmAy.png" title="Mothers Day" style="height: auto !important; min-width: 100px;" /></a>
+
+                                </div>
+                                <div class="single-article-detail">
+                                    <a href="./articles/local-celebs-pay-tribute-to-their-moms-on-mothers-day.html">Local
+                                        Celebs Pay Tribute To Their Moms On Mother’s Day</a>
+                                    <div class="hint-para">
+                                        <p>
+                                            Yesterday was a special day in South Africa, as we celebrated the wonderful
+                                            mothers in our lives. Be
+                                            it stepmoms, foster moms, moms-to-be, moms-in-law or moms in heaven, we took
+                                            the time on......
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-article">
+                                <div class="single-article-image">
+                                    <img src="https://i.imgur.com/dzUyu9Q.png" title="Apple Pay"  style="height: auto !important; min-width: 100px;"/></a>
+
+                                </div>
+                                <div class="single-article-detail">
+                                    <a href="./articles/apple-pay-comes-to-south-africa.html">Apple Pay Comes To South
+                                        Africa</a>
+                                    <div class="hint-para">
+                                        <p>
+                                            You may not have noticed that convenient payment system Apple Pay went live
+                                            in South Africa last
+                                            month. From 30 March, customers were...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-article">
+                                <div class="single-article-image">
+                                    <img src="https://i.imgur.com/vvE0VRA.jpg" title="Healthcare Vaccines" style="height: auto !important; min-width: 100px;" /></a>
+
+                                </div>
+                                <div class="single-article-detail">
+                                    <a
+                                        href="./articles/clicks-pharmacy-is-rolling-out-covid-19-vaccines-for-the-elderly.html">Clicks
+                                        Pharmacy Is Rolling Out COVID-19 Vaccines For The Elderly</a>
+                                    <div class="hint-para">
+                                        <p>
+                                            As of last week, the pharmacy retailer has started offering COVID-19
+                                            vaccines to South Africans over
+                                            the age of 60. On Thursday 21 May 2021, they announced their intentions to
+                                            roll out vaccines for the
+                                            elderly in...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-article">
+                                <div class="single-article-image">
+                                    <img src="https://i.imgur.com/Ss4RQUX.jpg" title="Relationship Tips"  style="height: auto !important; min-width: 100px;"/></a>
+                                </div>
+                                <div class="single-article-detail">
+                                    <a href="./articles/how-to-keep-your-relationship-strong-during-covid-19.html">How
+                                        To Keep Your Relationship Strong During COVID-19</a>
+                                    <div class="hint-para">
+                                        <p>
+                                            As we brace ourselves for the suspected ‘third wave’ of COVID-19 infections,
+                                            more people are
+                                            choosing to spend more time at home. But, while being home with your other
+                                            half might sounds like......
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-article">
+                                <div class="single-article-image">
+                                    <img src="https://i.imgur.com/kmcnmht.png" title="My octopus teacher"  style="height: auto !important; min-width: 100px;"/></a>
+
+                                </div>
+                                <div class="single-article-detail">
+                                    <a href="./articles/sa-octopus-documentary-takes-home-an-oscar.html">SA Octopus
+                                        Documentary Takes Home An Oscar</a>
+                                    <div class="hint-para">
+                                        <p>
+                                            The annual Academy Awards were held in various locations – thanks to COVID –
+                                            on Sunday night.
+                                            And the world of entertainment tuned in to see who would come out
+                                            victorious. Among the winners
+                                            was...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+<div id='div-gpt-ad-6628793-3' style="margin-top: 20px; margin-bottom: 20px;">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-3'); });
+  </script>
+</div>
+<!-- End AdSlot 3 -->
+
+
+                        <div class="add-place">
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="single-article">
+                                    <div class="single-article-image">
+                                        <img src="https://i.imgur.com/eZOfqhi.jpg"
+                                            title="Top 5 Reasons You Have Dead Spots in Your House"  style="height: auto !important; min-width: 100px;"/></a>
+
+                                    </div>
+                                    <div class="single-article-detail">
+                                        <a href="./articles/top-5-reasons-you-have-dead-spots-in-your-house.html">Top 5
+                                            Reasons You Have Dead Spots in Your House</a>
+                                        <div class="hint-para">
+                                            <p>
+                                                Have you ever been trying to research something, send an email, or
+                                                stream a
+                                                video, and
+                                                all of a sudden, your internet...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single-article">
+                                    <div class="single-article-image">
+                                        <img src="https://i.imgur.com/PQrvir2.jpg"
+                                            title="The Internet of Things – Everything You Need To Know" style="height: auto !important; min-width: 100px;" /></a>
+
+                                    </div>
+                                    <div class="single-article-detail">
+                                        <a href="./articles/the-internet-of-things-everything-you-need-to-know.html">The
+                                            Internet of Things – Everything You Need To Know</a>
+                                        <div class="hint-para">
+                                            <p>
+                                                For a few years now, we’ve been hearing about how our world is becoming
+                                                more
+                                                and more
+                                                inter-connected. From Alexa...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single-article">
+                                    <div class="single-article-image">
+                                        <img src="https://i.imgur.com/aQd4xol.jpg"
+                                            title="How Much Data Is Enough?" style="height: auto !important; min-width: 100px;" /></a>
+
+                                    </div>
+                                    <div class="single-article-detail">
+                                        <a href="./articles/how-much-data-is-enough.html">How Much Data Is Enough?</a>
+                                        <div class="hint-para">
+                                            <p>
+                                                There are so many options for data packages at the moment that it’s hard
+                                                to
+                                                know which one is best for you. And, with more...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single-article">
+                                    <div class="single-article-image">
+                                        <img src="https://i.imgur.com/5AQJ5gF.jpg"
+                                            title="Is Wi-Fi Technology Bad for Your Health"  style="height: auto !important; min-width: 100px;"/></a>
+
+                                    </div>
+                                    <div class="single-article-detail">
+                                        <a href="./articles/is-wi-fi-technology-bad-for-your-health.html">Is Wi-Fi
+                                            Technology Bad for Your Health</a>
+                                        <div class="hint-para">
+                                            <p>
+                                                When it comes to Wi-Fi or cellular technology causing health problems,
+                                                it is
+                                                not always
+                                                an easy conversation to have. There...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Read Articles  -->
+
+                <form id="redirect" name="redirect" action="" method="post">
+                    <input type="hidden" name="mac" value="<?php echo $mac; ?>">
+                    <input type="hidden" name="ip" value="<?php echo $ip; ?>">
+                    <input type="hidden" name="username" value="<?php echo $username; ?>">
+                    <input type="hidden" name="link-login" value="<?php echo $linklogin; ?>">
+                    <input type="hidden" name="link-orig" value="<?php echo $linkorig; ?>">
+                    <input type="hidden" name="error" value="<?php echo $error; ?>">
+                    <input type="hidden" name="chap-id" value="<?php echo $chapid; ?>">
+                    <input type="hidden" name="chap-challenge" value="<?php echo $chapchallenge; ?>">
+                    <input type="hidden" name="link-login-only" value="<?php echo $linkloginonly; ?>">
+                    <input type="hidden" name="link-orig-esc" value="<?php echo $linkloginesc; ?>">
+                    <input type="hidden" name="mac-esc" value="<?php echo $macesc; ?>">
+                    <input type="hidden" name="identity" value="<?php echo $identity; ?>">
+                    <input type="hidden" name="link-status" value="<?php echo $linkstatus; ?>">
+                    <input type="hidden" name="domain" value="<?php echo $domain; ?>">
+                    <input type="hidden" name="domainId" value="<?php echo $domainId; ?>">
+        			<input type="hidden" name="userID" id="userID" value="">
+                    <input type="hidden" type="submit" value="continue">
+                </form>
+
+                <!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[728,90],[468,60],[320,50],'fluid'] -->
+                <div
+                    style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 0;">
+                                
+                    <!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
+<div id='div-gpt-ad-6628793-4' style="margin-bottom: 20px;">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-4'); });
+  </script>
+</div>
+<!-- End AdSlot 4 -->
+
+                </div>
+                <!-- End AdSlot 4 -->
+    </main>
+
+    <footer>
+        <!-- Inform link  -->
+        <div class="ionform-link">
+            <div class="container">
+                <div class="inform-link-inner">
+                    <p>
+                        Stay informed for COVID-19 Updates:&nbsp;<a href="https://sacoronavirus.co.za/"
+                            target="_blank">www.sacoronavirus.co.za</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Inform link  -->
+
+        <div class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <p>Copyright © Entelek (Pty) Ltd 2022 All Rights Reserved</p>
+                    </div>
+                    <div class="footer-right">
+                        <a href="#" class="terms">Terms & Conditions</a>
+                        <a href="./privacy.html" class="policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-small">
+            <div class="footer-top">
+                <div class="container">
+                    <ul>
+                        <li><a href="./privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>Copyright © Entelek (Pty) Ltd 2020 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+if ("<?php echo $mac; ?>" === "") {
+
+     document.getElementById("myHeader").style.display = "none";
+
+ } else {
+     firstTimer();
+ }
+
+ function firstTimer() {
+    document.getElementById("connectTxt").style.display = "none";
+
+    var timeleft = 5;
+
+    var firstTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(firstTimer);
+            document.getElementById("countdown").style.display = "none";
+            document.getElementById("connectTxt").style.display = "Inherit";
+            document.getElementById("noticeTxt").style.display = "Inherit";
+            totalTimeout();
+
+        } else {
+            document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
+        }
+
+        timeleft = timeleft - 1;
+
+    }, 1000)
+}
+function totalTimeout(){
+    setTimeout(() => {
+            document.redirect.action = "interstitial/";
+            document.redirect.submit();
+    }, 30000);
+}
+
+
+</script>
+
+    <script data-cfasync="false" type="text/javascript">
+        function watchVidModal() {
+                document.redirect.action = "interstitial/";
+                document.redirect.submit();
+        }
+
+    </script>
+
+    <!-- Jquery Js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Custom Js-->
+    <script src="./js/custom.js"></script>
+    <!-- Bootstrap style-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://use.fontawesome.com/5292dd4d51.js"></script>
+
+    <script type="text/javascript">
+        window._taboola = window._taboola || [];
+        _taboola.push({ flush: true });
+    </script>
+
+    <style>
+        p {
+            text-align: center;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 300px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            margin: auto;
+            padding: 25px;
+            background-color: #fefefe;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #watchAdBtn {
+            height: 80px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        @media all and (orientation: landscape) {
+
+            /* Modal Content */
+            .modal-content {
+                margin: auto;
+                padding: 25px;
+                background-color: #fefefe;
+                text-align: center;
+                position: fixed;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .btn {
+            padding: .5rem;
+            background: #2990EA;
+            border: none;
+            border-radius: 4px;
+            margin: 4px;
+        }
+
+        /* Page content */
+        .content {
+            padding: 16px;
+        }
+
+        /* The sticky class is added to the header with JS when it reaches its scroll position */
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%
+        }
+
+        /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+        .sticky+.content {
+            padding-top: 102px;
+        }
+
+        #close_button_icon {
+            background-size: 355% !important;
+        }
+    </style>
+
+    <script>
+        window.onscroll = function () { myFunction() };
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

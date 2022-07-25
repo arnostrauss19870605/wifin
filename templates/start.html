@@ -1,0 +1,210 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Wifi News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap v4.3.1 CSS -->
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+  
+    <!-- Font Awesome Free 5.10.2 CSS JS -->
+    <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+       
+    <!-- Google Tag Manager -->
+    <script>
+        google_adtest = "on";
+        (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js">
+        google_adtest = "on";
+    </script>
+    
+    <script>
+    google_adtest = "on";
+    window.googletag = window.googletag || {cmd: []};
+
+    // GPT ad slots
+    var interstitialSlot, staticSlot;
+
+    googletag.cmd.push(function() {
+    // Define a web interstitial ad slot.
+    interstitialSlot = googletag.defineOutOfPageSlot(
+        '/22047902240/wifinews/wfn_interstitial2',
+        googletag.enums.OutOfPageFormat.INTERSTITIAL);
+
+    // Slot returns null if the page or device does not support interstitials.
+    if (interstitialSlot) {
+    interstitialSlot.addService(googletag.pubads());
+
+    // document.getElementById('status').innerText = 'Interstitial is loading...';
+
+    // Add event listener to enable navigation once the interstitial loads.
+    // If this event doesn't fire, try clearing local storage and refreshing
+    // the page.
+    googletag.pubads().addEventListener('slotOnload', function(event) {
+        if (interstitialSlot === event.slot) {
+        document.getElementById('link').click()
+        document.getElementById('link').style.display = 'block';
+        // document.getElementById('status').innerText = 'Interstitial is loaded.';
+        }
+    });
+    }
+
+    // Define static ad slots.
+    staticSlot = googletag.defineSlot(
+        '/22047902240/wifinews/wfn_interstitial2', ['fluid', [320, 480]], 'div-gpt-ad-1623081918204-0')
+    .addService(googletag.pubads());
+
+    // Enable SRA and services.
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+    });
+
+    </script>
+
+
+
+</head>
+  <body >
+       <!-- Header  -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-header"> 
+        <div class="container-fluid">
+       
+          <div class="logo">Wifi News</div>
+          
+        </div>
+
+    </nav> 
+
+                        <!-- Google Tag Manager (noscript) -->
+                    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0"
+                        style="display:none;visibility:hidden"></iframe></noscript>
+                    <!-- End Google Tag Manager (noscript) -->
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="div-gpt-ad-1623081918204-0" style="width: 320px; height: 280px; background-color: #808080; margin-left: 5%; margin-top: 25%"></div>
+
+                            <div class="subsite-heading">
+                                <p id="noticeTxt" style="display: none; font-size: 1.2em"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="content">
+                    <p>
+                    <a id="link" href="#" style="display: none;"></a>
+                    </p>
+                    <p>
+                    <!--
+                    You can prevent specific links from triggering GPT-managed web interstials by
+                    adding a data-google-interstitial="false" attribute to the anchor element or
+                    any ancestor of the anchor element.
+                    -->
+                    </p>
+                    </div>
+                    
+                    <script>
+                        google_adtest = "on";    
+                    googletag.cmd.push(function() {
+                    // Ensure the first call to display comes after static ad slot
+                    // divs are defined.
+                    googletag.display(staticSlot);
+                    });
+                    </script>
+
+                  
+                   
+      <!-- .Content  -->
+      
+      <!-- Botom Panel  -->
+      <div class="bottom-panel">
+        <div class="bp-col">
+          <a href="index.html">
+            <div class="bp-icon"><img src="#" alt="icon"> </div>
+            <div class="bp-text">Home</div>
+          </a>
+        </div>
+        <div class="bp-col">
+          <a href="my_rides.html">
+            <div class="bp-icon"><img src="#" alt="icon"></div>
+            <div class="bp-text">My Rides</div>
+          </a>
+        </div>
+        <div class="bp-col">
+          <a href="destinations.html">
+            <div class="bp-icon"><img src="#" alt="icon"></div>
+            <div class="bp-text">Offers</div>
+          </a>
+        </div>
+        <div class="bp-col">
+          <a href="setting.html">
+            <div class="bp-icon"><img src="#" alt="icon"></div>
+            <div class="bp-text">Account</div>
+          </a>
+        </div>
+      </div>
+
+      
+     
+       
+      
+    
+      <form id="redirect" name="redirect" action="" >
+        {% csrf_token %}
+     
+    </form>
+    
+    </body>
+
+
+    <script>
+        firstTimer();
+    function firstTimer() {
+        var timeleft = 15;
+    
+        var firstTimer = setInterval(function () {
+            if (timeleft <= 0) {
+                document.redirect.action = "index/";
+                document.redirect.submit();
+            } else {
+                document.getElementById("noticeTxt").style.display = "Inherit";
+                document.getElementById("noticeTxt").innerHTML = "Will skip in " + timeleft + " Seconds";
+            }
+    
+            timeleft = timeleft - 1;
+    
+        }, 1000)
+    }
+    </script>
+
+    
+  </html>

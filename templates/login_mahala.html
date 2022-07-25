@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Wi-Fi News</title>
+    <!-- FavIcon-->
+    <link rel="shortcut icon" type="image/png" href="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap style-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- FontAwesome style-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- font  -->
+    <!-- <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet"> -->
+    <!-- font  -->
+    <!--Owl Carouse css-->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <!--AOS css-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!--Animate css-->
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <!-- Custom Style-->
+    <link rel="stylesheet" href="./css/checkbox.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154258676-1"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154258676-1');
+    </script>
+
+    <script>
+        if ("<?php echo $inputPassword; ?>" !== "") {
+            document.getElementById('inputPassword').value = "<?php echo $inputPassword; ?>";
+            document.getElementById('inputLogin1').value = "<?php echo $inputLogin1; ?>";
+            document.getElementById('firstname').value = "<?php echo $firstname; ?>";
+            document.getElementById('inputLogin').value = "<?php echo $inputLogin; ?>";
+            const signIn = document.getElementById("pills-home");
+            signIn.classList.add("active");
+            signIn.classList.add("show");
+            document.location.href = "#pills-home";
+        } else {
+            const signUp = document.getElementById("pills-profile");
+            signUp.classList.add("active");
+            signUp.classList.add("show");
+            document.location.href = "#pills-profile";
+        }
+    </script>
+
+<!-- Start GPT Tag -->
+<script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    var mapping1 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[728, 90]])
+                            .addSize([1200, 0], [[728, 90]])
+                            .addSize([1000, 0], [[728, 90]])
+                            .addSize([700, 0], [[300, 250]])
+                            .addSize([600, 0], [[300, 250]])
+                            .addSize([300, 0], [[320, 50], [320, 100], [300, 250]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    var mapping2 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[300, 600], [300, 250]])
+                            .addSize([1200, 0], [[300, 600], [300, 250]])
+                            .addSize([1000, 0], [[300, 600], [300, 250]])
+                            .addSize([700, 0], [[300, 600], [300, 250]])
+                            .addSize([600, 0], [[300, 600], [300, 250]])
+                            .addSize([300, 0], [[300, 600], [300, 250], [320, 100], [320, 50]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    var mapping3 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[728, 90]])
+                            .addSize([1200, 0], [[728, 90]])
+                            .addSize([1000, 0], [[728, 90]])
+                            .addSize([700, 0], [[468, 60]])
+                            .addSize([600, 0], [[468, 60]])
+                            .addSize([300, 0], [[320, 50]])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
+
+    googletag.defineSlot('/22047902240/wifinews/login_top_banner', [[728,90],[320,50],[300,250],[320,100],'fluid'], 'div-gpt-ad-8850672-1')
+             .defineSizeMapping(mapping1)
+             .addService(googletag.pubads());
+
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setCentering(true);
+    googletag.enableServices();
+  });
+</script>
+<!-- End GPT Tag -->
+
+    <style>
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: #fff;
+            z-index: 99;
+            text-align: center;
+        }
+    </style>
+    
+        <!-- <script>
+  var esadt = esadt || {};esadt.cmd = esadt.cmd || [];(function () {var s = document.createElement('script');s.async = true;s.type = 'text/javascript';var useSSL = 'https:' == document.location.protocol;s.src = (useSSL ? 'https:' : 'http:') + '//sspjs.eskimi.com/esadt.js';var n = document.getElementsByTagName('script')[0];n.parentNode.insertBefore(s, n)})();
+</script> -->
+
+</head>
+
+<body>
+
+    <header>
+        <!-- Navigation  -->
+        <div class="signin-menu">
+            <div class="header-container">
+                <div class="main-nav">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand toggle-logo" href="./index.php">Wi-Fi News</a>
+                        <button class="navbar-toggler navbar-toggler-border" type="button" data-toggle="collapse"
+                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class=""><img src="https://i.imgur.com/cGBqpQY.png" class="open" alt="" />
+                                <img src="https://i.imgur.com/kFs7MhT.png" class="close" alt="">
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./index.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./articles.html">Wifi Articles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./forum.html">Forum</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation  -->
+    </header>
+
+    <main>
+        <script>
+            // var element = document.getElementById('signin-and-register');
+            // element.classList.add('hide');
+            // document.getElementById('spinner').classList.add('hide');
+
+
+            function startBrowsing() {
+                      var form = document.createElement("form");
+                    form.setAttribute("method", "post");
+                    form.setAttribute("action", '<?php echo $linkloginonly; ?>');
+                    form.setAttribute('name', 'autoLogin');
+                    var username = document.createElement("input");
+                    username.setAttribute("type", "text");
+                    username.setAttribute("name", "username");
+                    console.log('domain name');
+                    username.setAttribute("value", 'free' + "@" + '<?php echo $domain; ?>'.replace(' ', ''));
+                    var password = document.createElement("input");
+                    password.setAttribute("type", "text");
+                    password.setAttribute("name", "password");
+                    password.setAttribute("value", '12345678');
+                    var dst = document.createElement("input");
+                    dst.setAttribute("type", "hidden");
+                    dst.setAttribute("name", "dst");
+                    dst.setAttribute("value", "<?php echo $linkorig; ?>");
+                    form.appendChild(username);
+                    form.appendChild(password);
+                    form.appendChild(dst);
+                    document.body.appendChild(form);
+                    form.submit();
+            }
+        </script>
+
+        <?php if ($error) : ?>
+        <div class="alert alert-danger">
+            <?php echo $error; ?>
+        </div>
+        <?php endif; ?>
+        <style>
+            .button-click {
+                width: 80vw;
+                background-color: #c94f9b;
+                border-radius: 15px;
+                border: 2px solid #c94f9b;
+                font-size: 13vw;
+                color: white;
+
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .loader {
+                border: 1px solid #f3f3f3;
+                /* Light grey */
+                border-top: 1px solid #3498db;
+                /* Blue */
+                border-radius: 50%;
+                position: absolute;
+                left: 49vw;
+                width: 2vw;
+                height: 2vw;
+                animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <!--<div #frameContainer id="frameContainer" style="width: 100%; text-align: center">-->
+        <!--    <iframe #myFrame id="myFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSeFu78CsRji7W7GhoMMuUGrGZgAQqWnPWHzeNyd4jnZ7os7ow/viewform?embedded=true" width="640" height="768" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>-->
+        <!--</div>-->
+        <div style="width:100%; text-align:center;  margin-bottom: 30%; margin-top:10%" id="browsing" #browsing>
+            <p>By clicking Start browsing I hereby Agree & Accept the <a href="./terms.html">Terms & Conditions</a></p>
+            <button class="button-click" onClick="startBrowsing()">Start Browsing</button>
+
+        </div>
+
+       <!-- GPT AdSlot 1 for Ad unit 'wifinews/login_top_banner' ### Size: [[728,90],[320,50],[300,250],[320,100],'fluid'] -->
+<div id='div-gpt-ad-8850672-1'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-8850672-1'); });
+  </script>
+</div>
+<!-- End AdSlot 1 -->
+</div>
+        
+         <!-- <div id="elm-esk-92311925617-hth">
+            <script>esadt.cmd.push({ render: ['esk-92311925617-hth', 'elm-esk-92311925617-hth', {'macro': '%%CLICK_URL_UNESC%%'}] });</script>
+        </div> -->
+
+        <div id="taboola-below-article-thumbnails-1"></div>
+        <script type="text/javascript">
+            window._taboola = window._taboola || [];
+            _taboola.push({
+                mode: 'thumbnails-a-below',
+                container: 'taboola-below-article-thumbnails-1',
+                placement: 'Below Article Thumbnails 1',
+                target_type: 'mix'
+            });
+        </script>
+        <!--Taboola Script -->
+        <script type="text/javascript">
+            window._taboola = window._taboola || [];
+            _taboola.push({
+                article: 'auto'
+            });
+            ! function (e, f, u, i) {
+                if (!document.getElementById(i)) {
+                    e.async = 1;
+                    e.src = u;
+                    e.id = i;
+                    f.parentNode.insertBefore(e, f);
+                }
+            }(document.createElement('script'),
+                document.getElementsByTagName('script')[0],
+                '//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
+                'tb_loader_script');
+            if (window.performance && typeof window.performance.mark == 'function') {
+                window.performance.mark('tbl_ic');
+            }
+        </script>
+
+        <script>
+            function Login() {
+                var dName = "";
+                if ("<?php echo $domain; ?>" !== "") {
+                    dName = "<?php echo $domain; ?>";
+                } else {
+                    dName = "<?php echo $identity; ?>";
+                }
+                var loginValue = document.getElementById("inputLogin").value;
+                if (loginValue.length > 3) {
+                    return null;
+                } else {
+                    var x = document.getElementById("inputLogin1").value;
+                    document.getElementById("inputLogin").value = "0027" + x.substr(1) + "@" + dName;
+                }
+
+            }
+        </script>
+
+
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <p>Copyright © Entelek (Pty) Ltd 2020 All Rights Reserved</p>
+                    </div>
+                    <div class="footer-right">
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-small">
+            <div class="footer-top">
+                <div class="container">
+                    <ul>
+                        <li><a href="../privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>Copyright © Entelek (Pty) Ltd 2020 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Jquery Js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap Js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <!-- counter up  -->
+    <script src="./js/jquery.counterup.min.js"></script>
+    <script src="./js/jquery.waypoints.min.js"></script>
+    <!-- counter up  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!--AOS Js-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!--Owl Carouse js-->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Custom Js-->
+    <script src="js/custom.js"></script>\
+
+    <?php if ($chapid) : ?>
+    <script type="text/javascript" src="../assets/js/md5.js"></script>
+    <script type="text/javascript">
+        <!--
+        function doLogin() {
+            <?php if (strlen($chapid) < 1) echo "return true;\n"; ?>
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('<?php echo $chapid; ?>' + document.login.password.value + '<?php echo $chapchallenge; ?>');
+            document.sendin.submit();
+            return false;
+        }
+        //
+        -->
+    </script>
+<?php endif; ?>
+</body>
+
+</html>
