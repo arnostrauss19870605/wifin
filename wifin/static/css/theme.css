@@ -882,7 +882,7 @@ a[data-toggle="collapse"] {
 5. BOTTOM PANEL
 ----------------------------------------------------- */
 .bottom-panel {
-  height: 70px;
+  height: 90px;
   background-color: #2450a6;
   width: 100%;
   border-top: 0px solid #ddd;

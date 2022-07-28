@@ -1,5 +1,5 @@
 {% load static %}
-<!doctype html>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -107,16 +107,30 @@
                     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0"
                         style="display:none;visibility:hidden"></iframe></noscript>
                     <!-- End Google Tag Manager (noscript) -->
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="div-gpt-ad-1623081918204-0" style="width: 320px; height: 280px; background-color: #808080; margin-left: 5%; margin-top: 25%"></div>
+                   
+                   
+                
 
-                            <div class="subsite-heading">
-                                <p id="noticeTxt" style="display: none; font-size: 1.2em"></p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="row"  style="padding-top: 5%; padding-bottom: 10px; margin: 0 auto; text-align: center; margin-top: 5%">
+                      <div style="text-align: center; margin: 0 auto; width: 100%;">
+                         <!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+                          <div id='div-gpt-ad-1623081918204-0' style="margin-top: 20px; margin-bottom: 20px;">
+                        
+                          </div>
+                          <!-- End AdSlot 2 -->
+                      </div>
+                  </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                             
+             
+                                        <div class="subsite-heading">
+                              <p id="noticeTxt" style="display: none; font-size: 1.2em; margin-top: 5%"></p>
+                          </div>
+                      </div>
+                  </div>
+
                     <br>
 
                     <div class="content">
@@ -145,59 +159,52 @@
                    
       <!-- .Content  -->
       
-      <!-- Botom Panel  -->
-      <div class="bottom-panel">
-        <div class="bp-col">
-          <a href="index.html">
-            <div class="bp-icon"><img src="#" alt="icon"> </div>
-            <div class="bp-text">Home</div>
-          </a>
-        </div>
-        <div class="bp-col">
-          <a href="my_rides.html">
-            <div class="bp-icon"><img src="#" alt="icon"></div>
-            <div class="bp-text">My Rides</div>
-          </a>
-        </div>
-        <div class="bp-col">
-          <a href="destinations.html">
-            <div class="bp-icon"><img src="#" alt="icon"></div>
-            <div class="bp-text">Offers</div>
-          </a>
-        </div>
-        <div class="bp-col">
-          <a href="setting.html">
-            <div class="bp-icon"><img src="#" alt="icon"></div>
-            <div class="bp-text">Account</div>
-          </a>
-        </div>
-      </div>
-
-      
-     
-       
-      
-    
-      <form id="redirect" name="redirect" action="" >
+      <form id="redirect" name="redirect" method="post" >
+        
         {% csrf_token %}
-     
+        <input id="domain" type="hidden" type="text" name="domain"  value={{ domain }}>
+		<input id="domainId"  type="hidden" type="text" name="domainId" value={{ domainId }}>
+		<input id="mac"  type="hidden" type="text" name="mac" value="NA">
+		<input id="ip"  type="hidden" type="text" name="ip" value="NA">
+		<input id="username"  type="hidden" type="text" name="username" value="NA">
+		<input id="link_login"  type="hidden" type="text" name="link_login" value="NA">
+		<input id="link_orig"  type="hidden" type="text" name="link_orig" value="NA">
+		<input id="error"  type="hidden" type="text" name="error" value="NA">
+		<input id="trial"  type="hidden" type="text" name="trial" value="NA">
+		<input id="chap_id"  type="hidden" type="text" name="chap_id" value="NA">
+		<input id="chap_challenge"  type="hidden" type="text" name="chap_challenge" value="NA">
+		<input id="link_login_only"  type="hidden" type="text" name="link_login_only" value="NA">
+		<input id="link_orig_esc"  type="hidden" type="text" name="link_orig_esc" value="NA">
+		<input id="mac_esc"  type="hidden" type="text" name="mac_esc" value="NA">
+		<input id="identity"  type="hidden" type="text" name="identity" value="NA">
+		<input id="bytes_in_nice"  type="hidden" type="text" name="bytes_in_nice" value="NA">
+		<input id="bytes_out_nice"  type="hidden" type="text" name="bytes_out_nice" value="NA">
+		<input id="session_time_left"  type="hidden" type="text" name="session_time_left" value="NA">
+		<input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
+		<input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
+		<input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
+		    
+                                        
     </form>
     
     </body>
 
 
-    <script>
+
+
+    <script type = "text/javascript">
         firstTimer();
     function firstTimer() {
-        var timeleft = 15;
+        var timeleft = 5;
     
         var firstTimer = setInterval(function () {
-            if (timeleft <= 0) {
-                document.redirect.action = "index/";
+            
+          if (timeleft <= 0) {
+                
                 document.redirect.submit();
             } else {
                 document.getElementById("noticeTxt").style.display = "Inherit";
-                document.getElementById("noticeTxt").innerHTML = "Will skip in " + timeleft + " Seconds";
+                document.getElementById("noticeTxt").innerHTML = "Will skip in " + timeleft ;
             }
     
             timeleft = timeleft - 1;

@@ -1,6 +1,9 @@
 """Declare models for YOUR_APP app."""
 from django.contrib.auth.models import AbstractUser, BaseUserManager ## A new class is imported. ##
 from django.db import models
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -48,3 +51,35 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+class Category(models.Model):
+    title = models.CharField(max_length=20)
+    subtitle = models.CharField(max_length=20)
+    slug = models.SlugField()
+    thumbnail = models.ImageField()
+
+    def __str__(self):
+        return self.title
+
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.SlugField()
+    overview = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    thumbnail = models.ImageField()
+    categories = models.ManyToManyField(Category)
+    featured = models.BooleanField()
+    myfield = MarkdownxField( null=True, blank=True)
+
+    @property
+    def formatted_markdown(self):
+        return markdownify(self.myfield)   
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('post', args=[str(self.slug)])
+    

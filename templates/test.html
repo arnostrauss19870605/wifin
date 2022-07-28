@@ -1,0 +1,18 @@
+{% block content %}
+<div class="d-flex align-items-start flex-column content-section">
+<img class="rounded-circle account-img" src="{{ post.title }}">
+    <h1>{{team.name}}</h1>
+    {{ post.title }}
+    
+    <p>Test: {{test}}</p>
+
+</div>
+
+{% for post in post %}
+<tr class="bg-gray-50">
+    <td class="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+        {{ post.title }}
+    </td>
+{% endfor %}
+
+{% endblock content %}

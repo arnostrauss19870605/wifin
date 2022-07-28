@@ -5,14 +5,21 @@ from django.urls import NoReverseMatch, reverse_lazy
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.http import HttpResponseRedirect
 from .forms import LoginForm
+from .models import *
+from django.utils.http import urlencode
 
 # Create your views here.
 
+def test(request):
+    posts = Post.objects.all()
+    
+    context = {
+        'post': posts,
+       
+    }
+    print('This IS The ocntext : ',context)
+    return render(request, 'test.html', context)
 
-class LandingPageview(TemplateView) :
-
-    #template_name = "landing.html"
-    template_name = "start.html"
 
 class LoginPageview(TemplateView) :
     #template_name = "landing.html"
@@ -32,25 +39,141 @@ class Login_mahalaPageview(TemplateView) :
 
 def login_page(request):
     form = LoginForm(request.POST)
-    if request.method == "POST" and form.is_valid():
+    if request.method == "POST":
         # create a form instance and populate it with data from the request:
-        data = form.cleaned_data
-        #domain = data['domain']
-       
+        lead = form.cleaned_data
+        domain = lead['domain']
+        domainId = lead['domainId']
 
-        context ={
-
-            'data' : data,
-
-        }
-       
-        return render(request,"start.html",context)
+             
+        print('The is the Login post')
+        #return render(request,"start.html",context)
+        return redirect('landing-page',  domain = domain, domain_id = domainId ) 
         
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        context ={}
-        context['form']= LoginForm()
-        return render(request, "login.html", context)
+        form = LoginForm()
+        domain = request.GET['domain']
+        domainId = request.GET['domainid']
 
+     
+        return redirect('landing-page',  domain = domain, domain_id = domainId ) 
+
+
+def landing_page(request,domain,domain_id):
+    
+        
+    if request.method == "POST" :
+        # create a form instance and populate it with data from the request:
+    
+        print('The is the Landing post')
+        #eturn render(request,"index.html",context)
+        return redirect('index-page' ,  domain = domain, domain_id = domain_id) 
+        
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = LoginForm()
+        context ={
+
+           
+           'form' : form
+
+        }
+        print('The is the Landing GET')
+        return render(request, "start.html", context)
+
+def index(request,domain,domain_id):
+    form = LoginForm(request.POST)
+    
+    if request.method == "POST" :
+        print('The is the INDEX post')
+        return redirect('interstitial-page' , domain = domain, domain_id = domain_id) 
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+            'domain':domain,
+            'domain_id':domain_id,
+      
+        }
+        return render(request, "index.html", context)
+
+
+def interstitial(request,domain,domain_id):
+    form = LoginForm(request.POST)
+   
+    if request.method == "POST":
+       
+        myurl = "https://portal.wifinews.co.za/portal/index.php?"  
+        parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
+        req_url = myurl +  urlencode(parameter_value_pairs)
+       
+        print('The is the post')
+        return redirect(req_url)
+        #return render(request, 'interstitial.html', context)
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+
+        }
+        
+        return render(request, 'interstitial.html', context)
+  
+
+def post(request,slug):
+    post = Post.objects.get(slug=slug)
+    categories = Category.objects.all()[0:5]
+    featured = Post.objects.filter(featured=True)[0:5]
+    latest = Post.objects.order_by('-timestamp')[0:5]
+    
+    context = {
+        'post': post,
+        'object_list': featured,
+        'latest': latest,
+        'categories':categories,
+            }
+    return render(request, 'post_detail.html', context)
+
+def about (request):
+    return render(request, 'about_page.html')
+
+def category_post_list (request, slug):
+    category = Category.objects.get(slug = slug)
+    posts = Post.objects.filter(categories__in=[category])
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'post_list.html', context)
+
+def allposts(request):
+         
+    categories = Category.objects.all()[0:5]
+    featured = Post.objects.filter(featured=True)[0:5]
+    featured_other = Post.objects.filter(featured=True)[6:10]
+    latest = Post.objects.order_by('-timestamp')[0:5]
+    posts = Post.objects.order_by('-timestamp')
+    context = {
+        'posts': posts,
+        'object_list': featured,
+        'featured_other': featured_other,
+        'latest': latest,
+        'categories':categories,
+      
+    }
+    return render(request, 'post_list.html', context)
 

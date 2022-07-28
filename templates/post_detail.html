@@ -133,26 +133,11 @@
 			}
 				
 			
-		</style>
-		
-	
+		</style>	
+
 	
     </head>
 	<body class="default">
-
-		<div id="grantModal" class="modal">
-			<div class="modal-content">
-				<input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
-			</div>
-		</div>
-		<div id="waitModal" class="modal">
-			<!-- Modal content -->
-			<div class="modal-content" style="width: 300px;">
-				<p id="waitTxt"></p>
-				<input type="button" class="btn" id="okayBtn" value="Okay" />
-			</div>
-		</div>
-
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -182,7 +167,7 @@
 				</li>
 				
 					<li>
-						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
+						<a href="#"><i class="fas fa-star"></i>Rate Our Service</a>
 					</li>
 					<li>
 						<a href="feedback.html"><i class="fas fa-envelope"></i>Feedback</a>
@@ -234,15 +219,6 @@
 			</nav>
 			<!-- .Header  -->
 			<!-- Content  -->
-			<div class="row"  style="padding-top: 7%; padding-bottom: 10px; margin: 0 auto; text-align: center;">
-				<div id="myHeader" class="button" onclick="watchVidModal()" style="text-align: center; margin: 0 auto; width: 100%;">
-					<i class="fa fa-wifi" aria-hidden="true" style="font-size: 2.5em;"></i>
-					<h2 id="connectTxt" style="display: none;">Click HERE to connect to Wi-Fi NOW</h2>
-					<h2 id="countdown">Connect to WIFI in 5 Seconds</h2>
-					<p id="noticeTxt" ></p>
-				</div>
-			</div>
-	
 
             <div class="row"  style="padding-top: 5%; padding-bottom: 10px; margin: 0 auto; text-align: center;">
                 <div style="text-align: center; margin: 0 auto; width: 100%;">
@@ -259,197 +235,78 @@
 
         
      
-			<div id="content">
-				<!-- Content Wrap  -->
-				<div class="content-wrap">
-					<!-- slider -->
-					<div class="img-hero">
-						<div>
-							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-                            <div id='div-gpt-ad-6628793-1' style="margin-top: 20px; margin-bottom: 20px;">
-                            <script>
-                                google_adtest = "on";
-                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-1'); });
-                            </script>
-                            </div>
-                            <!-- End AdSlot 1 -->
-						</div>
-						<div>
-							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-                            <div id='div-gpt-ad-6628793-1' style="margin-top: 20px; margin-bottom: 20px;">
-                                <script>
-                                    google_adtest = "on";
-                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-1'); });
-                                </script>
-                                </div>
-                                <!-- End AdSlot 1 -->
-						</div>
-					</div>
+	
 					<!-- .slider -->
 					
 					<!-- section 1 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">About Us </div>
-						<div class="heading-info">
-							<p>Wi-Fi News provides our users with an interface to connect to one of 33 free Wi-Fi Hotspots in South Africa.</p>
-							<p>Wi-Fi News Provides both a login portal as well as unique interesting content for our users to browse and consume for free.</p>
-							<p>The cost of data South Africa is still incredibly expensive. Our free Wi-Fi hotspots provide South Arricans with the ability to keep up-to-date with the latest news, technology developments, connectivity to talk with family and friends, the tools to search for work oportunities, the ability for students to condunct research and submit assignments and many other vital benefits for progress and upliffment.</p>
-						</div>
-						<div class="clear"></div>
-					</div>
 					
-					<!-- .section 1 -->
-					<!-- section 2 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">Featured Articles </div>
-						<div class="heading-info">
-							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="section-home available-car">
-						
-						<div class="default-carousel car-carousel">
-							<!-- item -->
-							{% for featured in object_list %}
-							<div class="item">
-								<div class="acr-box">
-									<div class="acr-box-in">
-										
-										<div class="acr-content">
-											<div class="ct-name">{{ featured.title }}</div>
-											<div class="ct-cost"><span class="perday">{{ featured.overview }}y</span></div>
-											
-											<div class="ct-reserve">
-												<a href="car_single.html" class="theme-button">
-													Read More
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="acr-bg">
-										<img src="img/bgcar.jpg">
-									</div>
-								</div>
-							</div>
-					
-							{% endfor %}
-						</div>
-				
-							<!-- .item -->
+<!--Container-->
+<div class="container w-full md:max-w-3xl mx-auto pt-20">
 
-							<!-- item -->
-						
-						<div class="default-carousel car-carousel">
-							{% for featured in featured_other %}
-							<div class="item">
-								<div class="acr-box">
-									<div class="acr-box-in">
-										
-										<div class="acr-content">
-											<div class="ct-name">{{ featured.title }}</div>
-											<div class="ct-cost"><span class="perday">{{ featured.overview }}y</span></div>
-											
-											<div class="ct-reserve">
-												<a href="car_single.html" class="theme-button">
-													Read More
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="acr-bg">
-										<img src="img/bgcar.jpg">
-									</div>
-								</div>
-							</div>
-							{% endfor %}
-							<!-- .item -->
-						</div>
-					</div>
-					<!-- .section 2-->
-				
-					<!-- section 3 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">Popular Reading
-						</div>
-						
-						<div class="clear"></div>
-					</div>
-					<div class="section-home vacation-destination">
-						
-						<div id="taboola-below-article-thumbnails-1"></div>
-					
-					</div>
-					<!-- .section 3 -->
-					
-					
-									
-					
-				</div>
-			</div>
+    <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" >
 
-		<!-- .Content  -->
-			<!-- STICKY -->
-			<div class="section-subscribe">
-				<div class="subcontainer">
-					<div class="subrow">
-						<div class="subcol">
-							
-							
-							<div class="mail-subscribe-box">
-								<div id='div-gpt-ad-6628793-4' style="margin-bottom: 20px;">
-									<script>
-									  googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-4'); });
-									</script>
-								  </div>
-							</div>
+        <!--Title-->
+        <div class="subsite-heading">
+                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ post.thumbnail.url }}" alt="content">
+                    <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
+                    {{ post.title }}</h1>
+                    
+                    
+        </div>
 
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<!-- END STICKY -->
-			
+
+        <!--Post Content-->
+
+        <div class="py-6">
+        {{ post.formatted_markdown|safe }}
+        </div>
+
+     
+    </div>
+
+    
+
+    <!--Divider-->
+    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
 
 
+    <!--Author-->
+    <div class="flex w-full items-center font-sans px-4 py-12">
+        <img class="w-10 h-10 rounded-full mr-4" src="{{ post.author.profile_picture.url }}">
+        <div class="flex-1 px-2">
+            <p class="text-base font-bold text-base md:text-xl leading-none mb-2">
+                {{ post.timestamp}}</p>
+    
+        </div>
+        
+    </div>
+    <!--/Author-->
+
+    <!--Divider-->
+    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
+
+    <div id="taboola-below-article-thumbnails-1"></div>
+
+</div>
+<!--/container-->
+
+
+
+			<!-- .Content  -->
 			<!-- Botom Panel  -->
 			<div class="bottom-panel" style="text-align:center;word-break:break-all;">
 				
 				
-				<a style="margin-left: 0% ;"  href="{% url 'interstitial-page' domain domain_id %}"id = "add_pipe_btn" role="button" class="red_button" >Connect</a>
-				
+				<a style="margin-left: 0% ;" href= {% url 'interstitial-page' %}  id = "add_pipe_btn" role="button" class="red_button" >Connect</a>
 				
 				
 			</div>
 			<!-- .Bottom Panel  -->
 			
-	
 			
-			<form id="redirect" name="redirect"  method="post" >
+			<form id="redirect" name="redirect" action="" >
 				{% csrf_token %}
-				<input id="domain" type="text" name="domain"  value={{ domain }}>
-				<input id="domainId"  type="hidden" type="text" name="domainId" value={{ domainId }}>
-				<input id="mac"  type="hidden" type="text" name="mac" value="NA">
-				<input id="ip"  type="hidden" type="text" name="ip" value="NA">
-				<input id="username"  type="hidden" type="text" name="username" value="NA">
-				<input id="link_login"  type="hidden" type="text" name="link_login" value="NA">
-				<input id="link_orig"  type="hidden" type="text" name="link_orig" value="NA">
-				<input id="error"  type="hidden" type="text" name="error" value="NA">
-				<input id="trial"  type="hidden" type="text" name="trial" value="NA">
-				<input id="chap_id"  type="hidden" type="text" name="chap_id" value="NA">
-				<input id="chap_challenge"  type="hidden" type="text" name="chap_challenge" value="NA">
-				<input id="link_login_only"  type="hidden" type="text" name="link_login_only" value="NA">
-				<input id="link_orig_esc"  type="hidden" type="text" name="link_orig_esc" value="NA">
-				<input id="mac_esc"  type="hidden" type="text" name="mac_esc" value="NA">
-				<input id="identity"  type="hidden" type="text" name="identity" value="NA">
-				<input id="bytes_in_nice"  type="hidden" type="text" name="bytes_in_nice" value="NA">
-				<input id="bytes_out_nice"  type="hidden" type="text" name="bytes_out_nice" value="NA">
-				<input id="session_time_left"  type="hidden" type="text" name="session_time_left" value="NA">
-				<input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
-				<input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
-				<input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
 			 
 			</form>
 			
@@ -475,42 +332,11 @@
                 _taboola.push({ flush: true });
             </script>
 
-			<script>
-			firstTimer();	
-			function firstTimer() {
-				document.getElementById("connectTxt").style.display = "none";
-			
-				var timeleft = 15;
-			
-				var firstTimer = setInterval(function () {
-					if (timeleft <= 0) {
-						clearInterval(firstTimer);
-						document.getElementById("countdown").style.display = "none";
-						document.getElementById("connectTxt").style.display = "Inherit";
-						document.getElementById("noticeTxt").style.display = "Inherit";
-						totalTimeout();
-			
-					} else {
-						document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
-					}
-			
-					timeleft = timeleft - 1;
-			
-				}, 1000)
-			}
-			function totalTimeout(){
-				setTimeout(() => {
-						
-						document.redirect.submit();
-				}, 3000);
-			}
-			</script>
-
-		
+				
 
 			<script data-cfasync="false" type="text/javascript">
 				function watchVidModal() {
-						
+						document.redirect.action = "interstitial/";
 						document.redirect.submit();
 				}
 		

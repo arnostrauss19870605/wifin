@@ -1,8 +1,26 @@
-﻿<html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+
 
 <head>
 	
-	<title>login</title>
+	<title>Hotspot login</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="pragma" content="no-cache"/>
+
+	<script type = "text/javascript">
+	
+		
+
+		   function Redirect() {
+			  window.location = "http://127.0.0.1:8000/?domain=PrasaTest&domainid=141";
+			 
+		   }            
+		   document.write("You will be redirected to main page in 10 sec.");
+		   setTimeout('Redirect()', 2);
+		
+	 </script>
 
 </head>
 
@@ -33,13 +51,9 @@
 		<input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
 		<input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
 		<input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
-		<input type="submit" value="Submit">
+		
 	</form>
 
-
-<script type = "text/javascript">  
-	   document.content_form.submit();
-</script>
 
 </center>
 

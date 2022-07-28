@@ -21,18 +21,37 @@ from django.urls import include,path
 from django.conf import settings
 from django.conf.urls.static import static
 from wifi_app.views import *
+from django.contrib.sitemaps import GenericSitemap 
+from django.contrib.sitemaps.views import sitemap 
+
+from wifi_app.models import Post
+
+info_dict = {
+    'queryset': Post.objects.all(),
+}
 
 urlpatterns = [
     path('',login_page, name="login"),
-    path('landing/',LandingPageview.as_view(), name="landing-page"),
-    path('index/',IndexPageview.as_view(), name="index-page"),
-    path('index/interstitial/',InterstitialPageview.as_view(), name="interstitial-page"),
+    path('landing/<domain>/<domain_id>/',landing_page, name="landing-page"),
+    path('index/<domain>/<domain_id>/',index, name="index-page"),
+    
+    path('test/',test, name="test-page"),
+    
+    path('interstitial/<domain>/<domain_id>/',interstitial, name="interstitial-page"),
     path('index/interstitial/login_mahala',Login_mahalaPageview.as_view(), name="login_mahala-page"),
     path('admin/', admin.site.urls),
     path(
         "ads.txt",
         RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),
     ),
+    path('markdownx/', include('markdownx.urls')),
+    path('post/<slug>/', post, name = 'post'),
+    path('about/', about,name = 'about' ),
+    path('posts/', allposts, name = 'allposts'),
+
+    path('sitemap.xml', sitemap, # new
+        {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.65)}},
+        name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:

@@ -38,10 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
 
     #My Apps
     'wifi_app',
+
+    #3rd Part Apps
+    'markdownx',
 ]
+
+SITE_ID = 1 # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
