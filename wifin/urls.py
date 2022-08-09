@@ -32,12 +32,18 @@ info_dict = {
 
 urlpatterns = [
     path('',login_page, name="login"),
+    
     path('landing/<domain>/<domain_id>/',landing_page, name="landing-page"),
+    path('landing/',landing_page_nop, name="landing-page-nop"),
+
     path('index/<domain>/<domain_id>/',index, name="index-page"),
+    path('index/',index_nop, name="index-page-nop"),
     
     path('test/',test, name="test-page"),
     
     path('interstitial/<domain>/<domain_id>/',interstitial, name="interstitial-page"),
+    path('interstitial/',interstitial_nop, name="interstitial-page-nop"),
+
     path('index/interstitial/login_mahala',Login_mahalaPageview.as_view(), name="login_mahala-page"),
     path('admin/', admin.site.urls),
     path(
