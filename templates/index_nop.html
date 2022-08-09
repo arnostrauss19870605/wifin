@@ -112,6 +112,28 @@
         </script>
         <!-- End GPT Tag -->
 
+		<!--Taboola Script -->
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({
+				article: 'auto'
+			});
+			! function (e, f, u, i) {
+				if (!document.getElementById(i)) {
+					e.async = 1;
+					e.src = u;
+					e.id = i;
+					f.parentNode.insertBefore(e, f);
+				}
+			}(document.createElement('script'),
+				document.getElementsByTagName('script')[0],
+				'//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
+				'tb_loader_script');
+			if (window.performance && typeof window.performance.mark == 'function') {
+				window.performance.mark('tbl_ic');
+			}
+		</script>
+
 		<style>
 			.red_button {
 				background-color: #2450a6;
@@ -372,22 +394,41 @@
 							{% endfor %}
 							<!-- .item -->
 						</div>
-					</div>
-					<!-- .section 2-->
+						<!-- .section 2-->
+
+							
+					
+					
+						<!-- section 3 -->
 				
-					<!-- section 3 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">Popular Reading
+					<div class="heading-section" style="margin-bottom: 90px;">
+						<div class="sa-title popcat">Popular Reading</div>
+						<div class="heading-info">
+							<div id="taboola-below-article-thumbnails-1"></div>
+
+							<script type="text/javascript">
+								window._taboola = window._taboola || [];
+								_taboola.push({
+									mode: 'thumbnails-a-below',
+									container: 'taboola-below-article-thumbnails-1',
+									placement: 'Below Article Thumbnails 1',
+									target_type: 'mix'
+								});
+							</script>
 						</div>
 						
-						<div class="clear"></div>
-					</div>
-					<div class="section-home vacation-destination">
 						
-						<div id="taboola-below-article-thumbnails-1"></div>
-					
 					</div>
+					
+				
+
+						
+
+
 					<!-- .section 3 -->
+					</div>
+					
+				
 					
 					
 									
@@ -395,6 +436,7 @@
 				</div>
 			</div>
 
+			
 		<!-- .Content  -->
 			<!-- STICKY -->
 			
@@ -469,11 +511,8 @@
 			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
-            <!--  Taboola JS  -->
-            <script type="text/javascript">
-                window._taboola = window._taboola || [];
-                _taboola.push({ flush: true });
-            </script>
+          
+			
 
 		<!-- Content Wrap
 			<script>
@@ -508,6 +547,11 @@
 			</script>
 		-->
 
+
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({ flush: true });
+		</script>
 		
 
 			<script data-cfasync="false" type="text/javascript">
