@@ -33,6 +33,7 @@ info_dict = {
 urlpatterns = [
     path('',login_page, name="login"),
     
+    
     path('landing/<domain>/<domain_id>/',landing_page, name="landing-page"),
     path('landing/',landing_page_nop, name="landing-page-nop"),
 

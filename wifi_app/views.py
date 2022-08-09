@@ -61,22 +61,7 @@ def login_page(request):
             domainId = request.GET['domainid']
             return redirect('landing-page',  domain = domain, domain_id = domainId )
         else :
-             
              return redirect('landing-page-nop' ) 
-
-def login_page_nop(request):
-    form = LoginForm(request.POST)
-    if request.method == "POST":
-        # create a form instance and populate it with data from the request:
-        
-        #return render(request,"start.html",context)
-        return redirect('landing-page') 
-        
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-             
-        return redirect('landing-page' ) 
 
 
 def landing_page(request,domain,domain_id):
@@ -118,8 +103,7 @@ def landing_page_nop(request):
         form = LoginForm()
         context ={
 
-           
-           'form' : form
+             'form' : form
 
         }
         print('The is the Landing GET')
