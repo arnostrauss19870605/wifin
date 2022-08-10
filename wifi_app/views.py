@@ -154,17 +154,31 @@ def index_nop(request):
         return render(request, "index_nop.html", context)
 
 
+ 
+    
+  
+    
+
 def interstitial(request,domain,domain_id):
     form = LoginForm(request.POST)
    
     if request.method == "POST":
+
+
+        context = {
+        'post': 'post',
+       
+            }
        
         myurl = "https://portal.wifinews.co.za/portal/portal.php?"  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
-        print('The is the post')
-        return redirect(req_url)
+        print('Thjis kis the URL :',req_url)
+        #return redirect(req_url)
+
+        return render(request, 'test.html', context)
+        
         #requests.post(myurl, data = {'key':'value'})
         #return render(request, 'interstitial.html', context)
     else :
