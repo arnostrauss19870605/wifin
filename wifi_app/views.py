@@ -165,19 +165,14 @@ def interstitial(request,domain,domain_id):
     if request.method == "POST":
 
 
-        context = {
-        'post': 'post',
-       
-            }
-       
-        myurl = "https://portal.wifinews.co.za/portal/portal.php?"  
+        myurl = "192.168.50.1/flash/hotspot/login2.html"  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
-        req_url = myurl +  urlencode(parameter_value_pairs)
+        #req_url = myurl +  urlencode(parameter_value_pairs)
        
-        print('Thjis kis the URL :',req_url)
-        #return redirect(req_url)
+        print('Thjis kis the URL :',myurl)
+        return redirect(myurl)
 
-        return render(request, 'test.html', context)
+        #return render(request, 'test.html', context)
         
         #requests.post(myurl, data = {'key':'value'})
         #return render(request, 'interstitial.html', context)
