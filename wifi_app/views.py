@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from urllib import request
 from django.views.generic import TemplateView, ListView, DetailView, CreateView , UpdateView,FormView,DeleteView,View
 from django.shortcuts import render,redirect, reverse,get_object_or_404
 from django.urls import NoReverseMatch, reverse_lazy
@@ -158,12 +159,13 @@ def interstitial(request,domain,domain_id):
    
     if request.method == "POST":
        
-        myurl = "https://portal.wifinews.co.za/portal/index.php?"  
+        myurl = "https://portal.wifinews.co.za/portal/portal.php?"  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
         print('The is the post')
         return redirect(req_url)
+        #requests.post(myurl, data = {'key':'value'})
         #return render(request, 'interstitial.html', context)
     else :
         categories = Category.objects.all()[0:5]
