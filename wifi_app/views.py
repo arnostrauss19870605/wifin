@@ -166,7 +166,7 @@ def interstitial(request,domain,domain_id):
     if request.method == "POST":
 
 
-        myurl = "http://192.168.50.1/flash/hotspot/login2.html"  
+        myurl = "https://192.168.50.1/flash/hotspot/login2.html"  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
