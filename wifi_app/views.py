@@ -167,10 +167,10 @@ def interstitial(request,domain,domain_id):
 
         myurl = "192.168.50.1/flash/hotspot/login2.html"  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
-        #req_url = myurl +  urlencode(parameter_value_pairs)
+        req_url = myurl +  urlencode(parameter_value_pairs)
        
         print('Thjis kis the URL :',myurl)
-        return redirect(myurl)
+        return redirect(req_url)
 
         #return render(request, 'test.html', context)
         
