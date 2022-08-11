@@ -201,11 +201,19 @@ def interstitial_nop(request):
    
     if request.method == "POST":
        
-        myurl = f'http://192.168.50.1/login?dst=http%3A%2F%2F'  
+        #myurl = f'http://192.168.50.1/login?dst=http%3A%2F%2F'  
+
+        context = {
+        'post': 'post',
+       
+    }
+
+
+        return render(request, "test.html", context)
         
       
         
-        return redirect(myurl)
+        #return redirect(myurl)
         #return render(request, 'interstitial.html', context)
     else :
         categories = Category.objects.all()[0:5]
