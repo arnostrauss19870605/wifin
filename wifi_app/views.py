@@ -19,9 +19,12 @@ def test(request):
        
     }
     t = request.GET.get('Test') # => [137]
+   
     myurl = "http://192.168.50.1/flash/hotspot/login2.html" 
     print('This IS The ocntext : ',context)
-    return redirect(myurl)
+    #return redirect(myurl)
+
+    return render(request, "test.html", context)
 
 
 class LoginPageview(TemplateView) :
@@ -166,7 +169,7 @@ def interstitial(request,domain,domain_id):
     if request.method == "POST":
 
 
-        myurl = "http://192.168.50.1/flash/hotspot/login2.html"  
+        myurl = f'http://192.168.50.1/login?dst=http%3A%2F%2F'  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
@@ -198,11 +201,11 @@ def interstitial_nop(request):
    
     if request.method == "POST":
        
-        myurl = "https://portal.wifinews.co.za/portal/index.php"  
-        req_url = myurl 
-       
+        myurl = f'http://192.168.50.1/login?dst=http%3A%2F%2F'  
         
-        return redirect(req_url)
+      
+        
+        return redirect(myurl)
         #return render(request, 'interstitial.html', context)
     else :
         categories = Category.objects.all()[0:5]
