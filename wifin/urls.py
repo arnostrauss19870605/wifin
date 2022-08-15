@@ -51,6 +51,10 @@ urlpatterns = [
     path('interstitial_1/<domain>/<domain_id>/',interstitial_1, name="interstitial-page-1"),
     path('interstitial_1/',interstitial_nop_1, name="interstitial-page-nop-1"),
 
+    path('exit_1/',exit_page_1, name="exit-page-1"),
+    path('exit_2/',exit_page_2, name="exit-page-2"),
+    path('exit_3/',exit_index, name="exit-index"),
+
     path('index/interstitial/login_mahala',Login_mahalaPageview.as_view(), name="login_mahala-page"),
     path('admin/', admin.site.urls),
     path(

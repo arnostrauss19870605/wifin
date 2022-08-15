@@ -316,6 +316,71 @@ def interstitial_nop_1(request):
         
         return render(request, 'interstitial_1.html', context)
   
+def exit_page_1(request):
+    form = LoginForm(request.POST)
+   
+    if request.method == "POST":
+       
+         return redirect('exit-page-2') 
+       
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+
+        }
+        
+        return render(request, 'exit_page_1.html', context)
+
+def exit_page_2(request):
+    form = LoginForm(request.POST)
+   
+    if request.method == "POST":
+       
+       return redirect('exit-index') 
+   
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+
+        }
+        
+        return render(request, 'exit_page_2.html', context)
+
+def exit_index(request):
+    form = LoginForm(request.POST)
+    
+    if request.method == "POST" :
+        print('The is the INDEX post')
+        return redirect('interstitial-page-nop') 
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+           
+      
+        }
+        return render(request, "exit_index.html", context)
+
 
 def post(request,slug):
     post = Post.objects.get(slug=slug)

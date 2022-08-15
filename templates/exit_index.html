@@ -1,0 +1,591 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+	  <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <title>Wifi News</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-touch-fullscreen" content="yes">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- Bootstrap v4.3.1 CSS -->
+      <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+  
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+      <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+      
+      <!-- Slick CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+    
+      <!-- Font Awesome Free 5.10.2 CSS JS -->
+      <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+
+         <!-- Google Tag Manager -->
+            <script>
+                google_adtest = "on";
+                (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Start GPT Tag -->
+        <script
+        google_adtest = "on";
+        async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+        <script>
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+        var mapping1 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[728, 90]])
+                                .addSize([1200, 0], [[728, 90]])
+                                .addSize([1000, 0], [[728, 90]])
+                                .addSize([700, 0], [[468, 60]])
+                                .addSize([600, 0], [[468, 60]])
+                                .addSize([300, 0], [[320, 50], [300, 250]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        var mapping2 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[320, 480]])
+                                .addSize([1200, 0], [[320, 480]])
+                                .addSize([1000, 0], [[320, 480]])
+                                .addSize([700, 0], [[320, 480]])
+                                .addSize([600, 0], [[320, 480]])
+                                .addSize([300, 0], [[320, 480]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        var mapping3 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[300, 250], [300, 600], [728, 90]])
+                                .addSize([1200, 0], [[728, 90], [300, 250], [300, 600]])
+                                .addSize([1000, 0], [[728, 90], [300, 250], [300, 600]])
+                                .addSize([700, 0], [[468, 60], [300, 250], [300, 600]])
+                                .addSize([600, 0], [[468, 60], [300, 250], [300, 600]])
+                                .addSize([300, 0], [[320, 50], [300, 250], [300, 600]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        var mapping4 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[728, 90]])
+                                .addSize([1200, 0], [[728, 90]])
+                                .addSize([1000, 0], [[728, 90]])
+                                .addSize([700, 0], [[468, 60]])
+                                .addSize([600, 0], [[468, 60]])
+                                .addSize([300, 0], [[320, 50]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[728,90],[300,250],[468,60],'fluid'], 'div-gpt-ad-6628793-1')
+                .defineSizeMapping(mapping1)
+                .addService(googletag.pubads());
+        googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'], 'div-gpt-ad-6628793-2')
+                .defineSizeMapping(mapping3)
+                .addService(googletag.pubads());
+        googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'], 'div-gpt-ad-6628793-3')
+                .defineSizeMapping(mapping3)
+                .addService(googletag.pubads());
+        googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[728,90],[468,60],'fluid'], 'div-gpt-ad-6628793-4')
+                .defineSizeMapping(mapping4)
+                .addService(googletag.pubads());
+
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.pubads().setCentering(true);
+        googletag.enableServices();
+        });
+        </script>
+        <!-- End GPT Tag -->
+
+		<!--Taboola Script -->
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({
+				article: 'auto'
+			});
+			! function (e, f, u, i) {
+				if (!document.getElementById(i)) {
+					e.async = 1;
+					e.src = u;
+					e.id = i;
+					f.parentNode.insertBefore(e, f);
+				}
+			}(document.createElement('script'),
+				document.getElementsByTagName('script')[0],
+				'//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
+				'tb_loader_script');
+			if (window.performance && typeof window.performance.mark == 'function') {
+				window.performance.mark('tbl_ic');
+			}
+		</script>
+
+		<style>
+			.red_button {
+				background-color: #D2509B;
+				border: white;
+				color: white;
+				padding: 25px 5px 5px 5px ;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 10px;
+				border-style: dotted;
+				border-radius: 80%;
+				margin-top : 10px;
+				margin-bottom : 5%;
+				height:40px;
+				width:40px;
+
+			}
+				
+			
+		</style>
+	
+		
+			<!-- Pre-Fetch Codes -->
+			<link href="//adservice.google.com" rel="dns-prefetch preconnect">
+			<link href="//pagead2.googlesyndication.com" rel="dns-prefetch preconnect">
+			<link href="//tpc.googlesyndication.com" rel="dns-prefetch preconnect">
+			<link href="//doubleclick.net" rel="dns-prefetch preconnect">
+			<link href="//googleads.g.doubleclick.net" rel="dns-prefetch preconnect">
+	
+	
+    </head>
+	<body class="default">
+
+		<div id="grantModal" class="modal">
+			<div class="modal-content">
+				<input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
+			</div>
+		</div>
+		<div id="waitModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content" style="width: 300px;">
+				<p id="waitTxt"></p>
+				<input type="button" class="btn" id="okayBtn" value="Okay" />
+			</div>
+		</div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+		
+	
+		<!-- Sidebar left -->
+		<nav id="sidebarleft" class="sidenav">
+			<div id="dismiss">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class="sidebar-header">
+				<h3>Account</h3>
+			</div>
+			
+			<ul class="list-unstyled components">
+				<li>
+					<a href={% url 'login' %}><i class="fas fa-home"></i>Home</a>
+				</li>
+				
+					<li>
+						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
+					</li>
+					<li>
+						<a href="feedback.html"><i class="fas fa-envelope"></i>Feedback</a>
+					</li>
+					
+					<li>
+						<a href="single_page.html"><i class="fas fa-exclamation-circle"></i>About Wifi News</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- .Sidebar left -->
+			<!-- Sidebar right -->
+			<nav id="sidebarright" class="sidenav">
+				<div id="dismiss">
+					<i class="fas fa-times"></i>
+				</div>
+				<div class="sidebar-header">
+					<h3>Latest News</h3>
+				</div>
+				
+				{% for latest in latest %}
+				<ul class="right-menu">
+					
+					<li class="right-menu-item">
+						<a href="{% url 'post' latest.slug %}">
+							<span> <i class="fas fa-envelope"></i> <br> </span>
+							<div class="ntitle"> {{ latest.title }}</div>
+							<div class="desc">{{ latest.overview }}</div>
+						</a>
+					</li>
+				{% endfor %}					
+				</ul>
+			</nav>
+			<!-- .Sidebar right-->
+			<!-- Header  -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-header">
+				<div class="container-fluid">
+					<button type="button" id="sidebarleftbutton" class="btn">
+					<i class="fas fa-align-left"></i>
+					</button>
+					<div class="logo">Wifi News</div>
+					<button type="button" id="sidebarrightbutton" class="btn">
+					<div class="notif">
+						<i class="fas fa-bell"></i>
+						<i class="fas fa-circle "></i>
+					</div>
+					</button>
+				</div>
+			</nav>
+			<!-- .Header  -->
+			<!-- Content  -->
+			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 10%; text-align: center;border: 2px solid #D2509B;background-color: #D2509B;color:#386FB3">
+				<div id="myHeader" class="button" onclick="watchVidModal()" style="text-align: center; margin: 0 auto; width: 100%;">
+					<i class="fa fa-wifi" aria-hidden="false" style="font-size: 2.5em;"></i>
+					<h1 id="connectTxt" >You can now browse the internet</h1>
+					
+				</div>
+			</div>
+	                  
+     
+			<div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+				
+			
+
+				<div class="content-wrap">
+					<!-- slider -->
+					<div class="img-hero">
+						<div>
+							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
+                            <div id='div-gpt-ad-6628793-1' style="margin-top: 20px; margin-bottom: 20px;">
+                            <script>
+                               
+                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-1'); });
+                            </script>
+                            </div>
+                            <!-- End AdSlot 1 -->
+						</div>
+						
+					</div>
+					<!-- .slider -->
+					
+					<!-- section 1 -->
+					<div class="heading-section">
+						<div class="sa-title popcat">About Us </div>
+						<div class="heading-info">
+							<p>Wi-Fi News provides our users with an interface to connect to one of 33 free Wi-Fi Hotspots in South Africa.</p>
+							<p>Wi-Fi News Provides both a login portal as well as unique interesting content for our users to browse and consume for free.</p>
+							<p>The cost of data South Africa is still incredibly expensive. Our free Wi-Fi hotspots provide South Arricans with the ability to keep up-to-date with the latest news, technology developments, connectivity to talk with family and friends, the tools to search for work oportunities, the ability for students to condunct research and submit assignments and many other vital benefits for progress and upliffment.</p>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<!-- .section 1 -->
+
+					<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+					<div class="content-wrap">
+						<!-- slider -->
+						<div class="img-hero">
+							<div>
+								
+								<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
+								<div id='div-gpt-ad-6628793-3' style="margin-top: 20px; margin-bottom: 20px;">
+									
+								<script>
+								   
+									googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-3'); });
+								</script>
+								</div>
+								<!-- End AdSlot 3 -->
+							</div>
+							
+						</div>
+                        
+					
+			
+
+					<!-- section 2 -->
+					<div class="heading-section">
+						<div class="sa-title popcat">Featured Articles </div>
+						<div class="heading-info">
+							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="section-home available-car">
+						
+						<div class="default-carousel car-carousel">
+							<!-- item -->
+							{% for featured in object_list %}
+							<div class="item">
+								<div class="acr-box">
+									<div class="acr-box-in">
+										
+										<div class="acr-content">
+											<div class="ct-name">{{ featured.title }}</div>
+											<div class="ct-cost"><span class="perday">{{ featured.overview }}y</span></div>
+											
+											<div class="ct-reserve">
+												<a href="car_single.html" class="theme-button">
+													Read More
+												</a>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+					
+							{% endfor %}
+						</div>
+				
+							<!-- .item -->
+
+							<!-- item -->
+						
+						<div class="default-carousel car-carousel">
+							{% for featured in featured_other %}
+							<div class="item">
+								<div class="acr-box">
+									<div class="acr-box-in">
+										
+										<div class="acr-content">
+											<div class="ct-name">{{ featured.title }}</div>
+											<div class="ct-cost"><span class="perday">{{ featured.overview }}y</span></div>
+											
+											<div class="ct-reserve">
+												<a href="car_single.html" class="theme-button">
+													Read More
+												</a>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							{% endfor %}
+							<!-- .item -->
+						</div>
+						<!-- .section 2-->
+
+						<div class="img-hero">
+							<div>
+								
+								<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+								<div id='div-gpt-ad-6628793-2' style="margin-top: 20px; margin-bottom: 20px;">
+									<script>
+										google_adtest = "on";
+										googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-2'); });
+									</script>
+									</div>
+									<!-- End AdSlot 2 -->
+							</div>
+							
+						</div>		
+					
+					
+						<!-- section 3 -->
+				
+					<div class="heading-section" style="margin-bottom: 90px;">
+						<div class="sa-title popcat">Popular Reading</div>
+						<div class="heading-info">
+							<div id="taboola-below-article-thumbnails-1"></div>
+
+							<script type="text/javascript">
+								window._taboola = window._taboola || [];
+								_taboola.push({
+									mode: 'thumbnails-a-below',
+									container: 'taboola-below-article-thumbnails-1',
+									placement: 'Below Article Thumbnails 1',
+									target_type: 'mix'
+								});
+							</script>
+						</div>
+
+
+					
+						
+					</div>
+					
+				
+				
+
+
+					<!-- .section 3 -->
+					</div>
+					
+				
+					
+					
+									
+					
+				</div>
+			</div>
+
+			
+		<!-- .Content  -->
+			<!-- STICKY -->
+			
+
+			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 0;">
+				  
+				<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
+				<div id='div-gpt-ad-6628793-4' style="margin-bottom: 5px;">
+					<script>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-4'); });
+					</script>
+				</div>
+				
+				<!-- Bottom Panel 
+				<div class="bottom-panel" style="text-align:center;word-break:break-all;">
+				
+				
+					<a style="margin-left: 0% ;"  href="{% url 'interstitial-page-nop' %}"id = "add_pipe_btn" role="button" class="red_button" ></a>
+					
+					
+					
+				</div>
+				-->
+
+
+			</div>
+
+			<!-- END STICKY -->
+			
+
+
+			<!-- Botom Panel  -->
+			
+			
+			<!-- .Bottom Panel  -->
+			
+	
+			
+			<form id="redirect" name="redirect"  method="post" >
+				{% csrf_token %}
+				<input id="domain" type="text" name="domain"  value={{ domain }}>
+				<input id="domainId"  type="hidden" type="text" name="domainId" value={{ domainId }}>
+				<input id="mac"  type="hidden" type="text" name="mac" value="NA">
+				<input id="ip"  type="hidden" type="text" name="ip" value="NA">
+				<input id="username"  type="hidden" type="text" name="username" value="NA">
+				<input id="link_login"  type="hidden" type="text" name="link_login" value="NA">
+				<input id="link_orig"  type="hidden" type="text" name="link_orig" value="NA">
+				<input id="error"  type="hidden" type="text" name="error" value="NA">
+				<input id="trial"  type="hidden" type="text" name="trial" value="NA">
+				<input id="chap_id"  type="hidden" type="text" name="chap_id" value="NA">
+				<input id="chap_challenge"  type="hidden" type="text" name="chap_challenge" value="NA">
+				<input id="link_login_only"  type="hidden" type="text" name="link_login_only" value="NA">
+				<input id="link_orig_esc"  type="hidden" type="text" name="link_orig_esc" value="NA">
+				<input id="mac_esc"  type="hidden" type="text" name="mac_esc" value="NA">
+				<input id="identity"  type="hidden" type="text" name="identity" value="NA">
+				<input id="bytes_in_nice"  type="hidden" type="text" name="bytes_in_nice" value="NA">
+				<input id="bytes_out_nice"  type="hidden" type="text" name="bytes_out_nice" value="NA">
+				<input id="session_time_left"  type="hidden" type="text" name="session_time_left" value="NA">
+				<input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
+				<input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
+				<input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
+			 
+			</form>
+			
+			<div class="overlay"></div>
+			
+
+			
+
+			<!-- Optional JavaScript -->
+			<!-- jQuery v3.4.1 -->
+			<script src="{% static 'lib/jquery/jquery-3.4.1.min.js'  %}"></script>
+			<!--  Bootstrap v4.3.1 JS -->
+			<script src="{% static 'lib/bootstrap/js/bootstrap.min.js'  %}"></script>
+			<!-- Magnific Popup core JS file -->
+			<script src="{% static 'lib/Magnific-Popup-master/dist/jquery.magnific-popup.js'  %}"></script>
+			<!-- Slick JS -->
+			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
+			<!--  Custom JS -->
+			<script src="{% static 'js/theme.js'  %}" ></script>
+          
+			
+
+			<!--  Custom JS
+			<script>
+			firstTimer();	
+			function firstTimer() {
+				document.getElementById("connectTxt").style.display = "none";
+			
+				var timeleft = 15;
+			
+				var firstTimer = setInterval(function () {
+					if (timeleft <= 0) {
+						clearInterval(firstTimer);
+						document.getElementById("countdown").style.display = "none";
+						document.getElementById("connectTxt").style.display = "Inherit";
+						document.getElementById("noticeTxt").style.display = "Inherit";
+						totalTimeout();
+			
+					} else {
+						document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
+					}
+			
+					timeleft = timeleft - 1;
+			
+				}, 1000)
+			}
+			function totalTimeout(){
+				setTimeout(() => {
+						
+						document.redirect.submit();
+				}, 3000);
+			}
+			</script>
+
+			-->
+		
+	
+
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({ flush: true });
+		</script>
+		
+
+			<script data-cfasync="false" type="text/javascript">
+				function watchVidModal() {
+						
+						document.redirect.submit();
+				}
+		
+			</script>
+
+			<script>
+				window.onscroll = function () { myFunction() };
+				var header = document.getElementById("myHeader");
+				var sticky = header.offsetTop;
+				function myFunction() {
+					if (window.pageYOffset > sticky) {
+						header.classList.add("sticky");
+					} else {
+						header.classList.remove("sticky");
+					}
+				}
+			</script>
+
+			
+		</body>
+	</html>

@@ -1,0 +1,208 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Wifi News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Bootstrap v4.3.1 CSS 
+      <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+	-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+  
+    <!-- Font Awesome Free 5.10.2 CSS JS -->
+    <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+    <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+       
+ <!-- Google Tag Manager -->
+ <script>(function (w, d, s, l, i) {
+  w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+  }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
+<!-- End Google Tag Manager -->
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js">
+        google_adtest = "on";
+    </script>
+    
+    <script>
+      window.googletag = window.googletag || {cmd: []};
+
+      // GPT ad slots
+      var interstitialSlot, staticSlot;
+
+      googletag.cmd.push(function() {
+        // Define a web interstitial ad slot.
+        interstitialSlot = googletag.defineOutOfPageSlot(
+            '/22047902240/wifinews/interstitial',
+            googletag.enums.OutOfPageFormat.INTERSTITIAL);
+
+        // Slot returns null if the page or device does not support interstitials.
+        if (interstitialSlot) {
+          interstitialSlot.addService(googletag.pubads());
+
+          // document.getElementById('status').innerText = 'Interstitial is loading...';
+
+          // Add event listener to enable navigation once the interstitial loads.
+          // If this event doesn't fire, try clearing local storage and refreshing
+          // the page.
+          googletag.pubads().addEventListener('slotOnload', function(event) {
+            if (interstitialSlot === event.slot) {
+              document.getElementById('link').click()
+              document.getElementById('link').style.display = 'block';
+              // document.getElementById('status').innerText = 'Interstitial is loaded.';
+            }
+          });
+        }
+
+        // Define static ad slots.
+        staticSlot = googletag.defineSlot(
+            '/22047902240/wifinews/interstitial', ['fluid', [320, 480]], 'div-gpt-ad-1623081918204-0')
+          .addService(googletag.pubads());
+
+        // Enable SRA and services.
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+
+    </script>
+
+
+
+</head>
+  <body >
+       <!-- Header  -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-header"> 
+        <div class="container-fluid">
+       
+          <div class="logo" style="margin-top: 15px;">Wifi News</div>
+          
+        </div>
+
+    </nav> 
+
+             <!-- Google Tag Manager (noscript) -->
+                <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+            
+            
+            <div class="row"  style="padding-top: 5%; padding-bottom: 10px; margin: 0 auto; text-align: center; margin-top: 5%">
+              <div style="text-align: center; margin: 0 auto; width: 100%;">
+                 <!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+                  <div id="div-gpt-ad-1623081918204-0" style="margin-top: 20px; margin-bottom: 20px;">
+                
+                  </div>
+                  <!-- End AdSlot 2 -->
+              </div>
+          </div>
+
+           
+            
+            <div class="content">
+              <p>
+                <a id="link" href="#" style="display: none;"></a>
+              </p>
+              <p>
+                <!--
+                  You can prevent specific links from triggering GPT-managed web interstials by
+                  adding a data-google-interstitial="false" attribute to the anchor element or
+                  any ancestor of the anchor element.
+                -->
+              </p>
+            </div>
+            
+            <script>
+                googletag.cmd.push(function() {
+                  // Ensure the first call to display comes after static ad slot
+                  // divs are defined.
+                  googletag.display(staticSlot);
+                });
+            </script>
+
+            
+            <!-- Botom Panel  -->
+			<div class="bottom-panel" style="text-align:center;word-break:break-all;">
+        <h3 id="noticeTxt" style="color:white;padding : 5px"> </h3>
+</div>
+<!-- .Bottom Panel  -->
+                       
+      <!-- .Content  -->
+      
+      <form id="redirect" name="redirect" method="post" >
+        
+        {% csrf_token %}
+        <input id="domain" type="hidden" type="text" name="domain"  value={{ domain }}>
+        <input id="domainId"  type="hidden" type="text" name="domainId" value={{ domainId }}>
+        <input id="mac"  type="hidden" type="text" name="mac" value="NA">
+        <input id="ip"  type="hidden" type="text" name="ip" value="NA">
+        <input id="username"  type="hidden" type="text" name="username" value="NA">
+        <input id="link_login"  type="hidden" type="text" name="link_login" value="NA">
+        <input id="link_orig"  type="hidden" type="text" name="link_orig" value="NA">
+        <input id="error"  type="hidden" type="text" name="error" value="NA">
+        <input id="trial"  type="hidden" type="text" name="trial" value="NA">
+        <input id="chap_id"  type="hidden" type="text" name="chap_id" value="NA">
+        <input id="chap_challenge"  type="hidden" type="text" name="chap_challenge" value="NA">
+        <input id="link_login_only"  type="hidden" type="text" name="link_login_only" value="NA">
+        <input id="link_orig_esc"  type="hidden" type="text" name="link_orig_esc" value="NA">
+        <input id="mac_esc"  type="hidden" type="text" name="mac_esc" value="NA">
+        <input id="identity"  type="hidden" type="text" name="identity" value="NA">
+        <input id="bytes_in_nice"  type="hidden" type="text" name="bytes_in_nice" value="NA">
+        <input id="bytes_out_nice"  type="hidden" type="text" name="bytes_out_nice" value="NA">
+        <input id="session_time_left"  type="hidden" type="text" name="session_time_left" value="NA">
+        <input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
+        <input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
+        <input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
+           
+       
+                                 
+    </form>
+    
+    </body>
+
+ 
+
+
+    <script>
+
+      firstTimer();
+      
+      function firstTimer() {
+          var timeleft = 10;
+         
+          var firstTimer = setInterval(function () {
+              if (timeleft <= 5) {
+                  
+                  document.redirect.submit();
+              } else {
+                  document.getElementById("noticeTxt").style.display = "Inherit";
+                  document.getElementById("noticeTxt").innerHTML = "Will skip in " + timeleft + " Seconds";
+              }
+      
+              timeleft = timeleft - 1;
+      
+          }, 1000)
+      }
+      </script>
+
+    
+  </html>
