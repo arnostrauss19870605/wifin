@@ -169,7 +169,7 @@ def interstitial(request,domain,domain_id):
     if request.method == "POST":
 
 
-        myurl = f'http://192.168.50.1/login?dst=http%3A%2F%2F'  
+        myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
@@ -201,7 +201,7 @@ def interstitial_nop(request):
    
     if request.method == "POST":
        
-        #myurl = f'http://192.168.50.1/login?dst=http%3A%2F%2F'  
+        myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
 
         context = {
         'post': 'post',
@@ -209,11 +209,11 @@ def interstitial_nop(request):
     }
 
 
-        return render(request, "test.html", context)
+        #return render(request, "test.html", context)
         
       
         
-        #return redirect(myurl)
+        return redirect(myurl)
         #return render(request, 'interstitial.html', context)
     else :
         categories = Category.objects.all()[0:5]
