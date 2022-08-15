@@ -83,8 +83,8 @@ textarea {
 .btn-primary:not(:disabled):not(.disabled):active,
 .show > .btn-primary.dropdown-toggle,
 .btn-primary {
-  background-color: #2450a6;
-  border-color: #2450a6; }
+  background-color: #D2509B;
+  border-color: #D2509B; }
 
 body a,
 body a:hover {
@@ -95,7 +95,7 @@ body.noscroll {
   overflow: hidden; }
 
 .btn {
-  background-color: #2450a6;
+  background-color: #D2509B;
   color: #ffffff; }
 
 .button {
@@ -123,7 +123,7 @@ img {
   text-align: center; }
 
 .theme-button {
-  background-color: #2450a6;
+  background-color: #D2509B;
   padding: 5px 15px;
   color: #fff;
   cursor: pointer;
@@ -160,28 +160,28 @@ img {
   content: "\f152"; }
 
 .gj-picker-bootstrap table tr td.selected.gj-cursor-pointer div {
-  background-color: #2450a6 !important;
-  border-color: #2450a6 !important; }
+  background-color: #D2509B !important;
+  border-color: #D2509B !important; }
 
 .gj-picker-bootstrap table tr td.today div {
-  color: #2450a6 !important; }
+  color: #D2509B !important; }
 
 .line {
   clear: both;
   height: 2px;
   width: 20px;
   margin: 10px auto 0px;
-  background-color: #2450a6; }
+  background-color: #D2509B; }
 
 .theme-button-line {
-  border: 1px solid #2450a6;
+  border: 1px solid #D2509B;
   background-color: transparent;
   padding: 3px 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   text-align: center;
-  color: #2450a6; }
+  color: #D2509B; }
 
 .line-separate {
   width: 100%;
@@ -197,12 +197,12 @@ img {
   color: #ffffff; }
 
 .btn-outline-secondary:hover {
-  background-color: #2450a6; }
+  background-color: #D2509B; }
 
 ul.slick-dots li button {
   width: 15px;
   height: 5px;
-  background-color: #2450a6;
+  background-color: #D2509B;
   padding: 0px;
   -webkit-border-radius: 90px;
   -moz-border-radius: 90px;
@@ -261,7 +261,7 @@ ul.slick-dots li.slick-active button {
     text-align: center; }
     .share-button li a {
       padding: 2px 5px;
-      background-color: #2450a6;
+      background-color: #D2509B;
       color: #ffffff;
       width: 25px;
       height: 25px;
@@ -273,7 +273,7 @@ ul.slick-dots li.slick-active button {
     padding-right: 5px; }
 
 body .form-control:focus {
-  border-color: #2450a6;
+  border-color: #D2509B;
   outline: 0;
   -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 8px rgba(0, 0, 0, 0);
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 8px rgba(0, 0, 0, 0); }
@@ -330,7 +330,7 @@ body .form-control:focus {
     max-width: 99999px; } }
 .subsite-heading {
   text-align: center;
-  color: #2450a6;
+  color: #D2509B;
   font-size: 18px;
   width: 100%;
   font-weight: 600;
@@ -458,10 +458,10 @@ form .input-group > .form-control:not(:last-child) {
 .pagination {
   margin-top: 20px; }
   .pagination .page-link {
-    color: #2450a6; }
+    color: #D2509B; }
   .pagination .page-item.active .page-link {
-    background-color: #2450a6;
-    border-color: #2450a6; }
+    background-color: #D2509B;
+    border-color: #D2509B; }
 
 /*==================================================
 2. PRELOADER
@@ -478,7 +478,7 @@ form .input-group > .form-control:not(:last-child) {
   left: 0; }
 
 .preloading .wrap-preload {
-  background-color: #2450a6;
+  background-color: #D2509B;
   display: table-cell;
   text-align: center;
   vertical-align: middle; }
@@ -563,7 +563,7 @@ form .input-group > .form-control:not(:last-child) {
   left: 0px;
   height: 56px;
   width: 100%;
-  background-color: #2450a6;
+  background-color: #D2509B;
   border-bottom: 0px solid #ddd; }
 
 .navbar {
@@ -593,7 +593,7 @@ form .input-group > .form-control:not(:last-child) {
         right: -3px;
         z-index: 22;
         color: #df9403;
-        border: 1px solid #2450a6;
+        border: 1px solid #D2509B;
         border-radius: 100%; }
   .navbar .logo {
     height: 30px;
@@ -678,7 +678,7 @@ form .input-group > .form-control:not(:last-child) {
   left: -250px;
   height: 100vh;
   z-index: 999;
-  background-color: #2450a6;
+  background-color: #D2509B;
   color: #fff;
   transition: all 0.3s;
   overflow: auto; }
@@ -735,7 +735,7 @@ form .input-group > .form-control:not(:last-child) {
 
 #sidebarleft .sidebar-header {
   padding: 20px;
-  background-color: #2450a6; }
+  background-color: #D2509B; }
 
 #sidebarleft ul {
   padding: 10px 0px; }
@@ -770,7 +770,7 @@ a[data-toggle="collapse"] {
   top: 0;
   height: 100vh;
   z-index: 999;
-  background-color: #2450a6;
+  background-color: #D2509B;
   color: #fff;
   transition: all 0.3s;
   overflow: auto; }
@@ -883,7 +883,7 @@ a[data-toggle="collapse"] {
 ----------------------------------------------------- */
 .bottom-panel {
   height: 90px;
-  background-color: #2450a6;
+  background-color: #D2509B;
   width: 100%;
   border-top: 0px solid #ddd;
   position: fixed;
@@ -963,7 +963,7 @@ a[data-toggle="collapse"] {
     width: 100%;
     line-height: 1; }
   .heading-section .sa-title {
-    color: #2450a6;
+    color: #D2509B;
     font-size: 18px;
     margin-bottom: 5px;
     font-weight: 600; }
@@ -1081,7 +1081,7 @@ a[data-toggle="collapse"] {
     top: 90%; }
   .available-car .slick-prev:before,
   .available-car .slick-next:before {
-    color: #2450a6; }
+    color: #D2509B; }
   .available-car .acr-box {
     background-color: #ffffff;
     -webkit-border-radius: 10px;
@@ -1117,7 +1117,7 @@ a[data-toggle="collapse"] {
         padding: 20px 20px; }
         .available-car .acr-box .acr-box-in .acr-content .ct-name {
           font-size: 18px;
-          color: #2450a6;
+          color: #D2509B;
           font-weight: 600; }
         .available-car .acr-box .acr-box-in .acr-content .ct-cost .cprice {
           font-size: 24px;
@@ -1181,7 +1181,7 @@ a[data-toggle="collapse"] {
         color: #fff;
         position: absolute;
         padding: 5px 8px;
-        background-color: #2450a6;
+        background-color: #D2509B;
         top: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -1204,7 +1204,7 @@ a[data-toggle="collapse"] {
       font-weight: 600;
       font-size: 15px; }
       .vacation-destination .vs-carousel .item .vs-box .vsb-middle .vsbm-left {
-        color: #2450a6;
+        color: #D2509B;
         display: inline-block; }
       .vacation-destination .vs-carousel .item .vs-box .vsb-middle .vsbm-right {
         display: inline-block;
@@ -1240,7 +1240,7 @@ a[data-toggle="collapse"] {
         -moz-border-radius: 10px;
         border-radius: 10px; }
     .section-home.home-news .home-news-wrap .news-item .news-content .hnw-desc .more {
-      color: #2450a6; }
+      color: #D2509B; }
 
 /*==================================================
 7. BOOKING 
@@ -1248,14 +1248,14 @@ a[data-toggle="collapse"] {
 .gj-picker-md [role="header"],
 .gj-picker-md .arrow-begin,
 .gj-picker-md [role="body"] [role="arrow"] {
-  background: #2450a6 !important;
-  background-color: #2450a6 !important; }
+  background: #D2509B !important;
+  background-color: #D2509B !important; }
 
 .gj-picker-md .arrow-end {
-  border: 16px solid #2450a6 !important; }
+  border: 16px solid #D2509B !important; }
 
 .gj-picker-md [role="footer"] button.gj-button-md {
-  color: #2450a6 !important; }
+  color: #D2509B !important; }
 
 .gj-timepicker .form-control {
   display: block !important;
@@ -1299,11 +1299,11 @@ a[data-toggle="collapse"] {
   margin-bottom: 5px; }
 
 .section-subscribe .subcontainer .submitsub {
-  background-color: #2450a6;
+  background-color: #D2509B;
   position: absolute;
   color: #ffffff;
   font-size: 18px;
-  border: 1px solid #2450a6;
+  border: 1px solid #D2509B;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
@@ -1335,7 +1335,7 @@ a[data-toggle="collapse"] {
 
 .section-subscribe .mail-subscribe-box input {
   color: #303030;
-  border: 1px solid #2450a6;
+  border: 1px solid #D2509B;
   height: 50px;
   background: #ffffff;
   -webkit-border-radius: 90px;
@@ -1349,7 +1349,7 @@ a[data-toggle="collapse"] {
   position: absolute;
   color: #95b700;
   font-size: 18px;
-  border: 1px solid #2450a6;
+  border: 1px solid #D2509B;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
@@ -1424,10 +1424,10 @@ a[data-toggle="collapse"] {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  color: #2450a6;
+  color: #D2509B;
   line-height: 1.2; }
 .page-cart .chart-car-price {
-  background-color: #2450a6;
+  background-color: #D2509B;
   text-align: center;
   font-size: 14px;
   margin: 7px auto;
@@ -1511,7 +1511,7 @@ a[data-toggle="collapse"] {
 .page-my-rides .db {
   text-align: center;
   margin: 20px 0px;
-  color: #2450a6;
+  color: #D2509B;
   text-decoration: underline; }
 .page-my-rides .mr-car-box-wrap {
   position: relative;
@@ -1530,10 +1530,10 @@ a[data-toggle="collapse"] {
       text-align: center;
       font-size: 18px;
       font-weight: 600;
-      color: #2450a6;
+      color: #D2509B;
       line-height: 1.2; }
     .page-my-rides .mr-car-box-wrap .mr-car-box .mr-car-code {
-      background-color: #2450a6;
+      background-color: #D2509B;
       text-align: center;
       font-size: 14px;
       margin: 0px auto;
@@ -1586,7 +1586,7 @@ a[data-toggle="collapse"] {
     padding-left: 25px; }
   .page-my-rides .trip .tl-location {
     font-weight: 600;
-    color: #2450a6; }
+    color: #D2509B; }
   .page-my-rides .trip .tl-date {
     font-size: 12px; }
   .page-my-rides .trip .tl-time {
@@ -1677,7 +1677,7 @@ a[data-toggle="collapse"] {
       width: 100%; }
   .destination-card .dc-right .dcr-row-a {
     font-weight: 600;
-    color: #2450a6; }
+    color: #D2509B; }
   .destination-card .dc-right .dcr-row-b {
     display: -webkit-box;
     max-width: 100%;
@@ -1734,7 +1734,7 @@ a[data-toggle="collapse"] {
       overflow: hidden;
       text-overflow: ellipsis;
       font-weight: 600;
-      color: #2450a6; }
+      color: #D2509B; }
     .news-card .nc-top .nc-right .ncr-row-b {
       display: -webkit-box;
       max-width: 100%;
@@ -1835,7 +1835,7 @@ a[data-toggle="collapse"] {
   .gallery-section .filter-gallery {
     text-align: center; }
   .gallery-section .filter-button {
-    color: #2450a6;
+    color: #D2509B;
     background: transparent;
     padding: 10px 5px;
     font-weight: 600;
@@ -1860,7 +1860,7 @@ a[data-toggle="collapse"] {
   margin: 20px 0px; }
 .page-register a {
   text-decoration: underline;
-  color: #2450a6; }
+  color: #D2509B; }
 .page-register .register-submit {
   margin: 30px 0px; }
 .page-register .have-a-account {
@@ -1874,7 +1874,7 @@ a[data-toggle="collapse"] {
   margin: 20px 0px; }
 .page-login a {
   text-decoration: underline;
-  color: #2450a6; }
+  color: #D2509B; }
 .page-login .login-submit {
   margin: 30px 0px; }
 .page-login .text-with-link {
@@ -1929,7 +1929,7 @@ a[data-toggle="collapse"] {
         color: #9f9f9f; }
       .single-car-box .scb-left .scbl .scbl-rb {
         font-weight: 600;
-        color: #2450a6; }
+        color: #D2509B; }
       .single-car-box .scb-left .scbl .scbl-rc img {
         width: 30px;
         margin: 5px 0px 0px; }
@@ -1977,7 +1977,7 @@ a[data-toggle="collapse"] {
     .page-car-single .btn-reserve .theme-button {
       padding: 10px 20px; }
   .page-car-single .price .price-value {
-    color: #2450a6;
+    color: #D2509B;
     font-size: 24px;
     font-weight: 600;
     line-height: 1; }
@@ -1990,7 +1990,7 @@ a[data-toggle="collapse"] {
 .page-profile .cf-heading {
   padding: 10px 15px;
   font-weight: 600;
-  color: #2450a6; }
+  color: #D2509B; }
 .page-profile .row-avatar {
   padding: 0px 15px;
   margin-top: -60px;
@@ -2020,7 +2020,7 @@ a[data-toggle="collapse"] {
       display: table-cell;
       vertical-align: middle; }
       .page-profile .probox .bx-col .bx-col-in .count {
-        color: #2450a6;
+        color: #D2509B;
         font-weight: 600;
         font-size: 18px; }
 .page-profile .row-info-profile .proname {
@@ -2028,7 +2028,7 @@ a[data-toggle="collapse"] {
   font-size: 18px;
   text-align: center;
   margin: 10px 0px 0px;
-  color: #2450a6; }
+  color: #D2509B; }
 .page-profile .row-info-profile .proname-info {
   text-align: center; }
 .page-profile .row-info-profile .pro-des {
@@ -2046,7 +2046,7 @@ a[data-toggle="collapse"] {
       display: table;
       text-align: center;
       color: #ffffff;
-      background-color: #2450a6;
+      background-color: #D2509B;
       -webkit-border-radius: 90%;
       -moz-border-radius: 90%;
       border-radius: 90%;
@@ -2089,7 +2089,7 @@ a[data-toggle="collapse"] {
 .footer {
   padding: 20px 35px;
   height: 100px;
-  background-color: #2450a6;
+  background-color: #D2509B;
   text-align: center;
   color: #ffffff; }
 
@@ -2120,7 +2120,7 @@ a[data-toggle="collapse"] {
 .footer .socmed .socmed-line .socmed-item .si-icon {
   display: table-cell;
   vertical-align: middle;
-  color: #2450a6; }
+  color: #D2509B; }
 
 /*==================================================
 25. PREVIEW
@@ -2145,7 +2145,7 @@ body.preview {
     position: relative;
     z-index: 2; }
   body.preview .here {
-    background-color: #2450a6;
+    background-color: #D2509B;
     color: #ffffff;
     padding: 5px 15px;
     -webkit-border-radius: 90px;
@@ -2172,7 +2172,7 @@ body.preview {
     padding: 0px 20px;
     font-size: 40px;
     font-weight: 800;
-    color: #2450a6; }
+    color: #D2509B; }
   body.preview .pr-tagline {
     display: inline-block;
     font-size: 27px; }
@@ -2193,7 +2193,7 @@ body.preview {
     width: 150px;
     height: auto; }
   body.preview .buy-now .bn {
-    background: #2450a6;
+    background: #D2509B;
     color: #ffffff;
     font-weight: 600;
     padding: 10px 30px;
