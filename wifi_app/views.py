@@ -163,7 +163,7 @@ def index(request,domain,domain_id):
     form = LoginForm(request.POST)
     
     if request.method == "POST" :
-        print('The is the INDEX post')
+        
         return redirect('interstitial-page' , domain = domain, domain_id = domain_id) 
     else :
         categories = Category.objects.all()[0:5]
@@ -213,12 +213,34 @@ def interstitial(request,domain,domain_id):
    
     if request.method == "POST":
 
+        return redirect('interstitial-page-1' , domain = domain, domain_id = domain_id) 
+      
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+
+        }
+        
+        return render(request, 'interstitial.html', context)
+
+def interstitial_1(request,domain,domain_id):
+    form = LoginForm(request.POST)
+   
+    if request.method == "POST":
+
 
         myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
-        print('Thjis kis the URL :',myurl)
+       
         
         return redirect(myurl)
 
@@ -239,27 +261,15 @@ def interstitial(request,domain,domain_id):
 
         }
         
-        return render(request, 'interstitial.html', context)
+        return render(request, 'interstitial_1.html', context)
 
 def interstitial_nop(request):
     form = LoginForm(request.POST)
    
     if request.method == "POST":
        
-        myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
-
-        context = {
-        'post': 'post',
+         return redirect('interstitial-page-nop-1') 
        
-    }
-
-
-        #return render(request, "test.html", context)
-        
-      
-        
-        return redirect(myurl)
-        #return render(request, 'interstitial.html', context)
     else :
         categories = Category.objects.all()[0:5]
         featured = Post.objects.filter(featured=True)[0:5]
@@ -274,6 +284,37 @@ def interstitial_nop(request):
         }
         
         return render(request, 'interstitial.html', context)
+
+def interstitial_nop_1(request):
+    form = LoginForm(request.POST)
+   
+    if request.method == "POST":
+       
+        myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
+
+        context = {
+        'post': 'post',
+       
+    }
+
+
+                
+        return redirect(myurl)
+       
+    else :
+        categories = Category.objects.all()[0:5]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:5]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+
+        }
+        
+        return render(request, 'interstitial_1.html', context)
   
 
 def post(request,slug):

@@ -116,7 +116,6 @@
               </div>
           </div>
 
-           
             
             <div class="content">
               <p>
@@ -138,6 +137,7 @@
                   googletag.display(staticSlot);
                 });
             </script>
+
 
             
             <!-- Botom Panel  -->
@@ -187,10 +187,10 @@
       firstTimer();
       
       function firstTimer() {
-          var timeleft = 10;
+          var timeleft = 5;
          
           var firstTimer = setInterval(function () {
-              if (timeleft <= 5) {
+              if (timeleft <= 0) {
                   
                   document.redirect.submit();
               } else {
