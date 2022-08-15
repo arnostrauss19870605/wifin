@@ -112,6 +112,28 @@
         </script>
         <!-- End GPT Tag -->
 
+		<!--Taboola Script -->
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({
+				article: 'auto'
+			});
+			! function (e, f, u, i) {
+				if (!document.getElementById(i)) {
+					e.async = 1;
+					e.src = u;
+					e.id = i;
+					f.parentNode.insertBefore(e, f);
+				}
+			}(document.createElement('script'),
+				document.getElementsByTagName('script')[0],
+				'//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
+				'tb_loader_script');
+			if (window.performance && typeof window.performance.mark == 'function') {
+				window.performance.mark('tbl_ic');
+			}
+		</script>
+
 		<style>
 			.red_button {
 				background-color: #2450a6;
@@ -136,6 +158,15 @@
 		</style>
 		
 	
+		<!-- Pre-Fetch Codes -->
+		<link href="//adservice.google.com" rel="dns-prefetch preconnect">
+		<link href="//pagead2.googlesyndication.com" rel="dns-prefetch preconnect">
+		<link href="//tpc.googlesyndication.com" rel="dns-prefetch preconnect">
+		<link href="//doubleclick.net" rel="dns-prefetch preconnect">
+		<link href="//googleads.g.doubleclick.net" rel="dns-prefetch preconnect">
+
+
+
 	
     </head>
 	<body class="default">
@@ -228,7 +259,7 @@
 			</nav>
 			<!-- .Header  -->
 			<!-- Content  -->
-			<div class="row"  style="padding-top: 7%; padding-bottom: 10px; margin: 0 auto; text-align: center;">
+			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin: 0 auto; text-align: center;">
 				<div id="myHeader" class="button" onclick="watchVidModal()" style="text-align: center; margin: 0 auto; width: 100%;">
 					<i class="fa fa-wifi" aria-hidden="true" style="font-size: 2.5em;"></i>
 					<h2 id="connectTxt" style="display: none;">Click HERE to connect to Wi-Fi NOW</h2>
@@ -236,25 +267,28 @@
 					<p id="noticeTxt" ></p>
 				</div>
 			</div>
-	
-
-            <div class="row"  style="padding-top: 5%; padding-bottom: 10px; margin: 0 auto; text-align: center;">
-                <div style="text-align: center; margin: 0 auto; width: 100%;">
-                   <!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-                    <div id='div-gpt-ad-6628793-2' style="margin-top: 20px; margin-bottom: 20px;">
-                    <script>
-                        google_adtest = "on";
-                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-2'); });
-                    </script>
-                    </div>
-                    <!-- End AdSlot 2 -->
-                </div>
-            </div>
-
-        
+	                  
      
-			<div id="content">
+			<div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+				
 				<!-- Content Wrap  -->
+				<div class="content-wrap">
+					<!-- slider -->
+					<div class="img-hero">
+						<div>
+							<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+							<div id='div-gpt-ad-6628793-2' style="margin-top: 20px; margin-bottom: 20px;">
+								<script>
+									google_adtest = "on";
+									googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-2'); });
+								</script>
+								</div>
+								<!-- End AdSlot 2 -->
+						</div>
+						
+					</div>
+
+
 				<div class="content-wrap">
 					<!-- slider -->
 					<div class="img-hero">
@@ -268,16 +302,7 @@
                             </div>
                             <!-- End AdSlot 1 -->
 						</div>
-						<div>
-							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-                            <div id='div-gpt-ad-6628793-1' style="margin-top: 20px; margin-bottom: 20px;">
-                                <script>
-                                 
-                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-1'); });
-                                </script>
-                                </div>
-                                <!-- End AdSlot 1 -->
-						</div>
+						
 					</div>
 					<!-- .slider -->
 					
@@ -293,6 +318,29 @@
 					</div>
 					
 					<!-- .section 1 -->
+
+					<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+					<div class="content-wrap">
+						<!-- slider -->
+						<div class="img-hero">
+							<div>
+								
+								<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
+								<div id='div-gpt-ad-6628793-3' style="margin-top: 20px; margin-bottom: 20px;">
+									
+								<script>
+								   
+									googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-3'); });
+								</script>
+								</div>
+								<!-- End AdSlot 3 -->
+							</div>
+							
+						</div>
+                        
+					
+			
+
 					<!-- section 2 -->
 					<div class="heading-section">
 						<div class="sa-title popcat">Featured Articles </div>
@@ -355,23 +403,55 @@
 							{% endfor %}
 							<!-- .item -->
 						</div>
-					</div>
-					<!-- .section 2-->
+						<!-- .section 2-->
+
+						<div class="img-hero">
+							<div>
+								
+								<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+								<div id='div-gpt-ad-6628793-2' style="margin-top: 20px; margin-bottom: 20px;">
+									<script>
+										google_adtest = "on";
+										googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-2'); });
+									</script>
+									</div>
+									<!-- End AdSlot 2 -->
+							</div>
+							
+						</div>		
+					
+					
+						<!-- section 3 -->
 				
-					<!-- section 3 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">Popular Reading
+					<div class="heading-section" style="margin-bottom: 90px;">
+						<div class="sa-title popcat">Popular Reading</div>
+						<div class="heading-info">
+							<div id="taboola-below-article-thumbnails-1"></div>
+
+							<script type="text/javascript">
+								window._taboola = window._taboola || [];
+								_taboola.push({
+									mode: 'thumbnails-a-below',
+									container: 'taboola-below-article-thumbnails-1',
+									placement: 'Below Article Thumbnails 1',
+									target_type: 'mix'
+								});
+							</script>
 						</div>
+
+
+					
 						
-						<div class="clear"></div>
 					</div>
 					
-					<div class="section-home vacation-destination">
-						
-						<div id="taboola-below-article-thumbnails-1"></div>
-					
-					</div>
+				
+				
+
+
 					<!-- .section 3 -->
+					</div>
+					
+				
 					
 					
 									
@@ -379,41 +459,38 @@
 				</div>
 			</div>
 
+			
 		<!-- .Content  -->
 			<!-- STICKY -->
-			<div class="section-subscribe">
-				<div class="subcontainer">
-					<div class="subrow">
-						<div class="subcol">
-							
-							
-							<div class="mail-subscribe-box">
-								<div id='div-gpt-ad-6628793-4' style="margin-bottom: 20px;">
-									<script>
-									  googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-4'); });
-									</script>
-								  </div>
-							</div>
+			
 
-						</div>
-					</div>
+			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 0;">
+				  
+				<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
+				<div id='div-gpt-ad-6628793-4' style="margin-bottom: 90px;">
+					<script>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-6628793-4'); });
+					</script>
 				</div>
+				<div class="bottom-panel" style="text-align:center;word-break:break-all;">
 				
+				
+					<a style="margin-left: 0% ;"  href="{% url 'interstitial-page-nop' %}"id = "add_pipe_btn" role="button" class="red_button" >Connect</a>
+					
+					
+					
+				</div>
+
 			</div>
+
 			<!-- END STICKY -->
 			
 
 
 
 			<!-- Botom Panel  -->
-			<div class="bottom-panel" style="text-align:center;word-break:break-all;">
-				
-				
-				<a style="margin-left: 0% ;"  href="{% url 'interstitial-page' domain domain_id %}"id = "add_pipe_btn" role="button" class="red_button" >Connect</a>
-				
-				
-				
-			</div>
+			
+			
 			<!-- .Bottom Panel  -->
 			
 	
@@ -460,12 +537,10 @@
 			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
-            <!--  Taboola JS  -->
-            <script type="text/javascript">
-                window._taboola = window._taboola || [];
-                _taboola.push({ flush: true });
-            </script>
+          
+			
 
+		
 			<script>
 			firstTimer();	
 			function firstTimer() {
@@ -496,7 +571,13 @@
 				}, 3000);
 			}
 			</script>
+		
 
+
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({ flush: true });
+		</script>
 		
 
 			<script data-cfasync="false" type="text/javascript">

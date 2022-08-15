@@ -77,7 +77,7 @@ def landing_page(request,domain,domain_id):
     
         print('The is the Landing post')
         #eturn render(request,"index.html",context)
-        return redirect('index-page' ,  domain = domain, domain_id = domain_id) 
+        return redirect('landing-page-1' ,  domain = domain, domain_id = domain_id) 
         
 
     # if a GET (or any other method) we'll create a blank form
@@ -92,7 +92,52 @@ def landing_page(request,domain,domain_id):
        
         return render(request, "start.html", context)
 
+def landing_page_1(request,domain,domain_id):
+    
+        
+    if request.method == "POST" :
+        # create a form instance and populate it with data from the request:
+    
+        print('The is the Landing post 1')
+        #eturn render(request,"index.html",context)
+        return redirect('index-page' ,  domain = domain, domain_id = domain_id) 
+        
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = LoginForm()
+        context ={
+
+           
+           'form' : form
+
+        }
+        print('The is the Landing Get 1')
+        return render(request, "start_1.html", context)
+
 def landing_page_nop(request):
+    
+        
+    if request.method == "POST" :
+        # create a form instance and populate it with data from the request:
+    
+       
+        #eturn render(request,"index.html",context)
+        return redirect('landing-page-nop-1' ) 
+        
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = LoginForm()
+        context ={
+
+             'form' : form
+
+        }
+        print('The is the Landing GET')
+        return render(request, "start.html", context)
+
+def landing_page_nop_1(request):
     
         
     if request.method == "POST" :
@@ -111,8 +156,8 @@ def landing_page_nop(request):
              'form' : form
 
         }
-        print('The is the Landing GET')
-        return render(request, "start.html", context)
+        
+        return render(request, "start_1.html", context)
 
 def index(request,domain,domain_id):
     form = LoginForm(request.POST)

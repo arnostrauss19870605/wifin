@@ -37,6 +37,9 @@ urlpatterns = [
     path('landing/<domain>/<domain_id>/',landing_page, name="landing-page"),
     path('landing/',landing_page_nop, name="landing-page-nop"),
 
+    path('landing_1/<domain>/<domain_id>/',landing_page_1, name="landing-page-1"),
+    path('landing_1/',landing_page_nop_1, name="landing-page-nop-1"),
+
     path('index/<domain>/<domain_id>/',index, name="index-page"),
     path('index/',index_nop, name="index-page-nop"),
     
