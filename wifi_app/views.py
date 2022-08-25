@@ -123,7 +123,7 @@ def landing_page_nop(request):
     
        
         #eturn render(request,"index.html",context)
-        return redirect('landing-page-nop-1'+'?test=testname' ) 
+        return redirect('landing-page-nop-1') 
         
 
     # if a GET (or any other method) we'll create a blank form
