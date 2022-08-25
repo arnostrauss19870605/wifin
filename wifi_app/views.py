@@ -123,7 +123,7 @@ def landing_page_nop(request):
     
        
         #eturn render(request,"index.html",context)
-        return redirect('landing-page-nop-1' ) 
+        return redirect('landing-page-nop-1'+'?test=testname' ) 
         
 
     # if a GET (or any other method) we'll create a blank form
@@ -236,7 +236,9 @@ def interstitial_1(request,domain,domain_id):
     if request.method == "POST":
 
 
-        myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
+        #myurl = f'http://192.168.50.1/flash/hotspot/login.html'
+        myurl = f'http://192.168.50.1/login.html'    
+        
         parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
         req_url = myurl +  urlencode(parameter_value_pairs)
        
@@ -290,7 +292,8 @@ def interstitial_nop_1(request):
    
     if request.method == "POST":
        
-        myurl = f'http://192.168.50.1/flash/hotspot/login.html'  
+        #myurl = f'http://192.168.50.1/flash/hotspot/login.html'
+        myurl = f'http://192.168.50.1/login.html'   
 
         context = {
         'post': 'post',
