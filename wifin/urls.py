@@ -34,21 +34,21 @@ urlpatterns = [
     path('',login_page, name="login"),
     
     
-    path('landing/<domain>/<domain_id>/',landing_page, name="landing-page"),
+    path('landing/',landing_page, name="landing-page"),
     path('landing/',landing_page_nop, name="landing-page-nop"),
 
-    path('landing_1/<domain>/<domain_id>/',landing_page_1, name="landing-page-1"),
+    path('landing_1/',landing_page_1, name="landing-page-1"),
     path('landing_1/',landing_page_nop_1, name="landing-page-nop-1"),
 
-    path('index/<domain>/<domain_id>/',index, name="index-page"),
+    path('index/',index, name="index-page"),
     path('index/',index_nop, name="index-page-nop"),
     
     path('test/',test, name="test-page"),
     
-    path('interstitial/<domain>/<domain_id>/',interstitial, name="interstitial-page"),
+    path('interstitial/',interstitial, name="interstitial-page"),
     path('interstitial/',interstitial_nop, name="interstitial-page-nop"),
 
-    path('interstitial_1/<domain>/<domain_id>/',interstitial_1, name="interstitial-page-1"),
+    path('interstitial_1/',interstitial_1, name="interstitial-page-1"),
     path('interstitial_1/',interstitial_nop_1, name="interstitial-page-nop-1"),
 
     path('exit_1/',exit_page_1, name="exit-page-1"),

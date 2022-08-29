@@ -11,11 +11,13 @@
 
 	<script type = "text/javascript">
 	
-		
-
 		   function Redirect() {
-			  window.location = "https://test.wifinews.co.za/?domain=PrasaTest&domainid=PrasaTest";
-			 
+			
+			  window.location = "https://test.wifinews.co.za/?utm_source=SomeStuff&utm_medium=SomeOtherStuff&utm_campaign=SomeMoreStuff";
+			
+			/*
+			window.location = "http://127.0.0.1:8000/?utm_source=SomeStuff&utm_medium=SomeOtherStuff&utm_campaign=SomeMoreStuff";
+			*/ 
 		   }            
 		   document.write("You will be redirected to main page in 10 sec.");
 		   setTimeout('Redirect()', 2);
