@@ -70,7 +70,18 @@ def login_page(request):
             #return redirect('landing-page',  domain = domain, domain_id = domainId )
             return redirect( f"{reverse('landing-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
-             return redirect('landing-page-nop' )
+             categories = Category.objects.all()[0:5]
+             featured = Post.objects.filter(featured=True)[0:5]
+             featured_other = Post.objects.filter(featured=True)[6:10]
+             latest = Post.objects.order_by('-timestamp')[0:5]
+             context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+                 
+                }
+             return render(request, "exit_index.html", context)
              
 
 
