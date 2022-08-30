@@ -67,10 +67,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wifin.urls'
 
-CSRF_TRUSTED_ORIGINS = ['https://test.wifinews.co.za', 'https://test.wifinews.co.za']
+CSRF_TRUSTED_ORIGINS = ['https://wifinews.co.za', 'https://wifinews.co.za']
 
 CORS_ALLOWED_ORIGINS = [
-"https://test.wifinews.co.za",
+"https://twifinews.co.za",
 "http://localhost:8000",
 "http://127.0.0.1:8000"
 ]
