@@ -2,6 +2,21 @@
 <!doctype html>
 <html lang="en">
 	<head>
+
+	<!-- Google Tag Manager -->
+	<script>
+			google_adtest = "on";
+			(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-PLVN345');
+	</script>
+	  <!-- End Google Tag Manager -->
+
 	  <!-- Required meta tags -->
       <meta charset="utf-8">
       <title>Wifi News</title>
@@ -12,8 +27,9 @@
       <meta name="HandheldFriendly" content="True">
       <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
       <link rel="icon" href="favicon.ico" type="image/x-icon">
-      <!-- Bootstrap v4.3.1 CSS -->
+      <!-- Bootstrap v4.3.1 CSS 
       <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+	 -->
   
       <!-- Custom CSS -->
       <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
@@ -22,6 +38,7 @@
       <!-- Slick CSS -->
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+	
     
       <!-- Font Awesome Free 5.10.2 CSS JS -->
       <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
@@ -31,23 +48,14 @@
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
 
 
-         <!-- Google Tag Manager -->
-            <script>
-                google_adtest = "on";
-                (function (w, d, s, l, i) {
-                w[l] = w[l] || []; w[l].push({
-                    'gtm.start':
-                        new Date().getTime(), event: 'gtm.js'
-                }); var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
-        <!-- End Google Tag Manager -->
+
 
         <!-- Start GPT Tag -->
-        <script
-        google_adtest = "on";
-        async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+        <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'>
+	
+		</script>
+
+
         <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {
@@ -168,92 +176,14 @@
     </head>
 	<body class="default">
 
-		    <!-- Google Tag Manager (noscript) -->
-			<noscript>
-				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-			</noscript>
-			<!-- End Google Tag Manager (noscript) -->
-
-		<div id="grantModal" class="modal">
-			<div class="modal-content">
-				<input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
-			</div>
-		</div>
-		<div id="waitModal" class="modal">
-			<!-- Modal content -->
-			<div class="modal-content" style="width: 300px;">
-				<p id="waitTxt"></p>
-				<input type="button" class="btn" id="okayBtn" value="Okay" />
-			</div>
-		</div>
-
-
-
 		
 	
-		<!-- Sidebar left -->
-		<nav id="sidebarleft" class="sidenav">
-			<div id="dismiss">
-				<i class="fas fa-times"></i>
-			</div>
-			<div class="sidebar-header">
-				<h3>Account</h3>
-			</div>
-			
-			<ul class="list-unstyled components">
-				<li>
-					<a href={% url 'login' %}><i class="fas fa-home"></i>Home</a>
-				</li>
-				
-					<li>
-						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
-					</li>
-					<li>
-						<a href="feedback.html"><i class="fas fa-envelope"></i>Feedback</a>
-					</li>
-					
-					<li>
-						<a href="single_page.html"><i class="fas fa-exclamation-circle"></i>About Wifi News</a>
-					</li>
-				</ul>
-			</nav>
-			<!-- .Sidebar left -->
-			<!-- Sidebar right -->
-			<nav id="sidebarright" class="sidenav">
-				<div id="dismiss">
-					<i class="fas fa-times"></i>
-				</div>
-				<div class="sidebar-header">
-					<h3>Latest News</h3>
-				</div>
-				
-				{% for latest in latest %}
-				<ul class="right-menu">
-					
-					<li class="right-menu-item">
-						<a href="{% url 'post' latest.slug %}">
-							<span> <i class="fas fa-envelope"></i> <br> </span>
-							<div class="ntitle"> {{ latest.title }}</div>
-							<div class="desc">{{ latest.overview }}</div>
-						</a>
-					</li>
-				{% endfor %}					
-				</ul>
-			</nav>
-			<!-- .Sidebar right-->
 			<!-- Header  -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-header">
 				<div class="container-fluid">
-					<button type="button" id="sidebarleftbutton" class="btn">
-					<i class="fas fa-align-left"></i>
-					</button>
-					<div class="logo">Wifi News</div>
-					<button type="button" id="sidebarrightbutton" class="btn">
-					<div class="notif">
-						<i class="fas fa-bell"></i>
-						<i class="fas fa-circle "></i>
-					</div>
-					</button>
+					
+					<div class="logo"  style="padding-top: 10pt;">Wifi News</div>
+				
 				</div>
 			</nav>
 			<!-- .Header  -->
@@ -262,7 +192,7 @@
 				<div id="myHeader" class="button" onclick="watchVidModal()" style="text-align: center; margin: 0 auto; width: 100%;">
 					<i class="fa fa-wifi" aria-hidden="true" style="font-size: 2.5em;"></i>
 					<h2 id="connectTxt" style="display: none;">Click HERE to connect to Wi-Fi NOW</h2>
-					<h2 id="countdown">Connect to WIFI in 5 Seconds</h2>
+					<h2 id="countdown"></h2>
 					<p id="noticeTxt" ></p>
 				</div>
 			</div>
