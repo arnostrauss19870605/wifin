@@ -1155,3 +1155,4 @@ eskimi.com, eas-019122, DIRECT
 adyoulike.com, 28ad2f40b1f6f683d160ee433903c399, RESELLER
 vodacom.com, pub-2181457501973276, DIRECT
 google.com, pub-5416382255097091, RESELLER, f08c47fec0942fa0
+aniview.com, 621cca388ba47d78a102e506, RESELLER, 78b21b97965ec3f8 
