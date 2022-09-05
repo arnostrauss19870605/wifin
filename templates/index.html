@@ -3,20 +3,6 @@
 <html lang="en">
 	<head>
 
-	<!-- Google Tag Manager -->
-	<script>
-			google_adtest = "on";
-			(function (w, d, s, l, i) {
-			w[l] = w[l] || []; w[l].push({
-				'gtm.start':
-					new Date().getTime(), event: 'gtm.js'
-			}); var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-PLVN345');
-	</script>
-	  <!-- End Google Tag Manager -->
-
 	  <!-- Required meta tags -->
       <meta charset="utf-8">
       <title>Wifi News</title>
@@ -27,6 +13,20 @@
       <meta name="HandheldFriendly" content="True">
       <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
       <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- Google Tag Manager -->
+	<script>
+		(function (w, d, s, l, i) {
+		w[l] = w[l] || []; w[l].push({
+			'gtm.start':
+				new Date().getTime(), event: 'gtm.js'
+		}); var f = d.getElementsByTagName(s)[0],
+			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-PLVN345');
+	</script>
+  <!-- End Google Tag Manager -->
+
       <!-- Bootstrap v4.3.1 CSS 
       <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
 	 -->
@@ -40,12 +40,13 @@
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 	
     
-      <!-- Font Awesome Free 5.10.2 CSS JS -->
+      <!-- Font Awesome Free 5.10.2 CSS JS REMOVED TO LIGHTEN THE SITE
       <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+	-->
 
 
 
@@ -504,6 +505,7 @@
 		
 			</script>
 
+			<!-- Slick JS
 			<script>
 				window.onscroll = function () { myFunction() };
 				var header = document.getElementById("myHeader");
@@ -516,6 +518,7 @@
 					}
 				}
 			</script>
+			-->
 
 			
 		</body>
