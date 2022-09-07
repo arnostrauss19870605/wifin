@@ -205,10 +205,10 @@ def index(request):
 
 
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -225,10 +225,10 @@ def index_nop(request):
         print('The is the INDEX post')
         return redirect('interstitial-page-nop') 
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -318,10 +318,10 @@ def interstitial_nop(request):
          return redirect('interstitial-page-nop-1') 
        
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -350,10 +350,10 @@ def interstitial_nop_1(request):
         return redirect(myurl)
        
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -372,10 +372,10 @@ def exit_page_1(request):
          return redirect('exit-page-2') 
        
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -394,10 +394,10 @@ def exit_page_2(request):
        return redirect('exit-index') 
    
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -415,10 +415,10 @@ def exit_index(request):
         print('The is the INDEX post')
         return redirect('interstitial-page-nop') 
     else :
-        categories = Category.objects.all()[0:5]
+        categories = Category.objects.all()[0:10]
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
+        latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -432,9 +432,9 @@ def exit_index(request):
 
 def post(request,slug):
     post = Post.objects.get(slug=slug)
-    categories = Category.objects.all()[0:5]
-    featured = Post.objects.filter(featured=True)[0:5]
-    latest = Post.objects.order_by('-timestamp')[0:5]
+    categories = Category.objects.all()[0:10]
+    featured = Post.objects.filter(featured=True)[0:10]
+    latest = Post.objects.order_by('-timestamp')[0:10]
     
     context = {
         'post': post,
@@ -457,10 +457,10 @@ def category_post_list (request, slug):
 
 def allposts(request):
          
-    categories = Category.objects.all()[0:5]
+    categories = Category.objects.all()[0:10]
     featured = Post.objects.filter(featured=True)[0:5]
     featured_other = Post.objects.filter(featured=True)[6:10]
-    latest = Post.objects.order_by('-timestamp')[0:5]
+    latest = Post.objects.order_by('-timestamp')[0:10]
     posts = Post.objects.order_by('-timestamp')
     context = {
         'posts': posts,
