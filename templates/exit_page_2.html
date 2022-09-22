@@ -94,7 +94,39 @@
 
     </script>
 
-
+    <script type = "text/javascript">
+      firstTimer();
+  
+      function addSeconds(numOfSeconds, date = new Date()) {
+        date.setSeconds(date.getSeconds() + numOfSeconds);
+      
+        return date;
+        }    
+  
+  
+      function firstTimer() {
+        var timeleft = 10;
+        var starttime = new Date();
+        var firstTimer = null;
+        const futuretime = addSeconds(11, starttime)
+      
+        firstTimer = setInterval(function () {
+        
+        var actualttime = new Date();
+        
+      
+        if (timeleft <= 0||actualttime >= futuretime)  {
+              document.redirect.submit();
+          } else {
+              document.getElementById("noticeTxt").style.display = "Inherit";
+              document.getElementById("noticeTxt").innerHTML = "View these adds for " + timeleft + " seconds to get your free WiFi " ;
+          }
+  
+          timeleft = timeleft - 1;
+  
+      }, 1000)
+  }
+  </script>
 
 </head>
   <body >
@@ -103,7 +135,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-header"> 
         <div class="container-fluid">
        
-          <div class="logo" style="margin-top: 15px;">Wifi News</div>
+          <div class="logo" id="noticeTxt" style="margin-top: 15px;">Wifi News</div>
           
         </div>
 
@@ -147,7 +179,7 @@
             
             <!-- Botom Panel  -->
 			<div class="bottom-panel" style="text-align:center;word-break:break-all;padding : 10px 0">
-        <h3 id="noticeTxt" style="color:white;"> </h3>
+        
 </div>
 <!-- .Bottom Panel  -->
                        
@@ -187,27 +219,7 @@
  
 
 
-    <script>
-
-      firstTimer();
-      
-      function firstTimer() {
-          var timeleft = 10;
-         
-          var firstTimer = setInterval(function () {
-              if (timeleft <= 0) {
-                  
-                  document.redirect.submit();
-              } else {
-                  document.getElementById("noticeTxt").style.display = "Inherit";
-                  document.getElementById("noticeTxt").innerHTML = "Will skip in " + timeleft + " Seconds";
-              }
-      
-              timeleft = timeleft - 1;
-      
-          }, 1000)
-      }
-      </script>
+    
 
     
   </html>

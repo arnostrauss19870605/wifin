@@ -458,9 +458,12 @@
 			<script>
 			firstTimer();	
 			function firstTimer() {
+				
+				var timeleft = 16;
+				
 				document.getElementById("connectTxt").style.display = "none";
 			
-				var timeleft = 16;
+				
 			
 				var firstTimer = setInterval(function () {
 					if (timeleft <= 0) {
@@ -480,9 +483,8 @@
 			}
 			function totalTimeout(){
 				setTimeout(() => {
-						
 						document.redirect.submit();
-				}, 3000);
+				}, 1000);
 			}
 			</script>
 		
