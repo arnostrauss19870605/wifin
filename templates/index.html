@@ -266,20 +266,22 @@
 						<div class="default-carousel car-carousel">
 							<!-- item -->
 							{% for featured in object_list %}
-							<div class="item">
-								<div class="acr-box">
-									<div class="acr-box-in">
+							<div class="item" >
+								<div class="acr-box" style="border: 2px solid #D2509B;">
+									<div class="acr-box-in" style="background-color: #ffff;">
 										
-										<div class="acr-content">
-											<div class="ct-name">{{ featured.title }}</div>
-											<div class="ct-cost"><span class="perday">{{ featured.overview }}y</span></div>
-											
-											<div class="ct-reserve">
-												<a href="car_single.html" class="theme-button">
-													Read More
-												</a>
+										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
+											<div class="acr-content" >
+												
+												<div class="heading-section">
+													<div class="sa-title popcat">{{ featured.title }} </div>
+													<div class="heading-info">
+														<span class="perday"style="color:#000000;padding:10px 0px 0px 0px;"> <span class="perday">{{ featured.overview }} </span>
+													</div>
+													<div class="clear"></div>
+												</div>																					
 											</div>
-										</div>
+										</a>
 									</div>
 									
 								</div>
@@ -292,29 +294,32 @@
 
 							<!-- item -->
 						
-						<div class="default-carousel car-carousel">
-							{% for featured in featured_other %}
-							<div class="item">
-								<div class="acr-box">
-									<div class="acr-box-in">
-										
-										<div class="acr-content">
-											<div class="ct-name">{{ featured.title }}</div>
-											<div class="ct-cost"><span class="perday">{{ featured.overview }}y</span></div>
-											
-											<div class="ct-reserve">
-												<a href="car_single.html" class="theme-button">
-													Read More
-												</a>
-											</div>
+							<div class="default-carousel car-carousel" style="margin-top:5px;">
+								{% for featured in featured_other %}
+								<div class="item">
+									<div class="acr-box" style="border: 2px solid #D2509B;">
+										<div class="acr-box-in" style="background-color: #ffff;">
+	
+											<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
+												<div class="acr-content" >
+													
+													<div class="heading-section">
+														<div class="sa-title popcat">{{ featured.title }} </div>
+														<div class="heading-info">
+															<span class="perday"style="color:#000000;padding:10px 0px 0px 0px;"> <span class="perday">{{ featured.overview }} </span>
+														</div>
+														<div class="clear"></div>
+													</div>																					
+												</div>
+											</a>
+																					
 										</div>
+										
 									</div>
-									
 								</div>
+								{% endfor %}
+								<!-- .item -->
 							</div>
-							{% endfor %}
-							<!-- .item -->
-						</div>
 						<!-- .section 2-->
 
 						<div class="img-hero">
