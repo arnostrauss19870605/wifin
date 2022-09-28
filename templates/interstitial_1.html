@@ -112,11 +112,11 @@
         var actualttime = new Date();
         
       
-        if (timeleft <= 0||actualttime >= futuretime)  {
+        if (actualttime >= futuretime||timeleft <= 0)  {
               document.redirect.submit();
           } else {
             document.getElementById("noticeTxt").style.display = "Inherit";
-            document.getElementById("noticeTxt").innerHTML = "View these adds for " ;
+            document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
             document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
             document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
           }
