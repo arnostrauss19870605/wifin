@@ -90,87 +90,99 @@
 
     </script>
 
+  
     <script type = "text/javascript">
-      firstTimer();
-
-      function addSeconds(numOfSeconds, date = new Date()) {
-        date.setSeconds(date.getSeconds() + numOfSeconds);
-      
-        return date;
-        }    
-
-
-      function firstTimer() {
-        var timeleft = 20;
-        var starttime = new Date();
-        var firstTimer = null;
-        const futuretime = addSeconds(11, starttime)
-      
-        firstTimer = setInterval(function () {
-        
-        var actualttime = new Date();
-        
-      
-        if (actualttime >= futuretime||timeleft <= 10)  {
-              document.redirect.submit();
-          } else {
-            document.getElementById("noticeTxt").style.display = "Inherit";
-            document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
-            document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
-            document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-          }
+        firstTimer();
   
-          timeleft = timeleft - 1;
+        function addSeconds(numOfSeconds, date = new Date()) {
+          date.setSeconds(date.getSeconds() + numOfSeconds);
+        
+          return date;
+          }    
   
-      }, 1000)
-  }
+  
+        function firstTimer() {
+          var timeleft = 20;
+          var starttime = new Date();
+          var firstTimer = null;
+          const futuretime = addSeconds(11, starttime)
+        
+          firstTimer = setInterval(function () {
+          
+          var actualttime = new Date();
+          
+        
+          if (actualttime >= futuretime||timeleft <= 10)  {
+                document.redirect.submit();
+            } 
+            else if ( timeleft == 11|| timeleft == 12) {
+              document.getElementById("noticeTxt4").style.display = "Inherit";
+              document.getElementById("noticeTxt").style.display = "none";
+              document.getElementById("noticeTxt2").style.display = "none";
+              document.getElementById("noticeTxt3").style.display = "none"
+  
+            }
+            
+            
+            else {
+                document.getElementById("noticeTxt").style.display = "Inherit";
+                document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
+                document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
+                document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
+            }
+    
+            timeleft = timeleft - 1;
+    
+        }, 1000)
+    }
+    </script>
+  
+  <script data-cfasync="false" type="text/javascript">
+      function nextPage() {
+              
+              window.location.assign("/interstitial_1/"); 
+      }
+  
   </script>
+  
 
 </head>
-  <body >
+<body class="default">
 
 
      
-       <!-- Header  -->
-       <nav class="navbar navbar-expand-lg navbar-light bg-header" style="height: 110px;word-break:break-all;"> 
-        <div class="container-fluid">
-       
-          <div class="logo" id="noticeTxt" style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
+  <div class="row"  style="padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #D2509B;color:#D2509B; font-size: 25px;">
+    <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+          
+          <div class="logo" id="noticeTxt"  style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
           <div class="logo" id="noticeTxt2" style="margin-bottom: 0px;text-align:center;word-break:break-all;"></div>
           <div class="logo" id="noticeTxt3" style="margin-bottom: 5px;text-align:center;word-break:break-all;"></div>
-         
-          
-        </div>
-
-      </nav> 
-
- 
-            
-            
-            <div class="row"  style="padding-top: 5%; padding-bottom: 10px; margin: 0 auto; text-align: center; margin-top: 5%">
-              <div style="text-align: center; margin: 0 auto; width: 100%;">
-                 <!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-                  <div id="div-gpt-ad-1623081918204-0" style="margin-top: 35px; margin-bottom: 20px;">
-                
-                  </div>
-                  <!-- End AdSlot 2 -->
-              </div>
+          <div class="button" id="noticeTxt4" style="display: none;margin-bottom: 0px;text-align:center; width: 110px; height: 110px; margin: auto;border-radius: 50%; border: 2px dotted #D2509B;font-size: 15px;" onclick="nextPage() ">
+              <p style = "padding : 15px 0 0 0"> PRESS TO PROCEED</p>
           </div>
+        
+    </div>
+  </div>
+    
 
-           
-            
-            <div class="content">
-              <p>
-                <a id="link" href="#" style="display: none;"></a>
-              </p>
-              <p>
-                <!--
-                  You can prevent specific links from triggering GPT-managed web interstials by
-                  adding a data-google-interstitial="false" attribute to the anchor element or
-                  any ancestor of the anchor element.
-                -->
-              </p>
+  <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+				
+    <div class="content-wrap">
+      <!-- slider -->
+        <div class="img-hero">
+            <div>
+              
+              <div id="div-gpt-ad-1623081918204-0" style="margin-top: 35px; margin-bottom: 20px;">
+                
             </div>
+  
+        </div>
+    </div>
+</div>			
+
+
+
+
             
             <script>
                 googletag.cmd.push(function() {
