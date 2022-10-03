@@ -115,7 +115,17 @@
       
         if (actualttime >= futuretime||timeleft <= 10)  {
               document.redirect.submit();
-          } else {
+          } 
+          else if ( timeleft == 11|| timeleft == 12) {
+            document.getElementById("noticeTxt4").style.display = "Inherit";
+            document.getElementById("noticeTxt").style.display = "none";
+            document.getElementById("noticeTxt2").style.display = "none";
+            document.getElementById("noticeTxt3").style.display = "none"
+
+          }
+          
+          
+          else {
               document.getElementById("noticeTxt").style.display = "Inherit";
               document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
               document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
@@ -128,26 +138,60 @@
   }
   </script>
 
-    
+  <script data-cfasync="false" type="text/javascript">
+    function nextPage() {
+            
+            window.location.assign("/landing_1/"); 
+    }
 
+</script>
 
 </head>
   <body >
     
 
-       <!-- Header  -->
-       <nav class="navbar navbar-expand-lg navbar-light bg-header" style="height: 110px;word-break:break-all;"> 
-        <div class="container-fluid">
        
-          <div class="logo" id="noticeTxt" style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
+       <nav class="navbar navbar-expand-lg navbar-light bg-header" style="height: 130px;word-wrap: break-word;justify-content: center;"> 
+        <div class="container-fluid">
+          
+          <div class="logo" id="noticeTxt"  style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
           <div class="logo" id="noticeTxt2" style="margin-bottom: 0px;text-align:center;word-break:break-all;"></div>
           <div class="logo" id="noticeTxt3" style="margin-bottom: 5px;text-align:center;word-break:break-all;"></div>
-         
-         
+          <div class="logo" id="noticeTxt4" style="display: none;margin-bottom: 0px;text-align:center; width: 110px; height: 110px; margin: 10px 0  0 50%;border-radius: 50%; border: 2px dotted #D2509B;" onclick="nextPage() ">
+              <p style = "padding : 12px 0 0 0"> PRESS TO PROCEED</p>
+          </div>
+        
+               
           
         </div>
 
       </nav> 
+    
+<!-- Header  -
+    <nav class="navbar navbar-expand-lg navbar-light bg-header" style="height: 130px;word-wrap: break-word;justify-content: center;"> 
+        
+        <div class="logo" 
+        style="margin-bottom: 0px;text-align:center;
+        width: 110px;
+        height: 110px;
+        margin: 10px 0  0 50%;
+        border-radius: 50%;
+        border: 2px dotted #D2509B;
+       
+        "><p style = "padding : 12px 0 0 0"> PRESS TO PROCEED</p>
+           
+      
+      </div>
+    
+      
+      </nav> 
+
+    -->
+
+
+
+
+
 
 
                     <div class="row"  style="padding-top: 5%; padding-bottom: 10px; margin: 0 auto; text-align: center; margin-top: 5%">
