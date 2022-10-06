@@ -180,22 +180,26 @@
           
     <div class="content-wrap">
       <!-- slider -->
-      <div class="img-hero">
-        <div>
-          <!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-                        <div id='div-gpt-ad-1664881948592-0' style="margin-top: 20px; margin-bottom: 20px;">
-                        <script>
-                           
-                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664881948592-0'); });
-                        </script>
-                        </div>
-                        <!-- End AdSlot 1 -->
+        <div class="img-hero">
+            <div>
+              
+              <div id='div-gpt-ad-1664881948592-0' style="margin-top: 40px; margin-bottom: 10px;">
+                
+            </div>
+  
         </div>
-        
-      </div>
     </div>
 </div>			
 
+
+<script>
+                   
+  googletag.cmd.push(function() {
+  // Ensure the first call to display comes after static ad slot
+  // divs are defined.
+  googletag.display(staticSlot);
+  });
+  </script>
     
 
 
