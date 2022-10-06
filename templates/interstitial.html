@@ -56,6 +56,16 @@
 
       googletag.cmd.push(function() {
         // Define a web interstitial ad slot.
+        var mapping1 = googletag.sizeMapping()
+        .addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+        .addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+        .addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+        .addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+        .addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+        .addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+        .addSize([0, 0], [[0, 0]])
+        .build();
+
         interstitialSlot = googletag.defineOutOfPageSlot(
             '/22047902240/wifinews/wfn_interstitial3',
             googletag.enums.OutOfPageFormat.INTERSTITIAL);
@@ -81,6 +91,7 @@
         // Define static ad slots.
         staticSlot = googletag.defineSlot(
             '/22047902240/wifinews/wfn_interstitial3', ['fluid', [320, 480]], 'div-gpt-ad-1662031200465-0')
+          .defineSizeMapping(mapping1)  
           .addService(googletag.pubads());
 
         // Enable SRA and services.
