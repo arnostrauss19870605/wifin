@@ -80,13 +80,14 @@
       // Add event listener to enable navigation once the interstitial loads.
       // If this event doesn't fire, try clearing local storage and refreshing
       // the page.
-      googletag.pubads().addEventListener('slotOnload', function(event) {
-          if (interstitialSlot === event.slot) {
-          document.getElementById('link').click()
-          document.getElementById('link').style.display = 'block';
-          // document.getElementById('status').innerText = 'Interstitial is loaded.';
-          }
-      });
+      
+      //googletag.pubads().addEventListener('slotOnload', function(event) {
+      //    if (interstitialSlot === event.slot) {
+      //    document.getElementById('link').click()
+      //    document.getElementById('link').style.display = 'block';
+      //    document.getElementById('status').innerText = 'Interstitial is loaded.';
+      //    }
+      //});
       }
   
       // Define static ad slots.
@@ -176,20 +177,18 @@
     </div>
   </div>
 
-  <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
-          
+<div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
     <div class="content-wrap">
       <!-- slider -->
         <div class="img-hero">
             <div>
               
-              <div id='div-gpt-ad-1664881948592-0' style="margin-top: 40px; margin-bottom: 10px;">
-                
-            </div>
+              <div id='div-gpt-ad-1664881948592-0' style="margin-top: 40px; margin-bottom: 10px;">  </div>
   
+            </div>
         </div>
     </div>
-</div>			
+</div>				
 
 
 
