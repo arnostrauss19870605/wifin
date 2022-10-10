@@ -67,7 +67,8 @@
         .build();
 
         interstitialSlot = googletag.defineOutOfPageSlot(
-            '/22047902240/wifinews/wfn_interstitial3', [[320, 480], [300, 250], [300, 600],'fluid'],             googletag.enums.OutOfPageFormat.INTERSTITIAL);
+            '/22047902240/wifinews/wfn_interstitial3',
+            googletag.enums.OutOfPageFormat.INTERSTITIAL);
 
         // Slot returns null if the page or device does not support interstitials.
         if (interstitialSlot) {
@@ -89,7 +90,7 @@
 
         // Define static ad slots.
         staticSlot = googletag.defineSlot(
-            '/22047902240/wifinews/wfn_interstitial3','div-gpt-ad-1662031200465-0')
+            '/22047902240/wifinews/wfn_interstitial3',[[320, 480], [300, 250], [300, 600],'fluid'],'div-gpt-ad-1662031200465-0')
           .defineSizeMapping(mapping1)  
           .addService(googletag.pubads());
 
