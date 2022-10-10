@@ -58,45 +58,45 @@
         <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {
-        var mapping1 = googletag.sizeMapping()
-                                .addSize([1400, 0], [[728, 90]])
-                                .addSize([1200, 0], [[728, 90]])
-                                .addSize([1000, 0], [[728, 90]])
-                                .addSize([700, 0], [[468, 60]])
-                                .addSize([600, 0], [[468, 60]])
-                                .addSize([300, 0], [[320, 50], [300, 250]])
-                                .addSize([0, 0], [[0, 0]])
-                                .build();
+			var mapping1 = googletag.sizeMapping()
+			.addSize([1400, 0], [[728, 90], 'fluid'])
+			.addSize([1200, 0], [[728, 90], 'fluid'])
+			.addSize([1000, 0], [[728, 90], 'fluid'])
+			.addSize([700, 0], [[468, 60], 'fluid'])
+			.addSize([600, 0], [[468, 60], 'fluid'])
+			.addSize([300, 0], [[320, 50], [300, 100], [300, 250], 'fluid'])
+			.addSize([0, 0], [[0, 0]])
+			.build();
 
-        var mapping2 = googletag.sizeMapping()
-                                .addSize([1400, 0], [[320, 480]])
-                                .addSize([1200, 0], [[320, 480]])
-                                .addSize([1000, 0], [[320, 480]])
-                                .addSize([700, 0], [[320, 480]])
-                                .addSize([600, 0], [[320, 480]])
-                                .addSize([300, 0], [[320, 480]])
-                                .addSize([0, 0], [[0, 0]])
-                                .build();
+var mapping2 = googletag.sizeMapping()
+			.addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+			.addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+			.addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+			.addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+			.addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+			.addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+			.addSize([0, 0], [[0, 0]])
+			.build();
 
-        var mapping3 = googletag.sizeMapping()
-                                .addSize([1400, 0], [[300, 250], [300, 600], [728, 90]])
-                                .addSize([1200, 0], [[728, 90], [300, 250], [300, 600]])
-                                .addSize([1000, 0], [[728, 90], [300, 250], [300, 600]])
-                                .addSize([700, 0], [[468, 60], [300, 250], [300, 600]])
-                                .addSize([600, 0], [[468, 60], [300, 250], [300, 600]])
-                                .addSize([300, 0], [[320, 50], [300, 250], [300, 600]])
-                                .addSize([0, 0], [[0, 0]])
-                                .build();
+var mapping3 = googletag.sizeMapping()
+			.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
+			.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
+			.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
+			.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
+			.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
+			.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
+			.addSize([0, 0], [[0, 0]])
+			.build();
 
-        var mapping4 = googletag.sizeMapping()
-                                .addSize([1400, 0], [[728, 90]])
-                                .addSize([1200, 0], [[728, 90]])
-                                .addSize([1000, 0], [[728, 90]])
-                                .addSize([700, 0], [[468, 60]])
-                                .addSize([600, 0], [[468, 60]])
-                                .addSize([300, 0], [[320, 50]])
-                                .addSize([0, 0], [[0, 0]])
-                                .build();
+var mapping4 = googletag.sizeMapping()
+			.addSize([1400, 0], [[728, 90], 'fluid'])
+			.addSize([1200, 0], [[728, 90], 'fluid'])
+			.addSize([1000, 0], [[728, 90], 'fluid'])
+			.addSize([700, 0], [[468, 60], 'fluid'])
+			.addSize([600, 0], [[468, 60], 'fluid'])
+			.addSize([300, 0], [[320, 50], 'fluid'])
+			.addSize([0, 0], [[0, 0]])
+			.build();
 
 					   googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,100],[300,250],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-1')
 								.defineSizeMapping(mapping1)
