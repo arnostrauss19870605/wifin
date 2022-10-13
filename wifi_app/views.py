@@ -52,7 +52,7 @@ def login_page(request):
         domainId = lead['domainId']
 
              
-        print('The is the Login post : ', domain)
+       
         #return render(request,"start.html",context)
         #return redirect('landing-page',  domain = domain, domain_id = domainId ) 
         return redirect( f"{reverse('landing-page')}?{urlencode({'next': 'nextos' })}")

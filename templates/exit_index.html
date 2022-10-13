@@ -143,7 +143,23 @@ var mapping4 = googletag.sizeMapping()
 		</script>
 -->
 
-
+<script type="text/javascript">
+	window._taboola = window._taboola || [];
+	_taboola.push({article:'auto'});
+	!function (e, f, u, i) {
+	  if (!document.getElementById(i)){
+		e.async = 1;
+		e.src = u;
+		e.id = i;
+		f.parentNode.insertBefore(e, f);
+	  }
+	}(document.createElement('script'),
+	document.getElementsByTagName('script')[0],
+	'//cdn.taboola.com/libtrc/wifinewswifinews/loader.js',
+	'tb_loader_script');
+	if(window.performance && typeof window.performance.mark == 'function')
+	  {window.performance.mark('tbl_ic');}
+  </script>
 
 		<style>
 			.red_button {
@@ -420,14 +436,15 @@ var mapping4 = googletag.sizeMapping()
 						<div class="heading-info">
 							<div id="taboola-below-article-thumbnails-1"></div>
 
+							<div id="taboola-below-article-thumbnails"></div>
 							<script type="text/javascript">
-								window._taboola = window._taboola || [];
-								_taboola.push({
-									mode: 'thumbnails-a-below',
-									container: 'taboola-below-article-thumbnails-1',
-									placement: 'Below Article Thumbnails 1',
-									target_type: 'mix'
-								});
+							  window._taboola = window._taboola || [];
+							  _taboola.push({
+								mode: 'alternating-thumbnails-a',
+								container: 'taboola-below-article-thumbnails',
+								placement: 'Below Article Thumbnails',
+								target_type: 'mix'
+							  });
 							</script>
 						</div>
 
@@ -533,7 +550,10 @@ var mapping4 = googletag.sizeMapping()
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
           
-			
+			<script type="text/javascript">
+				window._taboola = window._taboola || [];
+				_taboola.push({flush: true});
+			</script>
 
 		<!--  Counter Script
 			<script>
@@ -569,11 +589,16 @@ var mapping4 = googletag.sizeMapping()
 			-->
 		
 	
+
+
+
+
 <!-- Slick JS
 		<script type="text/javascript">
 			window._taboola = window._taboola || [];
 			_taboola.push({ flush: true });
 		</script>
+		
 		
 
 			<script data-cfasync="false" type="text/javascript">
