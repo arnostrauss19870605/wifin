@@ -206,7 +206,7 @@ def index(request):
 
     else :
         categories = Category.objects.all()[0:10]
-        featured = Post.objects.filter(featured=True)[0:5]
+        featured = Post.objects.order_by('-timestamp')[0:10]
         featured_other = Post.objects.filter(featured=True)[6:10]
         latest = Post.objects.order_by('-timestamp')[0:10]
         context= {
