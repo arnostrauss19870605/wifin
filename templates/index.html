@@ -14,22 +14,6 @@
       <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
       <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-	<!-- Google Tag Manager 
-	<script>
-		(function (w, d, s, l, i) {
-		w[l] = w[l] || []; w[l].push({
-			'gtm.start':
-				new Date().getTime(), event: 'gtm.js'
-		}); var f = d.getElementsByTagName(s)[0],
-			j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-				'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-PLVN345');
-	</script>
-  -->
-
-      <!-- Bootstrap v4.3.1 CSS 
-      <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
-	 -->
   
       <!-- Custom CSS -->
       <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
@@ -39,18 +23,7 @@
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 	
-    
-      <!-- Font Awesome Free 5.10.2 CSS JS REMOVED TO LIGHTEN THE SITE
-      <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
-	-->
-
-
-
-
+   
         <!-- Start GPT Tag -->
         <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'>
 	
@@ -121,28 +94,6 @@
         </script>
         <!-- End GPT Tag -->
 
-		<!--Taboola Script 
-		<script type="text/javascript">
-			window._taboola = window._taboola || [];
-			_taboola.push({
-				article: 'auto'
-			});
-			! function (e, f, u, i) {
-				if (!document.getElementById(i)) {
-					e.async = 1;
-					e.src = u;
-					e.id = i;
-					f.parentNode.insertBefore(e, f);
-				}
-			}(document.createElement('script'),
-				document.getElementsByTagName('script')[0],
-				'//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
-				'tb_loader_script');
-			if (window.performance && typeof window.performance.mark == 'function') {
-				window.performance.mark('tbl_ic');
-			}
-		</script>
-		-->
 		
 		<style>
 			.red_button {
@@ -177,20 +128,20 @@
 		
 	
 			<!-- Header  -->
-			<nav class="navbar navbar-expand-lg navbar-light bg-header">
+			<nav class="navbar navbar-expand-lg navbar-light bg-header" style="border: 2px solid #000080;">
 				<div class="container-fluid">
 					
-					<div class="logo"  style="padding-top: 10pt;">Wifi News</div>
+					<div class="logo"  style="padding-top: 10pt;color:#FF4644 ">Wifi News</div>
 				
 				</div>
 			</nav>
 			<!-- .Header  -->
 			<!-- Content  -->
 			
-			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 10%; text-align: center;border: 2px solid #D2509B;background-color: #D2509B;color:#FFFF; font-size: 25px;">
+			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 10%; text-align: center;border: 2px solid #000080;background-color: #000080;color:#FF4644; font-size: 25px;">
 				<div id="myHeader" class="button" onclick="watchVidModal()" style="text-align: center; margin: 0 auto; width: 100%;">
 					<i class="fa fa-wifi" aria-hidden="true" style="font-size: 2.5em;"></i>
-					<h2 id="connectTxt" style="display: none; color:white;">Click HERE to connect to Wi-Fi NOW</h2>
+					<h2 id="connectTxt" style="display: none; color:#FF4644;">Click HERE to connect to Wi-Fi NOW</h2>
 					<h2 id="countdown"></h2>
 					<p id="noticeTxt" ></p>
 				</div>
@@ -220,7 +171,7 @@
 					
 					<!-- section 1 -->
 					<div class="heading-section">
-						<div class="sa-title popcat">About Us </div>
+						<div class="sa-title popcat" style="color:#FF4644 ">About Us </div>
 						<div class="heading-info">
 							<p>Our mission objective is to connect the unconnected to the internet. The way in which we intend to achieve this is by providing free and low costs Wi-Fi to the masses. 	</p>
 							<p>Over the past 10 years, we have developed, tested and implemented an ground-breaking digital Wi-Fi marketing system that we are using in high density commuter areas and shopping areas in South Africa. Working with advertisers, we have auditable campaigns results, verifiable sites, detailed campaign reports and straight forward guidelines to marketers. Working with consumers, we offer reliable, high speed internet access to the masses.</p>
@@ -256,7 +207,7 @@
 
 					<!-- section 2 -->
 					<div class="heading-section">
-						<div class="sa-title popcat">Featured Articles </div>
+						<div class="sa-title popcat" style="color:#FF4644 ">Featured Articles </div>
 						<div class="heading-info">
 							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
 						</div>
@@ -264,19 +215,19 @@
 					</div>
 					<div class="section-home available-car">
 						
-						<div class="default-carousel car-carousel">
+						<div class="default-carousel car-carousel" >
 							<!-- item -->
 							{% for featured in object_list %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #D2509B;">
-									<div class="acr-box-in" style="background-color: #ffff">
+								<div class="acr-box" style="border: 2px solid #000080;">
+									<div class="acr-box-in" style="background-color: #ffff" >
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
 											
 											<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
 												
 												<div  class="heading-section" >
-													<div class="sa-title popcat">{{ featured.title }} </div>
+													<div class="sa-title popcat" style="color:#FF4644 ">{{ featured.title }} </div>
 													<div  >
 													
 															<span style = "color:#000000;" >
@@ -317,7 +268,7 @@
 							<div class="default-carousel car-carousel" style="margin-top:5px;">
 								{% for featured in featured_other %}
 								<div class="item" >
-									<div class="acr-box" style="border: 2px solid #D2509B;">
+									<div class="acr-box" style="border: 2px solid #000080;">
 										<div class="acr-box-in" style="background-color: #ffff">
 											
 											<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
@@ -325,7 +276,7 @@
 												<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
 													
 													<div  class="heading-section" >
-														<div class="sa-title popcat">{{ featured.title }} </div>
+														<div class="sa-title popcat" style="color:#FF4644 ">{{ featured.title }} </div>
 														<div  >
 														
 																<span style = "color:#000000;" >
@@ -364,7 +315,7 @@
 						<!-- section 3 -->
 				
 					<div class="heading-section" style="margin-bottom: 90px;">
-						<div class="sa-title popcat">Popular Reading</div>
+						<div class="sa-title popcat" style="color:#FF4644 ">Popular Reading</div>
 						<div class="heading-info">
 							<div id="taboola-below-article-thumbnails-1"></div>
 

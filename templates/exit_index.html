@@ -161,27 +161,28 @@ var mapping4 = googletag.sizeMapping()
 	  {window.performance.mark('tbl_ic');}
   </script>
 
-		<style>
-			.red_button {
-				background-color: #D2509B;
-				border: white;
-				color: white;
-				padding: 25px 5px 5px 5px ;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 10px;
-				border-style: dotted;
-				border-radius: 80%;
-				margin-top : 10px;
-				margin-bottom : 5%;
-				height:40px;
-				width:40px;
+  <style>
+	.red_button {
+		background-color: #D2509B;
+		border: white;
+		color: white;
+		padding: 25px 5px 5px 5px ;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 10px;
+		border-style: dotted;
+		border-radius: 80%;
+		margin-top : 10px;
+		margin-bottom : 5%;
+		height:40px;
+		width:40px;
 
-			}
-				
-			
-		</style>
+	}
+		
+	
+</style>
+
 	
 	
 	
@@ -225,14 +226,9 @@ var mapping4 = googletag.sizeMapping()
 					<li>
 						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
 					</li>
-					<li>
-						<a href="feedback.html"><i class="fas fa-envelope"></i>Feedback</a>
-					</li>
+			
 					
-					<li>
-						<a href="single_page.html"><i class="fas fa-exclamation-circle"></i>About Wifi News</a>
-					</li>
-				</ul>
+					</ul>
 			</nav>
 			<!-- .Sidebar left -->
 			<!-- Sidebar right -->
@@ -351,7 +347,7 @@ var mapping4 = googletag.sizeMapping()
 							<!-- item -->
 							{% for featured in object_list %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #D2509B;">
+								<div class="acr-box" style="border: 2px solid #000080;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
@@ -384,7 +380,7 @@ var mapping4 = googletag.sizeMapping()
 						<div class="default-carousel car-carousel" style="margin-top:20px;">
 							{% for featured in featured_other %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #D2509B;">
+								<div class="acr-box" style="border: 2px solid #000080;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
