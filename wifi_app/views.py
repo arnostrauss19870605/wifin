@@ -190,7 +190,7 @@ def homepage(request):
             data_entry.save()
             
 
-            return redirect('home-page' ) 
+            return redirect('interstitial-page' ) 
     else :
         categories = Category.objects.all()[0:10]
         featured = Post.objects.order_by('-timestamp')[0:10]
