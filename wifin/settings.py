@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'import_export',
 
     #My Apps
     'wifi_app',
+    'data',
 
     #3rd Part Apps
     'markdownx',
@@ -67,10 +69,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wifin.urls'
 
-CSRF_TRUSTED_ORIGINS = ['https://wifinews.co.za', 'https://wifinews.co.za']
+CSRF_TRUSTED_ORIGINS = ['https://wifinews.co.za', 'https://wifinews.co.za','https://test.wifinews.co.za', 'https://test.wifinews.co.za']
 
 CORS_ALLOWED_ORIGINS = [
-"https://twifinews.co.za",
+"https://wifinews.co.za",
+"https://test.wifinews.co.za",
 "http://localhost:8000",
 "http://127.0.0.1:8000"
 ]

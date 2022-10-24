@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpResponseNotAllowed
 from django.http import HttpResponseRedirect
 from .forms import LoginForm
 from .models import *
+from data.models import *
 from django.utils.http import urlencode
 
 # Create your views here.
@@ -31,9 +32,6 @@ class LoginPageview(TemplateView) :
     #template_name = "landing.html"
     template_name = "login.html"
 
-class IndexPageview(TemplateView) :
-
-    template_name = "index.html"
 
 class InterstitialPageview(TemplateView) :
 
@@ -66,6 +64,7 @@ def login_page(request):
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
+          
             
             #return redirect('landing-page',  domain = domain, domain_id = domainId )
             return redirect( f"{reverse('landing-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
@@ -84,24 +83,32 @@ def login_page(request):
              return render(request, "exit_index.html", context)
              
 
-
 def landing_page(request):
+
+    print("LAnding Request Method :" , request.method )
     
         
     if request.method == "POST" :
         # create a form instance and populate it with data from the request:
     
-        print('The is the Landing post')
+        
         #eturn render(request,"index.html",context)
         if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
+            the_session = request.session.session_key
+            
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
+            data_entry.save()
             
             #return redirect('landing-page',  domain = domain, domain_id = domainId )
             return redirect( f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
-            return redirect('landing-page-1' ) 
+            the_session = request.session.session_key
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
+            data_entry.save()
+            return redirect('landing-page-1') 
         
 
     # if a GET (or any other method) we'll create a blank form
@@ -117,7 +124,7 @@ def landing_page(request):
         return render(request, "start.html", context)
 
 def landing_page_1(request):
-    
+    print("Landing 1 Request Method :" , request.method )
         
     if request.method == "POST" :
        
@@ -126,9 +133,19 @@ def landing_page_1(request):
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            return redirect( f"{reverse('index-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
+            the_session = request.session.session_key
+
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session)
+            data_entry.save()
+
+            return redirect('home-page') 
+           # return redirect( f"{reverse('index-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
-            return redirect('index-page') 
+            the_session = request.session.session_key
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
+            data_entry.save()
+
+            return redirect('home-page') 
                 
 
 
@@ -142,68 +159,38 @@ def landing_page_1(request):
            'form' : form
 
         }
-        print('The is the Landing Get 1')
+     
         return render(request, "start_1.html", context)
 
-def landing_page_nop(request):
+
+def homepage(request):
     
-        
-    if request.method == "POST" :
-        # create a form instance and populate it with data from the request:
-    
-       
-        #eturn render(request,"index.html",context)
-        return redirect('landing-page-nop-1') 
-        
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = LoginForm()
-        context ={
-
-             'form' : form
-
-        }
-        print('The is the Landing GET')
-        return render(request, "start.html", context)
-
-def landing_page_nop_1(request):
-    
-        
-    if request.method == "POST" :
-        # create a form instance and populate it with data from the request:
-    
-       
-        #eturn render(request,"index.html",context)
-        return redirect('index-page-nop' ) 
-        
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = LoginForm()
-        context ={
-
-             'form' : form
-
-        }
-        
-        return render(request, "start_1.html", context)
-
-def index(request):
-    form = LoginForm(request.POST)
+    print("Index Request Method :" , request.method )
     
     if request.method == "POST" :
+
+        print('This is the index post')
         
         
         if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+            
+            print('This is the index post with UTM')
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
+            the_session = request.session.session_key
+
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='index',counter=1,session = the_session)
+            data_entry.save()
+
             return redirect( f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
+            the_session = request.session.session_key
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = the_session)
+            data_entry.save()
+            print('This is the index post with NOO UTM')
+
             return redirect('interstitial-page' ) 
-
-
     else :
         categories = Category.objects.all()[0:10]
         featured = Post.objects.order_by('-timestamp')[0:10]
@@ -216,34 +203,9 @@ def index(request):
             'categories':categories,
                  
         }
-        return render(request, "index.html", context)
+        print("Thi is where")
+        return render(request, 'index.html', context)
 
-def index_nop(request):
-    form = LoginForm(request.POST)
-    
-    if request.method == "POST" :
-        print('The is the INDEX post')
-        return redirect('interstitial-page-nop') 
-    else :
-        categories = Category.objects.all()[0:10]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:11]
-        latest = Post.objects.order_by('-timestamp')[0:10]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
-           
-      
-        }
-        return render(request, "index_nop.html", context)
-
-
- 
-    
-  
-    
 
 def interstitial(request):
     form = LoginForm(request.POST)
@@ -255,8 +217,17 @@ def interstitial(request):
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
+            the_session = request.session.session_key
+
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session)
+            data_entry.save()
+
             return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
+            the_session = request.session.session_key
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
+            data_entry.save()
+
             return redirect('interstitial-page-1' ) 
       
     else :
@@ -279,8 +250,7 @@ def interstitial_1(request):
    
     if request.method == "POST":
 
-
-        
+           
         myurl = f'http://192.168.50.1/login.html'    
         
         #parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
@@ -308,61 +278,23 @@ def interstitial_1(request):
 
         }
         
+        if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+            utm_source = request.GET['utm_source']
+            utm_medium = request.GET['utm_medium']
+            utm_campaign = request.GET['utm_campaign']
+            the_session = request.session.session_key
+
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session)
+            data_entry.save()
+
+        else :
+            the_session = request.session.session_key
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
+            data_entry.save()
+
+
         return render(request, 'interstitial_1.html', context)
 
-def interstitial_nop(request):
-    form = LoginForm(request.POST)
-   
-    if request.method == "POST":
-       
-         return redirect('interstitial-page-nop-1') 
-       
-    else :
-        categories = Category.objects.all()[0:10]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:10]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
-
-        }
-        
-        return render(request, 'interstitial.html', context)
-
-def interstitial_nop_1(request):
-    form = LoginForm(request.POST)
-   
-    if request.method == "POST":
-       
-        #myurl = f'http://192.168.50.1/flash/hotspot/login.html'
-        myurl = f'http://192.168.50.1/login.html'   
-
-        context = {
-        'post': 'post',
-       
-    }
-
-
-                
-        return redirect(myurl)
-       
-    else :
-        categories = Category.objects.all()[0:10]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:10]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
-
-        }
-        
-        return render(request, 'interstitial_1.html', context)
   
 def exit_page_1(request):
     form = LoginForm(request.POST)
