@@ -174,7 +174,7 @@ def homepage(request):
         
         if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
             
-            print('This is the index post with UTM')
+           
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
@@ -188,9 +188,9 @@ def homepage(request):
             the_session = request.session.session_key
             data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = the_session)
             data_entry.save()
-            print('This is the index post with NOO UTM')
+            
 
-            return redirect('interstitial-page' ) 
+            return redirect('home-page' ) 
     else :
         categories = Category.objects.all()[0:10]
         featured = Post.objects.order_by('-timestamp')[0:10]
