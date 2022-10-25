@@ -10,6 +10,7 @@ from .models import *
 from data.models import *
 from django.utils.http import urlencode
 from getmac import get_mac_address as gma
+from uuid import uuid4
 
 # Create your views here.
 
@@ -23,8 +24,8 @@ def test(request):
     t = request.GET.get('Test') # => [137]
    
     myurl = "http://192.168.50.1/flash/hotspot/login2.html" 
-    print('This IS The ocntext : ',context)
-    #return redirect(myurl)
+    
+ 
 
     return render(request, "test.html", context)
 
@@ -86,32 +87,29 @@ def login_page(request):
 
 def landing_page(request):
 
-    print("LAnding Request Method :" , request.method )
-    print(gma())
-        
+           
     if request.method == "POST" :
         # create a form instance and populate it with data from the request:
     
         
         #eturn render(request,"index.html",context)
-        if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.session.session_key
-            mac_address = gma()
+            the_session = str(uuid4())
+          
             
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = mac_address )
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
             data_entry.save()
             
             #return redirect('landing-page',  domain = domain, domain_id = domainId )
-            return redirect( f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
+            return redirect( f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
         else :
-            the_session = request.session.session_key
-            mac_address = gma()
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = mac_address)
+            the_session = str(uuid4())
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
             data_entry.save()
-            return redirect('landing-page-1') 
+            return redirect( f"{reverse('landing-page-1')}?{urlencode({'sid': the_session })}") 
         
 
     # if a GET (or any other method) we'll create a blank form
@@ -127,30 +125,26 @@ def landing_page(request):
         return render(request, "start.html", context)
 
 def landing_page_1(request):
-    print("Landing 1 Request Method :" , request.method )
-        
+           
     if request.method == "POST" :
        
 
-        if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.session.session_key
-            mac_address = gma()
-
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = mac_address)
+            the_session = request.GET['sid']
+            
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session)
             data_entry.save()
 
-            return redirect('home-page') 
-           # return redirect( f"{reverse('index-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
+            return redirect( f"{reverse('home-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
         else :
-            the_session = request.session.session_key
-            mac_address = gma()
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = mac_address)
+            the_session = request.GET['sid']
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
             data_entry.save()
 
-            return redirect('home-page') 
+            return redirect( f"{reverse('home-page')}?{urlencode({'sid': the_session })}")  
                 
 
 
@@ -170,34 +164,32 @@ def landing_page_1(request):
 
 def homepage(request):
     
-    print("Index Request Method :" , request.method )
+   
     
     if request.method == "POST" :
 
-        print('This is the index post')
         
         
-        if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+        
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             
            
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.session.session_key
-            mac_address = gma()
-
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='index',counter=1,session = mac_address)
+            the_session = request.GET['sid']
+            
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='index',counter=1,session = the_session)
             data_entry.save()
 
-            return redirect( f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
+            return redirect( f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
         else :
-            the_session = request.session.session_key
-            mac_address = gma()
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = mac_address)
+           
+            the_session = request.GET['sid']
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = the_session)
             data_entry.save()
             
-
-            return redirect('interstitial-page' ) 
+            return redirect( f"{reverse('interstitial-page')}?{urlencode({'sid': the_session })}")  
     else :
         categories = Category.objects.all()[0:10]
         featured = Post.objects.order_by('-timestamp')[0:10]
@@ -210,7 +202,7 @@ def homepage(request):
             'categories':categories,
                  
         }
-        print("Thi is where")
+       
         return render(request, 'index.html', context)
 
 
@@ -220,24 +212,22 @@ def interstitial(request):
     if request.method == "POST":
 
         #return redirect('interstitial-page-1') 
-        if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            mac_address = gma()
-            the_session = request.session.session_key
+            the_session = request.GET['sid']
 
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = mac_address)
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session)
             data_entry.save()
 
-            return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
+            return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
         else :
-            the_session = request.session.session_key
-            mac_address = gma()
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = mac_address)
+            the_session = request.GET['sid']
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
             data_entry.save()
-
-            return redirect('interstitial-page-1' ) 
+           
+            return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'sid': the_session })}")  
       
     else :
         categories = Category.objects.all()[0:5]
@@ -287,20 +277,19 @@ def interstitial_1(request):
 
         }
         
-        if 'utm_source' in request.GET and 'utm_medium' in request.GET and 'utm_campaign' in request.GET:
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.session.session_key
-            mac_address = gma()
-
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = mac_address)
+            the_session = request.GET['sid']
+            
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session)
             data_entry.save()
 
         else :
             the_session = request.session.session_key
-            mac_address = gma()
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = mac_address)
+            the_session = request.GET['sid']
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
             data_entry.save()
 
 
@@ -355,7 +344,7 @@ def exit_index(request):
     form = LoginForm(request.POST)
     
     if request.method == "POST" :
-        print('The is the INDEX post')
+       
         return redirect('interstitial-page-nop') 
     else :
         categories = Category.objects.all()[0:10]
