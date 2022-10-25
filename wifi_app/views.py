@@ -9,6 +9,7 @@ from .forms import LoginForm
 from .models import *
 from data.models import *
 from django.utils.http import urlencode
+from getmac import get_mac_address as gma
 
 # Create your views here.
 
@@ -86,7 +87,7 @@ def login_page(request):
 def landing_page(request):
 
     print("LAnding Request Method :" , request.method )
-    
+    print(gma())
         
     if request.method == "POST" :
         # create a form instance and populate it with data from the request:
@@ -98,15 +99,17 @@ def landing_page(request):
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
             the_session = request.session.session_key
+            mac_address = gma()
             
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = mac_address )
             data_entry.save()
             
             #return redirect('landing-page',  domain = domain, domain_id = domainId )
             return redirect( f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
             the_session = request.session.session_key
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
+            mac_address = gma()
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = mac_address)
             data_entry.save()
             return redirect('landing-page-1') 
         
@@ -134,15 +137,17 @@ def landing_page_1(request):
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
             the_session = request.session.session_key
+            mac_address = gma()
 
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session)
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = mac_address)
             data_entry.save()
 
             return redirect('home-page') 
            # return redirect( f"{reverse('index-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
             the_session = request.session.session_key
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
+            mac_address = gma()
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = mac_address)
             data_entry.save()
 
             return redirect('home-page') 
@@ -179,14 +184,16 @@ def homepage(request):
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
             the_session = request.session.session_key
+            mac_address = gma()
 
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='index',counter=1,session = the_session)
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='index',counter=1,session = mac_address)
             data_entry.save()
 
             return redirect( f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
             the_session = request.session.session_key
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = the_session)
+            mac_address = gma()
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = mac_address)
             data_entry.save()
             
 
@@ -217,15 +224,17 @@ def interstitial(request):
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
+            mac_address = gma()
             the_session = request.session.session_key
 
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session)
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = mac_address)
             data_entry.save()
 
             return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
             the_session = request.session.session_key
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
+            mac_address = gma()
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = mac_address)
             data_entry.save()
 
             return redirect('interstitial-page-1' ) 
@@ -283,13 +292,15 @@ def interstitial_1(request):
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
             the_session = request.session.session_key
+            mac_address = gma()
 
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session)
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = mac_address)
             data_entry.save()
 
         else :
             the_session = request.session.session_key
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
+            mac_address = gma()
+            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = mac_address)
             data_entry.save()
 
 
