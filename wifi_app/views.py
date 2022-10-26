@@ -306,10 +306,10 @@ def interstitial_1(request):
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            redirect_destination = myurl = f'http://192.168.50.1/login.html' 
+            redirect_destination  = f'http://192.168.50.1/login.html' 
         else :
-            redirect_destination = myurl = f'http://192.168.50.1/login.html' 
-
+            redirect_destination  = f'http://192.168.50.1/login.html' 
+            
 
         try :
 
