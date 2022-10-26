@@ -300,21 +300,37 @@ def interstitial_1(request):
    
     if request.method == "POST":
 
-           
-        myurl = f'http://192.168.50.1/login.html'    
-        
-        #parameter_value_pairs = {"domain":domain,"hotspotname":domain_id}  
-        #req_url = myurl +  urlencode(parameter_value_pairs)
-        req_url = myurl
-       
-       
-        
-        return redirect(myurl)
+        the_session =  request.GET['sid']
 
-        #return render(request, 'test.html', context)
-        
-        #requests.post(myurl, data = {'key':'value'})
-        #return render(request, 'interstitial.html', context)
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+            utm_source = request.GET['utm_source']
+            utm_medium = request.GET['utm_medium']
+            utm_campaign = request.GET['utm_campaign']
+            redirect_destination = myurl = f'http://192.168.50.1/login.html' 
+        else :
+            redirect_destination = myurl = f'http://192.168.50.1/login.html' 
+
+
+        try :
+
+            return redirect(redirect_destination)
+
+        except Exception:
+
+            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = "Exception on Last Inter" )
+            data_entry.save()
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+               
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
+                data_entry.save() 
+                 
     else :
         categories = Category.objects.all()[0:5]
         featured = Post.objects.filter(featured=True)[0:5]
@@ -328,22 +344,7 @@ def interstitial_1(request):
 
         }
         
-        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-            utm_source = request.GET['utm_source']
-            utm_medium = request.GET['utm_medium']
-            utm_campaign = request.GET['utm_campaign']
-            the_session = request.GET['sid']
-            
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session)
-            data_entry.save()
-
-        else :
-            the_session = request.session.session_key
-            the_session = request.GET['sid']
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
-            data_entry.save()
-
-
+      
         return render(request, 'interstitial_1.html', context)
 
   
