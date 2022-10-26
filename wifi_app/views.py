@@ -90,29 +90,36 @@ def landing_page(request):
            
     if request.method == "POST" :
         # create a form instance and populate it with data from the request:
-    
-        
-        #eturn render(request,"index.html",context)
+        the_session = str(uuid4())
         if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = str(uuid4())
-          
-            
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
-            data_entry.save()
-            
-            #return redirect('landing-page',  domain = domain, domain_id = domainId )
-            return redirect( f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
+            redirect_destination = f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
         else :
-            the_session = str(uuid4())
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
-            data_entry.save()
-            return redirect( f"{reverse('landing-page-1')}?{urlencode({'sid': the_session })}") 
-        
+            redirect_destination = f"{reverse('landing-page-1')}?{urlencode({'sid': the_session })}"
 
-    # if a GET (or any other method) we'll create a blank form
+        try :
+            
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                return redirect(redirect_destination)
+            else :
+                return redirect(redirect_destination)
+        
+        except Exception:
+
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
+                data_entry.save()
+
     else:
         form = LoginForm()
         context ={
@@ -127,26 +134,39 @@ def landing_page(request):
 def landing_page_1(request):
            
     if request.method == "POST" :
-       
+
+        the_session =  request.GET['sid']
 
         if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.GET['sid']
-            
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session)
-            data_entry.save()
-
-            return redirect( f"{reverse('home-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
+            redirect_destination = f"{reverse('home-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
         else :
-            the_session = request.GET['sid']
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
-            data_entry.save()
+            redirect_destination = f"{reverse('home-page')}?{urlencode({'sid': the_session })}"
 
-            return redirect( f"{reverse('home-page')}?{urlencode({'sid': the_session })}")  
+        
+        try :
+        
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                    return redirect( redirect_destination)
+            else :
+                return redirect(redirect_destination)  
                 
+        except Exception:
 
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+               
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
+                data_entry.save()
 
 
     # if a GET (or any other method) we'll create a blank form
@@ -167,29 +187,43 @@ def homepage(request):
    
     
     if request.method == "POST" :
+        the_session =  request.GET['sid']
 
-        
-        
-        
         if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-            
-           
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.GET['sid']
-            
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='index',counter=1,session = the_session)
-            data_entry.save()
-
-            return redirect( f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
+            redirect_destination = f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
         else :
-           
-            the_session = request.GET['sid']
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='index',counter=1,session = the_session)
-            data_entry.save()
+            redirect_destination = f"{reverse('interstitial-page')}?{urlencode({'sid': the_session })}"
+        
+        try :
+        
+   
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                return redirect(redirect_destination)
+            else :
             
-            return redirect( f"{reverse('interstitial-page')}?{urlencode({'sid': the_session })}")  
+                return redirect(redirect_destination)  
+   
+        except Exception:
+
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='home',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+               
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='home',counter=1,session = the_session)
+                data_entry.save()
+   
+   
+   
+   
     else :
         categories = Category.objects.all()[0:10]
         featured = Post.objects.order_by('-timestamp')[0:10]
@@ -211,23 +245,40 @@ def interstitial(request):
    
     if request.method == "POST":
 
-        #return redirect('interstitial-page-1') 
+        the_session =  request.GET['sid']
+
         if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
             utm_source = request.GET['utm_source']
             utm_medium = request.GET['utm_medium']
             utm_campaign = request.GET['utm_campaign']
-            the_session = request.GET['sid']
-
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session)
-            data_entry.save()
-
-            return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}")
+            redirect_destination = f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
         else :
-            the_session = request.GET['sid']
-            data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
-            data_entry.save()
-           
-            return redirect( f"{reverse('interstitial-page-1')}?{urlencode({'sid': the_session })}")  
+            redirect_destination = f"{reverse('interstitial-page-1')}?{urlencode({'sid': the_session })}"
+        
+        
+        try :
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+               
+                return redirect(redirect_destination)
+            else :
+               
+                return redirect(redirect_destination) 
+
+        except Exception:
+
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+               
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
+                data_entry.save() 
       
     else :
         categories = Category.objects.all()[0:5]
