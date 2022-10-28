@@ -76,6 +76,22 @@
   
       </script>
   
+    <script data-cfasync="false" type="text/javascript">
+          
+      
+      function nextPage() {
+                const queryString = window.location.search;
+                const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+               
+                if (queryString.length === 0 ){
+                  window.location.assign("/landing_1/" + queryString + "?sid="+uid); 
+                }
+                else {               
+                window.location.assign("/landing_1/" + queryString + "&sid="+uid); 
+                }
+        }
+    
+    </script>
     
     <script type = "text/javascript">
       firstTimer();
@@ -99,7 +115,8 @@
         
       
         if (actualttime >= futuretime||timeleft <= 10)  {
-              document.redirect.submit();
+              //document.redirect.submit();
+              nextPage()
           } 
           else if ( timeleft == 11|| timeleft == 12) {
             document.getElementById("noticeTxt4").style.display = "Inherit";
@@ -123,13 +140,7 @@
   }
   </script>
 
-  <script data-cfasync="false" type="text/javascript">
-    function nextPage() {
-            
-            window.location.assign("/landing_1/"); 
-    }
 
-</script>
 
 
 </head>

@@ -98,11 +98,6 @@
         });
     </script>
 
-<form id="redirect" name="redirect" action="" >
-  {% csrf_token %}
- 
-</form>
-
   </body>
 
   <footer style="position: absolute; margin-top: 250px; text-align: center; background: grey; min-width: 100%; bottom: 0; left: 0;">
@@ -120,8 +115,9 @@ function firstTimer() {
 
     var firstTimer = setInterval(function () {
         if (timeleft <= 0) {
-            document.redirect.action = "index/";
-            document.redirect.submit();
+           
+            nextPage()
+          
         } else {
             document.getElementById("noticeTxt").style.display = "Inherit";
             document.getElementById("noticeTxt").innerHTML = "Will skip in " + timeleft + " Seconds";
@@ -132,5 +128,16 @@ function firstTimer() {
     }, 1000)
 }
 </script>
+
+<script data-cfasync="false" type="text/javascript">
+  function nextPage() {
+          const queryString = window.location.search;
+          console.log(queryString);
+          
+          window.location.assign("/home/"); 
+  }
+
+</script>
+
 
 </html>

@@ -121,15 +121,30 @@ def landing_page(request):
                 data_entry.save()
 
     else:
-        form = LoginForm()
-        context ={
 
-           
-           'form' : form
-
-        }
        
-        return render(request, "start.html", context)
+        the_session = request.META['CSRF_COOKIE']
+        try :
+            return render(request, "start.html")
+          
+        except Exception:
+                
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                utm_source = request.GET['utm_source']
+                utm_medium = request.GET['utm_medium']
+                utm_campaign = request.GET['utm_campaign']
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
+                data_entry.save()
+
+       
 
 def landing_page_1(request):
            
@@ -171,15 +186,30 @@ def landing_page_1(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = LoginForm()
-        context ={
 
-           
-           'form' : form
+        the_session = request.META['CSRF_COOKIE']
+        try :
+            return render(request, "start_1.html")
+          
+        except Exception:
+                
+            pass
 
-        }
-     
-        return render(request, "start_1.html", context)
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                utm_source = request.GET['utm_source']
+                utm_medium = request.GET['utm_medium']
+                utm_campaign = request.GET['utm_campaign']
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
+                data_entry.save()
+ 
+        
+        
 
 
 def homepage(request):
@@ -225,6 +255,7 @@ def homepage(request):
    
    
     else :
+        the_session = request.META['CSRF_COOKIE']
         categories = Category.objects.all()[0:10]
         featured = Post.objects.order_by('-timestamp')[0:10]
         featured_other = Post.objects.filter(featured=True)[6:10]
@@ -236,8 +267,31 @@ def homepage(request):
             'categories':categories,
                  
         }
+
        
-        return render(request, 'index.html', context)
+        try :
+            return render(request, 'index.html', context)
+          
+        except Exception:
+                
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                utm_source = request.GET['utm_source']
+                utm_medium = request.GET['utm_medium']
+                utm_campaign = request.GET['utm_campaign']
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='home',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='home',counter=1,session = the_session)
+                data_entry.save()
+
+
+       
+        
 
 
 def interstitial(request):
@@ -281,20 +335,29 @@ def interstitial(request):
                 data_entry.save() 
       
     else :
-        categories = Category.objects.all()[0:5]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
+        the_session = request.META['CSRF_COOKIE']
 
-        }
+        try :
+            return render(request, 'interstitial.html')
+          
+        except Exception:
+                
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                utm_source = request.GET['utm_source']
+                utm_medium = request.GET['utm_medium']
+                utm_campaign = request.GET['utm_campaign']
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
+                data_entry.save()
         
-        return render(request, 'interstitial.html', context)
-
+        
 def interstitial_1(request):
     form = LoginForm(request.POST)
    
@@ -332,22 +395,29 @@ def interstitial_1(request):
                 data_entry.save() 
                  
     else :
-        categories = Category.objects.all()[0:5]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:5]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
+        the_session = request.META['CSRF_COOKIE']
 
-        }
-        
+        try :
+            return render(request, 'interstitial_1.html')
+          
+        except Exception:
+                
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                utm_source = request.GET['utm_source']
+                utm_medium = request.GET['utm_medium']
+                utm_campaign = request.GET['utm_campaign']
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
+                data_entry.save()
       
-        return render(request, 'interstitial_1.html', context)
-
-  
+          
 def exit_page_1(request):
     form = LoginForm(request.POST)
    
