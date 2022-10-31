@@ -122,8 +122,7 @@ def landing_page(request):
 
     else:
 
-       
-        the_session = request.META['CSRF_COOKIE']
+             
         try :
             return render(request, "start.html")
           
@@ -131,18 +130,6 @@ def landing_page(request):
                 
             pass
 
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                utm_source = request.GET['utm_source']
-                utm_medium = request.GET['utm_medium']
-                utm_campaign = request.GET['utm_campaign']
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
-                data_entry.save()
 
        
 
@@ -195,22 +182,7 @@ def landing_page_1(request):
                 
             pass
 
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                utm_source = request.GET['utm_source']
-                utm_medium = request.GET['utm_medium']
-                utm_campaign = request.GET['utm_campaign']
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing_1',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing_1',counter=1,session = the_session)
-                data_entry.save()
- 
-        
-        
-
+       
 
 def homepage(request):
     
@@ -255,11 +227,11 @@ def homepage(request):
    
    
     else :
-        the_session = request.META['CSRF_COOKIE']
-        categories = Category.objects.all()[0:10]
-        featured = Post.objects.order_by('-timestamp')[0:10]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:10]
+      
+        categories = Category.objects.all()[4:10]
+        featured = Post.objects.order_by('-timestamp')[3:11]
+        featured_other = Post.objects.filter(featured=True)[6:11]
+        latest = Post.objects.order_by('-timestamp')[4:11]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
@@ -275,22 +247,7 @@ def homepage(request):
         except Exception:
                 
             pass
-
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                utm_source = request.GET['utm_source']
-                utm_medium = request.GET['utm_medium']
-                utm_campaign = request.GET['utm_campaign']
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='home',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='home',counter=1,session = the_session)
-                data_entry.save()
-
-
-       
+      
         
 
 
@@ -335,8 +292,7 @@ def interstitial(request):
                 data_entry.save() 
       
     else :
-        the_session = request.META['CSRF_COOKIE']
-
+       
         try :
             return render(request, 'interstitial.html')
           
@@ -344,19 +300,7 @@ def interstitial(request):
                 
             pass
 
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                utm_source = request.GET['utm_source']
-                utm_medium = request.GET['utm_medium']
-                utm_campaign = request.GET['utm_campaign']
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
-                data_entry.save()
-        
+       
         
 def interstitial_1(request):
     form = LoginForm(request.POST)
@@ -380,22 +324,11 @@ def interstitial_1(request):
 
         except Exception:
 
-            data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = "Exception on Last Inter" )
-            data_entry.save()
+            pass
 
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-               
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
-                data_entry.save() 
-                 
+                       
     else :
-        the_session = request.META['CSRF_COOKIE']
+        
 
         try :
             return render(request, 'interstitial_1.html')
@@ -404,19 +337,7 @@ def interstitial_1(request):
                 
             pass
 
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                utm_source = request.GET['utm_source']
-                utm_medium = request.GET['utm_medium']
-                utm_campaign = request.GET['utm_campaign']
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial_1',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial_1',counter=1,session = the_session)
-                data_entry.save()
-      
+            
           
 def exit_page_1(request):
     form = LoginForm(request.POST)

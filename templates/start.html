@@ -84,10 +84,10 @@
                 const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
                
                 if (queryString.length === 0 ){
-                  window.location.assign("/landing_1/" + queryString + "?sid="+uid); 
+                  window.location.assign("/landing_1/" + queryString ); 
                 }
                 else {               
-                window.location.assign("/landing_1/" + queryString + "&sid="+uid); 
+                window.location.assign("/landing_1/" + queryString ); 
                 }
         }
     
