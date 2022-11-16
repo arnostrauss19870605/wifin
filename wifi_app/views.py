@@ -343,23 +343,52 @@ def exit_page_1(request):
     form = LoginForm(request.POST)
    
     if request.method == "POST":
-       
-         return redirect('exit-page-2') 
-       
-    else :
-        categories = Category.objects.all()[0:10]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:10]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
 
-        }
+        the_session =  request.GET['sid']
+
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+            utm_source = request.GET['utm_source']
+            utm_medium = request.GET['utm_medium']
+            utm_campaign = request.GET['utm_campaign']
+            redirect_destination = f"{reverse('exit-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
+        else :
+            redirect_destination = f"{reverse('exit-page-1')}?{urlencode({'sid': the_session })}"
         
-        return render(request, 'exit_page_1.html', context)
+        
+        try :
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+               
+                return redirect(redirect_destination)
+            else :
+               
+                return redirect(redirect_destination) 
+
+        except Exception:
+
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='exit_1',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+               
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='1xit_1',counter=1,session = the_session)
+                data_entry.save() 
+      
+    else :
+       
+        try :
+            return render(request, 'exit_page_1.html')
+          
+        except Exception:
+                
+            pass
+
+       
 
 def exit_page_2(request):
     form = LoginForm(request.POST)
