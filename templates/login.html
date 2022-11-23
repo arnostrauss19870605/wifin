@@ -1,63 +1,58 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
-
-
 <head>
 	
 	<title>Hotspot login</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta http-equiv="pragma" content="no-cache"/>
 
+		 
+	<script data-cfasync="false" type="text/javascript">
+          
+      
+		function nextPage() {
+			const utm_source   = "SomeStuff"
+			const utm_medium   = "SomeOtherStuff"
+			const utm_campaign = "SomeMoreStuff"
+
+			window.location = "https://wifinews.co.za/landing?utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign;
+		  }
+	  
+	</script>
+
+	<script data-cfasync="false" type="text/javascript">
+          
+      
+		function nextTestPage() {
+			const utm_source   = "SomeStuff"
+			const utm_medium   = "SomeOtherStuff"
+			const utm_campaign = "SomeMoreStuff"
+
+			window.location = "https://wifinews.co.za/landing?utm_source=" + utm_source + "&utm_medium=" + utm_medium + "&utm_campaign=" + utm_campaign;
+		  }
+	  
+	</script>
+	  
 	<script type = "text/javascript">
+
+		try {
+			nextPage();
+		  }
+		  catch(err) {
+				document.write(err);
+		  }
+		  finally {
+			nextTestPage();
+		  }
+
 	
-		   function Redirect() {
-			
-			  window.location = "https://wifinews.co.za/?utm_source=SomeStuff&utm_medium=SomeOtherStuff&utm_campaign=SomeMoreStuff";
-			
-			/*
-			window.location = "http://127.0.0.1:8000/?utm_source=SomeStuff&utm_medium=SomeOtherStuff&utm_campaign=SomeMoreStuff";
-			*/ 
-		   }            
-		   document.write("You will be redirected to main page in 10 sec.");
-		   setTimeout('Redirect()', 2);
-		
-	 </script>
+	</script>
 
 </head>
 
 <body>
 
-<center>If you are not redirected in a few seconds, click 'Submit' below<br>
-
-	<form name="content_form"  method="post">
-		{% csrf_token %}
-		<input id="domain"  type="hidden" type="text" name="domain" value="PrasaTest">
-		<input id="domainId"  type="hidden" type="text" name="domainId" value="Prasatest">
-		<input id="mac"  type="hidden" type="text" name="mac" value="NA">
-		<input id="ip"  type="hidden" type="text" name="ip" value="NA">
-		<input id="username"  type="hidden" type="text" name="username" value="NA">
-		<input id="link_login"  type="hidden" type="text" name="link_login" value="NA">
-		<input id="link_orig"  type="hidden" type="text" name="link_orig" value="NA">
-		<input id="error"  type="hidden" type="text" name="error" value="NA">
-		<input id="trial"  type="hidden" type="text" name="trial" value="NA">
-		<input id="chap_id"  type="hidden" type="text" name="chap_id" value="NA">
-		<input id="chap_challenge"  type="hidden" type="text" name="chap_challenge" value="NA">
-		<input id="link_login_only"  type="hidden" type="text" name="link_login_only" value="NA">
-		<input id="link_orig_esc"  type="hidden" type="text" name="link_orig_esc" value="NA">
-		<input id="mac_esc"  type="hidden" type="text" name="mac_esc" value="NA">
-		<input id="identity"  type="hidden" type="text" name="identity" value="NA">
-		<input id="bytes_in_nice"  type="hidden" type="text" name="bytes_in_nice" value="NA">
-		<input id="bytes_out_nice"  type="hidden" type="text" name="bytes_out_nice" value="NA">
-		<input id="session_time_left"  type="hidden" type="text" name="session_time_left" value="NA">
-		<input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
-		<input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
-		<input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
-		
-	</form>
-
-
-</center>
 
 </body>
 
