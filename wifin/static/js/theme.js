@@ -84,12 +84,6 @@
       });
 
 
-    /* MAGNIFICPOPUP GALLERY */
-      $(".gallery-list").magnificPopup({
-              type: "image",
-              removalDelay: 300 
-          });
-
 
 })(jQuery);
 
