@@ -174,7 +174,7 @@ def landing_page_1(request):
     # if a GET (or any other method) we'll create a blank form
     else:
 
-        the_session = request.META['CSRF_COOKIE']
+        
         try :
             return render(request, "start_1.html")
           
