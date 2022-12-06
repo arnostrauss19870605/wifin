@@ -6,6 +6,7 @@ from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from .models import  Category, Post
+from vouchers.models import Voucher,Location,Activation
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
 from django.utils.translation import gettext_lazy as _
@@ -37,6 +38,9 @@ class UserAdmin(DjangoUserAdmin):
     ordering = ('email',)
 
 admin.site.register(Category)
+admin.site.register(Voucher)
+admin.site.register(Activation)
+admin.site.register(Location)
 
 
 class LogResource(resources.ModelResource):

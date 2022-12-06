@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 from wifi_app.views import *
 from django.contrib.sitemaps import GenericSitemap 
 from django.contrib.sitemaps.views import sitemap 
+from django.contrib.auth import views as auth_views
 
 from wifi_app.models import Post
 
@@ -47,6 +48,8 @@ urlpatterns = [
 
     
     path('admin/', admin.site.urls),
+    path('clinix/activation', ActivationView.as_view(), name="activation"),
+    path('clinix/login/', auth_views.LoginView.as_view(template_name='sms_login.html')),
     path(
         "ads.txt",
         RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),

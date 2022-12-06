@@ -46,10 +46,14 @@ INSTALLED_APPS = [
     #My Apps
     'wifi_app',
     'data',
+    'vouchers',
 
     #3rd Part Apps
     'markdownx',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1 # new
 
@@ -166,7 +170,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'wifi_app.CustomUser'
-LOGIN_REDIRECT_URL = ""
+LOGIN_REDIRECT_URL = "/clinix/activation"
 
 
 

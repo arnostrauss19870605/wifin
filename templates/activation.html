@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block container %}
+  <article class="grid">
+    <div>
+        {% if form.errors %}
+        <div>
+          {% for k, error in form.errors.items %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      {% endif %}
+      <form method="POST" >
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button type="submit">Issue Voucher</button>
+     
+       
+      </form>
+    </div>
+    <div>
+      <img src="{% static "images/sea-login.png" %}">
+    </div>
+  </article>
+{% endblock %}
