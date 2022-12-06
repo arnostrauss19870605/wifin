@@ -14,7 +14,7 @@ def send_my_sms(cell_number,token):
     try :
         message = client.messages \
                 .create(
-                     body="Welcome to Clinix. To access your free wifi please vist www.wifinews.co.za and using the follwong voucher when prompted : " + str(token),
+                     body="Welcome to Clinix. To access your free wifi please vist www.wifinews.co.za and using the follwing voucher when prompted : " + str(token),
                      from_='+12082955054',
                      to='+27' + cell_number[1:10]
                  )
