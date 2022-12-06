@@ -13,6 +13,10 @@
         </div>
       {% endif %}
       <form method="POST" action=".">
+        <div>
+          <img src="{% static "img/Clinix_Logo.png" %}">
+        
+        </div>
         {% csrf_token %}
         {% for field in form %}
           <label for="{{ field.auto_id }}">
@@ -26,8 +30,6 @@
         <button type="submit">Login</button>
       </form>
     </div>
-    <div>
-      <img src="{% static "images/sea-login.png" %}">
-    </div>
+
   </article>
 {% endblock %}

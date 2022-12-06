@@ -12,8 +12,11 @@ from django.utils.http import urlencode
 from getmac import get_mac_address as gma
 from uuid import uuid4
 from vouchers.forms import ActivationForm
+from vouchers.mixins import OrganisorAndLoginRequiredMixin
 
 # Create your views here.
+
+
 
 def test(request):
     posts = Post.objects.all()
@@ -478,7 +481,7 @@ def allposts(request):
     return render(request, 'post_list.html', context)
 
 
-class ActivationView(CreateView):
+class ActivationView(OrganisorAndLoginRequiredMixin,CreateView):
     template_name = 'activation.html'
     form_class = ActivationForm
     def get_success_url(self):

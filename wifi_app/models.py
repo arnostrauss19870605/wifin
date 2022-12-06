@@ -4,6 +4,7 @@ from django.db import models
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from django.urls import reverse
+
 from django.utils.translation import gettext_lazy as _
 
 
@@ -43,6 +44,8 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
+    site=models.CharField(max_length=40,null=True, blank=True)
+    
   
 
     USERNAME_FIELD = 'email'

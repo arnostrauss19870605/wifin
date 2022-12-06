@@ -1,12 +1,12 @@
 
 from django.contrib import admin
 
-from import_export.admin import ExportActionMixin
+from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from .models import  Category, Post
-from vouchers.models import Voucher,Location,Activation
+from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
 from django.utils.translation import gettext_lazy as _
@@ -21,7 +21,7 @@ class UserAdmin(DjangoUserAdmin):
     """Define admin model for custom User model with no email field."""
 
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
+        (None, {'fields': ('email', 'password','site')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
@@ -38,7 +38,7 @@ class UserAdmin(DjangoUserAdmin):
     ordering = ('email',)
 
 admin.site.register(Category)
-admin.site.register(Voucher)
+admin.site.register(VoucherType)
 admin.site.register(Activation)
 admin.site.register(Location)
 
@@ -48,11 +48,28 @@ class LogResource(resources.ModelResource):
     class Meta:
         model = Log
 
+class VoucherResource(resources.ModelResource):
+
+    class Meta:
+        model = Voucher
+
 class LogAdmin(ExportActionMixin, admin.ModelAdmin):
     
-    list_filter = ('utm_1', 'utm_2', 'utm_3' , 'page', 'timestamp')
+    list_filter = ( 'utm_1', 'utm_2', 'utm_3' , 'page', 'timestamp')
     resource_classes = [LogResource]
+
+class VoucherAdmin(ExportActionMixin, admin.ModelAdmin):
+       
+    list_filter = ('company_name', 'voucher_type', 'sell_price' , 'card_code', 'language', 'hs_domian_data_id')
+    resource_classes = [VoucherResource]
 
 admin.site.register(Log, LogAdmin)
 
+
 admin.site.register(Post,MarkdownxModelAdmin)
+
+
+@admin.register(Voucher)
+class PersonAdmin(ImportExportModelAdmin):
+    
+    pass

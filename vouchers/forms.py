@@ -12,6 +12,6 @@ class ActivationForm(forms.ModelForm):
  
    class Meta:
       model=Activation
-      fields=('location','cell_number')
+      fields=('voucher_type','cell_number',)
 
       
