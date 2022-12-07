@@ -12,12 +12,23 @@
           {% endfor %}
         </div>
       {% endif %}
+
+     
       <form method="POST" >
         <div>
           <img src="{% static "img/Clinix_Logo.png" %}">
         </div>
         {% csrf_token %}
         {{ form|crispy }}
+
+        {% if messages %}
+        {% for message in messages %}
+            <div class="text-center alert alert-{{ message.tags }}">
+                {{ message|safe }}
+              
+            </div>
+        {% endfor %}
+        {% endif %}
 
         <button type="submit">Issue Voucher</button>
      

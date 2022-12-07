@@ -13,6 +13,9 @@ from getmac import get_mac_address as gma
 from uuid import uuid4
 from vouchers.forms import ActivationForm
 from vouchers.mixins import OrganisorAndLoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -481,8 +484,12 @@ def allposts(request):
     return render(request, 'post_list.html', context)
 
 
-class ActivationView(OrganisorAndLoginRequiredMixin,CreateView):
+class ActivationView(SuccessMessageMixin,OrganisorAndLoginRequiredMixin,CreateView):
     template_name = 'activation.html'
     form_class = ActivationForm
-    def get_success_url(self):
-        return reverse('activation')
+    success_message = "%(voucher_type)s voucher issued to %(cell_number)s  successfully"
+    success_url = reverse_lazy('activation')
+    
+    
+    #def get_success_url(self):
+    #        return reverse('activation')
