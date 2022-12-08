@@ -40,6 +40,8 @@ class Location(models.Model):
    
 class Activation(models.Model):
     location = models.CharField(max_length=200,  null=True,  blank=True)
+    voucher_nr = models.CharField(max_length=200,  null=True,  blank=True)
+    user = models.CharField(max_length=200,  null=True,  blank=True)
     voucher_type = models.ForeignKey(VoucherType, on_delete=models.SET_NULL, null=True,  blank=True,verbose_name = "Voucher Type")
     cell_number = models.CharField(max_length=10,validators=[validate_length])
     date_sent = models.DateTimeField(null=True, blank=True, verbose_name = "Date Activated")
@@ -64,6 +66,8 @@ class Activation(models.Model):
         obj_1 = CustomUser.objects.get(pk=user_pk)
 
         self.location = obj_1.site
+        self.voucher_nr = the_voucher
+        self.user = user_pk
 
         if self.date_sent is None:
             self.date_sent = timezone.localtime(timezone.now())
