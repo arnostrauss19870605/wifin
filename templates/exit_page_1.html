@@ -21,6 +21,7 @@
     </script>
     
     <script>
+      const utm_source = urlParams.get('utm_source')
    
       window.googletag = window.googletag || {cmd: []};
   
@@ -72,6 +73,7 @@
       googletag.pubads().enableSingleRequest();
       googletag.pubads().collapseEmptyDivs();
       googletag.pubads().setCentering(true);
+      googletag.pubads().setTargeting('Traffic_Source', [utm_source]);
       googletag.enableServices();
       });
   
