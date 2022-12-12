@@ -58,6 +58,8 @@
         
         async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
         <script>
+		const queryValues = window.location.search;
+		const urlParams = new URLSearchParams(queryValues);
 		const utm_source = urlParams.get('utm_source')
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {

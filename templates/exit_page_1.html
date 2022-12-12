@@ -21,7 +21,10 @@
     </script>
     
     <script>
+      const queryValues = window.location.search;
+      const urlParams = new URLSearchParams(queryValues);
       const utm_source = urlParams.get('utm_source')
+     
    
       window.googletag = window.googletag || {cmd: []};
   
@@ -77,6 +80,7 @@
       googletag.enableServices();
       });
   
+     
       </script>
 
     <!-- Google tag (gtag.js) -->
