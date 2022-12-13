@@ -24,6 +24,10 @@
     <script>
    
       window.googletag = window.googletag || {cmd: []};
+
+      const queryValues = window.location.search;
+		  const urlParams = new URLSearchParams(queryValues);
+		  const utm_source_value = urlParams.get('utm_source')
   
       // GPT ad slots
       var interstitialSlot, staticSlot;
@@ -73,7 +77,9 @@
       googletag.pubads().enableSingleRequest();
       googletag.pubads().collapseEmptyDivs();
       googletag.pubads().setCentering(true);
+      googletag.pubads().setTargeting('Traffic_Source', [utm_source_value]);
       googletag.enableServices();
+  console.log("The UTM Source value is : " + [utm_source_value]);
       });
   
       </script>
