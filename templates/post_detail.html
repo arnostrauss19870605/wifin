@@ -49,7 +49,11 @@
         google_adtest = "on";
         async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
         <script>
-        window.googletag = window.googletag || {cmd: []};
+            window.googletag = window.googletag || {cmd: []};
+		
+            const queryValues = window.location.search;
+            const urlParams = new URLSearchParams(queryValues);
+            const utm_medium = urlParams.get('utm_medium')
         googletag.cmd.push(function() {
         var mapping1 = googletag.sizeMapping()
                                 .addSize([1400, 0], [[728, 90]])
@@ -99,10 +103,13 @@
                                 .defineSizeMapping(mapping4)
                                 .addService(googletag.pubads());
 
-        googletag.pubads().enableSingleRequest();
-        googletag.pubads().collapseEmptyDivs();
-        googletag.pubads().setCentering(true);
-        googletag.enableServices();
+   
+                                googletag.pubads().enableSingleRequest();
+                                googletag.pubads().collapseEmptyDivs();
+                                googletag.pubads().setCentering(true);
+                                googletag.pubads().setTargeting('Medium', [utm_medium]);
+                                googletag.enableServices();
+                                console.log("The UTM Medium value is : " + [utm_medium]);
         });
         </script>
         <!-- End GPT Tag -->
