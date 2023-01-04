@@ -64,8 +64,9 @@
 		
 		const queryValues = window.location.search;
 		const urlParams = new URLSearchParams(queryValues);
-		const utm_source_value = urlParams.get('utm_source')
-        googletag.cmd.push(function() {
+		const utm_medium = urlParams.get('utm_medium')
+        
+		googletag.cmd.push(function() {
 			var mapping1 = googletag.sizeMapping()	
 				
 
@@ -121,13 +122,12 @@ var mapping4 = googletag.sizeMapping()
 								.defineSizeMapping(mapping4)
 								.addService(googletag.pubads());
 		
-
         googletag.pubads().enableSingleRequest();
         googletag.pubads().collapseEmptyDivs();
         googletag.pubads().setCentering(true);
-		googletag.pubads().setTargeting('Traffic_Source', [utm_source_value]);
+		googletag.pubads().setTargeting('Traffic_Source', [utm_medium]);
         googletag.enableServices();
-		console.log("The UTM Source value is : " + [utm_source_value]);
+		console.log("The UTM Source value is : " + [utm_medium]);
         });
         </script>
         <!-- End GPT Tag -->
