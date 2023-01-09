@@ -86,4 +86,34 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post', args=[str(self.slug)])
+
+
+# post model
+class Topic(models.Model):
+       
+    # added after get_absolute_url function
+    # to get comment with parent is none and active is true, we can use this in template
+    def get_comments(self):
+        return self.comments.filter(parent=None).filter(active=True)
+
+# comment model    
+class Comment(models.Model):
+    topic=models.ForeignKey(Topic,on_delete=models.CASCADE, related_name="comments")
+    name=models.CharField(max_length=50)
+    email=models.EmailField()
+    parent=models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
+    body = models.TextField()
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)
+    
+    def __str__(self):
+        return self.body
+
+    def get_comments(self):
+        return Comment.objects.filter(parent=self).filter(active=True)
     

@@ -111,21 +111,33 @@ var mapping4 = googletag.sizeMapping()
 
 					   googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,100],[300,250],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-1')
 								.defineSizeMapping(mapping1)
-								.addService(googletag.pubads());
+								.addService(googletag.pubads())
+								.setTargeting('Medium', [utm_medium]);
 					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,250],[300,600],'fluid',[468,60],[728,90],[320,100]], 'div-gpt-ad-8904840-2')
 								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads());
+								.addService(googletag.pubads())
+								.setTargeting('Medium', [utm_medium]);
 					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[300,250],[300,600],[320,100],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-3')
 								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads());
+								.addService(googletag.pubads())
+								.setTargeting('Medium', [utm_medium]);
 					   googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-4')
 								.defineSizeMapping(mapping4)
-								.addService(googletag.pubads());
+								.addService(googletag.pubads())
+								.setTargeting('Medium', [utm_medium]);
 		
+
+		      
+    // Configure page-level targeting.	
+		googletag.pubads().setTargeting('Medium', [utm_medium]);
+  	
+	
+
+  
+	// Enable SRA and services.						
         googletag.pubads().enableSingleRequest();
         googletag.pubads().collapseEmptyDivs();
         googletag.pubads().setCentering(true);
-		googletag.pubads().setTargeting('Medium', [utm_medium]);
         googletag.enableServices();
 		console.log("The UTM Medium value is : " + [utm_medium]);
         });
