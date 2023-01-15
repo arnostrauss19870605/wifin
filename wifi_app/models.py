@@ -8,7 +8,6 @@ import datetime
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from vouchers.sms import send_my_notification_sms
-import uuid
 from django.utils.translation import gettext_lazy as _
 
 
@@ -166,12 +165,7 @@ class Comment(models.Model):
               
             super(Comment, self).save(*args, **kw)
         except :
-            obj = Comment.objects.get(pk=self.parent_id)
-            the_parent_cell_number = obj.cell_number
-            parent_notification = obj.notify
-            the_date_created = obj.created
-            future_date = the_date_created + datetime.timedelta(days=7)          
-            print('The Time 2 :',future_date)
+            
 
             super(Comment, self).save(*args, **kw)
 
