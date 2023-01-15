@@ -59,9 +59,15 @@ urlpatterns = [
     path('about/', about,name = 'about' ),
     path('posts/', allposts, name = 'allposts'),
 
+    path('topics/',topic_list,name="topic_list"),
+    path('topics/<slug>',topic_detail,name="topic"),
+    path('topics/comment/reply/', reply_page, name="reply"),
+
     path('sitemap.xml', sitemap, # new
         {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.65)}},
         name='django.contrib.sitemaps.views.sitemap'),
+
+
 ]
 
 if settings.DEBUG:

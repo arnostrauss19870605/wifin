@@ -22,3 +22,20 @@ def send_my_sms(cell_number,token):
         raise e
 
 
+def send_my_notification_sms(cell_number):
+    account_sid = 'AC190616ccaefefa6265e93ab4926aad21'
+    auth_token = 'bcccfdb22d4e60c3a0c3f2c245090064'
+    cell_number = cell_number
+    client = Client(account_sid, auth_token)
+
+    try :
+        message = client.messages \
+                .create(
+                     body="Hey, someone has commeted on your recent post on WiFi News.Visit www.wifinews.co.za to view and respond.", 
+                     from_='+12082955054',
+                     to='+27' + cell_number[1:10]
+                 )
+    except Exception as e:
+        raise e
+
+

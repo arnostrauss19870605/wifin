@@ -1,11 +1,10 @@
-from django.shortcuts import render
 from urllib import request
 from django.views.generic import TemplateView, ListView, DetailView, CreateView , UpdateView,FormView,DeleteView,View
 from django.shortcuts import render,redirect, reverse,get_object_or_404
 from django.urls import NoReverseMatch, reverse_lazy
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.http import HttpResponseRedirect
-from .forms import LoginForm
+from .forms import LoginForm,CommentForm
 from .models import *
 from data.models import *
 from django.utils.http import urlencode
@@ -483,13 +482,59 @@ def allposts(request):
     }
     return render(request, 'post_list.html', context)
 
-
 class ActivationView(SuccessMessageMixin,OrganisorAndLoginRequiredMixin,CreateView):
     template_name = 'activation.html'
     form_class = ActivationForm
     success_message = "%(voucher_type)s voucher issued to %(cell_number)s  successfully"
     success_url = reverse_lazy('activation')
     
+def topic_list(request):
+         
+    topics = Topic.objects.all()
+
+    context = {
+        'topics': topics,
+      
+    }
+    return render(request, 'topic_list.html', context)
+
+def topic_detail(request, slug):
+    topic=get_object_or_404(Topic,slug=slug)
+    #topic = Topic.objects.get(slug=slug)
+    # List of active comments for this post
+    comments = topic.comments.filter(active=True)
+    new_comment = None
+    comment_form = CommentForm(data=request.POST)
     
-    #def get_success_url(self):
-    #        return reverse('activation')
+    if request.method == 'POST':
+        # A comment was posted
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.topic = topic
+            # Save the comment to the database
+            new_comment.save()
+            # redirect to same page and focus on that comment
+            return redirect(topic.get_absolute_url()+'#'+str(new_comment.id))
+        else:
+            comment_form = CommentForm()
+
+    return render(request, 'topic_detail.html',{'topic':topic,'comments': comments,'comment_form':comment_form})
+
+# handling reply, reply view
+def reply_page(request):
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            topic_id = request.POST.get('topic_id')  # from hidden input
+            parent_id = request.POST.get('parent')  # from hidden input
+            topic_url = request.POST.get('topic_url')  # from hidden input
+            reply = form.save(commit=False)
+    
+            reply.topic = Topic(id=topic_id)
+            reply.parent = Comment(id=parent_id)
+            reply.save()
+            return redirect(topic_url+'#'+str(reply.id))
+    return redirect("/")

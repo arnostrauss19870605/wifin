@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post
+from .models import  Category, Post, Topic, Comment
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -73,3 +73,20 @@ admin.site.register(Post,MarkdownxModelAdmin)
 class PersonAdmin(ImportExportModelAdmin):
     
     pass
+
+@admin.register(Topic)
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ('title','slug','author','publish','status')
+    list_filter = ('status','created','publish','author')
+    search_fields = ('title','body')
+    prepopulated_fields = {'slug':('title',)}
+    raw_if_fields = ('author')
+    date_hierarchy = ('publish')
+    ordering = ('status','publish')
+  
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display=('name', 'email', 'topic', 'created', 'active')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('name', 'email', 'body')
