@@ -4,10 +4,11 @@ from django.db import models
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from django.urls import reverse
+import datetime
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from vouchers.sms import send_my_notification_sms
-
+import uuid
 from django.utils.translation import gettext_lazy as _
 
 
@@ -133,12 +134,13 @@ class Comment(models.Model):
     email=models.EmailField()
     cell_number = models.CharField(max_length=10,validators=[validate_length])
     parent=models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(max_length=350)
     
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
     notify = models.BooleanField(default=False)
+ 
 
     class Meta:
         ordering = ('created',)
@@ -154,12 +156,23 @@ class Comment(models.Model):
         try : 
             obj = Comment.objects.get(pk=self.parent_id)
             the_parent_cell_number = obj.cell_number
-            send_my_notification_sms(the_parent_cell_number)
+            parent_notification = obj.notify
+            the_date_created = obj.created
+            future_date = the_date_created + datetime.timedelta(days=7)
+            if parent_notification == True  : 
+                send_my_notification_sms(the_parent_cell_number,self.parent_id)
+                print('The Time',future_date)
 
               
             super(Comment, self).save(*args, **kw)
         except :
-                      
+            obj = Comment.objects.get(pk=self.parent_id)
+            the_parent_cell_number = obj.cell_number
+            parent_notification = obj.notify
+            the_date_created = obj.created
+            future_date = the_date_created + datetime.timedelta(days=7)          
+            print('The Time 2 :',future_date)
 
             super(Comment, self).save(*args, **kw)
+
   

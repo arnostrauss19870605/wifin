@@ -1,0 +1,346 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+	  <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <title>Wifi News</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-touch-fullscreen" content="yes">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- Bootstrap v4.3.1 CSS -->
+      <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+  
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+      <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+      
+      <!-- Slick CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+    
+      <!-- Font Awesome Free 5.10.2 CSS JS -->
+      <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+    <!--  Custom JS -->
+	<script src="{% static 'js/custom.js'  %}" ></script>
+
+
+
+         <!-- Google Tag Manager -->
+            <script>
+                google_adtest = "on";
+                (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Start GPT Tag -->
+        <script
+        google_adtest = "on";
+        async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+        <script>
+            window.googletag = window.googletag || {cmd: []};
+		
+            const queryValues = window.location.search;
+            const urlParams = new URLSearchParams(queryValues);
+            const utm_medium = urlParams.get('utm_medium')
+        googletag.cmd.push(function() {
+        var mapping1 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[728, 90]])
+                                .addSize([1200, 0], [[728, 90]])
+                                .addSize([1000, 0], [[728, 90]])
+                                .addSize([700, 0], [[468, 60]])
+                                .addSize([600, 0], [[468, 60]])
+                                .addSize([300, 0], [[320, 50], [300, 250]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        var mapping2 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[320, 480]])
+                                .addSize([1200, 0], [[320, 480]])
+                                .addSize([1000, 0], [[320, 480]])
+                                .addSize([700, 0], [[320, 480]])
+                                .addSize([600, 0], [[320, 480]])
+                                .addSize([300, 0], [[320, 480]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        var mapping3 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[300, 250], [300, 600], [728, 90]])
+                                .addSize([1200, 0], [[728, 90], [300, 250], [300, 600]])
+                                .addSize([1000, 0], [[728, 90], [300, 250], [300, 600]])
+                                .addSize([700, 0], [[468, 60], [300, 250], [300, 600]])
+                                .addSize([600, 0], [[468, 60], [300, 250], [300, 600]])
+                                .addSize([300, 0], [[320, 50], [300, 250], [300, 600]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+        var mapping4 = googletag.sizeMapping()
+                                .addSize([1400, 0], [[728, 90]])
+                                .addSize([1200, 0], [[728, 90]])
+                                .addSize([1000, 0], [[728, 90]])
+                                .addSize([700, 0], [[468, 60]])
+                                .addSize([600, 0], [[468, 60]])
+                                .addSize([300, 0], [[320, 50]])
+                                .addSize([0, 0], [[0, 0]])
+                                .build();
+
+                       googletag.defineSlot('/22047902240/wifinews/articles_top_leaderboard', [[300,250],[728,90],'fluid',[468,60],[320,50],[320,100]], 'div-gpt-ad-9873906-1')
+                                .defineSizeMapping(mapping1)
+                                .addService(googletag.pubads())
+                                .setTargeting('Medium', [utm_medium]);
+                
+                       googletag.defineSlot('/22047902240/articles_sticky', ['fluid',[320,50],[468,60],[728,90]], 'div-gpt-ad-9873906-4')
+                                .defineSizeMapping(mapping4)
+                                .addService(googletag.pubads())
+                                .setTargeting('Medium', [utm_medium]);
+
+   
+                                googletag.pubads().enableSingleRequest();
+                                googletag.pubads().collapseEmptyDivs();
+                                googletag.pubads().setCentering(true);
+                                googletag.pubads().setTargeting('Medium', [utm_medium]);
+                                googletag.enableServices();
+                                console.log("The UTM Medium value is : " + [utm_medium]);
+        });
+        </script>
+        <!-- End GPT Tag -->
+
+		<style>
+			.red_button {
+				background-color: #2450a6;
+				border: white;
+				color: white;
+				padding: 25px 5px 5px 5px ;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 10px;
+				border-style: dotted;
+				
+				border-radius: 80%;
+				margin-top : 10px;
+				margin-bottom : 5%;
+				height:70px;
+				width:70px;
+
+			}
+				
+			
+		</style>	
+
+	
+    </head>
+	<body class="default">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLVN345" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+		
+		<!-- Preloading -->
+		<div class="preloading">
+			<div class="wrap-preload">
+				<div class="cssload-loader"></div>
+			</div>
+		</div>
+		<!-- .Preloading -->
+		<!-- Sidebar left -->
+		<nav id="sidebarleft" class="sidenav">
+			<div id="dismiss">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class="sidebar-header">
+				<h3>Account</h3>
+			</div>
+			
+			<ul class="list-unstyled components">
+				<li>
+					<a href={% url 'login' %}><i class="fas fa-home"></i>Home</a>
+				</li>
+				
+					
+				</ul>
+			</nav>
+			<!-- .Sidebar left -->
+			<!-- Sidebar right -->
+			<nav id="sidebarright" class="sidenav">
+				<div id="dismiss">
+					<i class="fas fa-times"></i>
+				</div>
+				<div class="sidebar-header">
+					<h3>Latest News</h3>
+				</div>
+				
+				{% for latest in latest %}
+				<ul class="right-menu">
+					
+					<li class="right-menu-item">
+						<a href="{% url 'post' latest.slug %}">
+							<span> <i class="fas fa-envelope"></i> <br> </span>
+							<div class="ntitle"> {{ latest.title }}</div>
+							<div class="desc">{{ latest.overview }}</div>
+						</a>
+					</li>
+				{% endfor %}					
+				</ul>
+			</nav>
+			<!-- .Sidebar right-->
+			<!-- Header  -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-header">
+				<div class="container-fluid">
+					<button type="button" id="sidebarleftbutton" class="btn">
+					<i class="fas fa-align-left"></i>
+					</button>
+					<div class="logo">Wifi News</div>
+					<button type="button" id="sidebarrightbutton" class="btn">
+					<div class="notif">
+						<i class="fas fa-bell"></i>
+						<i class="fas fa-circle "></i>
+					</div>
+					</button>
+				</div>
+			</nav>
+			<!-- .Header  -->
+			<!-- Content  -->
+
+            <div class="img-hero">
+				<div>
+					
+					<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+					<div id='div-gpt-ad-9873906-1' style="margin-top: 20px; margin-bottom: 20px;">
+						<script>
+							googletag.cmd.push(function() { googletag.display('div-gpt-ad-9873906-1'); });
+						</script>
+					</div>
+						<!-- End AdSlot 2 -->
+				</div>
+				
+			</div>	
+
+        
+     
+	
+					<!-- .slider -->
+					
+					<!-- section 1 -->
+					
+<!--Container-->
+
+
+    
+
+   
+
+
+
+    <hr/>
+        
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Opt Out</button>
+        </form>
+
+    
+    
+
+    <!--Divider-->
+    <hr class="border-b-2 border-gray-400 mb-8 mx-4">
+
+    <div id="taboola-below-article-thumbnails-1"></div>
+
+</div>
+<!--/container-->
+
+	<!-- STICKY -->
+			
+
+    <div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 0;">
+				  
+        <!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
+        <div id='div-gpt-ad-9873906-4' style="margin-bottom: 5px;">
+            <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-9873906-4'); });
+            </script>
+        </div>
+    </div>
+
+    <!-- END STICKY -->
+                
+
+
+
+			<!-- .Content  -->
+			
+			
+			
+			<form id="redirect" name="redirect" action="" >
+				{% csrf_token %}
+			 
+			</form>
+			
+			<div class="overlay"></div>
+			
+
+			
+
+			<!-- Optional JavaScript -->
+			<!-- jQuery v3.4.1 -->
+			<script src="{% static 'lib/jquery/jquery-3.4.1.min.js'  %}"></script>
+			<!--  Bootstrap v4.3.1 JS -->
+			<script src="{% static 'lib/bootstrap/js/bootstrap.min.js'  %}"></script>
+			<!-- Magnific Popup core JS file -->
+			<script src="{% static 'lib/Magnific-Popup-master/dist/jquery.magnific-popup.js'  %}"></script>
+			<!-- Slick JS -->
+			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
+			<!--  Custom JS -->
+			<script src="{% static 'js/theme.js'  %}" ></script>
+            <!--  Taboola JS  -->
+            <script type="text/javascript">
+                window._taboola = window._taboola || [];
+                _taboola.push({ flush: true });
+            </script>
+
+				
+
+			<script data-cfasync="false" type="text/javascript">
+				function watchVidModal() {
+						document.redirect.action = "interstitial/";
+						document.redirect.submit();
+				}
+		
+			</script>
+
+			<script>
+				window.onscroll = function () { myFunction() };
+				var header = document.getElementById("myHeader");
+				var sticky = header.offsetTop;
+				function myFunction() {
+					if (window.pageYOffset > sticky) {
+						header.classList.add("sticky");
+					} else {
+						header.classList.remove("sticky");
+					}
+				}
+			</script>
+
+			
+		</body>
+	</html>

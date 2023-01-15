@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect, reverse,get_object_or_404
 from django.urls import NoReverseMatch, reverse_lazy
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.http import HttpResponseRedirect
-from .forms import LoginForm,CommentForm
+from .forms import LoginForm,CommentForm,OptOutForm
 from .models import *
 from data.models import *
 from django.utils.http import urlencode
@@ -538,3 +538,34 @@ def reply_page(request):
             reply.save()
             return redirect(topic_url+'#'+str(reply.id))
     return redirect("/")
+
+
+def comment_detail_optout(request, pk):
+  
+    
+    the_comment = Comment.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        # A comment was posted
+        form = OptOutForm(request.POST,instance=the_comment)
+        if form.is_valid():
+            form.save()
+          
+            categories = Category.objects.all()[0:10]
+            featured = Post.objects.filter(featured=True)[0:5]
+            featured_other = Post.objects.filter(featured=True)[6:10]
+            latest = Post.objects.order_by('-timestamp')[0:10]
+            context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+           
+      
+        }
+            #return render(request, "exit_index.html", context)
+            return redirect('exit-index')
+    else:
+        form = OptOutForm(instance=the_comment)
+
+    return render(request, 'comment_detail_oo.html',{'comment':the_comment, 'form':form})

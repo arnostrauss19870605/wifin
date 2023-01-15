@@ -22,7 +22,7 @@ def send_my_sms(cell_number,token):
         raise e
 
 
-def send_my_notification_sms(cell_number):
+def send_my_notification_sms(cell_number,id):
     account_sid = 'AC190616ccaefefa6265e93ab4926aad21'
     auth_token = 'bcccfdb22d4e60c3a0c3f2c245090064'
     cell_number = cell_number
@@ -31,7 +31,7 @@ def send_my_notification_sms(cell_number):
     try :
         message = client.messages \
                 .create(
-                     body="Hey, someone has commeted on your recent post on WiFi News.Visit www.wifinews.co.za to view and respond.", 
+                     body="Hey!, Someone has just commeted on your recent WiFi News post.Visit www.wifinews.co.za to view and respond. If you would like to stop receiving these notifications please follow this link : https://wifinews.co.za/topics/optout/"+ str(id), 
                      from_='+12082955054',
                      to='+27' + cell_number[1:10]
                  )

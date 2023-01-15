@@ -6,7 +6,7 @@
 
 <div class="border-0 border-start border-2 ps-2" id="{{comment.id}}">
 
-    <div class="mt-3">
+    <div class="mt-3 ">
         <strong>{{comment.name}}</strong> 
         {% if  comment.parent.name%} to <strong>{{comment.parent.name}}</strong>{% endif %}
         <small class="text-muted">On {{ comment.created.date }}</small>
@@ -19,9 +19,9 @@
         
             <form method="post" action="{% url 'reply' %}" class="mt-3">
                 {% csrf_token %}
-                <input  name="topic_id" value="{{topic.id}}">
-                <input  name="parent" value="{{comment.id}}">
-                <input  name="topic_url" value="{{topic.get_absolute_url}}">
+                <input type="hidden" name="topic_id" value="{{topic.id}}">
+                <input type="hidden" name="parent" value="{{comment.id}}">
+                <input type="hidden" name="topic_url" value="{{topic.get_absolute_url}}">
 
 
                 {{comment_form.as_p}}

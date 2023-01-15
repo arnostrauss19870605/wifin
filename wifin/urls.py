@@ -62,6 +62,7 @@ urlpatterns = [
     path('topics/',topic_list,name="topic_list"),
     path('topics/<slug>',topic_detail,name="topic"),
     path('topics/comment/reply/', reply_page, name="reply"),
+    path('topics/optout/<int:pk>/', comment_detail_optout, name="optout"),
 
     path('sitemap.xml', sitemap, # new
         {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.65)}},
