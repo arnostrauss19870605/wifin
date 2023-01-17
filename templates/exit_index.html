@@ -198,6 +198,50 @@ var mapping4 = googletag.sizeMapping()
 		width:40px;
 
 	}
+
+	ul.timeline {
+		list-style-type: none;
+		position: relative;
+	}
+	ul.timeline:before {
+		content: ' ';
+		background: #2450a6;
+		display: inline-block;
+		position: absolute;
+		left: 29px;
+		width: 2px;
+		height: 100%;
+		z-index: 400;
+	}
+	ul.timeline > li {
+		margin: 20px 0;
+		padding-left: 20px;
+	}
+	ul.timeline > li:before {
+		content: ' ';
+		background: white;
+		display: inline-block;
+		position: absolute;
+		border-radius: 50%;
+		border: 3px solid #FF4644;
+		left: 20px;
+		width: 20px;
+		height: 20px;
+		z-index: 400;
+	}
+
+	
+	.text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3; /* number of lines to show */
+				line-clamp: 3; 
+		-webkit-box-orient: vertical;
+	 }
+		
+
+	
 		
 	
 </style>
@@ -239,40 +283,18 @@ var mapping4 = googletag.sizeMapping()
 			
 			<ul class="list-unstyled components">
 				<li>
-					<a href={% url 'login' %}><i class="fas fa-home"></i>Home</a>
+					<a href={% url 'login' %}><i class="fas fa-home" style="color:#FF4644"></i>Home</a>
 				</li>
 				
 					<li>
-						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
+						<a href={% url 'topic_list' %}><i class="fas fa-star" style="color:#FF4644"></i>Topics for Discussion</a>
 					</li>
 			
 					
 					</ul>
 			</nav>
 			<!-- .Sidebar left -->
-			<!-- Sidebar right -->
-			<nav id="sidebarright" class="sidenav">
-				<div id="dismiss">
-					<i class="fas fa-times"></i>
-				</div>
-				<div class="sidebar-header">
-					<h3>Latest News</h3>
-				</div>
-				
-				{% for latest in latest %}
-				<ul class="right-menu">
-					
-					<li class="right-menu-item">
-						<a href="{% url 'post' latest.slug %}">
-							<span> <i class="fas fa-envelope"></i> <br> </span>
-							<div class="ntitle"> {{ latest.title }}</div>
-							<div class="desc">{{ latest.overview }}</div>
-						</a>
-					</li>
-				{% endfor %}					
-				</ul>
-			</nav>
-			<!-- .Sidebar right-->
+
 			<!-- Header  -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-header">
 				<div class="container-fluid">
@@ -280,17 +302,12 @@ var mapping4 = googletag.sizeMapping()
 					<i class="fas fa-align-left"></i>
 					</button>
 					<div class="logo">Wifi News</div>
-					<button type="button" id="sidebarrightbutton" class="btn">
-					<div class="notif">
-						<i class="fas fa-bell"></i>
-						<i class="fas fa-circle "></i>
-					</div>
-					</button>
+			
 				</div>
 			</nav>
 			<!-- .Header  -->
 			<!-- Content  -->
-			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #D2509B;background-color: #D2509B;color:#386FB3">
+			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 0%; text-align: center;">
 				
 			</div>
 	                  
@@ -328,6 +345,44 @@ var mapping4 = googletag.sizeMapping()
 					</div>
 					
 					<!-- .section 1 -->
+
+					<!-- section 2 -->
+					<div class="heading-section">
+						<div class="sa-title popcat">Have Your Say! </div>
+						<div class="heading-info">
+							With all the happenings in out country, good and bad, we have created a forum where you can have your say and discuss these matters with others in your comunity in an open public form.
+						</div>
+						<div class="clear"></div>
+					</div>
+
+				<div class="content-wrap" >
+					<div onclick="location.href={% url 'topic_list' %};" style="cursor: pointer;">
+						<div class="container mt-5 mb-5">
+							<div class="row">
+								<div class="col-md-6 offset-md-3">
+									<h4 style="color:#FF4644">Latest Topics</h4>
+									<ul class="timeline">
+										{% for topics in topics %}
+										<li>
+											<a> {{ topics.title }}</a>
+											<a href="#" class="float-right">{{ topic.updated}}</a>
+											<p class="text"> {{ topics.body }} 	</p>
+										</li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				
+
+
+
+
+
+
 
 					<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
 					<div class="content-wrap">
@@ -609,19 +664,6 @@ var mapping4 = googletag.sizeMapping()
 		
 			</script>
 				-->
-
-			<script>
-				window.onscroll = function () { myFunction() };
-				var header = document.getElementById("myHeader");
-				var sticky = header.offsetTop;
-				function myFunction() {
-					if (window.pageYOffset > sticky) {
-						header.classList.add("sticky");
-					} else {
-						header.classList.remove("sticky");
-					}
-				}
-			</script>
 
 			
 		</body>

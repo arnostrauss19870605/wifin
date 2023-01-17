@@ -18,6 +18,7 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
       <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
       
       <!-- Slick CSS -->
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
@@ -30,100 +31,115 @@
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
 
-
-         <!-- Google Tag Manager -->
-            <script>
-                google_adtest = "on";
-                (function (w, d, s, l, i) {
-                w[l] = w[l] || []; w[l].push({
-                    'gtm.start':
-                        new Date().getTime(), event: 'gtm.js'
-                }); var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-PLVN345');</script>
-        <!-- End Google Tag Manager -->
-
+    <!--  Custom JS -->
+	<script src="{% static 'js/custom.js'  %}" ></script>
+	
+   
         <!-- Start GPT Tag -->
-        <script
-        google_adtest = "on";
-        async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+        <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'>
+	
+		</script>
+
+
         <script>
-			window.googletag = window.googletag || {cmd: []};
+        
+		window.googletag = window.googletag || {cmd: []};
 		
-			const queryValues = window.location.search;
-			const urlParams = new URLSearchParams(queryValues);
-			const utm_medium = urlParams.get('utm_medium')
+		const queryValues = window.location.search;
+		const urlParams = new URLSearchParams(queryValues);
+		const utm_medium = urlParams.get('utm_medium')
 
 
         googletag.cmd.push(function() {
-			var mapping1 = googletag.sizeMapping()
-			.addSize([1400, 0], [[728, 90], 'fluid'])
-			.addSize([1200, 0], [[728, 90], 'fluid'])
-			.addSize([1000, 0], [[728, 90], 'fluid'])
-			.addSize([700, 0], [[468, 60], 'fluid'])
-			.addSize([600, 0], [[468, 60], 'fluid'])
-			.addSize([300, 0], [[320, 50], [300, 100], [300, 250], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
+            var mapping1 = googletag.sizeMapping()
+                            .addSize([1400, 0], [[728, 90], 'fluid'])
+                            .addSize([1200, 0], [[728, 90], 'fluid'])
+                            .addSize([1000, 0], [[728, 90], 'fluid'])
+                            .addSize([700, 0], [[468, 60], 'fluid'])
+                            .addSize([600, 0], [[468, 60], 'fluid'])
+                            .addSize([300, 0], [[320, 50], [300, 100], [300, 250], 'fluid'])
+                            .addSize([0, 0], [[0, 0]])
+                            .build();
 
-var mapping2 = googletag.sizeMapping()
-			.addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
+			var mapping2 = googletag.sizeMapping()
+									.addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+									.addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+									.addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+									.addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+									.addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+									.addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
+									.addSize([0, 0], [[0, 0]])
+									.build();
 
-var mapping3 = googletag.sizeMapping()
-			.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
-			.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-			.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-			.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-			.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-			.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
+			var mapping3 = googletag.sizeMapping()
+									.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
+									.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
+									.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
+									.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
+									.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
+									.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
+									.addSize([0, 0], [[0, 0]])
+									.build();
 
-var mapping4 = googletag.sizeMapping()
-			.addSize([1400, 0], [[728, 90], 'fluid'])
-			.addSize([1200, 0], [[728, 90], 'fluid'])
-			.addSize([1000, 0], [[728, 90], 'fluid'])
-			.addSize([700, 0], [[468, 60], 'fluid'])
-			.addSize([600, 0], [[468, 60], 'fluid'])
-			.addSize([300, 0], [[320, 50], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
-
-					  googletag.defineSlot('/22047902240/wifinews/articles_top_leaderboard', [[300,250],[728,90],'fluid',[468,60],[320,50],[320,100]], 'div-gpt-ad-9873906-1')
+			var mapping4 = googletag.sizeMapping()
+									.addSize([1400, 0], [[728, 90], 'fluid'])
+									.addSize([1200, 0], [[728, 90], 'fluid'])
+									.addSize([1000, 0], [[728, 90], 'fluid'])
+									.addSize([700, 0], [[468, 60], 'fluid'])
+									.addSize([600, 0], [[468, 60], 'fluid'])
+									.addSize([300, 0], [[320, 50], 'fluid'])
+									.addSize([0, 0], [[0, 0]])
+									.build();
+   // Configure slot-level targeting.
+					   googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,100],[300,250],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-1')
 								.defineSizeMapping(mapping1)
 								.addService(googletag.pubads())
 								.setTargeting('Medium', [utm_medium]);
-					   googletag.defineSlot('/22047902240/wifinews/articles_mpu_hpa', [[300,250],[320,50],[320,100],'fluid',[300,600],[468,60],[728,90]], 'div-gpt-ad-9873906-2')
+					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,250],[300,600],[468,60],[728,90],[320,100],'fluid'],'div-gpt-ad-8904840-2')
 								.defineSizeMapping(mapping3)
 								.addService(googletag.pubads())
 								.setTargeting('Medium', [utm_medium]);
-					  
-					   googletag.defineSlot('/22047902240/articles_sticky', ['fluid',[320,50],[468,60],[728,90]], 'div-gpt-ad-9873906-4')
+					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[300,250],[300,600],[320,100],[468,60],[728,90],'fluid'],  'div-gpt-ad-8904840-3')
+								.defineSizeMapping(mapping3)
+								.addService(googletag.pubads())
+								.setTargeting('Medium', [utm_medium]);
+					   googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[468,60],[728,90],'fluid'],'div-gpt-ad-8904840-4')
 								.defineSizeMapping(mapping4)
 								.addService(googletag.pubads())
 								.setTargeting('Medium', [utm_medium]);
-  
+
+
+	  // Configure page-level targeting.	
+		googletag.pubads().setTargeting('Medium', [utm_medium]);
+  	
+		// Enable SRA and services.
 		googletag.pubads().enableSingleRequest();
 		googletag.pubads().collapseEmptyDivs();
 		googletag.pubads().setCentering(true);
-		googletag.pubads().setTargeting('Medium', [utm_medium]);
+		
 		googletag.enableServices();
 		console.log("The UTM Medium value is : " + [utm_medium]);
+
+
         });
         </script>
         <!-- End GPT Tag -->
 
+		<!-- Google tag (gtag.js) -->
+			 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154258676-1"></script>
+			 <script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+		
+				gtag('config', 'UA-154258676-1');
+			 </script>
+		<!-- Google tag (gtag.js) -->
+
+		
 		<style>
 			.red_button {
-				background-color: #2450a6;
+				background-color: #D2509B;
 				border: white;
 				color: white;
 				padding: 25px 5px 5px 5px ;
@@ -132,188 +148,222 @@ var mapping4 = googletag.sizeMapping()
 				display: inline-block;
 				font-size: 10px;
 				border-style: dotted;
-				
 				border-radius: 80%;
 				margin-top : 10px;
 				margin-bottom : 5%;
-				height:70px;
-				width:70px;
+				height:40px;
+				width:40px;
 
 			}
+
+			.text {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 3; /* number of lines to show */
+						line-clamp: 3; 
+				-webkit-box-orient: vertical;
+			 }
 				
 			
-		</style>	
+		</style>
+	
 
+		<script data-cfasync="false" type="text/javascript">
+			function nextPage() {
+					const queryString = window.location.search;
+					window.location.assign("/interstitial/" + queryString ); 
+			}
+		  
+		  </script> 
+
+		  <script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({article:'auto'});
+			!function (e, f, u, i) {
+			  if (!document.getElementById(i)){
+				e.async = 1;
+				e.src = u;
+				e.id = i;
+				f.parentNode.insertBefore(e, f);
+			  }
+			}(document.createElement('script'),
+			document.getElementsByTagName('script')[0],
+			'//cdn.taboola.com/libtrc/wifinewswifinews/loader.js',
+			'tb_loader_script');
+			if(window.performance && typeof window.performance.mark == 'function')
+			  {window.performance.mark('tbl_ic');}
+		  </script>
+		
+	
 	
     </head>
 	<body class="default">
-    <!-- Google Tag Manager (noscript) -->
-   
-    <!-- End Google Tag Manager (noscript) -->
+	
 
 		
-		<!-- Preloading -->
-		<div class="preloading">
-			<div class="wrap-preload">
-				<div class="cssload-loader"></div>
-			</div>
-		</div>
-		<!-- .Preloading -->
-		<!-- Sidebar left -->
+	
+			<!-- Sidebar left -->
 		<nav id="sidebarleft" class="sidenav">
 			<div id="dismiss">
 				<i class="fas fa-times"></i>
 			</div>
 			<div class="sidebar-header">
-				<h3>Account</h3>
+				<h3> </h3>
 			</div>
 			
 			<ul class="list-unstyled components">
 				<li>
-					<a href={% url 'login' %}><i class="fas fa-home"></i>Home</a>
+					<a href={% url 'login' %}><i class="fas fa-home" style="color:#FF4644"></i>Home</a>
 				</li>
 				
 					<li>
-						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
+						<a href={% url 'topic_list' %}><i class="fas fa-star" style="color:#FF4644"></i>Topics for Discussion</a>
 					</li>
-					<li>
-						<a href="feedback.html"><i class="fas fa-envelope"></i>Feedback</a>
-					</li>
+			
 					
-					<li>
-						<a href="single_page.html"><i class="fas fa-exclamation-circle"></i>About Wifi News</a>
-					</li>
-				</ul>
+					</ul>
 			</nav>
 			<!-- .Sidebar left -->
-			<!-- Sidebar right -->
-			<nav id="sidebarright" class="sidenav">
-				<div id="dismiss">
-					<i class="fas fa-times"></i>
-				</div>
-				<div class="sidebar-header">
-					<h3>Latest News</h3>
-				</div>
-				
-				{% for topic in topics %}
-				<ul class="right-menu">
-					
-					<li class="right-menu-item">
-						<a href="#">
-							<span> <i class="fas fa-envelope"></i> <br> </span>
-							<div class="title"> {{ topic.title }}</div>
-							
-						</a>
-					</li>
-				{% endfor %}					
-				</ul>
-			</nav>
-			<!-- .Sidebar right-->
+			
 			<!-- Header  -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-header">
 				<div class="container-fluid">
 					<button type="button" id="sidebarleftbutton" class="btn">
 					<i class="fas fa-align-left"></i>
 					</button>
-					<div class="logo">Wifi News</div>
-					<button type="button" id="sidebarrightbutton" class="btn">
-					<div class="notif">
-						<i class="fas fa-bell"></i>
-						<i class="fas fa-circle "></i>
-					</div>
+					<div class="logo"  style="padding-top: 0pt;color:#FF4644 ">Wifi News</div>
+					
+				
 					</button>
 				</div>
 			</nav>
 			<!-- .Header  -->
 			<!-- Content  -->
-       
+			
+			                  
      
-			<div class="img-hero">
-				<div>
-					
-					<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-					<div id='div-gpt-ad-9873906-1' style="margin-top: 20px; margin-bottom: 20px;">
-						<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-9873906-1'); });
-						</script>
-					</div>
-						<!-- End AdSlot 2 -->
-				</div>
+			<div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
 				
-			</div>	
+			
+
+				<div class="content-wrap">
+					<!-- slider -->
+					<div class="img-hero">
+						<div>
+							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
+                            <div id='div-gpt-ad-8904840-1' style="margin-top: 70px; margin-bottom: 20px;">
+                            <script>
+                               
+                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-1'); });
+                            </script>
+                            </div>
+                            <!-- End AdSlot 1 -->
+						</div>
+						
+					</div>
 					<!-- .slider -->
+
+					
+
+					
 					
 					<!-- section 1 -->
+					<div class="heading-section">
+						{% for topics in topics %}
+						<div class="row news-row">
+							<div class="news-card">
+								<a href="{% url 'topic' topics.slug %}">
+										<div class="sa-title popcat" style="color:#FF4644 "> {{ topics.title }} </div>
+
+										<div class="heading-info">
+											<p class="text"> {{ topics.body }} 	</p>
+										</div>
+								</s>
+							</div>
+						</div>
+						<div class="clear"></div>
+						{% endfor %}
+					</div>
 					
-					
-                    <div id="content">
-                        {% for topics in topics %}
-                        <div class="row news-row">
-                            <div class="col-md-12">
-                              <div class="news-card">
-                                <div class="nc-top">
-                                  
-                                    <div class="nc-left">
-                                        <div class="ncl-image">
-                                            
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="nc-right">
-                                        <a href="{% url 'topic' topics.slug %}">
+					<!-- .section 1 -->
+
+					<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+					<div class="content-wrap">
+						<!-- slider -->
+						<div class="img-hero">
+							<div>
+								
+								<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
+								<div id='div-gpt-ad-8904840-3' style="margin-top: 20px; margin-bottom: 20px;">
 									
-                                        <div class="ncr-row-a">
-                                            {{ topics.title }}
-                                        </div>
-                                    </s>
-                                  
-                                  
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-            
+								<script>
+								   
+									googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-3'); });
+								</script>
+								
+							</div>
+								<!-- End AdSlot 3 -->
+							</div>
+							
+						</div>
+          		
 					
+		<!-- section 3 -->
+				
+		<div class="heading-section" style="margin-bottom: 90px;">
+			<div class="sa-title popcat">Popular Reading</div>
+			<div class="heading-info">
+				
+				<div id="taboola-below-article-thumbnails-1"></div>
+
+				
+				<div id="taboola-below-article-thumbnails"></div>
+				<script type="text/javascript">
+				  window._taboola = window._taboola || [];
+				  _taboola.push({
+					mode: 'alternating-thumbnails-a',
+					container: 'taboola-below-article-thumbnails',
+					placement: 'Below Article Thumbnails',
+					target_type: 'mix'
+				  });
+				</script>
+			</div>
+		</div>
+		
+
+
+	<!-- .section 3 -->
+					</div>
+					
+				
+					
+					
+									
 					
 				</div>
 			</div>
-			  
-     
-			<div class="img-hero">
-				<div>
-					
-					<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-					<div id='div-gpt-ad-9873906-2' style="margin-top: 20px; margin-bottom: 20px;">
-						<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-9873906-2'); });
-						</script>
-					</div>
-						<!-- End AdSlot 2 -->
-				</div>
-				
-			</div>	
 
+			
+		<!-- .Content  -->
 			<!-- STICKY -->
 			
 
-			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 0;">
+			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 30px;">
 				  
 				<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
-				<div id='div-gpt-ad-9873906-4' style="margin-bottom: 5px;">
+				<div id='div-gpt-ad-8904840-4' style="margin-bottom: 0px;">
 					<script>
-						googletag.cmd.push(function() { googletag.display('div-gpt-ad-9873906-4'); });
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-4'); });
 					</script>
 				</div>
+				
+		
 			</div>
 
 			<!-- END STICKY -->
-						
 			
-			<form id="redirect" name="redirect" action="" >
-				{% csrf_token %}
-			 
-			</form>
+>
 			
 			<div class="overlay"></div>
 			
@@ -325,71 +375,30 @@ var mapping4 = googletag.sizeMapping()
 			<script src="{% static 'lib/jquery/jquery-3.4.1.min.js'  %}"></script>
 			<!--  Bootstrap v4.3.1 JS -->
 			<script src="{% static 'lib/bootstrap/js/bootstrap.min.js'  %}"></script>
-			<!-- Magnific Popup core JS file -->
+			<!-- Magnific Popup core JS file 
 			<script src="{% static 'lib/Magnific-Popup-master/dist/jquery.magnific-popup.js'  %}"></script>
+			-->
 			<!-- Slick JS -->
 			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
-            <!--  Taboola JS  -->
-            <script type="text/javascript">
-                window._taboola = window._taboola || [];
-                _taboola.push({ flush: true });
-            </script>
 
-			<script>
-			firstTimer();	
-			function firstTimer() {
-				document.getElementById("connectTxt").style.display = "none";
+	       
 			
-				var timeleft = 5;
-			
-				var firstTimer = setInterval(function () {
-					if (timeleft <= 0) {
-						clearInterval(firstTimer);
-						document.getElementById("countdown").style.display = "none";
-						document.getElementById("connectTxt").style.display = "Inherit";
-						document.getElementById("noticeTxt").style.display = "Inherit";
-						totalTimeout();
-			
-					} else {
-						document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
-					}
-			
-					timeleft = timeleft - 1;
-			
-				}, 1000)
-			}
-			function totalTimeout(){
-				setTimeout(() => {
-						document.redirect.action = "interstitial/";
-						document.redirect.submit();
-				}, 3000);
-			}
-			</script>
+
 
 		
 
 			<script data-cfasync="false" type="text/javascript">
 				function watchVidModal() {
-						document.redirect.action = "interstitial/";
-						document.redirect.submit();
+						
+						//document.redirect.submit();
+						nextPage();
 				}
 		
 			</script>
 
-			<script>
-				window.onscroll = function () { myFunction() };
-				var header = document.getElementById("myHeader");
-				var sticky = header.offsetTop;
-				function myFunction() {
-					if (window.pageYOffset > sticky) {
-						header.classList.add("sticky");
-					} else {
-						header.classList.remove("sticky");
-					}
-				}
-			</script>
+	
 
 			
 		</body>

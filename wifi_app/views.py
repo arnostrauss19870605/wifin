@@ -429,11 +429,13 @@ def exit_index(request):
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
         latest = Post.objects.order_by('-timestamp')[0:10]
+        topics = Topic.objects.all()[0:3]
         context= {
             'object_list': featured,
             'featured_other': featured_other,
             'latest': latest,
             'categories':categories,
+            'topics':topics,
            
       
         }
@@ -520,6 +522,8 @@ def topic_detail(request, slug):
             return redirect(topic.get_absolute_url()+'#'+str(new_comment.id))
         else:
             comment_form = CommentForm()
+            
+            
 
     return render(request, 'topic_detail.html',{'topic':topic,'comments': comments,'comment_form':comment_form})
 
