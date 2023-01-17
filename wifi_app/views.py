@@ -429,7 +429,7 @@ def exit_index(request):
         featured = Post.objects.filter(featured=True)[0:5]
         featured_other = Post.objects.filter(featured=True)[6:10]
         latest = Post.objects.order_by('-timestamp')[0:10]
-        topics = Topic.objects.all()[0:3]
+        topics = Topic.objects.all()
         context= {
             'object_list': featured,
             'featured_other': featured_other,
