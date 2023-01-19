@@ -153,8 +153,11 @@
         var actualttime = new Date();
         
   
-        if (actualttime >= futuretime||timeleft <= 0)  {
-        document.redirect.submit();
+       
+        if (actualttime >= futuretime||timeleft <= 1)  {
+          nextPage();                      
+          document.redirect.submit();
+       
         } 
         else if ( timeleft == 1|| timeleft == 2) {
           document.getElementById("noticeTxt4").style.display = "Inherit";
