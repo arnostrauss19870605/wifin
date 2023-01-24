@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -11,7 +13,8 @@
       <meta name="apple-touch-fullscreen" content="yes">
       <meta name="HandheldFriendly" content="True">
       <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
       <!-- Bootstrap v4.3.1 CSS -->
       <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
   
@@ -220,6 +223,10 @@
 					<li>
 						<a href={% url 'topic_list' %}><i class="fas fa-star" style="color:#FF4644"></i>Topics for Discussion</a>
 					</li>
+
+					<li>
+						<a href={% url 'allposts' %}><i class="fas fa-exclamation-circle" style="color:#FF4644"></i>Featured Articles </a>
+					</li>
 			
 					
 					</ul>
@@ -229,16 +236,22 @@
 			<!-- Header  -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-header">
 				<div class="container-fluid">
-					<button type="button" id="sidebarleftbutton" class="btn">
-					<i class="fas fa-align-left"></i>
-					</button>
-					<div class="logo"  style="padding-top: 0pt;color:#FF4644 ">Wifi News</div>
-					
 				
-					</button>
+						<button style="padding-bottom: 28px"; type="button" id="sidebarleftbutton" class="btn">
+							<i class="fas fa-align-left"></i>
+						</button>
+						
+						<div class="logo"  style="padding-top: 0%;color:#FF4644 ">
+
+						<img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" >
+
+						</div>
+				
+				
+					
 				</div>
 			</nav>
-			<!-- .Header  -->
+			
 			<!-- Content  -->
 			
 			                  

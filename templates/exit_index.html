@@ -30,6 +30,9 @@
       <meta name="apple-touch-fullscreen" content="yes">
       <meta name="HandheldFriendly" content="True">
       <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
+
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
 	  <!-- Bootstrap v4.3.1 CSS 
       <link rel="icon" href="favicon.ico" type="image/x-icon">
 	-->
@@ -321,20 +324,28 @@ var mapping4 = googletag.sizeMapping()
 				<!-- .Sidebar left -->
 				
 				<!-- Header  -->
+			
 				<nav class="navbar navbar-expand-lg navbar-light bg-header">
 					<div class="container-fluid">
-						<button type="button" id="sidebarleftbutton" class="btn">
-						<i class="fas fa-align-left"></i>
-						</button>
-						<div class="logo"  style="padding-top: 0pt;color:#FF4644 ">Wifi News</div>
-						
 					
-						</button>
+							<button style="padding-bottom: 28px"; type="button" id="sidebarleftbutton" class="btn">
+								<i class="fas fa-align-left"></i>
+							</button>
+							
+							<div class="logo"  style="padding-top: 0%;color:#FF4644 ">
+
+							<img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" >
+	
+							</div>
+					
+					
+						
 					</div>
 				</nav>
 				<!-- .Header  -->
 				<!-- Content  -->
 			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 0%; text-align: center;">
+				
 				
 			</div>
 	                  
@@ -592,32 +603,7 @@ var mapping4 = googletag.sizeMapping()
 			<!-- .Bottom Panel  -->
 			
 	
-			
-			<form id="redirect" name="redirect"  method="post" >
-				{% csrf_token %}
-				<input id="domain" type="text" name="domain"  value={{ domain }}>
-				<input id="domainId"  type="hidden" type="text" name="domainId" value={{ domainId }}>
-				<input id="mac"  type="hidden" type="text" name="mac" value="NA">
-				<input id="ip"  type="hidden" type="text" name="ip" value="NA">
-				<input id="username"  type="hidden" type="text" name="username" value="NA">
-				<input id="link_login"  type="hidden" type="text" name="link_login" value="NA">
-				<input id="link_orig"  type="hidden" type="text" name="link_orig" value="NA">
-				<input id="error"  type="hidden" type="text" name="error" value="NA">
-				<input id="trial"  type="hidden" type="text" name="trial" value="NA">
-				<input id="chap_id"  type="hidden" type="text" name="chap_id" value="NA">
-				<input id="chap_challenge"  type="hidden" type="text" name="chap_challenge" value="NA">
-				<input id="link_login_only"  type="hidden" type="text" name="link_login_only" value="NA">
-				<input id="link_orig_esc"  type="hidden" type="text" name="link_orig_esc" value="NA">
-				<input id="mac_esc"  type="hidden" type="text" name="mac_esc" value="NA">
-				<input id="identity"  type="hidden" type="text" name="identity" value="NA">
-				<input id="bytes_in_nice"  type="hidden" type="text" name="bytes_in_nice" value="NA">
-				<input id="bytes_out_nice"  type="hidden" type="text" name="bytes_out_nice" value="NA">
-				<input id="session_time_left"  type="hidden" type="text" name="session_time_left" value="NA">
-				<input id="uptime"  type="hidden" type="text" name="uptime" value="NA">
-				<input id="refresh_timeout"  type="hidden" type="text" name="refresh_timeout" value="NA">
-				<input id="link_status"  type="hidden" type="text" name="link_status" value="NA">
-			 
-			</form>
+
 			
 			<div class="overlay"></div>
 			

@@ -77,18 +77,25 @@ def login_page(request):
             #return redirect('landing-page',  domain = domain, domain_id = domainId )
             return redirect( f"{reverse('landing-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}")
         else :
-             categories = Category.objects.all()[0:5]
-             featured = Post.objects.filter(featured=True)[0:5]
-             featured_other = Post.objects.filter(featured=True)[6:10]
-             latest = Post.objects.order_by('-timestamp')[0:5]
-             context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
-                 
-                }
-             return render(request, "exit_index.html", context)
+
+            categories = Category.objects.all()[0:10]
+            featured = Post.objects.filter(featured=True)[0:5]
+            featured_other = Post.objects.filter(featured=True)[6:10]
+            latest = Post.objects.order_by('-timestamp')[0:10]
+            topics = Topic.objects.all().latest('pk')
+            the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
+            comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
+            context= {
+                'object_list': featured,
+                'featured_other': featured_other,
+                'latest': latest,
+                'categories':categories,
+                'topics':topics,
+                'comments':comments,
+            
+        
+            }
+            return render(request, "exit_index.html", context)
              
 
 def landing_page(request):
@@ -431,7 +438,6 @@ def exit_index(request):
         latest = Post.objects.order_by('-timestamp')[0:10]
         topics = Topic.objects.all().latest('pk')
         the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
-        print('the PK : ',the_id)
         comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
         context= {
             'object_list': featured,

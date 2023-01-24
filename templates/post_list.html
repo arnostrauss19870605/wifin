@@ -11,7 +11,12 @@
       <meta name="apple-touch-fullscreen" content="yes">
       <meta name="HandheldFriendly" content="True">
       <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
+	  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+
+
+
       <!-- Bootstrap v4.3.1 CSS -->
       <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
   
@@ -160,70 +165,49 @@ var mapping4 = googletag.sizeMapping()
 		</div>
 		<!-- .Preloading -->
 		<!-- Sidebar left -->
-		<nav id="sidebarleft" class="sidenav">
-			<div id="dismiss">
-				<i class="fas fa-times"></i>
-			</div>
-			<div class="sidebar-header">
-				<h3>Account</h3>
-			</div>
-			
-			<ul class="list-unstyled components">
-				<li>
-					<a href={% url 'login' %}><i class="fas fa-home"></i>Home</a>
-				</li>
-				
-					<li>
-						<a href={% url 'allposts' %}><i class="fas fa-star"></i>Articles</a>
-					</li>
-					<li>
-						<a href="feedback.html"><i class="fas fa-envelope"></i>Feedback</a>
-					</li>
-					
-					<li>
-						<a href="single_page.html"><i class="fas fa-exclamation-circle"></i>About Wifi News</a>
-					</li>
-				</ul>
-			</nav>
+        <nav id="sidebarleft" class="sidenav">
+            <div id="dismiss">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="sidebar-header">
+                <h3> </h3>
+            </div>
+            
+            <ul class="list-unstyled components">
+                <li>
+                    <a href={% url 'login' %}><i class="fas fa-home" style="color:#FF4644"></i>Home</a>
+                </li>
+                
+                <li>
+                        <a href={% url 'topic_list' %}><i class="fas fa-star" style="color:#FF4644"></i>Topics for Discussion</a>
+                </li>
+
+                <li>
+                    <a href={% url 'allposts' %}><i class="fas fa-exclamation-circle" style="color:#FF4644"></i>Featured Articles </a>
+                </li>
+            
+                    
+                    </ul>
+            </nav>
 			<!-- .Sidebar left -->
-			<!-- Sidebar right -->
-			<nav id="sidebarright" class="sidenav">
-				<div id="dismiss">
-					<i class="fas fa-times"></i>
-				</div>
-				<div class="sidebar-header">
-					<h3>Latest News</h3>
-				</div>
-				
-				{% for latest in latest %}
-				<ul class="right-menu">
-					
-					<li class="right-menu-item">
-						<a href="{% url 'post' latest.slug %}">
-							<span> <i class="fas fa-envelope"></i> <br> </span>
-							<div class="ntitle"> {{ latest.title }}</div>
-							<div class="desc">{{ latest.overview }}</div>
-						</a>
-					</li>
-				{% endfor %}					
-				</ul>
-			</nav>
-			<!-- .Sidebar right-->
 			<!-- Header  -->
-			<nav class="navbar navbar-expand-lg navbar-light bg-header">
-				<div class="container-fluid">
-					<button type="button" id="sidebarleftbutton" class="btn">
-					<i class="fas fa-align-left"></i>
-					</button>
-					<div class="logo">Wifi News</div>
-					<button type="button" id="sidebarrightbutton" class="btn">
-					<div class="notif">
-						<i class="fas fa-bell"></i>
-						<i class="fas fa-circle "></i>
-					</div>
-					</button>
-				</div>
-			</nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-header">
+                <div class="container-fluid">
+                
+                        <button style="padding-bottom: 28px"; type="button" id="sidebarleftbutton" class="btn">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        
+                        <div class="logo"  style="padding-top: 0%;color:#FF4644 ">
+
+                        <img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" >
+
+                        </div>
+                
+                
+                    
+                </div>
+            </nav>
 			<!-- .Header  -->
 			<!-- Content  -->
        
@@ -261,7 +245,7 @@ var mapping4 = googletag.sizeMapping()
                                     
                                     <div class="nc-right">
                                         <a href="{% url 'post' posts.slug %}">
-                                        <div class="ncr-row-a">
+                                        <div class="ncr-row-a" style="color:#FF4644">
                                             {{ posts.title }}
                                         </div>
                                     </s>
