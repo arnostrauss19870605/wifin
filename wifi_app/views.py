@@ -582,4 +582,5 @@ def comment_detail_optout(request, pk):
     else:
         form = OptOutForm(instance=the_comment)
 
+
     return render(request, 'comment_detail_oo.html',{'comment':the_comment, 'form':form})
