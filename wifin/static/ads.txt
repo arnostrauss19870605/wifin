@@ -6,6 +6,9 @@ google.com, pub-2181457501973276, DIRECT, f08c47fec0942fa0
 #GBW Digital
 google.com, pub-2466501570819032, DIRECT, f08c47fec0942fa0
 
+#ThinkWIfi
+google.com, pub-6722518967980809, DIRECT, f08c47fec0942fa0
+
 #Taboola
 appnexus.com,3364,RESELLER
 beachfront.com,13749,RESELLER
