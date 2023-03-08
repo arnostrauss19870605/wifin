@@ -154,19 +154,10 @@
   
        
         if (actualttime >= futuretime||timeleft <= 1)  {
-          var queryValues = window.location.search;
-          var urlParams = new URLSearchParams(queryValues);
-          var utm_source = urlParams.get('utm_source')
-
-          if (utm_source = 'xpertek') {
-             nextPage_1();                      
-            document.redirect.submit();
-          } else {
+                  
             nextPage();                      
             document.redirect.submit();
-          }
-          
-               
+                      
         } 
         else if ( timeleft == 1|| timeleft == 2) {
           document.getElementById("noticeTxt4").style.display = "Inherit";
@@ -193,20 +184,23 @@
   
   <script data-cfasync="false" type="text/javascript">
     function nextPage() {
-            
-            window.location.replace("http://192.168.50.1/login.html"); 
+
+          var queryValues = window.location.search;
+          var urlParams = new URLSearchParams(queryValues);
+          var utm_source = urlParams.get('utm_source')
+
+          if (utm_source = 'xpertek') {
+          window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
+         } else {
+
+          window.location.replace("http://192.168.50.1/login.html"); 
+         }
+         
+                       
     }
   
   </script>
 
-
-  <script data-cfasync="false" type="text/javascript">
-    function nextPage_1() {
-            
-            window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
-    }
-  
-  </script>
 
   
 
