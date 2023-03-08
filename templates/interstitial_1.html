@@ -185,11 +185,11 @@
   <script data-cfasync="false" type="text/javascript">
     function nextPage() {
 
-      const queryValues = window.location.search;
-      const urlParams = new URLSearchParams(queryValues);
-      const utm_source = urlParams.get('utm_source')
+      const queryValues_1 = window.location.search;
+      const urlParams_1 = new URLSearchParams(queryValues_1);
+      const utm_source = urlParams_1.get('utm_source')
 
-      if (utm_source = 'xpertek') {
+      if (utm_source == 'xpertek') {
           console.log("The UTM Source value is : " + [utm_source]);
           window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
         
