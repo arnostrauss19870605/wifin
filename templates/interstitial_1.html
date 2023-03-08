@@ -154,12 +154,12 @@
   
        
         if (actualttime >= futuretime||timeleft <= 1)  {
-          const queryValues = window.location.search;
-          const urlParams = new URLSearchParams(queryValues);
-          const utm_source = urlParams.get('utm_source')
+          var queryValues = window.location.search;
+          var urlParams = new URLSearchParams(queryValues);
+          var utm_source = urlParams.get('utm_source')
 
           if (utm_source = 'xpertek') {
-            nextPage_1();                      
+             nextPage_1();                      
             document.redirect.submit();
           } else {
             nextPage();                      
