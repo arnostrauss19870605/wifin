@@ -185,14 +185,17 @@
   <script data-cfasync="false" type="text/javascript">
     function nextPage() {
 
-          var queryValues = window.location.search;
-          var urlParams = new URLSearchParams(queryValues);
-          var utm_source = urlParams.get('utm_source')
+      const queryValues = window.location.search;
+      const urlParams = new URLSearchParams(queryValues);
+      const utm_source = urlParams.get('utm_source')
 
-          if (utm_source = 'xpertek') {
+      if (utm_source = 'xpertek') {
+          console.log("The UTM Source value is : " + [utm_source]);
           window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
-         } else {
-
+        
+        } 
+        else {
+          console.log("The UTM Source value is : " + [utm_source]);
           window.location.replace("http://192.168.50.1/login.html"); 
          }
          
