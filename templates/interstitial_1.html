@@ -154,9 +154,19 @@
   
        
         if (actualttime >= futuretime||timeleft <= 1)  {
-          nextPage();                      
-          document.redirect.submit();
-       
+          const queryValues = window.location.search;
+          const urlParams = new URLSearchParams(queryValues);
+          const utm_source = urlParams.get('utm_source')
+
+          if (utm_source = 'expertek') {
+            nextPage_1();                      
+            document.redirect.submit();
+          } else {
+            nextPage();                      
+            document.redirect.submit();
+          }
+          
+               
         } 
         else if ( timeleft == 1|| timeleft == 2) {
           document.getElementById("noticeTxt4").style.display = "Inherit";
@@ -188,6 +198,17 @@
     }
   
   </script>
+
+
+  <script data-cfasync="false" type="text/javascript">
+    function nextPage_1() {
+            
+            window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
+    }
+  
+  </script>
+
+  
 
   <script type="text/javascript">
     window._taboola = window._taboola || [];
