@@ -19,6 +19,8 @@
             const rewardedSlot = googletag.defineOutOfPageSlot('/302423036/nowonline/NO_RewardedVideo',
                 googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
             rewardedSlot.setForceSafeFrame(true);
+			rewardedSlot.setTargeting('pos', 'rewarded');
+
             googletag.pubads().enableAsyncRendering();
             googletag.enableServices();
             googletag.pubads().addEventListener('rewardedSlotReady', evt => {
@@ -754,16 +756,7 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
-			<!-- Custome Timer-->
-			<script type="text/javascript">
-			adTimer();	
-			function firstTimer() {
-				var adTimer = setTimeout(function() {
-					callSecondAdTag();
-				  }, 5000);
-				
-			}
-			</script>
+		
 
 
 			<!--Call Second Tag JS-->

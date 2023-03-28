@@ -46,6 +46,8 @@
 			const rewardedSlot = googletag.defineOutOfPageSlot('/302423036/nowonline/NO_RewardedVideo',
 				googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
 			rewardedSlot.setForceSafeFrame(true);
+			rewardedSlot.setTargeting('pos', 'rewarded');
+			
 			googletag.pubads().enableAsyncRendering();
 			googletag.enableServices();
 			googletag.pubads().addEventListener('rewardedSlotReady', evt => {
@@ -467,6 +469,7 @@
 					<div class="sa-title popcat">Shop Now </div>
 					<div class="heading-info">
 						<div id='collection-component-1679469086869'></div>
+						
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -678,37 +681,38 @@
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
 			          	<!--  Shopify JS -->
+					
 						  <script type="text/javascript">
-							/*<![CDATA[*/
-							(function () {
-							  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-							  if (window.ShopifyBuy) {
-								if (window.ShopifyBuy.UI) {
-								  ShopifyBuyInit();
-								} else {
-								  loadScript();
-								}
+						  /*<![CDATA[*/
+						  (function () {
+							var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+							if (window.ShopifyBuy) {
+							  if (window.ShopifyBuy.UI) {
+								ShopifyBuyInit();
 							  } else {
 								loadScript();
 							  }
-							  function loadScript() {
-								var script = document.createElement('script');
-								script.async = true;
-								script.src = scriptURL;
-								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-								script.onload = ShopifyBuyInit;
-							  }
-							  function ShopifyBuyInit() {
-								var client = ShopifyBuy.buildClient({
-								  domain: 'shop-yourspot.myshopify.com',
-								  storefrontAccessToken: '024dc2eefedb4271778615a168beee91',
-								});
-								ShopifyBuy.UI.onReady(client).then(function (ui) {
-								  ui.createComponent('collection', {
-									id: '438642901294',
-									node: document.getElementById('collection-component-1679469086869'),
-									moneyFormat: 'R%20%7B%7Bamount%7D%7D',
-									options: {
+							} else {
+							  loadScript();
+							}
+							function loadScript() {
+							  var script = document.createElement('script');
+							  script.async = true;
+							  script.src = scriptURL;
+							  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+							  script.onload = ShopifyBuyInit;
+							}
+							function ShopifyBuyInit() {
+							  var client = ShopifyBuy.buildClient({
+								domain: 'shop-yourspot.myshopify.com',
+								storefrontAccessToken: '024dc2eefedb4271778615a168beee91',
+							  });
+							  ShopifyBuy.UI.onReady(client).then(function (ui) {
+								ui.createComponent('collection', {
+								  id: '439951032622',
+								  node: document.getElementById('collection-component-1679469086869'),
+								  moneyFormat: 'R%20%7B%7Bamount%7D%7D',
+								  options: {
 							  "product": {
 								"styles": {
 								  "product": {
