@@ -71,7 +71,7 @@
 		const utm_medium = urlParams.get('utm_medium')
         
 		googletag.cmd.push(function() {
-			var mapping1 = googletag.sizeMapping()	
+		var mapping1 = googletag.sizeMapping()	
 				
 
 			.addSize([1400, 0], [[728, 90], 'fluid'])
@@ -93,30 +93,33 @@
 			.addSize([0, 0], [[0, 0]])
 			.build();
 
-var mapping3 = googletag.sizeMapping()
-			.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
-			.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-			.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-			.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-			.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-			.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
+		var mapping3 = googletag.sizeMapping()
+					.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
+					.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
+					.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
+					.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
+					.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
+					.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
+					.addSize([0, 0], [[0, 0]])
+					.build();
 
-var mapping4 = googletag.sizeMapping()
-			.addSize([1400, 0], [[728, 90], 'fluid'])
-			.addSize([1200, 0], [[728, 90], 'fluid'])
-			.addSize([1000, 0], [[728, 90], 'fluid'])
-			.addSize([700, 0], [[468, 60], 'fluid'])
-			.addSize([600, 0], [[468, 60], 'fluid'])
-			.addSize([300, 0], [[320, 50], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
+		var mapping4 = googletag.sizeMapping()
+					.addSize([1400, 0], [[728, 90], 'fluid'])
+					.addSize([1200, 0], [[728, 90], 'fluid'])
+					.addSize([1000, 0], [[728, 90], 'fluid'])
+					.addSize([700, 0], [[468, 60], 'fluid'])
+					.addSize([600, 0], [[468, 60], 'fluid'])
+					.addSize([300, 0], [[320, 50], 'fluid'])
+					.addSize([0, 0], [[0, 0]])
+					.build();
 
 					   googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,100],[300,250],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-1')
 								.defineSizeMapping(mapping1)
 								.addService(googletag.pubads())
 								.setTargeting('Medium', [utm_medium]);
+								PropellerAdd() 
+							
+						
 					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,250],[300,600],'fluid',[468,60],[728,90],[320,100]], 'div-gpt-ad-8904840-2')
 								.defineSizeMapping(mapping3)
 								.addService(googletag.pubads())
@@ -129,6 +132,19 @@ var mapping4 = googletag.sizeMapping()
 								.defineSizeMapping(mapping4)
 								.addService(googletag.pubads())
 								.setTargeting('Medium', [utm_medium]);
+
+						googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+									if (event.slot.getSlotElementId() === 'div-gpt-ad-8904840-1' && event.isEmpty) {
+									  // If no ad is displayed, call the second ad tag
+									  callSecondAdTag();
+									} else {
+									  // If an ad is displayed, clear the timer
+									  clearTimeout(adTimer);
+									}
+								  });
+
+
+
 		
 
 		      
@@ -148,6 +164,9 @@ var mapping4 = googletag.sizeMapping()
         </script>
         <!-- End GPT Tag -->
 
+
+		
+
      <!-- Google tag (gtag.js) -->
      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154258676-1"></script>
      <script>
@@ -157,6 +176,7 @@ var mapping4 = googletag.sizeMapping()
 
         gtag('config', 'UA-154258676-1');
      </script>
+ 
     <!-- Google tag (gtag.js) -->		
 
 
@@ -181,7 +201,9 @@ var mapping4 = googletag.sizeMapping()
 			}
 		</script>
 
-
+		<script>
+			(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',5421101,document.body||document.documentElement)
+		</script>
 
 
   <style>
@@ -624,6 +646,46 @@ var mapping4 = googletag.sizeMapping()
 			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
+
+			<!-- Custome Timer-->
+			<script type="text/javascript">
+			adTimer();	
+			function firstTimer() {
+				var adTimer = setTimeout(function() {
+					callSecondAdTag();
+				  }, 5000);
+				
+			}
+			</script>
+
+
+			<!--Call Second Tag JS-->
+			<script type="text/javascript">
+				function callSecondAdTag() {
+					// Replace this URL with the URL for your second ad tag
+					var secondAdTagUrl = 'https://example.com/second-ad-tag';
+					
+					// Load the second ad tag
+					var secondAdTag = document.createElement('script');
+					secondAdTag.type = 'text/javascript';
+					secondAdTag.async = true;
+					secondAdTag.src = secondAdTagUrl;
+					var tag = document.getElementsByTagName('script')[0];
+					tag.parentNode.insertBefore(secondAdTag, tag);
+				  }
+
+
+			</script>	
+
+				<script type="text/javascript">
+					function PropellerAdd() {			
+					(function(s,u,z,p)
+						{s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',5421101,document.body||document.documentElement)
+					}
+				</script>
+
+
+
           	<!--  Shopify JS -->
 			<script type="text/javascript">
 				/*<![CDATA[*/
