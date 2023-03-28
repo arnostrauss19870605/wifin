@@ -29,11 +29,75 @@
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 	
+
+
+	  <script src="//www.googletagservices.com/tag/js/gpt.js">
+
+	  </script>
+		
+	  <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce>
+	
+	  </script>
+  
+	  <script>
+  
+		googletag = window.googletag || { cmd: [] };
+		googletag.cmd.push(() => {
+			const rewardedSlot = googletag.defineOutOfPageSlot('/302423036/nowonline/NO_RewardedVideo',
+				googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			rewardedSlot.setForceSafeFrame(true);
+			googletag.pubads().enableAsyncRendering();
+			googletag.enableServices();
+			googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+				const makeVisibleFn = (e) => {
+					evt.makeRewardedVisible();
+					e.preventDefault();
+					watchAdButton.removeEventListener('click', makeVisibleFn);
+					noThanksButton.removeEventListener('click', closeModalFn);
+					trigger.style.display = 'none';
+				};
+				const trigger = document.getElementById('rewardModal');
+				trigger.style.display = 'block';
+				const watchAdButton = document.getElementById('watchAdBtn');
+				watchAdButton.addEventListener('click', makeVisibleFn);
+				const noThanksButton = document.getElementById('noThanksBtn');
+				const closeModalFn = () => {
+					const trigger = document.getElementById('rewardModal');
+					trigger.style.display = 'none';
+				};
+				noThanksButton.addEventListener('click', closeModalFn);
+			});
+			googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
+				const grantModal = document.getElementById('grantModal');
+				const reward = evt.payload;
+				const grantParagraph = document.getElementById('grantParagraph');
+				grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
+					+ reward.type + "!";
+				const grantCloseBtn = document.getElementById('grantCloseBtn');
+				const closeGrantFn = () => {
+					grantCloseBtn.removeEventListener('click', closeGrantFn);
+					grantModal.style.display = 'none';
+				}
+				grantCloseBtn.addEventListener('click', closeGrantFn);
+				grantModal.style.display = 'block';
+			});
+			googletag.display(rewardedSlot);
+		});
+  
+		console.log("Script is running");
+  
+	</script>
+		
+  
+
+
+
    
         <!-- Start GPT Tag -->
         <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'>
 	
 		</script>
+
 
 
         <script>
@@ -134,26 +198,156 @@
 		
 		<style>
 			.red_button {
-				background-color: #D2509B;
-				border: white;
-				color: white;
-				padding: 25px 5px 5px 5px ;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 10px;
-				border-style: dotted;
-				border-radius: 80%;
-				margin-top : 10px;
-				margin-bottom : 5%;
-				height:40px;
-				width:40px;
-
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				padding: 9px 22px 8px;
+				
+				color :White;
+				border-color: #FF4644;
+				
+				width: 210px;
+				height: 37px;
+				background: #FF4644;
+			
+				border-radius: 50px;
 			}
+		
+			ul.timeline {
+				list-style-type: none;
+				position: relative;
+			}
+			ul.timeline:before {
+				content: ' ';
+				background: #2450a6;
+				display: inline-block;
+				position: absolute;
+				left: 29px;
+				width: 2px;
+				height: 100%;
+				z-index: 400;
+			}
+			ul.timeline > li {
+				margin: 20px 0;
+				padding-left: 20px;
+			}
+			ul.timeline > li:before {
+				content: ' ';
+				background: white;
+				display: inline-block;
+				position: absolute;
+				border-radius: 50%;
+				border: 3px solid #FF4644;
+				left: 20px;
+				width: 20px;
+				height: 20px;
+				z-index: 400;
+			}
+		
+			
+			.text {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 3; /* number of lines to show */
+						line-clamp: 3; 
+				-webkit-box-orient: vertical;
+			 }
+				
+			 #wrapper {
+				width: 400px;
+				
+				position: relative;
+				float: left;
+				}
+				#first {
+				width: 40%;
+				text-align: right;
+				position: relative;
+				float: left;
+				}
+				#second {
+			  
+				color : black;
+				position: relative;
+				float: left;
+				width: 30%;
+				}
+				#third {
+				 
+					color : black;
+					position: relative;
+					float: left;
+					width: 10%;
+					}
+		
+					/* The Modal (background) */
+					.modal {
+						display: none;
+						/* Hidden by default */
+						position: fixed;
+						/* Stay in place */
+						z-index: 1;
+						/* Sit on top */
+						padding-top: 300px;
+						/* Location of the box */
+						left: 0;
+						top: 0;
+						width: 100%;
+						/* Full width */
+						height: 100%;
+						/* Full height */
+						overflow: auto;
+						/* Enable scroll if needed */
+						background-color: rgb(0, 0, 0);
+						/* Fallback color */
+						background-color: rgba(0, 0, 0, 0.4);
+						/* Black w/ opacity */
+					}
+			
+					/* Modal Content */
+					.modal-content {
+						margin: auto;
+						padding: 25px;
+						background-color: #fefefe;
+						text-align: center;
+						position: fixed;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+			
+					@media all and (orientation: landscape) {
+			
+						/* Modal Content */
+						.modal-content {
+							margin: auto;
+							padding: 25px;
+							background-color: #fefefe;
+							text-align: center;
+							position: fixed;
+							top: 60%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+					}
+			
+			
+					.btn {
+						padding: .5rem;
+						background: #2990EA;
+						border: none;
+						border-radius: 4px;
+						margin: 4px;
+					}
+			
 				
 			
 		</style>
-	
+		
+			
+			
 
 		<script data-cfasync="false" type="text/javascript">
 			function nextPage() {
@@ -185,7 +379,22 @@
 	
     </head>
 	<body class="default">
+
+		<div id="grantModal" class="modal">
+			<div class="modal-content">
+				<input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
+			</div>
+		</div>
+		<div id="waitModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content" style="width: 300px;">
+				<p id="waitTxt"></p>
+				<input type="button" class="btn" id="okayBtn" value="Okay" />
+			</div>
+		</div>
 	
+
+
 
 		
 	
@@ -212,6 +421,8 @@
 					<p id="noticeTxt" ></p>
 				</div>
 			</div>
+
+			
 	                  
      
 			<div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">

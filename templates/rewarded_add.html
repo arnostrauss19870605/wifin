@@ -3,22 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="site-verification" content="3e9b45f6cfba924eb4912c00aee1d325">
-
     <title>
         Rewarded slot test page
     </title>
-
-
+    <script src="//www.googletagservices.com/tag/js/gpt.js"></script>
     
-
-    <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-
-
-
+    <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994"
+        nonce>
+    </script>
+    
     <script>
+
         googletag = window.googletag || { cmd: [] };
         googletag.cmd.push(() => {
             const rewardedSlot = googletag.defineOutOfPageSlot('/302423036/nowonline/NO_RewardedVideo',
@@ -46,25 +42,25 @@
                 noThanksButton.addEventListener('click', closeModalFn);
             });
             googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
-                // Video Watched / Reward Granted
-                // Redirect User to Rewards Page / Login to Wifi Hotspot
-                window.location.href = "https://wifinews.co.za/login_mahala.php";
+                const grantModal = document.getElementById('grantModal');
+                const reward = evt.payload;
+                const grantParagraph = document.getElementById('grantParagraph');
+                grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
+                    + reward.type + "!";
+                const grantCloseBtn = document.getElementById('grantCloseBtn');
+                const closeGrantFn = () => {
+                    grantCloseBtn.removeEventListener('click', closeGrantFn);
+                    grantModal.style.display = 'none';
+                }
+                grantCloseBtn.addEventListener('click', closeGrantFn);
+                grantModal.style.display = 'block';
             });
             googletag.display(rewardedSlot);
         });
+
     </script>
 
-    <script>
-        function watchVidModal() {
-            var modalTrigger = document.getElementById('rewardModal');
-            modalTrigger.style.display = 'block';
-        }
-
-        function closeModalFn() {
-            var modalTrigger = document.getElementById('rewardModal');
-            trigger.style.display = 'none';
-        }
-    </script>
+    
     <style>
         p {
             text-align: center;
@@ -136,8 +132,8 @@
     <div id="rewardModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <p>Would you like to watch an ad in exchange for connecting to our free wifi?</p>
-            <input type="button" class="btn" id="watchAdBtn" value="Watch Ad & Connect" />
+            <p>Would you like to watch an ad in exchange for some coins?</p>
+            <input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
             <input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
         </div>
     </div>
