@@ -39,6 +39,8 @@
 	
 	  </script>
   
+	       
+      <!-- Rewarded Add JS
 	  <script>
   
 		googletag = window.googletag || { cmd: [] };
@@ -89,6 +91,8 @@
 		console.log("Script is running");
   
 	</script>
+
+-->
 		
   
 
@@ -382,14 +386,15 @@
     </head>
 	<body class="default">
 
-	
+	     
+      <!-- Rewardedd Add Modals
 		<div id="grantModal" class="modal">
 			<div class="modal-content">
 				<input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
 			</div>
 		</div>
 		<div id="waitModal" class="modal">
-			<!-- Modal content -->
+	
 			<div class="modal-content" style="width: 300px;">
 				<p id="waitTxt"></p>
 				<input type="button" class="btn" id="okayBtn" value="Okay" />
@@ -398,7 +403,7 @@
 
 
 		<div id="rewardModal" class="modal">
-			<!-- Modal content -->
+		
 			<div class="modal-content">
 				<p>Access free Wi-Fi quickly by watching this ad</p>
 				<input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
@@ -412,6 +417,7 @@
 			</div>
 		</div>
 
+	-->
 
 
 		
@@ -595,17 +601,18 @@
 						</div>		
 					
 
-							<!-- section 1 -->
-				<div class="heading-section">
-					<div class="sa-title popcat">Shop Now </div>
-					<div class="heading-info">
-						<div id='collection-component-1679469086869'></div>
-						
+					<!-- section 1 -->
+					<div class="heading-section">
+						<div class="sa-title popcat" style="color:#FF4644 ">About Us </div>
+						<div class="heading-info">
+							<p>Our mission objective is to connect the unconnected to the internet. The way in which we intend to achieve this is by providing free and low costs Wi-Fi to the masses. 	</p>
+							<p>Over the past 10 years, we have developed, tested and implemented an ground-breaking digital Wi-Fi marketing system that we are using in high density commuter areas and shopping areas in South Africa. Working with advertisers, we have auditable campaigns results, verifiable sites, detailed campaign reports and straight forward guidelines to marketers. Working with consumers, we offer reliable, high speed internet access to the masses.</p>
+							<p>We provide Wi-Fi to users across south Africa and a certain point managed close to 1000 hotspots and 200 000 visitors daily makes use of our deployments and Wi-Fi authentication platform.</p>
+						</div>
+						<div class="clear"></div>
 					</div>
-					<div class="clear"></div>
-				</div>
-				
-				<!-- .section 1 -->
+					
+					<!-- .section 1 -->
 					
 		<!-- section 3 -->
 				
@@ -681,160 +688,7 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
-			          	<!--  Shopify JS -->
-					
-						  <script type="text/javascript">
-						  /*<![CDATA[*/
-						  (function () {
-							var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-							if (window.ShopifyBuy) {
-							  if (window.ShopifyBuy.UI) {
-								ShopifyBuyInit();
-							  } else {
-								loadScript();
-							  }
-							} else {
-							  loadScript();
-							}
-							function loadScript() {
-							  var script = document.createElement('script');
-							  script.async = true;
-							  script.src = scriptURL;
-							  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-							  script.onload = ShopifyBuyInit;
-							}
-							function ShopifyBuyInit() {
-							  var client = ShopifyBuy.buildClient({
-								domain: 'shop-yourspot.myshopify.com',
-								storefrontAccessToken: '024dc2eefedb4271778615a168beee91',
-							  });
-							  ShopifyBuy.UI.onReady(client).then(function (ui) {
-								ui.createComponent('collection', {
-								  id: '439951032622',
-								  node: document.getElementById('collection-component-1679469086869'),
-								  moneyFormat: 'R%20%7B%7Bamount%7D%7D',
-								  options: {
-							  "product": {
-								"styles": {
-								  "product": {
-									"@media (min-width: 601px)": {
-									  "max-width": "calc(25% - 20px)",
-									  "margin-left": "20px",
-									  "margin-bottom": "50px",
-									  "width": "calc(25% - 20px)"
-									},
-									"img": {
-									  "height": "calc(100% - 15px)",
-									  "position": "absolute",
-									  "left": "0",
-									  "right": "0",
-									  "top": "0"
-									},
-									"imgWrapper": {
-									  "padding-top": "calc(75% + 15px)",
-									  "position": "relative",
-									  "height": "0"
-									}
-								  },
-								  "button": {
-									":hover": {
-									  "background-color": "#567ad9"
-									},
-									"background-color": "#5f88f1",
-									":focus": {
-									  "background-color": "#567ad9"
-									}
-								  }
-								},
-								"buttonDestination": "modal",
-								"contents": {
-								  "options": false
-								},
-								"text": {
-								  "button": "View product"
-								}
-							  },
-							  "productSet": {
-								"styles": {
-								  "products": {
-									"@media (min-width: 601px)": {
-									  "margin-left": "-20px"
-									}
-								  }
-								}
-							  },
-							  "modalProduct": {
-								"contents": {
-								  "img": false,
-								  "imgWithCarousel": true,
-								  "button": false,
-								  "buttonWithQuantity": true
-								},
-								"styles": {
-								  "product": {
-									"@media (min-width: 601px)": {
-									  "max-width": "100%",
-									  "margin-left": "0px",
-									  "margin-bottom": "0px"
-									}
-								  },
-								  "button": {
-									":hover": {
-									  "background-color": "#567ad9"
-									},
-									"background-color": "#5f88f1",
-									":focus": {
-									  "background-color": "#567ad9"
-									}
-								  }
-								},
-								"text": {
-								  "button": "Add to cart"
-								}
-							  },
-							  "option": {},
-							  "cart": {
-								"styles": {
-								  "button": {
-									":hover": {
-									  "background-color": "#567ad9"
-									},
-									"background-color": "#5f88f1",
-									":focus": {
-									  "background-color": "#567ad9"
-									}
-								  }
-								},
-								"text": {
-								  "total": "Subtotal",
-								  "button": "Checkout"
-								}
-							  },
-							  "toggle": {
-								"styles": {
-								  "toggle": {
-									"background-color": "#5f88f1",
-									":hover": {
-									  "background-color": "#567ad9"
-									},
-									":focus": {
-									  "background-color": "#567ad9"
-									}
-								  }
-								}
-							  }
-							},
-								  });
-								});
-							  }
-							})();
-							/*]]>*/
-							</script>
-
-	       
-			
-
-	
+		
 			<script>
 			firstTimer();	
 			function firstTimer() {
