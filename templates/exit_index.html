@@ -686,26 +686,8 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
-		
+	
 
-
-			<!--Call Second Tag JS-->
-			<script type="text/javascript">
-				function callSecondAdTag() {
-					// Replace this URL with the URL for your second ad tag
-					var secondAdTagUrl = 'https://example.com/second-ad-tag';
-					
-					// Load the second ad tag
-					var secondAdTag = document.createElement('script');
-					secondAdTag.type = 'text/javascript';
-					secondAdTag.async = true;
-					secondAdTag.src = secondAdTagUrl;
-					var tag = document.getElementsByTagName('script')[0];
-					tag.parentNode.insertBefore(secondAdTag, tag);
-				  }
-
-
-			</script>	
 
 		</body>
 	</html>
