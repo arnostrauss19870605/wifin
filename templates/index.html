@@ -3,6 +3,15 @@
 <html lang="en">
 	<head>
 
+
+	<script src="//www.googletagservices.com/tag/js/gpt.js">
+
+	</script>
+		
+	<script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994"
+			nonce>
+	</script>
+
 	  <!-- Required meta tags -->
       <meta charset="utf-8">
       <title>Wifi News</title>
@@ -19,7 +28,8 @@
 	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
 	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
 
-
+    <!-- Bootstrap v4.3.1 CSS -->
+	<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
   
       <!-- Custom CSS -->
       <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
@@ -28,6 +38,13 @@
       <!-- Slick CSS -->
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
       <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+
+      <!-- Font Awesome Free 5.10.2 CSS JS -->
+		<link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+	<script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+	<script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+	<script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+	 <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
 	
 
 
@@ -35,17 +52,6 @@
 
 	  </script>
 		
-	  <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce>
-	
-	  </script>
-  
-
-   
-        <!-- Start GPT Tag -->
-        <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'>
-	
-		</script>
-
 
 
         <script>
@@ -388,54 +394,79 @@
 						
 					</div>
 					<!-- .slider -->
-					
-			
-					<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-					<div class="content-wrap">
-						<!-- slider -->
-						<div>
-							<div>
-								
-								<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-								<div id='div-gpt-ad-8904840-2' style="margin-top: 20px; margin-bottom: 20px;">
-									
-								<script>
-								   
-									googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-2'); });
-								</script>
-								
-							</div>
-								<!-- End AdSlot 3 -->
-							</div>
-							
+
+					<!-- section 2 -->
+					<div class="heading-section">
+						<div class="sa-title popcat">Have Your Say! </div>
+						<div class="heading-info">
+							With all the happenings in out country, good and bad, we have created a forum where you can have your say and discuss these matters with others in your comunity in an open public form.
 						</div>
-                        
+						<div class="clear"></div>
+					</div>
+
+				
+					<div onclick="location.href={% url 'topic_list' %};" style="cursor: pointer;">
+						<div class="container mt-5 mb-5">
+							<div class="row">
+								<div class="col-md-6 offset-md-3">
+								
+									<h4 style="color:#FF4644"><a> {{ topics.title }}</a></h4>
+								
+									<ul class="timeline">
+										{% for comments in comments %}
+										<li>
+										 <strong> {{ comments.name }} : </strong>
+											<p class="text"> {{ comments.body }} 	</p>
+										</li>
+										{% endfor %}
+										
+									</ul>
+									<fbutton type="submit" class="red_button">HAVE YOUR SAY!</fbutton>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					
+								
+						<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+						<div id='div-gpt-ad-8904840-2' style="margin-top: 20px; margin-bottom: 20px;">
+							<script>
+								
+								googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-2'); });
+							</script>
+							</div>
+						<!-- End AdSlot 2 -->
+							
+							
+					
 					
 			
 
 					<!-- section 2 -->
 					<div class="heading-section">
-						<div class="sa-title popcat" style="color:#FF4644 ">Featured Articles </div>
+						<div class="sa-title popcat">Featured Articles </div>
 						<div class="heading-info">
 							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
 						</div>
 						<div class="clear"></div>
 					</div>
-					<div class="section-home available-car">
+
+					<div class="section-home available-car"  >
 						
-						<div class="default-carousel car-carousel" >
+						<div class="default-carousel car-carousel">
 							<!-- item -->
 							{% for featured in object_list %}
 							<div class="item" >
 								<div class="acr-box" style="border: 2px solid #000080;">
-									<div class="acr-box-in" style="background-color: #ffff" >
+									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
 											
 											<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
 												
 												<div  class="heading-section" >
-													<div class="sa-title popcat" style="color:#FF4644 ">{{ featured.title }} </div>
+													<div class="sa-title popcat">{{ featured.title }} </div>
 													<div  >
 													
 															<span style = "color:#000000;" >
@@ -453,58 +484,62 @@
 					
 							{% endfor %}
 						</div>
-
-					
 				
-
 						
-							<div class="default-carousel car-carousel" style="margin-top:5px;">
-								{% for featured in featured_other %}
-								<div class="item" >
-									<div class="acr-box" style="border: 2px solid #000080;">
-										<div class="acr-box-in" style="background-color: #ffff">
-											
-											<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
-												
-												<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
-													
-													<div  class="heading-section" >
-														<div class="sa-title popcat" style="color:#FF4644 ">{{ featured.title }} </div>
-														<div  >
-														
-																<span style = "color:#000000;" >
-																																	{{ featured.overview }} 
-																<span>
-														</div>
-														<div class="clear"></div>
-													</div>																					
-												</div>
-											</a>
-										</div>
+				
+						
+						<div class="default-carousel car-carousel" style="margin-top:20px;">
+							{% for featured in featured_other %}
+							<div class="item" >
+								<div class="acr-box" style="border: 2px solid #000080;">
+									<div class="acr-box-in" style="background-color: #ffff">
 										
+										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
+											
+											<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
+												
+												<div  class="heading-section" >
+													<div class="sa-title popcat">{{ featured.title }} </div>
+													<div  >
+													
+															<span style = "color:#000000;" >
+																																{{ featured.overview }} 
+															<span>
+													</div>
+													<div class="clear"></div>
+												</div>																					
+											</div>
+										</a>
 									</div>
+									
 								</div>
-						
-								{% endfor %}
-								<!-- .item -->
 							</div>
+					
+							{% endfor %}
+							<!-- .item -->
+						</div>
 						<!-- .section 2-->
 
-						<div>
+
+						
 							<div>
 								
-								<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
+																<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
 								<div id='div-gpt-ad-8904840-3' style="margin-top: 20px; margin-bottom: 20px;">
+									
 									<script>
+									   
 										googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-3'); });
 									</script>
-								</div>
-									<!-- End AdSlot 2 -->
+									</div>
+									<!-- End AdSlot 3 -->
+
 							</div>
 							
-						</div>		
-					
+							
 
+
+					
 					<!-- section 1 -->
 					<div class="heading-section">
 						<div class="sa-title popcat" style="color:#FF4644 ">About Us </div>
@@ -516,7 +551,8 @@
 						<div class="clear"></div>
 					</div>
 					
-					<!-- .section 1 -->
+					<!-- .section 1 -->	
+					
 					
 		<!-- section 3 -->
 				
@@ -542,6 +578,8 @@
 		
 
 
+
+
 	<!-- .section 3 -->
 					</div>
 					
@@ -558,21 +596,29 @@
 			<!-- STICKY -->
 			
 
-			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 30px;">
+			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: sticky; bottom: 30px;">
 				  
 				<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
-				<div id='div-gpt-ad-8904840-4' style="margin-bottom: 0px;">
+				<div id='div-gpt-ad-8904840-4' style="margin-bottom: 0;">
 					<script>
 						googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-4'); });
 					</script>
 				</div>
 				
-		
+			
 			</div>
 
 			<!-- END STICKY -->
 			
->
+
+
+			<!-- Botom Panel  -->
+			
+			
+			<!-- .Bottom Panel  -->
+			
+	
+
 			
 			<div class="overlay"></div>
 			
@@ -592,74 +638,8 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
-		
-			<script>
-			firstTimer();	
-			function firstTimer() {
-				
-				var timeleft = 16;
-				
-				document.getElementById("connectTxt").style.display = "none";
-			
-				
-			
-				var firstTimer = setInterval(function () {
-					if (timeleft <= 0) {
-						clearInterval(firstTimer);
-						document.getElementById("countdown").style.display = "none";
-						document.getElementById("connectTxt").style.display = "Inherit";
-						document.getElementById("noticeTxt").style.display = "Inherit";
-						totalTimeout();
-			
-					} else {
-						document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
-					}
-			
-					timeleft = timeleft - 1;
-			
-				}, 1000)
-			}
-			function totalTimeout(){
-				setTimeout(() => {
-						//document.redirect.submit();
-						nextPage();
-				}, 1000);
-			}
-			</script>
-		
 	
-	<!-- Optional JavaScript 
-		<script type="text/javascript">
-			window._taboola = window._taboola || [];
-			_taboola.push({ flush: true });
-		</script>
-	-->
-		
 
-			<script data-cfasync="false" type="text/javascript">
-				function watchVidModal() {
-						
-						//document.redirect.submit();
-						nextPage();
-				}
-		
-			</script>
 
-			<!-- Slick JS
-			<script>
-				window.onscroll = function () { myFunction() };
-				var header = document.getElementById("myHeader");
-				var sticky = header.offsetTop;
-				function myFunction() {
-					if (window.pageYOffset > sticky) {
-						header.classList.add("sticky");
-					} else {
-						header.classList.remove("sticky");
-					}
-				}
-			</script>
-			-->
-
-			
 		</body>
 	</html>

@@ -245,16 +245,41 @@ def homepage(request):
         featured = Post.objects.order_by('-timestamp')[3:11]
         featured_other = Post.objects.filter(featured=True)[6:11]
         latest = Post.objects.order_by('-timestamp')[4:11]
+        topics = Topic.objects.all().latest('pk')
+        the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
+        comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
+       
         context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
-                 
-        }
-
+                'object_list': featured,
+                'featured_other': featured_other,
+                'latest': latest,
+                'categories':categories,
+                'topics':topics,
+                'comments':comments,
+            
+        
+            }
        
         try :
+
+            categories = Category.objects.all()[0:10]
+            featured = Post.objects.filter(featured=True)[0:5]
+            featured_other = Post.objects.filter(featured=True)[6:10]
+            latest = Post.objects.order_by('-timestamp')[0:10]
+            topics = Topic.objects.all().latest('pk')
+            the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
+            comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
+            context= {
+                'object_list': featured,
+                'featured_other': featured_other,
+                'latest': latest,
+                'categories':categories,
+                'topics':topics,
+                'comments':comments,
+            
+        
+            }
+
             return render(request, 'index.html', context)
           
         except Exception:
