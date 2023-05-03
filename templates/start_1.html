@@ -17,11 +17,12 @@
 	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
 
       
-
-
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js">
+ 
+    <script src="//www.googletagservices.com/tag/js/gpt.js">  </script>
+      
+    <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
      
-    </script>
+   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     
     <script>
    
@@ -58,14 +59,23 @@
       // Add event listener to enable navigation once the interstitial loads.
       // If this event doesn't fire, try clearing local storage and refreshing
       // the page.
-      googletag.pubads().addEventListener('slotOnload', function(event) {
-          if (interstitialSlot === event.slot) {
+      //googletag.pubads().addEventListener('slotOnload', function(event) {
+      //    if (interstitialSlot === event.slot) {
       //    document.getElementById('link').click()
       //    document.getElementById('link').style.display = 'block';
           // document.getElementById('status').innerText = 'Interstitial is loaded.';
-          }
-      });
+      //    }
+      //});
       }
+  
+      // Define static ad slots.
+      staticSlot = googletag.defineSlot(
+          '/22047902240/wifinews/wfn_interstitial2', [[320, 480], [300, 250], [300, 600],'fluid'], 'div-gpt-ad-1664882026956-0')
+          .defineSizeMapping(mapping1)
+          .addService(googletag.pubads())
+          
+          // Removed Slot Level Targeting
+          //.setTargeting('Medium', [utm_medium]);
   
       
     // Configure page-level targeting.	
@@ -168,7 +178,7 @@
 
 
 </head>
-  <body >
+  <body class="default">
      
     <style>
 
