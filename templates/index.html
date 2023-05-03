@@ -638,6 +638,49 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
+<script>
+			firstTimer();	
+			function firstTimer() {
+				
+				var timeleft = 16;
+				
+				document.getElementById("connectTxt").style.display = "none";
+			
+				
+			
+				var firstTimer = setInterval(function () {
+					if (timeleft <= 0) {
+						clearInterval(firstTimer);
+						document.getElementById("countdown").style.display = "none";
+						document.getElementById("connectTxt").style.display = "Inherit";
+						document.getElementById("noticeTxt").style.display = "Inherit";
+						totalTimeout();
+			
+					} else {
+						document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
+					}
+			
+					timeleft = timeleft - 1;
+			
+				}, 1000)
+			}
+			function totalTimeout(){
+				setTimeout(() => {
+						//document.redirect.submit();
+						nextPage();
+				}, 1000);
+			}
+			</script>
+
+			<script data-cfasync="false" type="text/javascript">
+				function watchVidModal() {
+						
+						//document.redirect.submit();
+						nextPage();
+				}
+		
+			</script>
+
 	
 
 
