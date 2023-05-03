@@ -39,64 +39,6 @@
 	
 	  </script>
   
-	       
-      <!-- Rewarded Add JS
-	  <script>
-  
-		googletag = window.googletag || { cmd: [] };
-		googletag.cmd.push(() => {
-			const rewardedSlot = googletag.defineOutOfPageSlot('/302423036,22047902240/nowonline/NO_RewardedVideo',
-				googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-			rewardedSlot.setForceSafeFrame(true);
-			rewardedSlot.setTargeting('pos', 'rewarded');
-
-			googletag.pubads().enableAsyncRendering();
-			googletag.enableServices();
-			googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-				const makeVisibleFn = (e) => {
-					evt.makeRewardedVisible();
-					e.preventDefault();
-					watchAdButton.removeEventListener('click', makeVisibleFn);
-					noThanksButton.removeEventListener('click', closeModalFn);
-					trigger.style.display = 'none';
-				};
-				const trigger = document.getElementById('rewardModal');
-				trigger.style.display = 'block';
-				const watchAdButton = document.getElementById('watchAdBtn');
-				watchAdButton.addEventListener('click', makeVisibleFn);
-				const noThanksButton = document.getElementById('noThanksBtn');
-				const closeModalFn = () => {
-					const trigger = document.getElementById('rewardModal');
-					trigger.style.display = 'none';
-				};
-				noThanksButton.addEventListener('click', closeModalFn);
-			});
-			googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
-				const grantModal = document.getElementById('grantModal');
-				const reward = evt.payload;
-				const grantParagraph = document.getElementById('grantParagraph');
-				grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
-					+ reward.type + "!";
-				const grantCloseBtn = document.getElementById('grantCloseBtn');
-				const closeGrantFn = () => {
-					grantCloseBtn.removeEventListener('click', closeGrantFn);
-					grantModal.style.display = 'none';
-				}
-				grantCloseBtn.addEventListener('click', closeGrantFn);
-				grantModal.style.display = 'block';
-			});
-			googletag.display(rewardedSlot);
-		});
-  
-		console.log("Script is running");
-  
-	</script>
-
--->
-		
-  
-
-
 
    
         <!-- Start GPT Tag -->
@@ -208,6 +150,27 @@
 				gtag('config', 'UA-154258676-1');
 			 </script>
 		<!-- Google tag (gtag.js) -->
+
+		<script type="text/javascript">
+			window._taboola = window._taboola || [];
+			_taboola.push({
+				article: 'auto'
+			});
+			! function (e, f, u, i) {
+				if (!document.getElementById(i)) {
+					e.async = 1;
+					e.src = u;
+					e.id = i;
+					f.parentNode.insertBefore(e, f);
+				}
+			}(document.createElement('script'),
+				document.getElementsByTagName('script')[0],
+				'//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
+				'tb_loader_script');
+			if (window.performance && typeof window.performance.mark == 'function') {
+				window.performance.mark('tbl_ic');
+			}
+		</script>
 
 		
 		<style>
@@ -371,62 +334,10 @@
 		  
 		  </script> 
 
-		  <script type="text/javascript">
-			window._taboola = window._taboola || [];
-			_taboola.push({article:'auto'});
-			!function (e, f, u, i) {
-			  if (!document.getElementById(i)){
-				e.async = 1;
-				e.src = u;
-				e.id = i;
-				f.parentNode.insertBefore(e, f);
-			  }
-			}(document.createElement('script'),
-			document.getElementsByTagName('script')[0],
-			'//cdn.taboola.com/libtrc/wifinewswifinews/loader.js',
-			'tb_loader_script');
-			if(window.performance && typeof window.performance.mark == 'function')
-			  {window.performance.mark('tbl_ic');}
-		  </script>
-		
 	
 	
     </head>
 	<body class="default">
-
-	     
-      <!-- Rewardedd Add Modals
-		<div id="grantModal" class="modal">
-			<div class="modal-content">
-				<input type="button" class="btn" id="grantCloseBtn" value="Close" style="width: 50px; height: 50px;" />
-			</div>
-		</div>
-		<div id="waitModal" class="modal">
-	
-			<div class="modal-content" style="width: 300px;">
-				<p id="waitTxt"></p>
-				<input type="button" class="btn" id="okayBtn" value="Okay" />
-			</div>
-		</div>
-
-
-		<div id="rewardModal" class="modal">
-		
-			<div class="modal-content">
-				<p>Access free Wi-Fi quickly by watching this ad</p>
-				<input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
-				<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
-			</div>
-		</div>
-		<div id="grantModal" class="modal">
-			<div class="modal-content">
-				<p id="grantParagraph"> </p>
-				<input type="button" class="btn" id="grantCloseBtn" value="Close" />
-			</div>
-		</div>
-
-	-->
-
 
 		
 	
@@ -486,11 +397,11 @@
 							<div>
 								
 								<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-								<div id='div-gpt-ad-8904840-3' style="margin-top: 20px; margin-bottom: 20px;">
+								<div id='div-gpt-ad-8904840-2' style="margin-top: 20px; margin-bottom: 20px;">
 									
 								<script>
 								   
-									googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-3'); });
+									googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-2'); });
 								</script>
 								
 							</div>
@@ -543,24 +454,9 @@
 							{% endfor %}
 						</div>
 
-						<div >
-							<div>
-								
-								<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-								<div id='div-gpt-ad-8904840-1' style="margin-top: 20px; margin-bottom: 20px;">
-									<script>
-										
-										googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-1'); });
-									</script>
-									</div>
-									<!-- End AdSlot 2 -->
-							</div>
-							
-						</div>
+					
 				
-							<!-- .item -->
 
-							<!-- item -->
 						
 							<div class="default-carousel car-carousel" style="margin-top:5px;">
 								{% for featured in featured_other %}
@@ -598,9 +494,9 @@
 							<div>
 								
 								<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-								<div id='div-gpt-ad-8904840-2' style="margin-top: 20px; margin-bottom: 20px;">
+								<div id='div-gpt-ad-8904840-3' style="margin-top: 20px; margin-bottom: 20px;">
 									<script>
-										googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-2'); });
+										googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-3'); });
 									</script>
 								</div>
 									<!-- End AdSlot 2 -->
