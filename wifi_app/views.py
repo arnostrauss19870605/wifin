@@ -49,6 +49,7 @@ class Login_mahalaPageview(TemplateView) :
 
     template_name = "login_mahala.html"
 
+@xframe_options_exempt
 def login_page(request):
     form = LoginForm(request.POST)
     if request.method == "POST":
