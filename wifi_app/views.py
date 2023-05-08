@@ -14,12 +14,12 @@ from vouchers.forms import ActivationForm
 from vouchers.mixins import OrganisorAndLoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 
 # Create your views here.
 
-
-
+@xframe_options_exempt
 def test(request):
     posts = Post.objects.all()
     
@@ -97,7 +97,7 @@ def login_page(request):
             }
             return render(request, "exit_index.html", context)
              
-
+@xframe_options_exempt
 def landing_page(request):
 
            
@@ -145,7 +145,7 @@ def landing_page(request):
 
 
        
-
+@xframe_options_exempt
 def landing_page_1(request):
            
     if request.method == "POST" :
@@ -196,7 +196,7 @@ def landing_page_1(request):
             pass
 
        
-
+@xframe_options_exempt
 def homepage(request):
     
    
@@ -288,7 +288,7 @@ def homepage(request):
       
         
 
-
+@xframe_options_exempt
 def interstitial(request):
     form = LoginForm(request.POST)
    
@@ -339,7 +339,7 @@ def interstitial(request):
             pass
 
        
-        
+@xframe_options_exempt        
 def interstitial_1(request):
     form = LoginForm(request.POST)
    
@@ -376,7 +376,7 @@ def interstitial_1(request):
             pass
 
             
-          
+@xframe_options_exempt          
 def exit_page_1(request):
     form = LoginForm(request.POST)
    
@@ -427,7 +427,7 @@ def exit_page_1(request):
             pass
 
        
-
+@xframe_options_exempt
 def exit_page_2(request):
     form = LoginForm(request.POST)
    
@@ -448,8 +448,9 @@ def exit_page_2(request):
 
         }
         
+  
         return render(request, 'exit_page_2.html', context)
-
+@xframe_options_exempt
 def exit_index(request):
     form = LoginForm(request.POST)
     
@@ -476,7 +477,7 @@ def exit_index(request):
         }
         return render(request, "exit_index.html", context)
 
-
+@xframe_options_exempt
 def post(request,slug):
     post = Post.objects.get(slug=slug)
     categories = Category.objects.all()[0:10]
@@ -491,9 +492,11 @@ def post(request,slug):
             }
     return render(request, 'post_detail.html', context)
 
+@xframe_options_exempt
 def about (request):
     return render(request, 'about_page.html')
 
+@xframe_options_exempt
 def category_post_list (request, slug):
     category = Category.objects.get(slug = slug)
     posts = Post.objects.filter(categories__in=[category])
@@ -502,6 +505,7 @@ def category_post_list (request, slug):
     }
     return render(request, 'post_list.html', context)
 
+@xframe_options_exempt
 def allposts(request):
          
     categories = Category.objects.all()[0:10]
@@ -524,7 +528,8 @@ class ActivationView(SuccessMessageMixin,OrganisorAndLoginRequiredMixin,CreateVi
     form_class = ActivationForm
     success_message = "%(voucher_type)s voucher issued to %(cell_number)s  successfully"
     success_url = reverse_lazy('activation')
-    
+
+@xframe_options_exempt    
 def topic_list(request):
          
     topics = Topic.objects.all()
@@ -535,6 +540,7 @@ def topic_list(request):
     }
     return render(request, 'topic_list.html', context)
 
+@xframe_options_exempt
 def topic_detail(request, slug):
     topic=get_object_or_404(Topic,slug=slug)
     #topic = Topic.objects.get(slug=slug)
@@ -563,6 +569,7 @@ def topic_detail(request, slug):
     return render(request, 'topic_detail.html',{'topic':topic,'comments': comments,'comment_form':comment_form})
 
 # handling reply, reply view
+@xframe_options_exempt
 def reply_page(request):
     if request.method == "POST":
         form = CommentForm(request.POST)
@@ -578,7 +585,7 @@ def reply_page(request):
             return redirect(topic_url+'#'+str(reply.id))
     return redirect("/")
 
-
+@xframe_options_exempt
 def comment_detail_optout(request, pk):
   
     

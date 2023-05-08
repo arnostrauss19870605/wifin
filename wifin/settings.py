@@ -87,7 +87,7 @@ CORS_ALLOWED_ORIGINS = [
 "https://hotspot.yourspot.co.za",
 ]
 
-X_FRAME_OPTIONS = 'DENY'
+
 
 TEMPLATES = [
     {
