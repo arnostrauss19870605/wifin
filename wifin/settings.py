@@ -77,14 +77,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wifin.urls'
 
-CSRF_TRUSTED_ORIGINS = ['https://wifinews.co.za', 'https://wifinews.co.za','https://test.wifinews.co.za', 'https://test.wifinews.co.za']
+CSRF_TRUSTED_ORIGINS = ['https://wifinews.co.za', 'https://wifinews.co.za','https://test.wifinews.co.za', 'https://test.wifinews.co.za', 'https://hotspot.yourspot.co.za']
 
 CORS_ALLOWED_ORIGINS = [
 "https://wifinews.co.za",
 "https://test.wifinews.co.za",
 "http://localhost:8000",
-"http://127.0.0.1:8000"
+"http://127.0.0.1:8000",
+"https://hotspot.yourspot.co.za",
 ]
+
+X_FRAME_OPTIONS = 'DENY'
 
 TEMPLATES = [
     {
