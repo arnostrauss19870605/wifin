@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
+SECURE_CONTENT_TYPE_NOSNIFF = False
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1 # new
