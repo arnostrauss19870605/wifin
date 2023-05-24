@@ -197,15 +197,23 @@
       if (utm_source == 'xpertek') {
           
           window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
+          onsole.log("Option 31")
         
         } 
         else {
-          
-          window.location.replace("http://192.168.50.1/login.html"); 
-         }
-         
-                       
+
+          try{
+            window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login")
+            console.log("Option 1")
+              }
+
+          catch(err) {
+              window.location.replace("http://192.168.50.1/login.html"); 
+              console.log("Option 2")
+          }
+                 
     }
+  }
   
   </script>
 

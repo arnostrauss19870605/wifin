@@ -62,12 +62,13 @@ class Activation(models.Model):
         obj.save()
 
         user =   get_current_user()  
+        
         user_pk = user.pk
         obj_1 = CustomUser.objects.get(pk=user_pk)
-
+      
         self.location = obj_1.site
         self.voucher_nr = the_voucher
-        self.user = user_pk
+        self.user = (obj_1.first_name +" " + obj_1.last_name) 
 
         if self.date_sent is None:
             self.date_sent = timezone.localtime(timezone.now())
