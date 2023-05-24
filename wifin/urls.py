@@ -34,6 +34,7 @@ info_dict = {
 urlpatterns = [
     path('',login_page, name="login"),
     path('landing/',landing_page, name="landing-page"),
+    path('marketing/',Marketing.as_view(), name="Marketing"),
     path('landing_1/',landing_page_1, name="landing-page-1"),
     path('home/',homepage, name="home-page"),
     path('index/',login_page, name="index-page"),

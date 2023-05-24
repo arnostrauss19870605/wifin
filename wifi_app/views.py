@@ -45,6 +45,10 @@ class InterstitialPageview(TemplateView) :
 
     template_name = "interstitial.html"
 
+class Marketing(TemplateView) :
+
+    template_name = "marketing.html"
+
 class Login_mahalaPageview(TemplateView) :
 
     template_name = "login_mahala.html"
