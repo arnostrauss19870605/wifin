@@ -45,6 +45,7 @@ class InterstitialPageview(TemplateView) :
 
     template_name = "interstitial.html"
 
+@xframe_options_exempt
 class Marketing(TemplateView) :
 
     template_name = "marketing.html"
