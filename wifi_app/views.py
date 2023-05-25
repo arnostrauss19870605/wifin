@@ -45,14 +45,16 @@ class InterstitialPageview(TemplateView) :
 
     template_name = "interstitial.html"
 
-@xframe_options_exempt
-class Marketing(TemplateView) :
 
-    template_name = "marketing.html"
 
 class Login_mahalaPageview(TemplateView) :
 
     template_name = "login_mahala.html"
+
+@xframe_options_exempt
+def marketing_page(request):
+     return render(request, "marketing.html")
+
 
 @xframe_options_exempt
 def login_page(request):
