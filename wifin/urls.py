@@ -42,11 +42,9 @@ urlpatterns = [
     path('interstitial/',interstitial, name="interstitial-page"),
     path('interstitial_1/',interstitial_1, name="interstitial-page-1"),
    
-
     path('exit_1/',exit_page_1, name="exit-page-1"),
     path('exit_2/',exit_page_2, name="exit-page-2"),
     path('exit_3/',exit_index, name="exit-index"),
-
     
     path('admin/', admin.site.urls),
     path('clinix/activation', ActivationView.as_view(), name="activation"),
