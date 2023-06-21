@@ -50,6 +50,12 @@ urlpatterns = [
     path('test_page_2/',test_page_2, name="exit-index-test-2"),
     path('test_page_3/',test_page_3, name="exit-index-test-3"),
     path('test_page_4/',test_page_4, name="exit-index-test-4"),
+    path('test_page_5/',test_page_5, name="exit-index-test-5"),
+    path('test_page_6/',test_page_6, name="exit-index-test-6"),
+    path('test_page_7/',test_page_7, name="exit-index-test-7"),
+    path('test_page_8/',test_page_8, name="exit-index-test-8"),
+    path('test_page_9/',test_page_9, name="exit-index-test-9"),
+    path('test_page_10/',test_page_10, name="exit-index-test-10"),
 
     
     path('admin/', admin.site.urls),
@@ -59,6 +65,12 @@ urlpatterns = [
         "ads.txt",
         RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),
     ),
+
+    path(
+        "ads.txt",
+        RedirectView.as_view(url=staticfiles_storage.url("app-ads.txt")),
+    ),
+
     path('markdownx/', include('markdownx.urls')),
     path('post/<slug>/', post, name = 'post'),
     path('about/', about,name = 'about' ),
