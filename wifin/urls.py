@@ -45,6 +45,12 @@ urlpatterns = [
     path('exit_1/',exit_page_1, name="exit-page-1"),
     path('exit_2/',exit_page_2, name="exit-page-2"),
     path('exit_3/',exit_index, name="exit-index"),
+
+    path('test_page_1/',test_page_1, name="exit-index-test-1"),
+    path('test_page_2/',test_page_2, name="exit-index-test-2"),
+    path('test_page_3/',test_page_3, name="exit-index-test-3"),
+    path('test_page_4/',test_page_4, name="exit-index-test-4"),
+
     
     path('admin/', admin.site.urls),
     path('clinix/activation', ActivationView.as_view(), name="activation"),
