@@ -67,7 +67,7 @@ urlpatterns = [
     ),
 
     path(
-        "ads.txt",
+        "app-ads.txt",
         RedirectView.as_view(url=staticfiles_storage.url("app-ads.txt")),
     ),
 
