@@ -9,52 +9,107 @@
       <script src="//www.googletagservices.com/tag/js/gpt.js"></script>
       <script>
 
-       googletag = window.googletag || {cmd: []};
+        googletag = window.googletag || { cmd: [] };
 
-       googletag.cmd.push(() => {
+ 
 
-       const rewardedSlot = googletag.defineOutOfPageSlot(
-
-       '/302423036/nowonline/NO_RewardedVideo',
-       googletag.enums.OutOfPageFormat.REWARDED)
-
-       .addService(googletag.pubads());
-
-       googletag.enableServices();
-
-       googletag.pubads().addEventListener('rewardedSlotReady',
-       function(evt) {
-
-         if (confirm('want to see a rewarded ad?')) {
-
-           evt.makeRewardedVisible();
-
-         } else {
-
-           googletag.destroySlots([rewardedSlot]);
-
-         }
-
-       });
-
-       googletag.pubads().addEventListener('rewardedSlotGranted',
-       function(evt) {
-
-         alert('granted! ' + JSON.stringify(evt.payload));
-
-       });
-
-       googletag.pubads().addEventListener('rewardedSlotClosed',
-       function(evt) {
-
-         alert('Closed by the user!');
-         googletag.destroySlots([rewardedSlot]);
-
-       });
-
-       googletag.display(rewardedSlot);
-
-     });
+        googletag.cmd.push(() => {
+    
+     
+    
+        const rewardedSlot = googletag.defineOutOfPageSlot('/302423036/nowonline/NO_RewardedVideo',
+    
+            googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+    
+            rewardedSlot.setForceSafeFrame(true);
+    
+            googletag.pubads().enableAsyncRendering();
+    
+            googletag.enableServices();
+    
+            googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+    
+     
+    
+            rewardAdIsReady = true;
+    
+     
+    
+            var firstWatch = true;
+    
+     
+    
+            const makeVisibleFn = (e) => {
+    
+                evt.makeRewardedVisible();
+    
+                e.preventDefault();
+    
+                trigger.style.display = 'none';
+    
+                firstWatch = false;
+    
+                adClicked = true;
+    
+            };
+    
+     
+    
+            const trigger = document.getElementById('rewardModal');
+    
+     
+    
+            const watchAdButton = document.getElementById('watchAdBtn');
+    
+     
+    
+            watchAdButton.addEventListener('click', makeVisibleFn);
+    
+     
+    
+            const noThanksButton = document.getElementById('noThanksBtn');
+    
+     
+    
+            const closeRewardBtn = document.getElementById('grantCloseBtn');
+    
+     
+    
+            noThanksButton.addEventListener('click', evt => {
+    
+                trigger.style.display = 'none';
+    
+            })
+    
+     
+    
+            const waitTrigger = document.getElementById('waitModal');
+    
+            const okayBtn = document.getElementById('okayBtn');
+    
+                
+    
+            okayBtn.addEventListener('click', evt => {
+    
+                    waitTrigger.style.display = 'none';
+    
+            })
+    
+        });
+    
+     
+    
+        googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
+    
+            document.redirect.submit();
+    
+        });
+    
+     
+    
+        googletag.display(rewardedSlot);
+    
+    });
 
     </script>
    </head>
