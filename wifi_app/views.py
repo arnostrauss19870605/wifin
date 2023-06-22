@@ -592,7 +592,7 @@ def test_page_4(request):
            
       
         }
-        return render(request, "rewarded_add.html", context)
+        return render(request, "rewarded_add_1.html", context)
     
 @xframe_options_exempt
 def test_page_5(request):
