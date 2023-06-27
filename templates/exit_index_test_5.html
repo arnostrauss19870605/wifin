@@ -418,12 +418,18 @@
 			
 
 				<div class="content-wrap">
+					
+					
+					
 					<!-- slider -->
 					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 2%;">
 						<div>
 							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
                             <div id='div-gpt-ad-8904840-1' style="margin-top: 20px; margin-bottom: 20px;">
                             <script>
+							
+								
+
                                
                             googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-1'); });
                             </script>
@@ -435,22 +441,7 @@
 					<!-- .slider -->
 
 
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 2%;">
-						<div>
-							<!-- /22047902240/wifinews/Homepage_bottom_1 -->
-							<div id='div-gpt-ad-1683741109953-0' style='min-width: 320px; min-height: 50px;'>
-								<script>
-								googletag.cmd.push(function() { googletag.display('div-gpt-ad-1683741109953-0'); });
-								</script>
-							</div>
-  
-						</div>
-						
-					</div>
-					<!-- .slider -->
-					
-		
+
 
 					<!-- section 2 -->
 					<div class="heading-section">
@@ -723,6 +714,22 @@
 			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
+
+			<script>
+				function executeRewardedAdTag() {
+					console.log("Now Rewarde Will Fite ")
+				}
+
+
+				var displayAdTag = document.getElementById('div-gpt-ad-8904840-1')
+				if (displayAdTag.offsetHeight === 0 && displayAdTag.offsetWidth ===0 ){
+
+					executeRewardedAdTag();
+
+				}
+
+			</script>
+
 
 	
 
