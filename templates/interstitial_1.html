@@ -108,16 +108,16 @@
             });
             
         </script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154258676-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', 'UA-154258676-1');
-        </script>
-        <!-- Google tag (gtag.js) -->    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
+    <script> 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); gtag('config', 'G-7X2TTB6954'); 
+    </script>
+    <!-- Google tag (gtag.js) -->
+
+
         <script type = "text/javascript">
             firstTimer();
             
@@ -182,12 +182,12 @@
                 else {
             
                   try{
-                    window.location.replace("http://192.168.50.1/login.html")
+                    window.location.replace("{{routing}}")
                     console.log("Option 1")
                       }
             
                   catch(err) {
-                      window.location.replace("http://192.168.50.1/login.html");
+                      window.location.replace("{{routing}}");
                       console.log("Option 2")
                   }
             
@@ -257,6 +257,7 @@
         </div>
 
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+            <p style = "color :#FF4644; padding : 15px 0 0 0"> "{{routing}}"</p>
           <div class="content-wrap">
             <!-- slider -->
 

@@ -15,6 +15,7 @@ from vouchers.mixins import OrganisorAndLoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.decorators.clickjacking import xframe_options_exempt
+from wifin.local_settings import WIFIN_ROOTING
 
 
 # Create your views here.
@@ -374,14 +375,20 @@ def interstitial_1(request):
 
                        
     else :
-        
+        routing = str(WIFIN_ROOTING)
+        context = {
+
+            'routing' : routing,
+             
+        }
+
 
         try :
-            return render(request, 'interstitial_1.html')
+            return render(request, 'interstitial_1.html',context)
           
         except Exception:
                 
-            pass
+            return render(request, 'interstitial.html',context)
 
             
 @xframe_options_exempt          
