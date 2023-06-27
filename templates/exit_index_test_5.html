@@ -322,14 +322,24 @@
 	
 				/* Modal Content */
 				.modal-content {
-					margin: auto;
-					padding: 25px;
-					background-color: #fefefe;
-					text-align: center;
+					background: #fefefe;
+					border: #333333 solid 0px;
+					border-radius: 5px;
+					margin-left: -200px;
+					text-align:center;
 					position: fixed;
-					top: 60%;
 					left: 50%;
-					transform: translate(-50%, -50%);
+					top: -100%;
+					z-index: 11;
+					width: 360px;
+					box-shadow:0 5px 10px rgba(0,0,0,0.3);
+					-webkit-transform: translate(0, -500%);
+					-ms-transform: translate(0, -500%);
+					transform: translate(0, -500%);
+					-webkit-transition: -webkit-transform 0.3s ease-out;
+					-moz-transition: -moz-transform 0.3s ease-out;
+					-o-transition: -o-transform 0.3s ease-out;
+					transition: transform 0.3s ease-out;
 				}
 			}
 	
