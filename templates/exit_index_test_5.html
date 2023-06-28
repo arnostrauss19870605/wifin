@@ -110,6 +110,10 @@
 								.defineSizeMapping(mapping1)
 								.addService(googletag.pubads())
 
+						googletag.defineSlot('/22047902240/wifinews_test/testad', [320,480], 'div-gpt-ad-1687948187987-0')
+							
+								.addService(googletag.pubads())
+
 								// Removed Slot Level Targeting
           						//.setTargeting('Medium', [utm_medium]);
 							
@@ -322,24 +326,14 @@
 	
 				/* Modal Content */
 				.modal-content {
-					background: #fefefe;
-					border: #333333 solid 0px;
-					border-radius: 5px;
-					margin-left: -200px;
-					text-align:center;
+					margin: auto;
+					padding: 25px;
+					background-color: #fefefe;
+					text-align: center;
 					position: fixed;
+					top: 60%;
 					left: 50%;
-					top: -100%;
-					z-index: 11;
-					width: 360px;
-					box-shadow:0 5px 10px rgba(0,0,0,0.3);
-					-webkit-transform: translate(0, -500%);
-					-ms-transform: translate(0, -500%);
-					transform: translate(0, -500%);
-					-webkit-transition: -webkit-transform 0.3s ease-out;
-					-moz-transition: -moz-transform 0.3s ease-out;
-					-o-transition: -o-transform 0.3s ease-out;
-					transition: transform 0.3s ease-out;
+					transform: translate(-50%, -50%);
 				}
 			}
 	
@@ -417,12 +411,11 @@
 	function executeRewardedAdTag() {
 		
 
-	var displayAdTag = document.getElementById('div-gpt-ad-8904840-1')
+	var displayAdTag = document.getElementById('div-gpt-ad-1687948187987-0')
 	if (displayAdTag.offsetHeight === 0 ){
 
-		console.log("Initiate Rewarded Add Slot ");
+		console.log("Initiate Rewarded Add Slot");
 		executeMyRewardedAd();
-		
 
 	}
 }
@@ -522,18 +515,19 @@
 					
 					
 					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 2%;">
-						<div>
-							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-                            <div id='div-gpt-ad-8904840-1' style="margin-top: 20px; margin-bottom: 20px;">
-                            <script>
-                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-1'); });
-                            </script>
-                            </div>
-                            <!-- End AdSlot 1 -->
-						</div>
 					
-					</div>
+						
+							<!-- /22047902240/wifinews_test/testad -->
+							<div id='div-gpt-ad-1687948187987-0' style='min-width: 320px; min-height: 480px;'>
+								<script>
+								googletag.cmd.push(function() { googletag.display('div-gpt-ad-1687948187987-0'); });
+								</script>
+							</div>
+							
+                            <!-- End AdSlot 1 -->
+						
+					
+				
 					<!-- .slider -->
 
 
