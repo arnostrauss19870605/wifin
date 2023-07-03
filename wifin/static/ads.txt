@@ -804,3 +804,8 @@ freewheel.tv, 1590601, RESELLER
 freewheel.tv, 1590606, RESELLER 
 yahoo.com, 59261, RESELLER, e1a5b5b6e3255540 
 themediagrid.com, 4DQHAP, RESELLER, 35d5010d7789b49d 
+
+omgstudios.com, 0603231, RESELLER 
+viralize.com, 6907, RESELLER 
+showheroes.com, 6907, RESELLER 
+
