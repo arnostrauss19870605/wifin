@@ -348,80 +348,7 @@
 	
 </style>
 
-<script data-cfasync="false" type="text/javascript">
-	
-	function executeMyRewardedAd() {
 
-	googletag = window.googletag || { cmd: [] };
-	googletag.cmd.push(() => {
-		const rewardedSlot = googletag.defineOutOfPageSlot('/302423036,22047902240/nowonline/NO_RewardedVideo',
-			googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-		rewardedSlot.setForceSafeFrame(true);
-		googletag.pubads().enableAsyncRendering();
-		googletag.enableServices();
-		googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-			const makeVisibleFn = (e) => {
-				evt.makeRewardedVisible();
-				e.preventDefault();
-				watchAdButton.removeEventListener('click', makeVisibleFn);
-				noThanksButton.removeEventListener('click', closeModalFn);
-				trigger.style.display = 'none';
-			};
-			const trigger = document.getElementById('rewardModal');
-			trigger.style.display = 'block';
-			const watchAdButton = document.getElementById('watchAdBtn');
-			watchAdButton.addEventListener('click', makeVisibleFn);
-			const noThanksButton = document.getElementById('noThanksBtn');
-			const closeModalFn = () => {
-				const trigger = document.getElementById('rewardModal');
-				trigger.style.display = 'none';
-			};
-			noThanksButton.addEventListener('click', closeModalFn);
-		});
-		googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
-			const grantModal = document.getElementById('grantModal');
-			const reward = evt.payload;
-			const grantParagraph = document.getElementById('grantParagraph');
-			grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
-				+ reward.type + "!";
-			const grantCloseBtn = document.getElementById('grantCloseBtn');
-			const closeGrantFn = () => {
-				grantCloseBtn.removeEventListener('click', closeGrantFn);
-				grantModal.style.display = 'none';
-			}
-			grantCloseBtn.addEventListener('click', closeGrantFn);
-			grantModal.style.display = 'block';
-		});
-		googletag.display(rewardedSlot);
-	});
-	console.log("The Rewarded Add");
-};
-
-</script>
-
-
-
-<script data-cfasync="false" type="text/javascript">
-		
-	function executeRewardedAdTag() {
-		
-
-	var displayAdTag = document.getElementById('div-gpt-ad-1687948187987-0')
-	if (displayAdTag.offsetHeight === 0 ){
-
-		console.log("Initiate Rewarded Add Slot - Collapsed");
-		executeMyRewardedAd();
-
-	}
-	
-	console.log("Initiate Rewarded Add Slot - NOT Collapsed");
-	console.log("My Offset Height : " + displayAdTag.offsetHeight);
-}
-
-</script>
-
-	
-	
 	
     </head>
 	<body class="default">
@@ -802,9 +729,72 @@
 			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
-
-			<script>
-				executeRewardedAdTag();
+			<script data-cfasync="false" type="text/javascript">
+	
+				function executeMyRewardedAd() {
+			
+				googletag = window.googletag || { cmd: [] };
+				googletag.cmd.push(() => {
+					const rewardedSlot = googletag.defineOutOfPageSlot('/302423036,22047902240/nowonline/NO_RewardedVideo',
+						googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+					rewardedSlot.setForceSafeFrame(true);
+					googletag.pubads().enableAsyncRendering();
+					googletag.enableServices();
+					googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+						const makeVisibleFn = (e) => {
+							evt.makeRewardedVisible();
+							e.preventDefault();
+							watchAdButton.removeEventListener('click', makeVisibleFn);
+							noThanksButton.removeEventListener('click', closeModalFn);
+							trigger.style.display = 'none';
+						};
+						const trigger = document.getElementById('rewardModal');
+						trigger.style.display = 'block';
+						const watchAdButton = document.getElementById('watchAdBtn');
+						watchAdButton.addEventListener('click', makeVisibleFn);
+						const noThanksButton = document.getElementById('noThanksBtn');
+						const closeModalFn = () => {
+							const trigger = document.getElementById('rewardModal');
+							trigger.style.display = 'none';
+						};
+						noThanksButton.addEventListener('click', closeModalFn);
+					});
+					googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
+						const grantModal = document.getElementById('grantModal');
+						const reward = evt.payload;
+						const grantParagraph = document.getElementById('grantParagraph');
+						grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
+							+ reward.type + "!";
+						const grantCloseBtn = document.getElementById('grantCloseBtn');
+						const closeGrantFn = () => {
+							grantCloseBtn.removeEventListener('click', closeGrantFn);
+							grantModal.style.display = 'none';
+						}
+						grantCloseBtn.addEventListener('click', closeGrantFn);
+						grantModal.style.display = 'block';
+					});
+					googletag.display(rewardedSlot);
+				});
+				console.log("The Rewarded Add");
+			};
+			
+			function executeRewardedAdTag() {
+					
+			
+				var displayAdTag = document.getElementById('div-gpt-ad-1687948187987-0')
+				if (displayAdTag.offsetHeight === 0 ){
+			
+					console.log("Initiate Rewarded Add Slot - Collapsed");
+					executeMyRewardedAd();
+			
+				}
+				
+				console.log("Initiate Rewarded Add Slot - NOT Collapsed");
+				console.log("My Offset Height : " + displayAdTag.offsetHeight);
+			};
+			
+			executeRewardedAdTag(); 
+			
 			</script>
 
 	
