@@ -138,8 +138,8 @@
 
 						googletag.defineSlot('/22047902240/wifinews_test/testad', [320,480], 'div-gpt-ad-1687948187987-0')
 								.defineSizeMapping(mapping2)
-							
-								  .addService(googletag.pubads())
+								.setCollapseEmptyDiv(true, true)
+								.addService(googletag.pubads())
 
 
 		      
@@ -781,6 +781,28 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
+			<script data-cfasync="false" type="text/javascript">
+	
+				function executeRewardedAdTag() {
+					
+			
+				var displayAdTag = document.getElementById('div-gpt-ad-1687948187987-0')
+				if (displayAdTag.offsetHeight === 0 ){
+			
+					console.log("Initiate Rewarded Add Slot - Collapsed");
+					executeMyRewardedAd();
+			
+				}
+				
+				console.log("Initiate Rewarded Add Slot - NOT Collapsed");
+				console.log("My Offset Height : " + displayAdTag.offsetHeight);
+			};
+			
+			executeRewardedAdTag(); 
+			
+			</script>
+
+	
 
 
 		</body>
