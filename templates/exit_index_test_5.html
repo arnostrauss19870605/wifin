@@ -54,7 +54,9 @@
         <script
         
         async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
-        <script>
+        
+		
+		<script>
 	
         
 		window.googletag = window.googletag || {cmd: []};
@@ -64,6 +66,9 @@
 		const utm_medium = urlParams.get('utm_medium')
         
 		googletag.cmd.push(function() {
+
+		googletag.pubads().collapseEmptyDivs();
+
 		var mapping1 = googletag.sizeMapping()	
 				
 
@@ -108,24 +113,24 @@
 
 					   googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,100],[300,250],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-1')
 								.defineSizeMapping(mapping1)
-								.addService(googletag.pubads())
+								.addService(googletag.pubads());
 							
 						
 					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,250],[300,600],'fluid',[468,60],[728,90],[320,100]], 'div-gpt-ad-8904840-2')
 								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads())
+								.addService(googletag.pubads());
 
 								// Removed Slot Level Targeting
           						//.setTargeting('Medium', [utm_medium]);
 					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[300,250],[300,600],[320,100],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-3')
 								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads())
+								.addService(googletag.pubads());
 
 								// Removed Slot Level Targeting
           						//.setTargeting('Medium', [utm_medium]);
 					   googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-4')
 								.defineSizeMapping(mapping4)
-								.addService(googletag.pubads())
+								.addService(googletag.pubads());
 
 								// Removed Slot Level Targeting
           						//.setTargeting('Medium', [utm_medium]);
@@ -139,7 +144,7 @@
 						googletag.defineSlot('/22047902240/wifinews_test/testad', [320,480], 'div-gpt-ad-1687948187987-0')
 								.defineSizeMapping(mapping2)
 								.setCollapseEmptyDiv(true, true)
-								.addService(googletag.pubads())
+								.addService(googletag.pubads());
 
 
 		      
@@ -151,7 +156,6 @@
   
 	// Enable SRA and services.						
         googletag.pubads().enableSingleRequest();
-        googletag.pubads().collapseEmptyDivs();
         googletag.pubads().setCentering(true);
         googletag.enableServices();
 
@@ -395,6 +399,19 @@
 				margin: 4px;
 			}
 	
+			div.ad-container {
+				border: solid;
+				
+
+
+  				
+			  }
+		
+			  div.ad-slot {
+				border-style: dashed;
+				display: inline-block;
+
+			  }
 		
 	
 </style>
@@ -494,10 +511,11 @@
 					
 						
 					<!-- /22047902240/wifinews_test/testad -->
-					<div id='div-gpt-ad-1687948187987-0' style='min-width: 320px; min-height: 480px;'>
-					<script>
-						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1687948187987-0'); });
-					</script>
+				
+
+					<div id = "my_container" class="ad-container">
+						<p>Ad slot #1</p>
+						<div id="div-gpt-ad-1687948187987-0" class="ad-slot"></div>
 					</div>
 							
                             <!-- End AdSlot 1 -->
@@ -764,6 +782,10 @@
 
 			
 			<div class="overlay"></div>
+
+			<script>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1687948187987-0'); });
+			</script>
 			
 
 			
@@ -787,15 +809,33 @@
 					
 			
 				var displayAdTag = document.getElementById('div-gpt-ad-1687948187987-0')
-				if (displayAdTag.offsetHeight === 0 ){
-			
-					console.log("Initiate Rewarded Add Slot - Collapsed");
-					executeMyRewardedAd();
-			
-				}
+				var displayAdContainer = document.getElementById('my_container')
 				
-				console.log("Initiate Rewarded Add Slot - NOT Collapsed");
-				console.log("My Offset Height : " + displayAdTag.offsetHeight);
+				setTimeout(function(){
+
+					if (displayAdTag.offsetHeight == 0 ){
+
+						console.log("Initiate Rewarded Add Slot - Collapsed");
+						console.log("My Offset Height : " + displayAdTag.offsetHeight);
+						console.log("My Container Height : " + displayAdContainer.offsetHeight);
+
+						const element = document.getElementById("my_container");
+						element.remove();
+				
+						
+						executeMyRewardedAd();
+				
+					} else {
+
+						console.log("Initiate Rewarded Add Slot - NOT Collapsed");
+						console.log("My Offset Height : " + displayAdTag.offsetHeight);
+
+					}
+					console.log("Executed after 1 second");
+
+				}, 1000);
+				
+				
 			};
 			
 			executeRewardedAdTag(); 
