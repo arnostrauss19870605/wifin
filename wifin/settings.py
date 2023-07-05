@@ -179,7 +179,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'wifi_app.CustomUser'
 LOGIN_REDIRECT_URL = "/clinix/activation"
 
-SESSION_COOKIE_AGE = 90 
+SESSION_COOKIE_AGE = 300 
 SESSION_SAVE_EVERY_REQUEST = True 
 
 try : 
