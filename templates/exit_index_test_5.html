@@ -215,6 +215,7 @@
 				rewardedSlot.setForceSafeFrame(true);
 				googletag.pubads().enableAsyncRendering();
 				googletag.enableServices();
+
 				googletag.pubads().addEventListener('rewardedSlotReady', evt => {
 					const makeVisibleFn = (e) => {
 						evt.makeRewardedVisible();
@@ -234,11 +235,12 @@
 					};
 					noThanksButton.addEventListener('click', closeModalFn);
 				});
+
 				googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
 					const grantModal = document.getElementById('grantModal');
 					const reward = evt.payload;
 					const grantParagraph = document.getElementById('grantParagraph');
-					grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
+					grantParagraph.innerHTML = "Thanks for watching our Ad! Click close to access your free Wifi."
 						+ reward.type + "!";
 					const grantCloseBtn = document.getElementById('grantCloseBtn');
 					const closeGrantFn = () => {
