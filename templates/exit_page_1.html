@@ -105,6 +105,36 @@
      
       </script>
 
+  <!-- SetupAd Script -->
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+        googletag.defineSlot('/147246189,22047902240/wifinews.co.za_320x100_sticky', [[320,100],[320,50]], 'wifinews_co_za_320x100_sticky').addService(googletag.pubads());            
+        googletag.defineSlot('/147246189,22047902240/wifinews.co.za_300x250_1', [[300, 250]], 'wifinews_co_za_300x250_1').addService(googletag.pubads());            
+        googletag.defineSlot('/147246189,22047902240/wifinews.co.za_300x600_1', [[300,600]], 'wifinews_co_za_300x600_1').addService(googletag.pubads());            
+                        
+ 
+
+        // non-responsive positions
+
+        // interstitial
+            var interstitialSlot_SetupAd = googletag.defineOutOfPageSlot('/147246189,22047902240/wifinews.co.za_interstitial',
+            googletag.enums.OutOfPageFormat.INTERSTITIAL);
+            if (interstitialSlot_SetupAd) interstitialSlot_SetupAd.addService(googletag.pubads());
+
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().disableInitialLoad();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.pubads().setCentering(true);
+            googletag.enableServices();
+            googletag.display(interstitialSlot_SetupAd);
+    });
+    
+        
+</script>
+<script async src="https://stpd.cloud/saas/5328"></script>
+<!-- END SetupAd Script -->
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
     <script> 
@@ -113,6 +143,95 @@
       gtag('js', new Date()); gtag('config', 'G-7X2TTB6954'); 
     </script>
     <!-- Google tag (gtag.js) -->
+
+   
+
+
+    <script data-cfasync="false" type="text/javascript">
+
+          
+      console.log("The GET Location UTM : " + utm_medium);
+    
+      function getLocation() {
+    
+        const table = {
+        'CastleGate':['wifi_new_location-25.818290856952945,28.243639216402936'],
+        'Checkers':['wifi_new_location-25.790030462813558,28.308465216402087'],
+        'Aurora':['wifi_new_location-33.83395303127436,18.630754924849253'],
+        'DieBoord':['wifi_new_location-33.94392326663052,18.85096309574991'],
+        'Habitat':['wifi_new_location-34.09946569316033,18.84421431697818'],
+        'Hermanus':['wifi_new_location-34.42007712494609,19.240125224080554'],
+        'Kendridge':['wifi_new_location-33.86231506242235,18.633543722208376'],
+        'Soneike':['wifi_new_location-33.909032968264526,18.683045000785135'],
+        'Sonstraal':['wifi_new_location-33.836547883756005,18.67569102168555'],
+        'Vredenburg':['wifi_new_location-32.90746509078876,17.988025359030726'],
+        'BedfordCentre':['wifi_new_location-26.188635654281008,28.123009071710403'],
+        'CavendishSquare':['wifi_new_location-33.980412947370525,18.463474343933616'],
+        'Gateway':['wifi_new_location-29.725324023471455,31.066332721373545'],
+        'Kagiso':['wifi_new_location-26.174779114494054,27.79103438522797'],
+        'PhumulaniMall':['wifi_new_location-25.975986498418816,28.23187761105135'],
+        'RiversideMall':['wifi_new_location-25.437872100714724,30.966835401402747'],
+        'TheZone':['wifi_new_location-26.14558111504946,28.043494964297913'],
+        'VincentPark':['wifi_new_location-32.984022063954704,27.904019337522943'],
+        'DunesMall':['wifi_new_location-22.958187390267206,14.520234364216252'],
+        'NewtownJunction':['wifi_new_location-26.200365809609856,28.030825809239985'],
+        'PanAfrica':['wifi_new_location-26.109695625142013,28.08753303916644'],
+        'TheGroveMall':['wifi_new_location-25.766500481639795,28.324746412173972'],
+        'RandRidgeMall':['wifi_new_location-26.100950297912146,27.941410568002382'],
+        'MaeruaMall':['wifi_new_location-22.58400964501496,17.093269502829312'],
+        'BloemfonteinPlaza':['wifi_new_location-29.11748827835424,26.219907408604957'],
+        'Daveyton':['wifi_new_location-26.15294287529297,28.418510197592422'],
+        'DurbanPhoenix':['wifi_new_location-29.858736202886544,31.021894041127993'],
+        'GugulethuSquare':['wifi_new_location-33.98620279293109,18.566597644968407'],
+        'Hammarsdale':['wifi_new_location-29.80191253467289,30.628546656470675'],
+        'MorulengMall':['wifi_new_location-25.164557868299156,27.167977503493653'],
+        'PinetownPineCrest':['wifi_new_location-29.811321457343517,30.857342176043048'],
+        'Bagatelle(MOM)':['wifi_new_location47.49065837536919,19.023483115344582'],
+        'BoValon':['wifi_new_location-20.423930360389488,57.69777129108692'],
+        'PhoenixMall':['wifi_new_location18.56168803863375,73.916021963598'],
+        'MallofCyprus':['wifi_new_location35.13000851087696,33.37107792966399'],
+        'BrooklynMall':['wifi_new_location-25.772108417083633,28.23491084459973'],
+        'BalfourMall':['wifi_new_location-26.136972616857793,28.08952008890624'],
+        'DesignQuarter':['wifi_new_location-26.03083372252673,28.011850433083907'],
+        'ZewenwachtMall':['wifi_new_location-33.94883217761204,18.695855497080895'],
+        'AtlantisCity':['wifi_new_location-33.562868312868126,18.492210002626145'],
+        'Dobsonville':['wifi_new_location-26.21222895577691,27.8692175410221'],
+        'DurbanWorkshop':['wifi_new_location-29.85604715832367,31.026385606733434'],
+        'EastrandMall':['wifi_new_location-26.181932597644654,28.240448856365774'],
+        'HighlandMews':['wifi_new_location-25.90158224526943,29.235217088899944'],
+        'Hillfox':['wifi_new_location-26.13916294009301,27.92079593308686'],
+        'MdantsaneCity':['wifi_new_location-32.93545934560322,27.74131852669148'],
+        'Phuthaditjhaba':['wifi_new_location-28.533704994953837,28.803197446209698'],
+        'PretoriaKolonnade':['wifi_new_location-25.680555475397163,28.251115589572983'],
+        'QueenstownNonesi':['wifi_new_location-31.903324778044464,26.872296430075874'],
+        'RandburgSquare':['wifi_new_location-26.09177063507921,28.003228787052308'],
+        'Eikestad':['wifi_new_location-33.93540887320114,18.859636316652495'],
+        'Glenfair':['wifi_new_location-25.76573558294784,28.28075546747133'],
+        'LynnwoodBridge':['wifi_new_location-25.765485817744345,28.278438345237603'],
+        'MallofAfrica':['wifi_new_location-26.014991001305912,28.107477458213967'],
+        'MooirivierMall':['wifi_new_location-26.712775923223884,27.104604002413712'],
+        }
+
+    
+        // Find the "row" in the table where the key is 'MallofAfrica'
+        let items = table[utm_medium];
+    
+        // Get the 1st item in the data
+        
+        console.log(items[0]);
+        return items[0];
+        
+    
+      }
+      
+      // Call the getLocation function
+          
+    </script>
+    
+    
+    
+
+    
 
   
     <script data-cfasync="false" type="text/javascript">
@@ -123,10 +242,24 @@
                 const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
                
                 if (queryString.length === 0 ){
-                  window.location.assign("/exit_2/" + queryString ); 
+                  window.location.assign("/exit_2/" + queryString  ); 
                 }
-                else {               
-                window.location.assign("/exit_2/" + queryString ); 
+
+                else {    
+
+                  try{
+                    const wifi_location = getLocation();
+                    const wifi_location_param = String(wifi_location)
+
+                    window.location.assign("/exit_2/" + queryString  + "&" + wifi_location_param ); 
+
+                    }
+                  catch(err) {
+
+                    window.location.assign("/exit_2/" + queryString  ); 
+                  
+                  }     
+                
                 }
         }
     
@@ -202,7 +335,17 @@
 </head>
 
 <body class="default">
+  <script type="text/javascript">
 
+    testf();
+
+    function testf() {
+    getLocation();
+
+    console.log("MY TESTS - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+    }
+  </script>  
  
 <style>
 
@@ -277,6 +420,13 @@
           </div>
     </div>
 
+  <!-- SetupADD /wifinews_co_za_300x250_1 -->
+ <div id='wifinews_co_za_300x250_1'>
+ <script>
+         googletag.cmd.push(function() { googletag.display('wifinews_co_za_300x250_1'); });
+</script>
+</div>
+ <!-- END SetupADD /wifinews_co_za_300x250_1 -->
 
       <div class="section-home available-car"  >
         <div class="heading-section" style="margin-bottom: 90px;">
@@ -320,7 +470,10 @@
       <!-- .Content  -->
     <div class="overlay"></div>
     
-		
+	
+    
+  
+
     </body>
 
 
