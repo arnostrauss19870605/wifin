@@ -23,7 +23,84 @@
           <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
           <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
    
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+          
+      
+      function nextPage() {
+                const queryString = window.location.search;
+                const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+               
+                if (queryString.length === 0 ){
+                  window.location.assign("/landing_1/" + queryString ); 
+                }
+                else {               
+                window.location.assign("/landing_1/" + queryString ); 
+                }
+        }
+    
+    </script>
+
+    
+    
+    <script type = "text/javascript">
+     
+
+      function addSeconds(numOfSeconds, date = new Date()) {
+        date.setSeconds(date.getSeconds() + numOfSeconds);
+      
+        return date;
+        }    
+
+
+      function firstTimer() {
+        var timeleft = 20;
+        var starttime = new Date();
+        var firstTimer = null;
+        const futuretime = addSeconds(11, starttime)
+      
+        firstTimer = setInterval(function () {
+        
+        var actualttime = new Date();
+        
+      
+        if (actualttime >= futuretime||timeleft <= 10)  {
+              //document.redirect.submit();
+
+              // Clear the interval
+              clearInterval(firstTimer);
+              nextPage()
+          } 
+          else if ( timeleft == 11|| timeleft == 12) {
+            document.getElementById("noticeTxt4").style.display = "Inherit";
+            document.getElementById("noticeTxt").style.display = "none";
+            document.getElementById("noticeTxt2").style.display = "none";
+            document.getElementById("noticeTxt3").style.display = "none"
+
+          }
+          
+          
+          else {
+              document.getElementById("noticeTxt").style.display = "Inherit";
+              document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
+              document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
+              document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
+          }
+  
+          timeleft = timeleft - 1;
+  
+      }, 1000)
+  }
+// Initialize the firstTimer after Google tags have loaded
+  function initFirstTimer() {
+    firstTimer();
+  }
+  </script>
+
+
+
+
   
     <script src="//www.googletagservices.com/tag/js/gpt.js" onload="initFirstTimer()">  </script>
    
@@ -115,80 +192,7 @@
     </script>
     <!-- Google tag (gtag.js) -->
   
-    <script type="text/javascript">
-          
-      
-      function nextPage() {
-                const queryString = window.location.search;
-                const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
-               
-                if (queryString.length === 0 ){
-                  window.location.assign("/landing_1/" + queryString ); 
-                }
-                else {               
-                window.location.assign("/landing_1/" + queryString ); 
-                }
-        }
     
-    </script>
-
-    
-    
-    <script type = "text/javascript">
-     
-
-      function addSeconds(numOfSeconds, date = new Date()) {
-        date.setSeconds(date.getSeconds() + numOfSeconds);
-      
-        return date;
-        }    
-
-
-      function firstTimer() {
-        var timeleft = 20;
-        var starttime = new Date();
-        var firstTimer = null;
-        const futuretime = addSeconds(11, starttime)
-      
-        firstTimer = setInterval(function () {
-        
-        var actualttime = new Date();
-        
-      
-        if (actualttime >= futuretime||timeleft <= 10)  {
-              //document.redirect.submit();
-
-              // Clear the interval
-              clearInterval(firstTimer);
-              nextPage()
-          } 
-          else if ( timeleft == 11|| timeleft == 12) {
-            document.getElementById("noticeTxt4").style.display = "Inherit";
-            document.getElementById("noticeTxt").style.display = "none";
-            document.getElementById("noticeTxt2").style.display = "none";
-            document.getElementById("noticeTxt3").style.display = "none"
-
-          }
-          
-          
-          else {
-              document.getElementById("noticeTxt").style.display = "Inherit";
-              document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
-              document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
-              document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-          }
-  
-          timeleft = timeleft - 1;
-  
-      }, 1000)
-  }
-// Initialize the firstTimer after Google tags have loaded
-  function initFirstTimer() {
-    firstTimer();
-  }
-  </script>
-
-
 
   <script type="text/javascript">
     window._taboola = window._taboola || [];
