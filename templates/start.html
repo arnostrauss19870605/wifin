@@ -25,7 +25,8 @@
    
    
   
-    <script src="//www.googletagservices.com/tag/js/gpt.js">  </script>
+    <script src="//www.googletagservices.com/tag/js/gpt.js" onload="initFirstTimer()">  </script>
+   
       
     <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
 
@@ -181,7 +182,12 @@
   
       }, 1000)
   }
+// Initialize the firstTimer after Google tags have loaded
+  function initFirstTimer() {
+    firstTimer();
+  }
   </script>
+
 
 
   <script type="text/javascript">
@@ -347,9 +353,7 @@
     <div class="overlay"></div>
     
 		
-    <script type = "text/javascript">
-      firstTimer();
-    </script>
+
     
 
 
