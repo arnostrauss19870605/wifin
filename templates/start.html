@@ -158,6 +158,9 @@
       
         if (actualttime >= futuretime||timeleft <= 10)  {
               //document.redirect.submit();
+              
+              // Clear the interval
+              clearInterval(firstTimer);
               nextPage()
           } 
           else if ( timeleft == 11|| timeleft == 12) {
