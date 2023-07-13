@@ -143,6 +143,7 @@
       
 
       if (actualttime >= futuretime||timeleft <= 0)  {
+          clearInterval(firstTimer);
           nextPage()
       } 
       else if ( timeleft == 1|| timeleft == 2) {

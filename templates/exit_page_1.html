@@ -259,6 +259,7 @@
       
         if (actualttime >= futuretime||timeleft <= 10)  {
               //document.redirect.submit();
+              clearInterval(firstTimer);
               nextPage()
           } 
           else if ( timeleft == 11|| timeleft == 12) {
