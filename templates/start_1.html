@@ -116,7 +116,7 @@
     </script>
     <!-- Google tag (gtag.js) -->
 
-    <script async type="text/javascript">
+    <script type = "text/javascript">
         function nextPage() {
                 const queryString = window.location.search;
                 window.location.assign("/home/" + queryString ); 
@@ -125,8 +125,7 @@
       </script> 	
 
   <script type = "text/javascript">
-    firstTimer();
-
+   
     function addSeconds(numOfSeconds, date = new Date()) {
       date.setSeconds(date.getSeconds() + numOfSeconds);
     
@@ -246,7 +245,13 @@
           <div >
               <div>
                 
-                <div id='div-gpt-ad-1664882026956-0' style="margin-top: 40px; margin-bottom: 10px;">  </div>
+                <div id='div-gpt-ad-1664882026956-0' style="margin-top: 40px; margin-bottom: 10px;"> 
+                  <script>
+                  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664882026956-0'); });
+                </script>  
+                
+                
+                </div>
     
               </div>
           </div>
@@ -301,7 +306,10 @@
                     </script>
 
 
-  
+                    <script type = "text/javascript">
+                      firstTimer();
+                    </script>
+                    
     
     
     </body>

@@ -337,7 +337,7 @@
 			
 			
 
-		<script async type="text/javascript">
+		<script  type="text/javascript">
 			function nextPage() {
 					const queryString = window.location.search;
 					window.location.assign("/interstitial/" + queryString ); 
@@ -678,7 +678,7 @@
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
 		<script>
-			firstTimer();	
+			
 			function firstTimer() {
 				
 				var timeleft = 16;
@@ -722,7 +722,10 @@
 			</script>
 
 	
-
+			<script type = "text/javascript">
+				firstTimer();
+			</script>
+			  
 
 		</body>
 	</html>
