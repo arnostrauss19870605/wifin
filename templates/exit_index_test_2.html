@@ -208,13 +208,17 @@
           '/22047902240/wifinews/interstitial', [[320, 480], [300, 250], [300, 600],'fluid'], 'div-gpt-ad-1664881948592-0')
           .defineSizeMapping(mapping1)
           .addService(googletag.pubads())
-		  .addEventListener("impressionViewable", (event) => {
+
+		  googletag.pubads().addEventListener("impressionViewable", (event) => {
 			const slot = event.slot;
 			console.log("Impression for slot", slot.getSlotElementId(), "became viewable.");
-			if (slot === targetSlot) {
-				// Slot specific logic.
-			  }
+			if (slot === staticSlot) {
+			  // Slot-specific logic.
+			}
+		  });
 
+
+		  
           googletag.defineSlot('/22047902240/interstitial_1_320x50', [[320,50],[300,250],[300,600]], 'div-gpt-ad-5067521-1')
           .addService(googletag.pubads());
           
@@ -233,6 +237,7 @@
       googletag.pubads().collapseEmptyDivs();
       googletag.pubads().setCentering(true);
       googletag.enableServices();
+	  googletag.display('div-gpt-ad-1664881948592-0');
       console.log("The UTM Medium value is : " + [utm_medium]);
       });
   
