@@ -213,12 +213,12 @@
 			const slot = event.slot;
 			console.log("Impression for slot", slot.getSlotElementId(), "became viewable.");
 			if (slot === staticSlot) {
-			  // Slot-specific logic.
+				initFirstTimer()
 			}
 		  });
 
 
-		  
+
           googletag.defineSlot('/22047902240/interstitial_1_320x50', [[320,50],[300,250],[300,600]], 'div-gpt-ad-5067521-1')
           .addService(googletag.pubads());
           
@@ -485,7 +485,7 @@
               
               <div id='div-gpt-ad-1664881948592-0' style="margin-top: 40px; margin-bottom: 10px;">  
                 <script>
-                  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664881948592-0'); onload="initFirstTimer()" });
+                  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664881948592-0');  });
                 </script>
 
              </div>
@@ -499,7 +499,7 @@
         <!-- /22047902240/wifinews/interstitial_1_320x50 -->
         <div id='div-gpt-ad-5067521-1' style='min-width: 320px; min-height: 50px;'>
           <script>
-            googletag.cmd.push(function() { googletag.display('div-gpt-ad-5067521-1');onload="initFirstTimer()" });
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-5067521-1'); });
           </script>
         </div>
      </div>
