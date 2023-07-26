@@ -2,6 +2,8 @@
 
 <html lang="en">
   <head>
+	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" onload="initFirstTimer()"> </script>
+	<script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
                         
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,7 +50,23 @@
     
     
     <script type = "text/javascript">
-     
+
+	  function	run_down_timer(){
+		
+		var countdownNumberEl = document.getElementById('countdown-number');
+		var countdown = 10;
+		
+		countdownNumberEl.textContent = countdown;
+		
+		setInterval(function() {
+		  countdown = --countdown <= 0 ? 10 : countdown;
+		
+		  countdownNumberEl.textContent = countdown;
+		}, 1000);
+
+
+	  }	
+
 
       function addSeconds(numOfSeconds, date = new Date()) {
         date.setSeconds(date.getSeconds() + numOfSeconds);
@@ -58,10 +76,10 @@
 
 
       function firstTimer() {
-        var timeleft = 20;
+        var timeleft = 25;
         var starttime = new Date();
         var firstTimer = null;
-        const futuretime = addSeconds(11, starttime)
+        const futuretime = addSeconds(16, starttime)
       
         firstTimer = setInterval(function () {
         
@@ -73,43 +91,51 @@
 
               // Clear the interval
               clearInterval(firstTimer);
-
+			  window.alert("You will No route to the next page");
               //nextPage()
           } 
-          else if ( timeleft == 11|| timeleft == 12) {
-            document.getElementById("row_1").style.display = "none";
-            document.getElementById("row_2").style.display = "Inherit";
-            
 
-          }
-
-		  else if ( timeleft > 17 && timeleft < 22) {
+          
+            else if ( timeleft > 22 ) {
 			document.getElementById("noticeTxt").style.display = "Inherit";
 			document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
 			document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
 			document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-			document.getElementById("circle_1").style.display = "none";
+			
           }
 
-		  else if ( timeleft > 13 && timeleft < 17) {
-			document.getElementById("noticeTxt").style.display = "none";
-			document.getElementById("noticeTxt").style.display = "none";
-			document.getElementById("noticeTxt2").style.display = "none";
-			document.getElementById("noticeTxt5").innerHTML = timeleft   ;
-			document.getElementById("noticeTxt3").style.display = "none";
-			document.getElementById("circle_1").style.display = "Inherit";
+		  	else if ( timeleft > 13 ) {
+					
+			
+			if(document.getElementById("countdown")){
+				const my_element = document.getElementById("countdown");
+				my_element.remove();
+			} 
+
+			
+			document.getElementById("noticeTxt5A").innerHTML = timeleft   ;
+			document.getElementById("noticeTxt5B").innerHTML = "Page 1 of 2"   ;
+			document.getElementById("countdown_1").style.display = "Inherit"; 
+			 
+			
+			
+			
           }
-          
-          
-          
-          else {
-			document.getElementById("noticeTxt").style.display = "none";
-			document.getElementById("noticeTxt").style.display = "none";
-			document.getElementById("noticeTxt2").style.display = "none";
-			document.getElementById("noticeTxt5").innerHTML = timeleft   ;
-			document.getElementById("noticeTxt3").style.display = "none";
+
+		  else if ( timeleft > 9 ) {
+					
+			
+			if(document.getElementById("row_1")){
+				const my_element = document.getElementById("row_1");
+				my_element.remove();
+			} 
+
+			document.getElementById("row_2").style.display = "Inherit";  
+					
+			
           }
-  
+
+				  
           timeleft = timeleft - 1;
   
       }, 1000)
@@ -121,15 +147,8 @@
   </script>
 
 
-
-
   
-    <script src="//www.googletagservices.com/tag/js/gpt.js" >  </script>
-   
-      
-    <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
 
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script>
     
     <script>
    
@@ -235,20 +254,7 @@
     </script>
 
 
-	<script type="text/javascript">
 
-	var countdownNumberEl = document.getElementById('countdown-number');
-	var countdown = 10;
-	
-	countdownNumberEl.textContent = countdown;
-	
-	setInterval(function() {
-	  countdown = --countdown <= 0 ? 10 : countdown;
-	
-	  countdownNumberEl.textContent = countdown;
-	}, 1000);
-
-</script>
 
 
   
@@ -336,22 +342,6 @@
 	}
   }
 
-  .bookmarkRibbon {
-	width: 80px;
-	height: 0;
-	border-bottom: 10px solid #FF4644;
-	border-top: 10px solid  #FF4644;
-	border-left: 5px solid transparent;
-	float: right;
-	margin-bottom: 0px;
-	font-size: 10px;
-	font-weight:700;
-	position: absolute;
-	right: 0px;
-	bottom: 15px;
-}
-
-
 
   
   </style> 
@@ -367,28 +357,45 @@
 					
 					<svg >
 						
-					<circle id = "circle_1" r="60" cx="50%" cy="70"> </circle>
+					
 
-					<text id="noticeTxt"  x="30%" y="50%" 	text-anchor="middle" fill="#FF4644" font-size="12px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt"  x="30%" y="40%" 	text-anchor="middle" fill="#FF4644" font-size="16px" font-weight="bold" dx="20%" > 
 					
 					</text>
 
-					<text id="noticeTxt2"  x="30%" y="60%" 	text-anchor="middle" fill="#FF4644" font-size="12px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt2"  x="30%" y="55%" 	text-anchor="middle" fill="#FF4644" font-size="16px" font-weight="bold" dx="20%" > 
 						
 					</text>
 				
-					<text id="noticeTxt3"  x="30%" y="70%" 	text-anchor="middle" fill="#FF4644" font-size="12px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt3"  x="30%" y="70%" 	text-anchor="middle" fill="#FF4644" font-size="16px" font-weight="bold" dx="20%" > 
 						
 					</text>
 
-					<text id="noticeTxt4"  x="30%" y="50%" 	text-anchor="middle" fill="#FF4644" font-size="12px" font-weight="bold" dx="20%"  style="display: none;"> 
-						Press To Proceed 
-					</text>
 
 					<text id="noticeTxt5"  x="30%" y="60%" 	text-anchor="middle" fill="#FF4644" font-size="20px" font-weight="bold" dx="20%" > 
 						
 					</text>
 					
+							
+
+					</svg>
+								
+		</div>
+
+		<div id="countdown_1" style="display: none;">
+						
+			<div id="countdown-number"> </div>
+			
+					
+					<svg >
+						
+					<circle id = "circle_1" r="60" cx="50%" cy="70"> </circle>
+					
+					<text id="noticeTxt5A"  x="30%" y="58%" 	text-anchor="middle" fill="#FF4644" font-size="18px" font-weight="bold" dx="20%" > </text>
+					<text id="noticeTxt5B"  x="70%" y="88%" 	text-anchor="middle" fill="#FF4644" font-size="12px" font-weight="bold" dx="20%" > </text> 
+					
+					
+								
 					<text 
 					
 					x="70%" 
@@ -402,28 +409,36 @@
 					
 					
 					
-					dx="20%" > 
-					
-					<div class="bookmarkRibbon"><span style="color:white;position: relative;top: -6px;text-align: center;right: -10px;">Page 1 of 2</span></div>
-					
+					dx="20%"  > 
 
+				 					
+			
+					
+						
+	
 					</svg>
+					
 			
 		</div>
-      
+	  
+	  
+	    
       
     </div>
+
+	
+
 
 
 	<div class="row" id = "row_2" style="display:none;font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #000080;color:#FF4644;border-radius: 25px; " >
     
           
-		<div id="countdown">
+		<div id="countdown_3">
 			<div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
             
 	
-				<div class="button_2"  style="margin-bottom: 0px;text-align:center; width: 110px; height: 110px; margin-top: 5%;margin-left: 35%;border-radius: 50%; border: 2px dotted #000080;font-size: 15px;" onclick="nextPage() ">
-				  <p style = "color :#FF4644; padding : 10px 0 0 0"> PRESS TO PROCEED</p>
+				<div class="button_2"  style="margin-bottom: 0px;text-align:center; width: 100px; height: 100px; margin-top: 1%;margin-left: 38%;border-radius: 50%; border: 2px dotted #000080;font-size: 15px;" onclick="nextPage() ">
+				  <p style = "color :#FF4644; padding : 10px 0 0 0"> PRESS</p>
 				</div>
 			 
 		  </div>
@@ -518,9 +533,7 @@
 
     </body>
 
-    <script type = "text/javascript">
-      firstTimer();
-    </script>
+  
     
 
     
