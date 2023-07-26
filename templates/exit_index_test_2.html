@@ -221,6 +221,14 @@
 
           googletag.defineSlot('/22047902240/interstitial_1_320x50', [[320,50],[300,250],[300,600]], 'div-gpt-ad-5067521-1')
           .addService(googletag.pubads());
+
+		  googletag.pubads().addEventListener("impressionViewable", (event) => {
+			const slot = event.slot;
+			console.log("Impression for slot", slot.getSlotElementId(), "became viewable.");
+			if (slot === staticSlot) {
+				initFirstTimer()
+			}
+		  });
           
           // Removed Slot Level Targeting
           //.setTargeting('Medium', [utm_medium]);
@@ -238,6 +246,7 @@
       googletag.pubads().setCentering(true);
       googletag.enableServices();
 	  googletag.display('div-gpt-ad-1664881948592-0');
+	  googletag.display('div-gpt-ad-5067521-1');
       console.log("The UTM Medium value is : " + [utm_medium]);
       });
   
