@@ -79,32 +79,30 @@
         var timeleft = 35;
         var starttime = new Date();
         var firstTimer = null;
-        const futuretime = addSeconds(17, starttime)
+        const futuretime = addSeconds(16, starttime)
       
         firstTimer = setInterval(function () {
         
         var actualttime = new Date();
         
       
-        if (actualttime >= futuretime||timeleft <= 17)  {
+        if (actualttime >= futuretime||timeleft <= 16)  {
               //document.redirect.submit();
 
               // Clear the interval
               clearInterval(firstTimer);
-			
-              nextPage();
+			        //nextPage();
           } 
 
           
             else if ( timeleft > 32 ) {
 			document.getElementById("noticeTxt").style.display = "Inherit";
-			document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
-			document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
+			document.getElementById("noticeTxt2").innerHTML = "View these ads for " + timeleft + " seconds  "  ;
 			document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
 			
           }
 
-		  	else if ( timeleft > 23 ) {
+		  	else if ( timeleft > 22 ) {
 					
 			
 			if(document.getElementById("countdown")){
@@ -164,7 +162,18 @@
 		
       const queryValues = window.location.search;
       const urlParams = new URLSearchParams(queryValues);
-      const utm_medium = urlParams.get('utm_medium')
+
+      var utm_medium = "NULL"
+      if (urlParams.has('utm_medium') === true){
+
+          utm_medium = urlParams.get('utm_medium');
+          console.log("Utm Medium does exisit as :" ,utm_medium );
+
+      } else {
+        console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
+
+      }
+    
   
       // GPT ad slots
       var interstitialSlot, staticSlot;
@@ -209,9 +218,9 @@
           .defineSizeMapping(mapping1)
           .addService(googletag.pubads())
 
-		  googletag.pubads().addEventListener("impressionViewable", (event) => {
+		  googletag.pubads().addEventListener("slotRequested", (event) => {
 			const slot = event.slot;
-			console.log("Impression for slot", slot.getSlotElementId(), "became viewable.");
+			console.log("Impression for slot", slot.getSlotElementId(), "became requested.");
 			if (slot === staticSlot) {
 				initFirstTimer()
 			}
@@ -222,9 +231,9 @@
           googletag.defineSlot('/22047902240/interstitial_1_320x50', [[320,50],[300,250],[300,600]], 'div-gpt-ad-5067521-1')
           .addService(googletag.pubads());
 
-		  googletag.pubads().addEventListener("impressionViewable", (event) => {
+		  googletag.pubads().addEventListener("slotRequested", (event) => {
 			const slot = event.slot;
-			console.log("Impression for slot", slot.getSlotElementId(), "became viewable.");
+			console.log("Impression for slot", slot.getSlotElementId(), "was requested.");
 			if (slot === staticSlot) {
 				initFirstTimer()
 			}
@@ -245,8 +254,9 @@
       googletag.pubads().collapseEmptyDivs();
       googletag.pubads().setCentering(true);
       googletag.enableServices();
-	  googletag.display('div-gpt-ad-1664881948592-0');
-	  googletag.display('div-gpt-ad-5067521-1');
+	    
+      googletag.display('div-gpt-ad-1664881948592-0');
+	    googletag.display('div-gpt-ad-5067521-1');
       console.log("The UTM Medium value is : " + [utm_medium]);
       });
   
@@ -300,33 +310,44 @@
 <style>
 
   .button_2 {
-    margin-left: 15%;
-    margin-top: 15%;
+    margin-left: 35%;
+    margin-top: 4%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: #FF4644;
+    padding: 10px 30px;
+    border: 2px solid #FF4644;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition : 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    color: #000033;
-    width: 236.81px;
-    height: 50.63px;
-    left: 237.37px;
-    top: 759.43px;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 100px;
-    transition: 0.1s;
-    font-weight: 700;
     cursor: pointer;
     
     
   }
   
   .button_2:hover {
-    background-color: #FF4644; /* Navy */
-    color: #FF4644;
-    border : 1px solid White;
+    transition : 1000ms;
+    padding: 10px 50px;
+    transform : translateY(-0px);
+    background-color: #fff;
+    color: #FAA0A0;
+    border: solid 2px #FAA0A0;
   }
 
+
+  .button3 {width: 60px;}
+
+  
   #countdown {
 	position: relative;
 	margin: auto;
@@ -347,7 +368,7 @@
 	top: 0;
 	right: 0;
 	width: 100%;
-	height: 140px;
+	height: 100px;
 	
 
   }
@@ -357,7 +378,7 @@
 	stroke-dashoffset: 0px;
 	stroke-linecap: round;
 	stroke-width: 5px;
-	stroke: #FF4644;
+	stroke: #FAA0A0;
 	fill: none;
 	animation: countdown 10s linear infinite forwards;
   }
@@ -371,12 +392,13 @@
 	}
   }
 
+  
 
   
   </style> 
   
  
-  <div class="row" id="row_1" style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FF4644;color:#FF4644;border-radius: 25px; " >
+  <div class="row" id="row_1" style="height: 100px; font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FAA0A0;color:#FAA0A0 " >
     
           
 		<div id="countdown">
@@ -388,20 +410,20 @@
 						
 					
 
-					<text id="noticeTxt"  x="30%" y="40%" 	text-anchor="middle" fill="#000080" font-size="16px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt"  x="30%" y="40%" 	text-anchor="middle" fill="#000080" font-size="2px" font-weight="bold" dx="20%" > 
 					
 					</text>
 
-					<text id="noticeTxt2"  x="30%" y="55%" 	text-anchor="middle" fill="#000080" font-size="16px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt2"  x="30%" y="55%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > 
 						
 					</text>
 				
-					<text id="noticeTxt3"  x="30%" y="70%" 	text-anchor="middle" fill="#000080" font-size="16px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt3"  x="30%" y="70%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > 
 						
 					</text>
 
 
-					<text id="noticeTxt5"  x="30%" y="60%" 	text-anchor="middle" fill="#000080" font-size="20px" font-weight="bold" dx="20%" > 
+					<text id="noticeTxt5"  x="30%" y="60%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > 
 						
 					</text>
 					
@@ -418,10 +440,10 @@
 					
 					<svg >
 						
-					<circle id = "circle_1" r="60" cx="50%" cy="70"> </circle>
+					<circle id = "circle_1" r="35" cx="50%" cy="50"> </circle>
 					
-					<text id="noticeTxt5A"  x="30%" y="58%" 	text-anchor="middle" fill="#000080" font-size="18px" font-weight="bold" dx="20%" > </text>
-					<text id="noticeTxt5B"  x="70%" y="88%" 	text-anchor="middle" fill="#000080" font-size="12px" font-weight="bold" dx="20%" > </text> 
+					<text id="noticeTxt5A"  x="30%" y="58%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > </text>
+					<text id="noticeTxt5B"  x="70%" y="88%" 	text-anchor="middle" fill="#000080" font-size="10px" font-weight="bold" dx="20%" > </text> 
 					
 					
 								
@@ -431,7 +453,7 @@
 					y="97%" 
 					text-anchor="middle" 
 					fill="black" 
-					font-size="12px" 
+					font-size="8px" 
 					font-weight="bold"
 					
 					style="fill:black"
@@ -459,18 +481,17 @@
 
 
 
-	<div class="row" id = "row_2" style="display:none;font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FF4644;color:#FF4644;border-radius: 25px; " >
+	<div class="row" id = "row_2" style="height: 100px;display:none;font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FAA0A0;color:#FAA0A0; " >
     
           
 		<div id="countdown_3">
-			<div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+		
             
 	
-				<div class="button_2"  style="margin-bottom: 0px;text-align:center; width: 100px; height: 100px; margin-top: 1%;margin-left: 38%;border-radius: 50%; border: 2px dotted #FF4644;font-size: 15px;" onclick="nextPage() ">
-				  <p style = "color :#000080; padding : 10px 0 0 0"> PRESS</p>
+				<div class="button_2 button3"  onclick="nextPage() ">
+				  <p> PRESS</p>
 				</div>
-			 
-		  </div>
+	
 		</div>
       
       
