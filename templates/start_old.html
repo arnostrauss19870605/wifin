@@ -2,8 +2,7 @@
 
 <html lang="en">
   <head>
-	
-	
+    <script src="//www.googletagservices.com/tag/js/gpt.js">  </script>
                         
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,18 +13,22 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="HandheldFriendly" content="True">
     <meta name="site-verification" content="3e9b45f6cfba924eb4912c00aee1d325">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-	<!-- Slick CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
-   	
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
 
-	<!-- Google Scripts -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <!-- Custom CSS -->
+          <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+          <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+          
+          <!-- Slick CSS -->
+          <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+          <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+
+  <!-- Adtelligent: Ad Exchange -->
+	<script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
+	<!-- END Adtelligent: Ad Exchange -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript">
           
@@ -47,23 +50,7 @@
     
     
     <script type = "text/javascript">
-
-	  function	run_down_timer(){
-		
-		var countdownNumberEl = document.getElementById('countdown-number');
-		var countdown = 10;
-		
-		countdownNumberEl.textContent = countdown;
-		
-		setInterval(function() {
-		  countdown = --countdown <= 0 ? 10 : countdown;
-		
-		  countdownNumberEl.textContent = countdown;
-		}, 1000);
-
-
-	  }	
-
+     
 
       function addSeconds(numOfSeconds, date = new Date()) {
         date.setSeconds(date.getSeconds() + numOfSeconds);
@@ -73,88 +60,54 @@
 
 
       function firstTimer() {
-        var timeleft = 35;
+        var timeleft = 20;
         var starttime = new Date();
         var firstTimer = null;
-        const futuretime = addSeconds(16, starttime)
+        const futuretime = addSeconds(11, starttime)
       
         firstTimer = setInterval(function () {
         
         var actualttime = new Date();
         
       
-        if (actualttime >= futuretime||timeleft <= 16)  {
+        if (actualttime >= futuretime||timeleft <= 10)  {
               //document.redirect.submit();
 
               // Clear the interval
               clearInterval(firstTimer);
-			        nextPage();
+              nextPage()
           } 
+          else if ( timeleft == 11|| timeleft == 12) {
+            document.getElementById("noticeTxt4").style.display = "Inherit";
+            document.getElementById("noticeTxt").style.display = "none";
+            document.getElementById("noticeTxt2").style.display = "none";
+            document.getElementById("noticeTxt3").style.display = "none"
 
+          }
           
-            else if ( timeleft > 32 ) {
-			document.getElementById("noticeTxt").style.display = "Inherit";
-			document.getElementById("noticeTxt2").innerHTML = "View these ads for " + timeleft + " seconds  "  ;
-			document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-			
+          
+          else {
+              document.getElementById("noticeTxt").style.display = "Inherit";
+              document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
+              document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
+              document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
           }
-
-		  	else if ( timeleft > 22 ) {
-					
-			
-			if(document.getElementById("countdown")){
-				const my_element = document.getElementById("countdown");
-				my_element.remove();
-			} 
-
-			
-			document.getElementById("noticeTxt5A").innerHTML = timeleft   ;
-			document.getElementById("noticeTxt5B").innerHTML = "Page 1 of 2"   ;
-			document.getElementById("countdown_1").style.display = "Inherit"; 
-			 
-			
-			
-			
-          }
-
-		  else if ( timeleft > 19 ) {
-					
-			
-			if(document.getElementById("row_1")){
-				const my_element = document.getElementById("row_1");
-				my_element.remove();
-			} 
-
-			document.getElementById("row_2").style.display = "Inherit";  
-					
-			
-          }
-
-				  
+  
           timeleft = timeleft - 1;
   
       }, 1000)
   }
-</script>
-
-
-
-<script>
-// Initialize the firstTimer after Google tags have loaded	
+// Initialize the firstTimer after Google tags have loaded
   function initFirstTimer() {
     firstTimer();
   }
-</script>
+  </script>
 
 
-	<script  src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script>
-	<script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
-
-		<!-- Adtelligent: Ad Exchange -->
-    <script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
-    <!-- END Adtelligent: Ad Exchange -->
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+    <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
+   
   
-
     
     <script>
    
@@ -162,18 +115,7 @@
 		
       const queryValues = window.location.search;
       const urlParams = new URLSearchParams(queryValues);
-
-      var utm_medium = "NULL"
-      if (urlParams.has('utm_medium') === true){
-
-          utm_medium = urlParams.get('utm_medium');
-          console.log("Utm Medium does exisit as :" ,utm_medium );
-
-      } else {
-        console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
-
-      }
-    
+      const utm_medium = urlParams.get('utm_medium')
   
       // GPT ad slots
       var interstitialSlot, staticSlot;
@@ -218,41 +160,24 @@
           .defineSizeMapping(mapping1)
           .addService(googletag.pubads())
 
-		  googletag.pubads().addEventListener("slotRequested", (event) => {
-			const slot = event.slot;
-			console.log("Impression for slot", slot.getSlotElementId(), "became requested.");
-			if (slot === staticSlot) {
-				initFirstTimer()
-			}
-		  });
-
-
-
           googletag.defineSlot('/22047902240/interstitial_1_320x50', [[320,50],[300,250],[300,600]], 'div-gpt-ad-5067521-1')
           .addService(googletag.pubads());
-
-		  googletag.pubads().addEventListener("slotRequested", (event) => {
-			const slot = event.slot;
-			console.log("Impression for slot", slot.getSlotElementId(), "was requested.");
-			if (slot === staticSlot) {
-				initFirstTimer()
-			}
-		  });
           
+          // Removed Slot Level Targeting
+          //.setTargeting('Medium', [utm_medium]);
 
       
     // Configure page-level targeting.	
 		  googletag.pubads().setTargeting('Medium', [utm_medium]);
   	
- 
+	
+
+  
       // Enable SRA and services.
       googletag.pubads().enableSingleRequest();
       googletag.pubads().collapseEmptyDivs();
       googletag.pubads().setCentering(true);
       googletag.enableServices();
-	    
-      googletag.display('div-gpt-ad-1664881948592-0');
-	    googletag.display('div-gpt-ad-5067521-1');
       console.log("The UTM Medium value is : " + [utm_medium]);
       });
   
@@ -268,7 +193,6 @@
     <!-- Google tag (gtag.js) -->
   
     
-
 
   <script type="text/javascript">
     window._taboola = window._taboola || [];
@@ -291,7 +215,6 @@
 
 
 
-
   
 
 
@@ -299,217 +222,57 @@
 
 <body class="default">
 
-<!-- START JS to verify add was intiated -->
-  <script  type = "text/javascript">
-             
-      async function activate_add() {
-      var circle_svg = document.getElementById('circle_1');
-      await new Promise(resolve => setTimeout(resolve, 5000)); // 3 sec
-        if (typeof circle_svg == 'object'){
-
-          console.log("Second 5 A");
-
-        } else {
-        initFirstTimer();
-
-      }
-
-    }
-   activate_add();
-  </script>
-<!-- END JS to verify add was intiated -->
 
 
 
  
 <style>
-  @media screen and (max-width:640px) {
-    .sqs-block-button * {
-        text-align: center !important;
-    }
-    }
- 
 
   .button_2 {
-    margin: auto;
-    margin-top: 3%;
+    margin-left: 15%;
+    margin-top: 15%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    font-family: Roboto, sans-serif;
-    font-weight: 0;
-    font-size: 14px;
-    color: #fff;
-    background-color: #FF4644;
-    padding: 10px 30px;
-    border: 2px solid #FF4644;
-    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-    border-radius: 50px;
-    transition : 1000ms;
-    transform: translateY(0);
-    display: flex;
-    flex-direction: row;
     align-items: center;
+    color: #000033;
+    width: 236.81px;
+    height: 50.63px;
+    left: 237.37px;
+    top: 759.43px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    transition: 0.1s;
+    font-weight: 700;
     cursor: pointer;
     
     
   }
   
   .button_2:hover {
-    transition : 1000ms;
-    padding: 10px 50px;
-    transform : translateY(-0px);
-    background-color: #fff;
-    color: #FAA0A0;
-    border: solid 2px #FAA0A0;
+    background-color: #000080; /* Navy */
+    color: #FF4644;
+    border : 1px solid White;
   }
 
 
-  .button3 {width: 5px;}
-
-  
-  #countdown {
-	position: relative;
-	margin: auto;
-	margin-top: 0px;
-	height: 140px;
-	
-	text-align: center;
-  }
-  
-  #countdown-number {
-	color: black;
-	display: inline-block;
-	line-height: 140px;
-  }
-  
-  svg {
-
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100px;
-	
-
-  }
-  
-  svg circle {
-	stroke-dasharray: 365px;
-	stroke-dashoffset: 0px;
-	stroke-linecap: round;
-	stroke-width: 5px;
-	stroke: #FAA0A0;
-	fill: none;
-	animation: countdown 10s linear infinite forwards;
-  }
-  
-  @keyframes countdown {
-	from {
-	  stroke-dashoffset: 0px;
-	}
-	to {
-	  stroke-dashoffset: 365px;
-	}
-  }
-
-  
 
   
   </style> 
   
- 
-  <div class="row" id="row_1" style="height: 100px; font-family: Roboto, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FAA0A0;color:#FAA0A0 " >
-    
+  <div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #000080;color:#FF4644; font-size: 25px;">
+    <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
           
-		<div id="countdown">
-						
-			<div id="countdown-number"> </div>
-			
-					
-					<svg >
-						
-					
-
-					<text id="noticeTxt"  x="30%" y="40%" 	text-anchor="middle" fill="#000080" font-size="2px" font-weight="bold" dx="20%" > 
-					
-					</text>
-
-					<text id="noticeTxt2"  x="30%" y="55%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > 
-						
-					</text>
-				
-					<text id="noticeTxt3"  x="30%" y="70%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > 
-						
-					</text>
-
-
-					<text id="noticeTxt5"  x="30%" y="60%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > 
-						
-					</text>
-					
-							
-
-					</svg>
-								
-		</div>
-
-		<div id="countdown_1" style="display: none;">
-						
-			<div id="countdown-number"> </div>
-			
-					
-					<svg >
-						
-					<circle id = "circle_1" r="35" cx="50%" cy="50"> </circle>
-					
-					<text id="noticeTxt5A"  x="30%" y="58%" 	text-anchor="middle" fill="#000080" font-size="14px" font-weight="bold" dx="20%" > </text>
-					<text id="noticeTxt5B"  x="70%" y="88%" 	text-anchor="middle" fill="#000080" font-size="10px" font-weight="bold" dx="20%" > </text> 
-					
-					
-								
-					<text 
-					
-					x="70%" 
-					y="97%" 
-					text-anchor="middle" 
-					fill="black" 
-					font-size="8px" 
-					font-weight="bold"
-					
-					style="fill:black"
-					
-					
-					
-					dx="20%"  > 
-
-				 					
-			
-					
-						
-	
-					</svg>
-					
-			
-		</div>
-	  
-	  
-	    
-      
+          <div class="logo" id="noticeTxt"  style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
+          <div class="logo" id="noticeTxt2" style="margin-bottom: 0px;text-align:center;word-break:break-all;"></div>
+          <div class="logo" id="noticeTxt3" style="margin-bottom: 5px;text-align:center;word-break:break-all;"></div>
+          <div class="button_2" id="noticeTxt4" style="display: none;margin-bottom: 0px;text-align:center; width: 110px; height: 110px; margin: auto;border-radius: 50%; border: 2px dotted #000080;font-size: 15px;" onclick="nextPage() ">
+              <p style = "color :#FF4644; padding : 15px 0 0 0"> PRESS TO PROCEED</p>
+          </div>
+        
     </div>
-
-	
-
-
-
-    <div class="row d-flex justify-content-center" id="row_2" style="height: 100px; display: none; font-family: Roboto, sans-serif; padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; border: 5px solid #FAA0A0; color: #FAA0A0;">
-
-				<div class="button_2 button3"  onclick="nextPage() ">
-				  <p> PRESS</p>
-				</div>
-	 </div>
-
-
+  </div>
 
 
 
@@ -517,8 +280,6 @@
 
 <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
     <div class="content-wrap">
-
-
        
   
       <!-- slider -->
@@ -527,7 +288,7 @@
               
               <div id='div-gpt-ad-1664881948592-0' style="margin-top: 40px; margin-bottom: 10px;">  
                 <script>
-                  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664881948592-0');  });
+                  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664881948592-0'); });
                 </script>
 
              </div>
@@ -565,8 +326,6 @@
               target_type: 'mix'
               });
             </script>
-            
-
           
           </div>
         </div>
@@ -604,7 +363,9 @@
 
     </body>
 
-  
+    <script type = "text/javascript">
+      firstTimer();
+    </script>
     
 
     
