@@ -615,10 +615,10 @@ pubmatic.com, 161593, RESELLER, 5d62403b186f2ace
 # Criteo 
 themediagrid.com, A6ODQF, DIRECT, 35d5010d7789b49d 
 # Adtelligent 
-adtelligent.com, 534151, DIRECT 
+
 33across.com, 0010b00002T3JniAAF, DIRECT, bbea06d9c4d2853c 
 152media.info, 152M10, RESELLER 
-bidmatic.io, b-82687, DIRECT 
+
 e-planning.net, 835fbafe26d231b1, DIRECT, c1ba615865ed87b2 
 improvedigital.com, 1628, DIRECT 
 indexexchange.com, 189529, DIRECT, 50b1c356f2c5c8fc 
@@ -815,7 +815,9 @@ invideolab.com, b-b6e59, DIRECT
 google.com, pub-7837593441992006, RESELLER, f08c47fec0942fa0
 bidmatic.io, b-b700a, DIRECT
 adtelligent.com, 749578, DIRECT
-adlane.info, ms0a-a, DIRECT
+bidmatic.io, b-b72c7, DIRECT
+adtelligent.com, 750279, DIRECT
+adlane.info, msm7-a, DIRECT
 152media.info, 152M10, RESELLER
 33across.com, 0010b00002T3JniAAF, RESELLER, bbea06d9c4d2853c
 adagio.io, 1161, RESELLER

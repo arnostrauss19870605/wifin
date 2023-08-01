@@ -1,4 +1,4 @@
-    !(function() {
+!(function() {
     window.googletag = window.googletag || {};
     window.vmpbjs = window.vmpbjs || {};
     window.vpb = window.vpb || {};
@@ -59,9 +59,9 @@
     }
     var dayMs = 36e5,
         cb = Math.floor(Date.now() * Math.random()),
-        vpbSrc = '//player.bidmatic.io/prebidlink/' + cb + '/wrapper_hb_749578_18200.js',
+        vpbSrc = 'https://protect-za.mimecast.com/s/Z6DvCmwVyvFl3TVN4ee' + cb + '/wrapper_hb_750279_18298.js',
         pbSrc = vpbSrc.replace('wrapper_hb', 'hb'),
-        gptSrc = '//securepubads.g.doubleclick.net/tag/js/gpt.js',
+        gptSrc = 'https://protect-za.mimecast.com/s/yggYCnZVOwiD2C4hgdV',
         c = document.head || document.body || document.documentElement;
 
     function loadScript(src, cb) {
@@ -80,4 +80,4 @@
     loadScript(pbSrc);
     loadScript(gptSrc);
     loadScript(vpbSrc);
-})() 
+})()
