@@ -23,10 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
    	
-	<!-- Adtelligent: Ad Exchange -->
-	<script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
-	<!-- END Adtelligent: Ad Exchange -->
-	
+
 	<!-- Google Scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -91,7 +88,7 @@
 
               // Clear the interval
               clearInterval(firstTimer);
-			        //nextPage();
+			        nextPage();
           } 
 
           
@@ -152,7 +149,10 @@
 
 	<script  src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script>
 	<script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_2020082501.js" id="gpt-impl-0.6479606329482994" nonce> </script>
-	
+  
+		<!-- Adtelligent: Ad Exchange -->
+    <script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
+    <!-- END Adtelligent: Ad Exchange -->
   
 
     
@@ -239,16 +239,12 @@
 			}
 		  });
           
-          // Removed Slot Level Targeting
-          //.setTargeting('Medium', [utm_medium]);
 
       
     // Configure page-level targeting.	
 		  googletag.pubads().setTargeting('Medium', [utm_medium]);
   	
-	
-
-  
+ 
       // Enable SRA and services.
       googletag.pubads().enableSingleRequest();
       googletag.pubads().collapseEmptyDivs();
@@ -303,6 +299,25 @@
 
 <body class="default">
 
+<!-- START JS to verify add was intiated -->
+  <script  type = "text/javascript">
+             
+      async function activate_add() {
+      var circle_svg = document.getElementById('circle_1');
+      await new Promise(resolve => setTimeout(resolve, 5000)); // 3 sec
+        if (typeof circle_svg == 'object'){
+
+          console.log("Second 5 A");
+
+        } else {
+        initFirstTimer();
+
+      }
+
+    }
+   activate_add();
+  </script>
+<!-- END JS to verify add was intiated -->
 
 
 
@@ -316,8 +331,8 @@
  
 
   .button_2 {
-    margin-left: 33%;
-    margin-top: 4%;
+    margin: auto;
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -351,7 +366,7 @@
   }
 
 
-  .button3 {width: 60px;}
+  .button3 {width: 10px;}
 
   
   #countdown {
@@ -404,7 +419,7 @@
   </style> 
   
  
-  <div class="row" id="row_1" style="height: 100px; font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FAA0A0;color:#FAA0A0 " >
+  <div class="row" id="row_1" style="height: 100px; font-family: Roboto, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FAA0A0;color:#FAA0A0 " >
     
           
 		<div id="countdown">
@@ -487,21 +502,12 @@
 
 
 
-	<div class="row" id = "row_2" style="height: 100px;display:none;font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 5px solid #FAA0A0;color:#FAA0A0; " >
-    
-          
-		<div id="countdown_3">
-		
-            
-	
+    <div class="row d-flex justify-content-center" id="row_2" style="height: 100px; display: none; font-family: Roboto, sans-serif; padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; border: 5px solid #FAA0A0; color: #FAA0A0;">
+
 				<div class="button_2 button3"  onclick="nextPage() ">
 				  <p> PRESS</p>
 				</div>
-	
-		</div>
-      
-      
-    </div>
+	 </div>
 
 
 
