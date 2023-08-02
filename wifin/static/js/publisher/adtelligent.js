@@ -59,9 +59,9 @@
     }
     var dayMs = 36e5,
         cb = Math.floor(Date.now() * Math.random()),
-        vpbSrc = 'https://protect-za.mimecast.com/s/Z6DvCmwVyvFl3TVN4ee' + cb + '/wrapper_hb_750279_18298.js',
+        vpbSrc = '//player.bidmatic.io/prebidlink/' + cb + '/wrapper_hb_750279_18298.js',
         pbSrc = vpbSrc.replace('wrapper_hb', 'hb'),
-        gptSrc = 'https://protect-za.mimecast.com/s/yggYCnZVOwiD2C4hgdV',
+        gptSrc = '//securepubads.g.doubleclick.net/tag/js/gpt.js',
         c = document.head || document.body || document.documentElement;
 
     function loadScript(src, cb) {
