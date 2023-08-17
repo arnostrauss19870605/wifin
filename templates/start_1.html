@@ -24,102 +24,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 
-      
- 
-     
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
-
-    
-    <script>
-   
-      window.googletag = window.googletag || {cmd: []};
-		
-      const queryValues = window.location.search;
-      const urlParams = new URLSearchParams(queryValues);
-      
-      var utm_medium = "NULL"
-      if (urlParams.has('utm_medium') === true){
-
-          utm_medium = urlParams.get('utm_medium');
-          console.log("Utm Medium does exisit as :" ,utm_medium );
-
-      } else {
-        console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
-
-      }
-  
-      // GPT ad slots
-      var interstitialSlot, staticSlot;
-  
-      googletag.cmd.push(function() {
-      // Define a web interstitial ad slot.
-      var mapping1 = googletag.sizeMapping()
-      .addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-      .addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-      .addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-      .addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-      .addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-      .addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-  
-      .build();
-
-      interstitialSlot = googletag.defineOutOfPageSlot('/22047902240/wifinews/wfn_interstitial2',
-          googletag.enums.OutOfPageFormat.INTERSTITIAL);
-  
-      // Slot returns null if the page or device does not support interstitials.
-      if (interstitialSlot) {
-      interstitialSlot.addService(googletag.pubads());
-  
-      // document.getElementById('status').innerText = 'Interstitial is loading...';
-  
-      // Add event listener to enable navigation once the interstitial loads.
-      // If this event doesn't fire, try clearing local storage and refreshing
-      // the page.
-      //googletag.pubads().addEventListener('slotOnload', function(event) {
-      //    if (interstitialSlot === event.slot) {
-      //    document.getElementById('link').click()
-      //    document.getElementById('link').style.display = 'block';
-          // document.getElementById('status').innerText = 'Interstitial is loaded.';
-      //    }
-      //});
-      }
-  
-      // Define static ad slots.
-      staticSlot = googletag.defineSlot(
-          '/22047902240/wifinews/wfn_interstitial2', [[320, 480], [300, 250], [300, 600],'fluid'], 'div-gpt-ad-1664882026956-0')
-          .defineSizeMapping(mapping1)
-          .addService(googletag.pubads())
-
-          googletag.defineSlot('/22047902240/interstitial_2_320x50', [[320,50],[300,250],[300,600]], 'div-gpt-ad-3571540-1')
-          .addService(googletag.pubads());
-  
-          
-          // Removed Slot Level Targeting
-          //.setTargeting('Medium', [utm_medium]);
-  
-      
-    // Configure page-level targeting.	
-    googletag.pubads().setTargeting('Medium', [utm_medium]);
-  	
-	
-
-  
-    // Enable SRA and services.
-      googletag.pubads().enableSingleRequest();
-      googletag.pubads().collapseEmptyDivs();
-      googletag.pubads().setCentering(true);
-      googletag.enableServices();
-      console.log("The UTM Medium value is : " + [utm_medium]);
-      });
-  
-      </script>
-
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
-
-    <!-- Google tag (gtag.js) -->
-
     <script type = "text/javascript">
         function nextPage() {
                 const queryString = window.location.search;
@@ -173,24 +77,21 @@
 }
 </script>
 
-<script type="text/javascript">
-  window._taboola = window._taboola || [];
-  _taboola.push({article:'auto'});
-  !function (e, f, u, i) {
-    if (!document.getElementById(i)){
-    e.async = 1;
-    e.src = u;
-    e.id = i;
-    f.parentNode.insertBefore(e, f);
-    }
-  }(document.createElement('script'),
-  document.getElementsByTagName('script')[0],
-  '//cdn.taboola.com/libtrc/wifinewswifinews/loader.js',
-  'tb_loader_script');
-  if(window.performance && typeof window.performance.mark == 'function')
-    {window.performance.mark('tbl_ic');}
-  </script>
+  <!-- Import Library for Gtag -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+     
+  <!-- Google Head Tag) -->
+  {% block google_head %}
+    {% include 'google/head_tags/interstitial_2.html' %}
+  {% endblock google_head %}
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
+    
+  <!-- Taboola Head Tag) -->
+  {% block taboola_head %}
+    {% include 'taboola/taboola_header.html' %}
+  {% endblock taboola_head %}
 
 
 </head>
@@ -242,83 +143,61 @@
       </div>
     </div>
       
-    <div id="content"  style="padding-top: 2%; padding-bottom: 0px; ">
+    <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
       <div class="content-wrap">
          
-    
-        <!-- slider -->
-          <div >
-              <div>
-                
-                <div id='div-gpt-ad-1664882026956-0' style="margin-top: 40px; margin-bottom: 10px;"> 
-                  <script>
-                  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1664882026956-0'); });
-                </script>  
-                
-                
-                </div>
-    
-              </div>
-          </div>
-
           <!-- slider -->
           <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
-            <!-- /22047902240/wifinews/interstitial_2_320x50 -->
-            <div id='div-gpt-ad-3571540-1' style='min-width: 320px; min-height: 50px;'>
-              <script>
-                googletag.cmd.push(function() { googletag.display('div-gpt-ad-3571540-1'); });
-              </script>
-            </div>
+            <!-- GPT AdSlot 1 -->
+            {% block google_ad_1 %}
+              {% include 'google/ad_slots/int_2_ad_1.html' %}
+            {% endblock google_ad_1 %}
+            <!-- End AdSlot 1 -->
           </div>
-
-
- 
-        <div class="section-home available-car"  >
+  
+  
+          <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+            <!-- GPT AdSlot 2 -->
+            {% block google_ad_2 %}
+              {% include 'google/ad_slots/int_2_ad_2.html' %}
+            {% endblock google_ad_2 %}
+            <!-- End AdSlot 2 -->
+          </div>
+  
           <div class="heading-section" style="margin-bottom: 90px;">
             <div class="sa-title popcat">Popular Reading</div>
             <div class="heading-info">
-              <div id="taboola-below-article-thumbnails-1"></div>
-  
-              
-              <div id="taboola-below-article-thumbnails"></div>
-              <script type="text/javascript">
-                window._taboola = window._taboola || [];
-                _taboola.push({
-                mode: 'alternating-thumbnails-a',
-                container: 'taboola-below-article-thumbnails',
-                placement: 'Below Article Thumbnails',
-                target_type: 'mix'
-                });
-              </script>
-            
+              <!-- Taboola Slot -->
+              {% block taboola %}
+                {% include 'taboola/taboola.html' %}
+              {% endblock taboola %}
+              <!-- End Taboola Slot -->
             </div>
           </div>
+  
+        
+  
+        <!-- STICKY -->
+        <div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: sticky; bottom: 30px;">
+             <!-- GPT AdSlot 3 -->
+          {% block google_ad_3 %}
+             {% include 'google/ad_slots/int_2_ad_3.html' %}
+          {% endblock google_ad_3 %}
+           <!-- End AdSlot 3 -->
         </div>
+        <!-- END STICKY -->
   
-    </div>
-  </div>	
+      </div>
+    </div> 
   
+  <!-- .Content  -->
+  <div class="overlay"></div>
+      
 
-          
-                    
-                    <script>
-                   
-                    googletag.cmd.push(function() {
-                    // Ensure the first call to display comes after static ad slot
-                    // divs are defined.
-                    googletag.display(staticSlot);
-                    });
-                    </script>
+</body>
 
+<script type = "text/javascript">
+  firstTimer();
+</script>
 
-                    <script type = "text/javascript">
-                      firstTimer();
-                    </script>
-                    
-    
-    
-    </body>
-
-
-    
-  </html>
+</html>
