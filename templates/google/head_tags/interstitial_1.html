@@ -1,7 +1,17 @@
 <!-- Start GPT Tag -->
-<script async src='https://protect-za.mimecast.com/s/ZcH9CRgr13SvP6tNAoTY?domain=securepubads.g.doubleclick.net'></script>
 <script>
   window.googletag = window.googletag || {cmd: []};
+
+  const queryValues = window.location.search;
+  const urlParams = new URLSearchParams(queryValues);
+  var utm_medium = "NULL"
+  if (urlParams.has('utm_medium') === true){
+          utm_medium = urlParams.get('utm_medium');
+          console.log("Utm Medium does exisit as :" ,utm_medium );
+      } else {
+        console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
+      }
+
   googletag.cmd.push(function() {
     var mapping1 = googletag.sizeMapping()
                             .addSize([1400, 0], [[728, 90], 'fluid'])
@@ -44,7 +54,7 @@
              .addService(googletag.pubads());
 
     googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('Medium', ['Value']);
+    googletag.pubads().setTargeting('Medium', [utm_medium]);
     googletag.pubads().collapseEmptyDivs();
     googletag.pubads().setCentering(true);
     googletag.enableServices();
