@@ -32,10 +32,6 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
       
-    <!-- Taboola Head Tag) -->
-    {% block taboola_head %}
-      {% include 'taboola/taboola_header.html' %}
-    {% endblock taboola_head %}
 
     <script type="text/javascript">
           
@@ -117,7 +113,10 @@
   }
   </script>
 
-
+<!-- Taboola Head Tag) -->
+{% block taboola_head %}
+ {% include 'taboola/taboola_header.html' %}
+{% endblock taboola_head %}
 </head>
 
 <body class="default">
