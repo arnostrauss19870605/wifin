@@ -814,6 +814,11 @@ showheroes.com, 6907, RESELLER
 invideolab.com, b-b6e59, DIRECT
 google.com, pub-7837593441992006, RESELLER, f08c47fec0942fa0
 bidmatic.io, b-b700a, DIRECT
+
+bidmatic.io, b-82687, DIRECT 
+adtelligent.com, 534151, DIRECT
+
+
 adtelligent.com, 749578, DIRECT
 bidmatic.io, b-b72c7, DIRECT
 adtelligent.com, 750279, DIRECT
