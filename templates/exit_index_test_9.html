@@ -37,41 +37,7 @@
       <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
 
 
-	  <script type = "text/javascript">
-		firstTimer();
-		
-		function addSeconds(numOfSeconds, date = new Date()) {
-		  date.setSeconds(date.getSeconds() + numOfSeconds);
-		
-		  return date;
-		  }    
-		
-		
-		function firstTimer() {
-		  var timeleft = 10;
-		  var starttime = new Date();
-		  var firstTimer = null;
-		  const futuretime = addSeconds(10, starttime)
-		
-		  firstTimer = setInterval(function () {
-		  
-		  var actualttime = new Date();
-		  
-		
-		 
-		  if (actualttime >= futuretime||timeleft <= 1)  {
-			  clearInterval(firstTimer);      
-			  window.location.replace("https://www.hotspot.yourspot.co.za/portal/?gateway=Bobbies");                      
-			 						
-		  } 
-		  
-		
-		timeleft = timeleft - 1;
-		
-		}, 1000)
-		
-		}
-	</script>
+
 	
 	
 
@@ -182,6 +148,7 @@
 			  } else {
 	 
 				googletag.destroySlots([rewardedSlot]);
+				window.location.replace("https://www.hotspot.yourspot.co.za/portal/?gateway=Bobbies");     
 	 
 			  }
 	 
@@ -199,6 +166,7 @@
 	 
 			  alert('Closed by the user!');
 			  googletag.destroySlots([rewardedSlot]);
+			  window.location.replace("https://www.hotspot.yourspot.co.za/portal/?gateway=Bobbies");     
 	 
 			});
 	 
