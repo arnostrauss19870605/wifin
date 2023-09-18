@@ -152,28 +152,30 @@
 	 
 			  }
 	 
-			});
-	 
-			googletag.pubads().addEventListener('rewardedSlotGranted',
-			function(evt) {
-	 
-			  googletag.destroySlots([rewardedSlot]);
-	 
-			});
-
-			
-			function InitiateThreeSecondTimer(){
-				alert('ad closing in 3....2....1....');
+			  googletag.pubads().addEventListener('rewardedSlotGranted',
+			  
+			  function(evt) {
+	   
+				   
+				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
 				googletag.destroySlots([rewardedSlot]);
 				window.location.replace("https://www.hotspot.yourspot.co.za/portal/?gateway=Bobbies");   
 	   
-			  };
-	 
-			
-			googletag.display(rewardedSlot);
-	 
-		  });
-
+			  });
+	   
+			  googletag.pubads().addEventListener('rewardedSlotClosed',
+			  function(evt) {
+	   
+				
+				googletag.destroySlots([rewardedSlot]);
+				window.location.replace("https://www.hotspot.yourspot.co.za/portal/?gateway=Bobbies");     
+	   
+			  });
+	   
+			  googletag.display(rewardedSlot);
+	   
+			});
+	   
 
 	 
 		 </script>
