@@ -151,6 +151,9 @@
 			  } else {
 	 
 				googletag.destroySlots([rewardedSlot]);
+				
+				firstTimer();
+			
 				   
 	 
 			  }
@@ -163,7 +166,7 @@
 	   
 				   
 				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
-				exitTimer(); 
+				
 				googletag.destroySlots([rewardedSlot]);
 				window.location.replace("https://www.hotspot.yourspot.co.za/portal/?gateway=Bobbies");   
 	   
@@ -344,8 +347,6 @@
 
     </body>
 
-<script type = "text/javascript">
-    firstTimer();
-</script>
+
 
 </html>
