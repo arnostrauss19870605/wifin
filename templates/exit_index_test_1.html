@@ -62,42 +62,45 @@
               return date;
               }    
             
-            
-            function firstTimer() {
-              var timeleft = 20;
-              var starttime = new Date();
-              var firstTimer = null;
-              const futuretime = addSeconds(11, starttime)
-            
-              firstTimer = setInterval(function () {
-              
-              var actualttime = new Date();
-              
-            
-              if (actualttime >= futuretime||timeleft <= 10)  {
-                    clearInterval(firstTimer);             
-                    nextPage();
-                } 
-                else if ( timeleft == 11|| timeleft == 12) {
-                  document.getElementById("noticeTxt4").style.display = "Inherit";
-                  document.getElementById("noticeTxt").style.display = "none";
-                  document.getElementById("noticeTxt2").style.display = "none";
-                  document.getElementById("noticeTxt3").style.display = "none"
-            
-                }
-                
-                
-                else {
-                    document.getElementById("noticeTxt").style.display = "Inherit";
-                    document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
-                    document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
-                    document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-                }
-            
-                timeleft = timeleft - 1;
-            
-            }, 1000)
-            }
+			let stopExecution = false;
+            function firstTimer() 
+			{
+				while (!stopExecution) {
+				var timeleft = 20;
+				var starttime = new Date();
+				var firstTimer = null;
+				const futuretime = addSeconds(11, starttime)
+				
+				firstTimer = setInterval(function () {
+				
+				var actualttime = new Date();
+				
+				
+				if (actualttime >= futuretime||timeleft <= 10)  {
+						clearInterval(firstTimer);             
+						nextPage();
+					} 
+					else if ( timeleft == 11|| timeleft == 12) {
+					document.getElementById("noticeTxt4").style.display = "Inherit";
+					document.getElementById("noticeTxt").style.display = "none";
+					document.getElementById("noticeTxt2").style.display = "none";
+					document.getElementById("noticeTxt3").style.display = "none"
+				
+					}
+					
+					
+					else {
+						document.getElementById("noticeTxt").style.display = "Inherit";
+						document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
+						document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
+						document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
+					}
+				
+					timeleft = timeleft - 1;
+				
+				}, 1000)
+				}
+			}
         </script>
 
   <!-- Adtelligent: Ad Exchange -->
@@ -140,7 +143,7 @@
 	 
 				googletag.destroySlots([rewardedSlot]);
 				
-				firstTimer();
+			
 			
 				   
 	 
@@ -156,6 +159,9 @@
 				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
 				
 				googletag.destroySlots([rewardedSlot]);
+
+				stopExecution = true;
+
 				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
 	   
 			  });
@@ -165,6 +171,9 @@
 	   
 				
 				googletag.destroySlots([rewardedSlot]);
+
+				stopExecution = true;
+
 				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
 	   
 			  });
@@ -335,6 +344,8 @@
 
     </body>
 
-
+	<script type = "text/javascript">
+		firstTimer();
+	</script>
 
 </html>
