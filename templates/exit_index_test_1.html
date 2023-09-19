@@ -150,8 +150,7 @@
 	 
 				googletag.destroySlots([rewardedSlot]);
 				
-				firstTimer();
-			
+						
 				   
 	 
 			  }
@@ -165,23 +164,22 @@
 				   
 				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
 				
-				googletag.destroySlots([rewardedSlot]);
-
+				
         shouldExit = true;
+        
+        googletag.destroySlots([rewardedSlot]);
 
-				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+        window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
 	   
 			  });
 	   
 			  googletag.pubads().addEventListener('rewardedSlotClosed',
 			  function(evt) {
 	   
-				
+        shouldExit = true;
 				googletag.destroySlots([rewardedSlot]);
 
-        shouldExit = true;
-
-				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
+        window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
 	   
 			  });
 	   
