@@ -63,12 +63,12 @@
               }    
             
             
-            let shouldExit = false;
+         
 
             function firstTimer() {
               var timeleft = 20;
               var starttime = new Date();
-              var firstTimer = null;
+             
               const futuretime = addSeconds(11, starttime)
             
               firstTimer = setInterval(function () {
@@ -78,7 +78,7 @@
             
               if (actualttime >= futuretime||timeleft <= 10 ) {
                     clearInterval(firstTimer);  
-                    console.log("shouldExit status 1 :" ,shouldExit );           
+                   
                     nextPage();
                 } 
 
@@ -142,17 +142,18 @@
 	 
 			googletag.pubads().addEventListener('rewardedSlotReady',
 			function(evt) {
+        firstTimer = null;
 	 
 			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
 	 
 				
-          firstTimer = null;
+          
         
           evt.makeRewardedVisible();
 	 
 			  } else {
 	 
-      
+        firstTimer = null;
 				googletag.destroySlots([rewardedSlot]);
 				
 						
