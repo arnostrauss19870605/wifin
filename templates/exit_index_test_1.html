@@ -76,14 +76,14 @@
               var actualttime = new Date();
               
             
-              if ((actualttime >= futuretime||timeleft <= 10)  && shouldExit === false  ) {
+              if (actualttime >= futuretime||timeleft <= 10 ) {
                     clearInterval(firstTimer);  
                     console.log("shouldExit status 1 :" ,shouldExit );           
                     nextPage();
                 } 
 
                 
-                else if ( (timeleft == 11|| timeleft == 12) && shouldExit === true  ) {
+                else if ( timeleft == 11|| timeleft == 12  ) {
                   document.getElementById("noticeTxt4").style.display = "Inherit";
                   document.getElementById("noticeTxt").style.display = "none";
                   document.getElementById("noticeTxt2").style.display = "none";
@@ -146,14 +146,13 @@
 			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
 	 
 				
-          shouldExit = true;
+          firstTimer = null;
         
           evt.makeRewardedVisible();
 	 
 			  } else {
 	 
-        console.log("Rewarded Slot Not Ready" ,shouldExit );   
-        console.log("shouldExit status 4 :" ,shouldExit ); 
+      
 				googletag.destroySlots([rewardedSlot]);
 				
 						
