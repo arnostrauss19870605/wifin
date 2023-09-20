@@ -63,50 +63,35 @@
               }    
             
             
-         
+            let timerInterval;
 
             function firstTimer() {
               var timeleft = 20;
               var starttime = new Date();
-             
-              const futuretime = addSeconds(11, starttime)
-            
-              firstTimer = setInterval(function () {
-              
-              var actualttime = new Date();
-              
-            
-              if (actualttime >= futuretime||timeleft <= 10 ) {
-                    clearInterval(firstTimer);  
-                   
-                    nextPage();
-                } 
-
-                
-                else if ( timeleft == 11|| timeleft == 12  ) {
-                  document.getElementById("noticeTxt4").style.display = "Inherit";
-                  document.getElementById("noticeTxt").style.display = "none";
-                  document.getElementById("noticeTxt2").style.display = "none";
-                  document.getElementById("noticeTxt3").style.display = "none"
-            
-                }
-                
-                
-                else {
-                    document.getElementById("noticeTxt").style.display = "Inherit";
-                    document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
-                    document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
-                    document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-                }
-            
-                timeleft = timeleft - 1;
-            
-            }, 1000)
-
-            
-
-            }
-
+              const futuretime = addSeconds(11, starttime);
+      
+              // Store the interval ID in the timerInterval variable
+              timerInterval = setInterval(function () {
+                  var actualttime = new Date();
+      
+                  if (actualttime >= futuretime || timeleft <= 10) {
+                      clearInterval(timerInterval); // Clear the interval when the condition is met
+                      nextPage();
+                  } else if (timeleft == 11 || timeleft == 12) {
+                      document.getElementById("noticeTxt4").style.display = "inherit";
+                      document.getElementById("noticeTxt").style.display = "none";
+                      document.getElementById("noticeTxt2").style.display = "none";
+                      document.getElementById("noticeTxt3").style.display = "none";
+                  } else {
+                      document.getElementById("noticeTxt").style.display = "inherit";
+                      document.getElementById("noticeTxt").innerHTML = "View these ads for ";
+                      document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  ";
+                      document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi ";
+                  }
+      
+                  timeleft = timeleft - 1;
+              }, 1000);
+          }
 
         </script>
 
@@ -142,8 +127,9 @@
 	 
 			googletag.pubads().addEventListener('rewardedSlotReady',
 			function(evt) {
-        firstTimer = null;
-        alert("Hello! I am an alert box!!");
+        clearInterval(timerInterval);
+
+        alert("'Reward slot is ready!'");
 	 
 			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
 	 
