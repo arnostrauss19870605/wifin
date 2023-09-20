@@ -70,19 +70,20 @@
               var starttime = new Date();
               var firstTimer = null;
               const futuretime = addSeconds(11, starttime)
-
-              while ( shouldExit = false){
             
-                firstTimer = setInterval(function () {
+              firstTimer = setInterval(function () {
               
-                var actualttime = new Date();
+              var actualttime = new Date();
               
             
-              if (actualttime >= futuretime||timeleft <= 10)  {
-                    clearInterval(firstTimer);             
+              if ((actualttime >= futuretime||timeleft <= 10)  && shouldExit === false  ) {
+                    clearInterval(firstTimer);  
+                    console.log("shouldExit status 1 :" ,shouldExit );           
                     nextPage();
                 } 
-                else if ( timeleft == 11|| timeleft == 12) {
+
+                
+                else if ( (timeleft == 11|| timeleft == 12) && shouldExit === true  ) {
                   document.getElementById("noticeTxt4").style.display = "Inherit";
                   document.getElementById("noticeTxt").style.display = "none";
                   document.getElementById("noticeTxt2").style.display = "none";
@@ -102,7 +103,7 @@
             
             }, 1000)
 
-              }
+            
 
             }
 
@@ -134,7 +135,6 @@
 			const rewardedSlot = googletag.defineOutOfPageSlot(
 	 
 			'/22877425870/Wifi_News_Rewarded_Test',googletag.enums.OutOfPageFormat.REWARDED)
-      
 
 	 			.addService(googletag.pubads());
 	 
@@ -152,7 +152,8 @@
 	 
 			  } else {
 	 
-        shouldExit = false;  
+        console.log("Rewarded Slot Not Ready" ,shouldExit );   
+        console.log("shouldExit status 4 :" ,shouldExit ); 
 				googletag.destroySlots([rewardedSlot]);
 				
 						
