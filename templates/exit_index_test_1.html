@@ -73,9 +73,9 @@
 
               while ( shouldExit = false){
             
-              firstTimer = setInterval(function () {
+                firstTimer = setInterval(function () {
               
-              var actualttime = new Date();
+                var actualttime = new Date();
               
             
               if (actualttime >= futuretime||timeleft <= 10)  {
@@ -152,6 +152,7 @@
 	 
 			  } else {
 	 
+        shouldExit = false;  
 				googletag.destroySlots([rewardedSlot]);
 				
 						
