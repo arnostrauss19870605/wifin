@@ -127,13 +127,13 @@
 	 
 			googletag.pubads().addEventListener('rewardedSlotReady',
 			function(evt) {
-        clearInterval(timerInterval);
+        
        
 	 
 			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
 	 
 				
-          
+         clearInterval(timerInterval);
         
           evt.makeRewardedVisible();
 	 
