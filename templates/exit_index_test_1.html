@@ -70,6 +70,8 @@
               var starttime = new Date();
               var firstTimer = null;
               const futuretime = addSeconds(11, starttime)
+
+              while ( shouldExit = false){
             
               firstTimer = setInterval(function () {
               
@@ -100,10 +102,7 @@
             
             }, 1000)
 
-            if (shouldExit) {
-              return;
-            }
-
+              }
 
             }
 
@@ -135,6 +134,7 @@
 			const rewardedSlot = googletag.defineOutOfPageSlot(
 	 
 			'/22877425870/Wifi_News_Rewarded_Test',googletag.enums.OutOfPageFormat.REWARDED)
+      
 
 	 			.addService(googletag.pubads());
 	 
