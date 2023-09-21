@@ -105,41 +105,38 @@
         
         <script async type="text/javascript">
           function nextPage() {
+          
+
+
+
+
+
+
+            xxxxxxxxxx
             const queryValues_1 = window.location.search;
             const urlParams_1 = new URLSearchParams(queryValues_1);
             const utm_source = urlParams_1.get('utm_source')
-            
-            
-            var websiteURL = "{{routing}}";
-            var websiteURL_2 = "{{routing_2}}";
-            checkWebsiteExistence(websiteURL, function (exists) {
-              console.log("Option 3")
-                if (exists) {
-                    // Website exists, perform the redirection
-                    window.location.replace("{{routing}}")
-                } else {
-                  
-                  try{
-                    window.location.replace("{{routing}}")
-                    console.log("Option 1")
-                      }
-            
-                  catch(err) {
-                      window.location.replace("{{routing}}");
-                      console.log("Option 2")
-                  }
-            
+          
+            if (utm_source == 'xpertek') {
+                
+                window.location.replace("https://guestwifi-ie.skyfii.com/engagement/complete2"); 
+              
+              } 
+              else {
+          
+                try{
+                  window.location.replace("{{routing}}")
+                  console.log("Option 1")
+                    }
+          
+                catch(err) {
+                    window.location.replace("{{routing}}");
+                    console.log("Option 2")
                 }
-            });
-
-          };
-
-
-
-
-
-
-         
+          
+          }
+                             
+          }
           
  
       </script>

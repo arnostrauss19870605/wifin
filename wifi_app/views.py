@@ -15,7 +15,7 @@ from vouchers.mixins import OrganisorAndLoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.decorators.clickjacking import xframe_options_exempt
-from wifin.local_settings import WIFIN_ROOTING
+from wifin.local_settings import WIFIN_ROOTING, WIFIN_ROOTING_1
 
 
 # Create your views here.
@@ -376,9 +376,11 @@ def interstitial_1(request):
                        
     else :
         routing = str(WIFIN_ROOTING)
+        routing_2 = str(WIFIN_ROOTING_1)
         context = {
 
             'routing' : routing,
+            'routing_2' : routing_2,
              
         }
 

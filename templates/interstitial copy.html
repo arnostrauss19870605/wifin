@@ -29,13 +29,6 @@
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
-	
-	
-       
-
-
-
-
            
     <script type="text/javascript">
             function nextPage() {
@@ -51,8 +44,6 @@
               }
             
         </script>
-
-
         <script type = "text/javascript">
             
             
@@ -63,36 +54,41 @@
               }    
             
             
-            let timerInterval;
-
             function firstTimer() {
               var timeleft = 20;
               var starttime = new Date();
-              const futuretime = addSeconds(11, starttime);
-      
-              // Store the interval ID in the timerInterval variable
-              timerInterval = setInterval(function () {
-                  var actualttime = new Date();
-      
-                  if (actualttime >= futuretime || timeleft <= 10) {
-                      clearInterval(timerInterval); // Clear the interval when the condition is met
-                      nextPage();
-                  } else if (timeleft == 11 || timeleft == 12) {
-                      document.getElementById("noticeTxt4").style.display = "inherit";
-                      document.getElementById("noticeTxt").style.display = "none";
-                      document.getElementById("noticeTxt2").style.display = "none";
-                      document.getElementById("noticeTxt3").style.display = "none";
-                  } else {
-                      document.getElementById("noticeTxt").style.display = "inherit";
-                      document.getElementById("noticeTxt").innerHTML = "View these ads for ";
-                      document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  ";
-                      document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi ";
-                  }
-      
-                  timeleft = timeleft - 1;
-              }, 1000);
-          }
-
+              var firstTimer = null;
+              const futuretime = addSeconds(11, starttime)
+            
+              firstTimer = setInterval(function () {
+              
+              var actualttime = new Date();
+              
+            
+              if (actualttime >= futuretime||timeleft <= 10)  {
+                    clearInterval(firstTimer);             
+                    nextPage();
+                } 
+                else if ( timeleft == 11|| timeleft == 12) {
+                  document.getElementById("noticeTxt4").style.display = "Inherit";
+                  document.getElementById("noticeTxt").style.display = "none";
+                  document.getElementById("noticeTxt2").style.display = "none";
+                  document.getElementById("noticeTxt3").style.display = "none"
+            
+                }
+                
+                
+                else {
+                    document.getElementById("noticeTxt").style.display = "Inherit";
+                    document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
+                    document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
+                    document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
+                }
+            
+                timeleft = timeleft - 1;
+            
+            }, 1000)
+            }
         </script>
 
   <!-- Adtelligent: Ad Exchange -->
@@ -109,79 +105,6 @@
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
-
-  		<!-- Rewarded Add Tag-->
-		  <script>
-
-			googletag = window.googletag || {cmd: []};
-	 
-			googletag.cmd.push(() => {
-	 
-			const rewardedSlot = googletag.defineOutOfPageSlot(
-	 
-			'/22877425870/Wifi_News_Rewarded_Test',googletag.enums.OutOfPageFormat.REWARDED)
-
-	 			.addService(googletag.pubads());
-	 
-			googletag.enableServices();
-	 
-			googletag.pubads().addEventListener('rewardedSlotReady',
-			function(evt) {
-        
-       
-	 
-			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
-	 
-				
-         clearInterval(timerInterval);
-        
-          evt.makeRewardedVisible();
-	 
-			  } else {
-	 
-        firstTimer = null;
-				googletag.destroySlots([rewardedSlot]);
-				
-						
-				   
-	 
-			  }
-			});
-
-	 
-			  googletag.pubads().addEventListener('rewardedSlotGranted',
-			  
-			  function(evt) {
-	   
-				   
-				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
-				
-				
-        shouldExit = true;
-        
-        googletag.destroySlots([rewardedSlot]);
-
-        window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
-	   
-			  });
-	   
-			  googletag.pubads().addEventListener('rewardedSlotClosed',
-			  function(evt) {
-	   
-        shouldExit = true;
-				googletag.destroySlots([rewardedSlot]);
-
-        window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
-	   
-			  });
-	   
-			  googletag.display(rewardedSlot);
-	   
-			});
-	   
-
-	 
-		 </script>
     
   <!-- Taboola Head Tag) -->
   {% block taboola_head %}
@@ -215,68 +138,6 @@
             color: #FF4644;
             border : 1px solid White;
             }
-
-			/* The Modal (background) */
-			.modal {
-				display: none;
-				/* Hidden by default */
-				position: fixed;
-				/* Stay in place */
-				z-index: 1;
-				/* Sit on top */
-				padding-top: 300px;
-				/* Location of the box */
-				left: 0;
-				top: 0;
-				width: 100%;
-				/* Full width */
-				height: 100%;
-				/* Full height */
-				overflow: auto;
-				/* Enable scroll if needed */
-				background-color: rgb(0, 0, 0);
-				/* Fallback color */
-				background-color: rgba(0, 0, 0, 0.4);
-				/* Black w/ opacity */
-			}
-	
-			/* Modal Content */
-			.modal-content {
-				margin: auto;
-				padding: 25px;
-				background-color: #fefefe;
-				text-align: center;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-	
-			@media all and (orientation: landscape) {
-	
-				/* Modal Content */
-				.modal-content {
-					margin: auto;
-					padding: 25px;
-					background-color: #fefefe;
-					text-align: center;
-					position: fixed;
-					top: 60%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
-			}
-	
-	
-			.btn {
-				padding: .5rem;
-				background: #2990EA;
-				border: none;
-				border-radius: 4px;
-				margin: 4px;
-			}
-	
-		
         </style>
         <div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #000080;color:#FF4644; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
@@ -341,9 +202,8 @@
 
     </body>
 
-    <script type = "text/javascript">
-      firstTimer();
-  </script>
-
+<script type = "text/javascript">
+    firstTimer();
+</script>
 
 </html>
