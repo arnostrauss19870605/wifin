@@ -66,18 +66,16 @@
 	 
 			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
 	 
-				
-         clearInterval(timerInterval);
+	
         
           evt.makeRewardedVisible();
 	 
 			  } else {
 	 
-        firstTimer = null;
+        
 				googletag.destroySlots([rewardedSlot]);
 				
-						
-				   
+					
 	 
 			  }
 			});
@@ -91,7 +89,7 @@
 				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
 				
 				
-        shouldExit = true;
+   
         
         googletag.destroySlots([rewardedSlot]);
 
@@ -102,7 +100,7 @@
 			  googletag.pubads().addEventListener('rewardedSlotClosed',
 			  function(evt) {
 	   
-        shouldExit = true;
+       
 				googletag.destroySlots([rewardedSlot]);
 
         window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
