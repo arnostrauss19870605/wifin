@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('auth', '0018_remove_user_extra_field'),
+        
     ]
 
     operations = [
