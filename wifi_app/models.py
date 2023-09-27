@@ -169,4 +169,47 @@ class Comment(models.Model):
 
             super(Comment, self).save(*args, **kw)
 
+
+#https://dev.to/yahaya_hk/how-to-populate-your-database-with-data-from-an-external-api-in-django-398i
+class Registered_User(models.Model):
+    hsDomainsDataID =  models.CharField(max_length=100,verbose_name = "Domain Data ID")
+    hsUsersID =  models.CharField(max_length=100,verbose_name = "User ID")
+    username =  models.CharField(max_length=100,verbose_name = "Username")
+    first_name =  models.CharField(max_length=100,verbose_name = "Firstname")
+    last_name =  models.CharField(max_length=100,verbose_name = "Lastname")
+    email =  models.CharField(max_length=100,verbose_name = "Email Address")
+    mobile_phone =  models.CharField(max_length=100,verbose_name = "Mobile Phone")
+    address =  models.CharField(max_length=400,verbose_name = "Address")
+    city =  models.CharField(max_length=100,verbose_name = "City")
+    state =  models.CharField(max_length=100,verbose_name = "State")
+    zip =  models.CharField(max_length=100,verbose_name = "Zip")
+    country =  models.CharField(max_length=100,verbose_name = "Country")
+    gender =  models.CharField(max_length=100,verbose_name = "Gender")
+    date_created =  models.CharField(max_length=100,verbose_name = "Creation Date")
+    language =  models.CharField(max_length=100,verbose_name = "Language")
+    year_of_birth =  models.CharField(max_length=100,verbose_name = "Year Of Birth")
+    month_of_birth =  models.CharField(max_length=100,verbose_name = "Month Of Birth")
+    day_of_birth =  models.CharField(max_length=100,verbose_name = "Day Of Birth")
+    reseller_name =  models.CharField(max_length=100,verbose_name = "Reseller Company Name")
+    manager_name =  models.CharField(max_length=100,verbose_name = "Manager Company Name")
+    domain_name =  models.CharField(max_length=100,verbose_name = "Domain Name")
+    expiration_date =  models.CharField(max_length=100,verbose_name = "Expiration Date")
+    product =  models.CharField(max_length=100,verbose_name = "Product Description")
+    hs_product_id =  models.CharField(max_length=100,verbose_name = "Product ID")
+    last_transaction_date =  models.CharField(max_length=100,verbose_name = "Last Transaction Date")
+    date_imported = models.DateTimeField(blank=True, null=True,verbose_name = "Date Imported")
+    uploaded = models.BooleanField(default=False,verbose_name = "Upload Status")
+    date_uploaded = models.DateTimeField(blank=True, null=True,verbose_name = "Date Uploaded")
+
+
+    def __str__(self):
+        return f"{self.hsDomainsDataID} : {self.first_name} - {self.last_name} "
+    
+    def save(self, *args, **kwargs):
+        if self.date_imported is None:
+            self.date_imported = timezone.localtime(timezone.now())
+
+        super(Registered_User, self).save(*args, **kwargs)  
+  
+
   

@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post, Topic, Comment
+from .models import  Category, Post, Topic, Comment,Registered_User
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -90,3 +90,11 @@ class CommentAdmin(admin.ModelAdmin):
     list_display=('name', 'email', 'topic', 'created', 'active')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('name', 'email', 'body')
+
+
+@admin.register(Registered_User)
+class Registered_UserAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ('hsDomainsDataID','hsUsersID','username','first_name','last_name','email','date_imported','uploaded','date_uploaded')
+    list_filter = ('uploaded','date_imported','reseller_name','manager_name','product')
+    date_hierarchy = ('date_imported')
+   
