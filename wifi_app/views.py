@@ -18,6 +18,8 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from wifin.local_settings import WIFIN_ROOTING, WIFIN_ROOTING_1
 from django.http import JsonResponse
 from wifi_app.hsnm import RESTfulAPI
+from logging import getLogger
+from .tasks import demo_task
 
 
 # Create your views here.
@@ -25,28 +27,10 @@ from wifi_app.hsnm import RESTfulAPI
 
 def test(request):
     
-    base_uri = "http://www.hotspot.yourspot.co.za/api/v2/"
-    my_api_key = "38XG46Q3NPM63THRMB9984YJ7V6MY5QQ"
-    my_api_secret = "47TY45RDHY77DDNNDNNBD7J8RDL97WQ1"
-    data = '{"id": 207}' 
-
-    api = RESTfulAPI(base_uri, my_api_key, my_api_secret)
-
-    endpoint = 'resellerRead'
-
-
-    response = api.api_call(endpoint, data)
-    print("API Response:", response)
-
-    if response is not None:
-    # Handle the response data
-        print("API Response:", response)
-        return JsonResponse(response)
-    else:
-    # Handle the error
-        print("API Error:", api.last_error)
-        return JsonResponse({"error": api.last_error})
-
+   
+    print('calling demo_task. message')
+    demo_task('My Test')
+    return JsonResponse({}, status=302)
     
    
 

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     #3rd Part Apps
     'markdownx',
     'crispy_forms',
+    'background_task',
 ]
 
 SECURE_CONTENT_TYPE_NOSNIFF = False
