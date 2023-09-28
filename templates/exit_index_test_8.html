@@ -136,10 +136,10 @@
 				const closeModalFn = () => {
 				  const trigger = document.getElementById('rewardModal');
 				  trigger.style.display = 'none';
-				  firstTimer = null;
+				  firstTimer();
 				googletag.destroySlots([rewardedSlot]);
 				};
-				firstTimer = null;
+				
 				noThanksButton.addEventListener('click', closeModalFn);
 			  });
 
