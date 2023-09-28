@@ -118,7 +118,9 @@
 				  
 				  evt.makeRewardedVisible();
 				  e.preventDefault();
+				  
 				  watchAdButton.removeEventListener('click', makeVisibleFn);
+				  
 				  noThanksButton.removeEventListener('click', closeModalFn);
 				  trigger.style.display = 'none';
 				};
@@ -126,6 +128,7 @@
 
 				const trigger = document.getElementById('rewardModal');
 				trigger.style.display = 'block';
+				clearInterval(timerInterval);
 				const watchAdButton = document.getElementById('watchAdBtn');
 				watchAdButton.addEventListener('click', makeVisibleFn);
 				
@@ -134,8 +137,9 @@
 				  const trigger = document.getElementById('rewardModal');
 				  trigger.style.display = 'none';
 				  firstTimer = null;
-					googletag.destroySlots([rewardedSlot]);
+				googletag.destroySlots([rewardedSlot]);
 				};
+				firstTimer = null;
 				noThanksButton.addEventListener('click', closeModalFn);
 			  });
 
