@@ -112,48 +112,75 @@
 
   		<!-- Rewarded Add Tag-->
 		    <script>
-				googletag = window.googletag || {cmd: []};
-				googletag.cmd.push(() => {
-				  const rewardedSlot = googletag.defineOutOfPageSlot('/22877425870/Wifi_News_Rewarded_Test',
-					  googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-				  rewardedSlot.setForceSafeFrame(true);
-				  googletag.pubads().enableAsyncRendering();
-				  googletag.enableServices();
-				  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-					const makeVisibleFn = (e) => {
-					  evt.makeRewardedVisible();
-					  e.preventDefault();
-					  watchAdButton.removeEventListener('click', makeVisibleFn);
-					  noThanksButton.removeEventListener('click', closeModalFn);
-					  trigger.style.display = 'none';
-					};
-					const trigger = document.getElementById('rewardModal');
-					trigger.style.display = 'block';
-					const watchAdButton = document.getElementById('watchAdBtn');
-					watchAdButton.addEventListener('click', makeVisibleFn);
-					const noThanksButton = document.getElementById('noThanksBtn');
-					const closeModalFn = () => {
-					  const trigger = document.getElementById('rewardModal');
-					  trigger.style.display = 'none';
-					};
-					noThanksButton.addEventListener('click', closeModalFn);
-				  });
-				  googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
-					const grantModal = document.getElementById('grantModal');
-					const reward = evt.payload;
-					const grantParagraph = document.getElementById('grantParagraph');
-					grantParagraph.innerHTML = "You've been rewarded " + reward.amount + " "
-						+ reward.type + "!";
-					const grantCloseBtn = document.getElementById('grantCloseBtn');
-					const closeGrantFn = () => {
-					  grantCloseBtn.removeEventListener('click', closeGrantFn);
-					  grantModal.style.display = 'none';
-					}
-					grantCloseBtn.addEventListener('click', closeGrantFn);
-					grantModal.style.display = 'block';
-				  });
-				  googletag.display(rewardedSlot);
-				});
+
+
+					googletag = window.googletag || {cmd: []};
+			 
+					googletag.cmd.push(() => {
+			 
+					const rewardedSlot = googletag.defineOutOfPageSlot(
+			 
+					'/22877425870/Wifi_News_Rewarded_Test',googletag.enums.OutOfPageFormat.REWARDED)
+		
+						 .addService(googletag.pubads());
+			 
+					googletag.enableServices();
+			 
+					googletag.pubads().addEventListener('rewardedSlotReady',
+					function(evt) {
+				
+			   
+			 
+					  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
+			 
+						
+				 clearInterval(timerInterval);
+				
+				  evt.makeRewardedVisible();
+			 
+					  } else {
+			 
+				firstTimer = null;
+						googletag.destroySlots([rewardedSlot]);
+						
+								
+						   
+			 
+					  }
+					});
+		
+			 
+					  googletag.pubads().addEventListener('rewardedSlotGranted',
+					  
+					  function(evt) {
+			   
+						   
+						// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
+						
+						
+				shouldExit = true;
+				
+				googletag.destroySlots([rewardedSlot]);
+		
+				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+			   
+					  });
+			   
+					  googletag.pubads().addEventListener('rewardedSlotClosed',
+					  function(evt) {
+			   
+				shouldExit = true;
+						googletag.destroySlots([rewardedSlot]);
+		
+				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
+			   
+					  });
+			   
+					  googletag.display(rewardedSlot);
+			   
+					});
+			   
+		
 			  </script>
 	
     
@@ -172,13 +199,15 @@
 			  <input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
 			  <input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
 			</div>
-		  </div>
-		  <div id="grantModal" class="modal">
+		</div>
+		
+		<div id="grantModal" class="modal">
 			<div class="modal-content">
 			  <p id="grantParagraph"> </p>
 			  <input type="button" class="btn" id="grantCloseBtn" value="Close" />
 			</div>
-		  </div>
+		</div>
+
         <style>
             .button_2 {
             margin-left: 15%;
@@ -207,37 +236,28 @@
 
 			/* The Modal (background) */
 			.modal {
-				display: none;
-				/* Hidden by default */
-				position: fixed;
-				/* Stay in place */
-				z-index: 1;
-				/* Sit on top */
-				padding-top: 300px;
-				/* Location of the box */
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				padding-top: 300px; /* Location of the box */
 				left: 0;
 				top: 0;
-				width: 100%;
-				/* Full width */
-				height: 100%;
-				/* Full height */
-				overflow: auto;
-				/* Enable scroll if needed */
-				background-color: rgb(0, 0, 0);
-				/* Fallback color */
-				background-color: rgba(0, 0, 0, 0.4);
-				/* Black w/ opacity */
+				width: 100%; /* Full width */
+				height: 100%; /* Full height */
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgb(0,0,0); /* Fallback color */
+				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 			}
 	
 			/* Modal Content */
 			.modal-content {
 				margin: auto;
 				padding: 25px;
-				background-color: #fefefe;
-				text-align: center;
-				position: fixed;
-				top: 50%;
-				left: 50%;
+		 		background-color:#fefefe;
+		 		text-align: center;
+	  			position: fixed;
+		  		top: 50%;
+		  		left: 50%;
 				transform: translate(-50%, -50%);
 			}
 	
@@ -329,10 +349,10 @@
 
 
     </body>
-
+	
     <script type = "text/javascript">
-      firstTimer();
-  </script>
+		firstTimer();
+	</script>
 
 
 </html>
