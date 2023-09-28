@@ -1,7 +1,9 @@
 {% load static %}
 <html lang="en">
-    <head>
-
+	<head>
+		<script src="/gdpr/gdprscript.js?buildTime=1693604570"></script>
+		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
+		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <title>Wifi News</title>
@@ -19,25 +21,15 @@
         <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 
-  <!-- Adtelligent: Ad Exchange
-	<script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
-  END Ad Exchange -->
-
+		
         <!-- Font Awesome Free 5.10.2 CSS JS -->
         <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
-	
-	
-       
 
-
-
-
-           
-    <script type="text/javascript">
+		<script type="text/javascript">
             function nextPage() {
                       const queryString = window.location.search;
                       const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -51,7 +43,6 @@
               }
             
         </script>
-
 
         <script type = "text/javascript">
             
@@ -95,190 +86,146 @@
 
         </script>
 
-  <!-- Adtelligent: Ad Exchange -->
-  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
-  <!--END Ad Exchange -->
-
-   <!-- Import Library for Gtag -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
-     
-  <!-- Google Head Tag) -->
-  {% block google_head %}
-    {% include 'google/head_tags/interstitial_3.html' %}
-  {% endblock google_head %}
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
-
-  		<!-- Rewarded Add Tag-->
-		  <script>
-
-			googletag = window.googletag || {cmd: []};
-	 
-			googletag.cmd.push(() => {
-	 
-			const rewardedSlot = googletag.defineOutOfPageSlot(
-	 
-			'/22877425870/Wifi_News_Rewarded_Test',googletag.enums.OutOfPageFormat.REWARDED)
-
-	 			.addService(googletag.pubads());
-	 
-			googletag.enableServices();
-	 
-			googletag.pubads().addEventListener('rewardedSlotReady',
-			function(evt) {
-        
-       
-	 
-			  if (confirm('Want to get access to free Wi-Fi by viewing this ad?')) {
-	 
-				
-         clearInterval(timerInterval);
-        
-          evt.makeRewardedVisible();
-	 
-			  } else {
-	 
-        firstTimer = null;
-				googletag.destroySlots([rewardedSlot]);
-				
-						
-				   
-	 
-			  }
-			});
-
-	 
-			  googletag.pubads().addEventListener('rewardedSlotGranted',
-			  
-			  function(evt) {
-	   
-				   
-				// Destroy the ad slot when the 'rewardedSlotGranted' event occurs
-				
-				
-        shouldExit = true;
-        
-        googletag.destroySlots([rewardedSlot]);
-
-        window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
-	   
-			  });
-	   
-			  googletag.pubads().addEventListener('rewardedSlotClosed',
-			  function(evt) {
-	   
-        shouldExit = true;
-				googletag.destroySlots([rewardedSlot]);
-
-        window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");     
-	   
-			  });
-	   
-			  googletag.display(rewardedSlot);
-	   
-			});
-	   
-
-	 
-		 </script>
-    
-  <!-- Taboola Head Tag) -->
-  {% block taboola_head %}
-    {% include 'taboola/taboola_header.html' %}
-  {% endblock taboola_head %}
-
-    </head>
-    <body class="default">
-        <style>
-            .button_2 {
-            margin-left: 15%;
-            margin-top: 15%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            color: #000033;
-            width: 236.81px;
-            height: 50.63px;
-            left: 237.37px;
-            top: 759.43px;
-            background: #FFFFFF;
-            box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);
-            border-radius: 100px;
-            transition: 0.1s;
-            font-weight: 700;
-            cursor: pointer;
-            }
-            .button_2:hover {
-            background-color: #000080; /* Navy */
-            color: #FF4644;
-            border : 1px solid White;
-            }
-
-			/* The Modal (background) */
-			.modal {
-				display: none;
-				/* Hidden by default */
-				position: fixed;
-				/* Stay in place */
-				z-index: 1;
-				/* Sit on top */
-				padding-top: 300px;
-				/* Location of the box */
-				left: 0;
-				top: 0;
-				width: 100%;
-				/* Full width */
-				height: 100%;
-				/* Full height */
-				overflow: auto;
-				/* Enable scroll if needed */
-				background-color: rgb(0, 0, 0);
-				/* Fallback color */
-				background-color: rgba(0, 0, 0, 0.4);
-				/* Black w/ opacity */
-			}
-	
-			/* Modal Content */
-			.modal-content {
-				margin: auto;
-				padding: 25px;
-				background-color: #fefefe;
-				text-align: center;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-	
-			@media all and (orientation: landscape) {
-	
-				/* Modal Content */
-				.modal-content {
-					margin: auto;
-					padding: 25px;
-					background-color: #fefefe;
-					text-align: center;
-					position: fixed;
-					top: 60%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
-			}
-	
-	
-			.btn {
-				padding: .5rem;
-				background: #2990EA;
-				border: none;
-				border-radius: 4px;
-				margin: 4px;
-			}
-	
+		  <!-- Adtelligent: Ad Exchange -->
+		  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
+		  <!--END Ad Exchange -->
 		
-        </style>
-        <div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #000080;color:#FF4644; font-size: 25px;">
+		   <!-- Import Library for Gtag -->
+		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+		  <!-- Google Head Tag) -->
+		  {% block google_head %}
+			{% include 'google/head_tags/interstitial_3.html' %}
+		  {% endblock google_head %}
+
+		  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
+		
+		  <script>
+			googletag = window.googletag || {cmd: []};
+			googletag.cmd.push(() => {
+			
+			const rewardedSlot = googletag.defineOutOfPageSlot('/22877425870/Wifi_News_Rewarded_Test',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			  rewardedSlot.setForceSafeFrame(true);
+			
+			  googletag.pubads().enableAsyncRendering();
+			  googletag.enableServices();
+			  
+			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+				
+				const makeVisibleFn = (e) => {
+				
+				  clearInterval(timerInterval);
+				  
+				  evt.makeRewardedVisible();
+				  e.preventDefault();
+				  
+				  watchAdButton.removeEventListener('click', makeVisibleFn);
+				  
+				  noThanksButton.removeEventListener('click', closeModalFn);
+				  trigger.style.display = 'none';
+				};
+
+
+				const trigger = document.getElementById('rewardModal');
+				trigger.style.display = 'block';
+				clearInterval(timerInterval);
+				const watchAdButton = document.getElementById('watchAdBtn');
+				watchAdButton.addEventListener('click', makeVisibleFn);
+				
+				const noThanksButton = document.getElementById('noThanksBtn');
+				const closeModalFn = () => {
+				  const trigger = document.getElementById('rewardModal');
+				  trigger.style.display = 'none';
+				  firstTimer();
+				googletag.destroySlots([rewardedSlot]);
+				};
+				
+				noThanksButton.addEventListener('click', closeModalFn);
+			  });
+
+			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+				googletag.destroySlots([rewardedSlot]);
+				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+   
+		  		});
+			  googletag.display(rewardedSlot);
+			});
+		  </script>
+
+
+		<style>
+		  p    {text-align: center;}
+		  /* The Modal (background) */
+		  .modal {
+			  display: none; /* Hidden by default */
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Sit on top */
+			  padding-top: 300px; /* Location of the box */
+			  left: 0;
+			  top: 0;
+			  width: 100%; /* Full width */
+			  height: 100%; /* Full height */
+			  overflow: auto; /* Enable scroll if needed */
+			  background-color: rgb(0,0,0); /* Fallback color */
+			  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		  }
+	
+		  /* Modal Content */
+		  .modal-content {
+			  margin: auto;
+			  padding: 25px;
+	   background-color:#fefefe;
+	   text-align: center;
+	position: fixed;
+		top: 50%;
+		left: 50%;
+	  transform: translate(-50%, -50%);
+		  }
+	
+	@media all and (orientation: landscape) {
+		  /* Modal Content */
+		  .modal-content {
+			  margin: auto;
+			  padding: 25px;
+	   background-color:#fefefe;
+	   text-align: center;
+	position: fixed;
+		top: 60%;
+		left: 50%;
+	  transform: translate(-50%, -50%);
+		  }
+	}
+	
+	
+		  .btn {
+			  padding: .5rem;
+			  background: #2990EA;
+			  border: none;
+			  border-radius: 4px;
+			  margin: 4px;
+		  }
+		</style>
+   <!-- Import Library for Gtag -->
+
+	
+
+	  </head>
+	  <body>
+		<div id="rewardModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<p>Watch this ad to get free Wifi</p>
+			<input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
+			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
+		  </div>
+		</div>
+		<div id="grantModal" class="modal">
+		  <div class="modal-content">
+			<p id="grantParagraph"> </p>
+			<input type="button" class="btn" id="grantCloseBtn" value="Close" />
+		  </div>
+		</div>
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #000080;color:#FF4644; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
                 <div class="logo" id="noticeTxt"  style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
                 <div class="logo" id="noticeTxt2" style="margin-bottom: 0px;text-align:center;word-break:break-all;"></div>
@@ -339,11 +286,24 @@
 
 
 
-    </body>
-
-    <script type = "text/javascript">
-      firstTimer();
-  </script>
-
-
+	  </body>
+	  <script type = "text/javascript">
+		firstTimer();
+	</script>
+  
+	</html>
+	`
+	</div>
+	
+	
+	
+	</div>
+				</div>
+			</div>
+		  </div>
+	
+		</div>
+	</div>
+	</div>
+	
 </html>
