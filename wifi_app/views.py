@@ -17,26 +17,26 @@ from django.urls import reverse_lazy
 from django.views.decorators.clickjacking import xframe_options_exempt
 from wifin.local_settings import WIFIN_ROOTING, WIFIN_ROOTING_1
 from django.http import JsonResponse
-from wifi_app.hsnm import RESTfulAPI
+from wifi_app.hsnm_1 import RESTfulAPI
 from logging import getLogger
-from .tasks import demo_task
+from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users
+import json
+from pprint import pprint
+from datetime import datetime
+import time
 
 
 # Create your views here.
 
-
 def test(request):
+    pull_from_captive_portal()
+    populate_registered_users()
+    push_to_omnisend()
     
-   
+    
     print('calling demo_task. message')
-    demo_task('My Test')
+    #demo_task('My Test')
     return JsonResponse({}, status=302)
-    
-   
-
-
-
-
 
 
 class LoginPageview(TemplateView) :

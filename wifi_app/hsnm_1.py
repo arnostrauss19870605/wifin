@@ -7,6 +7,7 @@ import hashlib
 from pprint import pprint
 
 class RESTfulAPI:
+    
     def __init__(self, domain_or_ip, api_key, api_secret):
         self.base_uri = f"{domain_or_ip}/api/v2/"
         self.api_key = api_key
@@ -38,19 +39,3 @@ class RESTfulAPI:
             return {"warning": "", "error": "Generic error"}
 
 
-api_key = "38XG46Q3NPM63THRMB9984YJ7V6MY5QQ"
-api_secret = "47TY45RDHY77DDNNDNNBD7J8RDL97WQ1"
-api = RESTfulAPI("http://www.hotspot.yourspot.co.za", api_key, api_secret)
-
-endpoint = 'userFind'
-data = '{"Where":"domain.id=1151"}'
-
-#endpoint = 'userRead'
-#data = '{"id":"2465"}'
-
-
-json_ret_val = api.api_call(endpoint, data)
-if "error" in json_ret_val and json_ret_val["error"] != "":
-    print("Error:", json_ret_val["error"])
-else:
-    pprint(json_ret_val)

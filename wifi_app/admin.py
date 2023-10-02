@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post, Topic, Comment,Registered_User
+from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -97,4 +97,20 @@ class Registered_UserAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('hsDomainsDataID','hsUsersID','username','first_name','last_name','email','date_imported','uploaded','date_uploaded')
     list_filter = ('uploaded','date_imported','reseller_name','manager_name','product')
     date_hierarchy = ('date_imported')
+
+@admin.register(Country)
+class CountryAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=('id', 'country_code', 'country_name')
+    search_fields = ('id', 'country_code', 'country_name')
+
+@admin.register(Domain)
+class DomainAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=('id', 'description', 'domain_id','last_extracted_date','date_created','last_updated')
+
+@admin.register(Domain_User)
+class DomainUserAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=('user_id', 'domain_id','last_extracted_date','date_created','last_updated','extracted')
+    search_fields = ('user_id', 'domain_id')
+    list_filter = ('last_updated','date_created','last_extracted_date','domain_id','extracted')
+
    

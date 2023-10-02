@@ -199,6 +199,8 @@ class Registered_User(models.Model):
     last_transaction_date =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Last Transaction Date")
     date_imported = models.DateTimeField(blank=True, null=True,verbose_name = "Date Imported")
     uploaded = models.BooleanField(default=False,verbose_name = "Upload Status")
+    status_descript =  models.CharField(blank=True, null=True,max_length=1000,verbose_name = "Status Description")
+    payload = models.JSONField(blank=True,null=True)
     date_uploaded = models.DateTimeField(blank=True, null=True,verbose_name = "Date Uploaded")
 
 
@@ -210,6 +212,54 @@ class Registered_User(models.Model):
             self.date_imported = timezone.localtime(timezone.now())
 
         super(Registered_User, self).save(*args, **kwargs)  
+
+class Country(models.Model):
+    country_code =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Country Code")
+    country_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Country Name")
+
+class Domain(models.Model):
+    description =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Description")
+    domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
+    url =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Captive Portal API URL")
+    endpoint =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Captive Portal API Endpoint")
+    api_key =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Captive Portal API Key")
+    api_seceret =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Captive Portal API Secret")
+    last_extracted_date = models.DateTimeField(blank=True, null=True,verbose_name = "Date Last Extracted From")
+    omnisend_url =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Omnisend URL")
+    omnisend_endpoint =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Omnisend Endpoint")
+    omnisend_api_key =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Omnisend API Key")
+    date_created = models.DateTimeField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.id} : {self.description} - {self.domain_id} "
+    
+    def save(self, *args, **kwargs):
+        if self.date_created is None:
+            self.date_created = timezone.localtime(timezone.now())
+
+        self.last_updated = timezone.localtime(timezone.now())  
+
+        super(Domain, self).save(*args, **kwargs)
+
+class Domain_User(models.Model):
+    user_id =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Description")
+    domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
+    last_extracted_date = models.DateTimeField(blank=True, null=True,verbose_name = "Date Last Extracted From")
+    date_created = models.DateTimeField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+    extracted = models.BooleanField(default=False,verbose_name = "Extracted Status")
+
+    def __str__(self):
+        return f"{self.user_id} : {self.domain_id}  "
+    
+    def save(self, *args, **kwargs):
+        if self.date_created is None:
+            self.date_created = timezone.localtime(timezone.now())
+
+        self.last_updated = timezone.localtime(timezone.now())  
+
+        super(Domain_User, self).save(*args, **kwargs)
   
 
   
