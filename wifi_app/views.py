@@ -32,7 +32,7 @@ def test(request):
     pull_from_captive_portal()
     populate_registered_users()
     push_to_omnisend()
-    
+   
     
     print('calling demo_task. message')
     #demo_task('My Test')

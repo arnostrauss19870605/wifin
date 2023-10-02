@@ -1,4 +1,5 @@
 from background_task import background
+from background_task.models import Task
 from .models import Registered_User,Country,Domain,Domain_User
 from logging import getLogger
 import requests, datetime,requests
@@ -13,12 +14,22 @@ import time
 
 
 logger = getLogger(__name__)
+current_date = datetime.now()
+current_year = current_date.year
+current_month = current_date.month
+current_day = current_date.day
+schedule_hour = 12  # 12 PM
+schedule_minute = 0  # 0 minutes past the hour
+
+# Create the datetime object for scheduling
+schedule_date = datetime(year=current_year, month=current_month, day=current_day, hour=schedule_hour, minute=schedule_minute)
 
 #https://medium.com/@mijlalawan/adding-scheduled-background-tasks-to-django-e32cd36876e
 #Asynchronous task for removing old records
 
-@background(schedule=1)
-def push_to_omnisend(repeat=5 , repeat_until=None):
+@background
+def push_to_omnisend():
+#def push_to_omnisend():
    
     
     omnisend_api_key = None
@@ -201,8 +212,8 @@ def push_to_omnisend(repeat=5 , repeat_until=None):
             the_state.save()     
 
 
-@background(schedule=1)
-def pull_from_captive_portal(repeat=5 , repeat_until=None): 
+@background
+def pull_from_captive_portal(): 
 #def pull_from_captive_portal(): 
     development_domain = Domain.objects.all()
 
@@ -260,13 +271,12 @@ def pull_from_captive_portal(repeat=5 , repeat_until=None):
             api = None
 
 
-       
 
             
     #Extract user related to above ID and Update Registrerd User Model
 
-@background(schedule=1)
-def populate_registered_users(repeat=5 , repeat_until=None):
+@background
+def populate_registered_users():
 #def populate_registered_users():
     registered_users = Domain_User.objects.filter(extracted=False)
     
@@ -296,7 +306,6 @@ def populate_registered_users(repeat=5 , repeat_until=None):
 
                 endpoint_1 = 'userRead'
                 data_1 = json_data_1
-
                 json_ret_val_1 = api.api_call(endpoint_1, data_1)
                 
         
@@ -375,6 +384,8 @@ def populate_registered_users(repeat=5 , repeat_until=None):
 
         
     return JsonResponse({}, status=302)
+
+
           
                     
                 
