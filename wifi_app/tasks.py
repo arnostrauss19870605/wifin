@@ -45,11 +45,12 @@ def push_to_omnisend():
             omnisend_api_key = queryset.values_list('omnisend_api_key', flat=True)[0]
 
             country_name = 'za'           
-            country_name_query = Country.objects.filter(country_code = x.country).values_list('country_name',flat=True)[0]
-            if country_name_query.exists():
+            try:
+                country_name_query = Country.objects.filter(country_code = x.country).values_list('country_name',flat=True)[0]
+            except IndexError:
+                country_name = 'za'  
+            else : 
                 country_name =country_name_query
-            else:
-                country_name = 'za' 
 
             
             mobile = '0000000000'
