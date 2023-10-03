@@ -58,7 +58,6 @@ urlpatterns = [
     path('test_page_10/',test_page_10, name="exit-index-test-10"),
 
     path('schedule_task_123456/',test, name="test-page"),
-    
     path('admin/', admin.site.urls),
     path('clinix/activation', ActivationView.as_view(), name="activation"),
     path('clinix/login/', auth_views.LoginView.as_view(template_name='sms_login.html')),
