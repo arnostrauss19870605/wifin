@@ -35,10 +35,12 @@
                       const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
                      
                       if (queryString.length === 0 ){
-                        window.location.assign("/interstitial_1/" + queryString ); 
+                        //window.location.assign("/interstitial_1/" + queryString );
+						window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
                       }
                       else {               
-                      window.location.assign("/interstitial_1/" + queryString ); 
+                      //window.location.assign("/interstitial_1/" + queryString ); 
+					  window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");  
                       }
               }
             
@@ -59,16 +61,16 @@
             function firstTimer() {
               var timeleft = 20;
               var starttime = new Date();
-              const futuretime = addSeconds(11, starttime);
+              const futuretime = addSeconds(20, starttime);
       
               // Store the interval ID in the timerInterval variable
               timerInterval = setInterval(function () {
                   var actualttime = new Date();
       
-                  if (actualttime >= futuretime || timeleft <= 10) {
+                  if (actualttime >= futuretime || timeleft <= 1) {
                       clearInterval(timerInterval); // Clear the interval when the condition is met
                       nextPage();
-                  } else if (timeleft == 11 || timeleft == 12) {
+                  } else if (timeleft == 1 || timeleft == 2) {
                       document.getElementById("noticeTxt4").style.display = "inherit";
                       document.getElementById("noticeTxt").style.display = "none";
                       document.getElementById("noticeTxt2").style.display = "none";
