@@ -340,6 +340,9 @@ def populate_registered_users():
                         domain_name_descrip = "Backsberg"
                     elif int(hsDomainsDataID) == 1153 :
                         domain_name_descrip = "Brampton"
+                    else :
+                        domain_name_descrip = "General"
+
 
                     domain_name = domain_name_descrip
                     product = "DGB 10Mbps Uncapped"
