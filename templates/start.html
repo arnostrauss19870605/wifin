@@ -1,7 +1,7 @@
 {% load static %}
 <html lang="en">
 	<head>
-		<script src="/gdpr/gdprscript.js?buildTime=1693604570"></script>
+		
 		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
 		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
         <!-- Required meta tags -->
@@ -145,7 +145,7 @@
 
 			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
 				googletag.destroySlots([rewardedSlot]);
-				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+				nextPage() ;
    
 		  		});
 			  googletag.display(rewardedSlot);
