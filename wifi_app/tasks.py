@@ -9,12 +9,13 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from wifi_app.hsnm_1 import RESTfulAPI
 from django.http import JsonResponse
+from django.utils import timezone
 import json
 import time
 
 
 logger = getLogger(__name__)
-current_date = datetime.now()
+current_date = timezone.now()
 current_year = current_date.year
 current_month = current_date.month
 current_day = current_date.day
@@ -84,7 +85,7 @@ def push_to_omnisend():
             input_date = datetime.strptime(x.date_created, '%Y-%m-%d %H:%M:%S')
             output_date_str = input_date.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-            input_date_now = datetime.now()
+            input_date_now = timezone.now()
             output_date__now_str = input_date_now.strftime('%Y-%m-%dT%H:%M:%SZ')
         
             
@@ -264,7 +265,7 @@ def pull_from_captive_portal():
                 )
                 
                 the_state = Domain.objects.get(id=pk)
-                the_state.last_extracted_date = datetime.now()
+                the_state.last_extracted_date = timezone.now()
                 the_state.save()
         else:
             # Handle the case when no "Development" domain is found
