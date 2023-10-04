@@ -187,7 +187,7 @@
 		  .modal-content {
 			  margin: auto;
 			  padding: 25px;
-	   background-color:#fefefe;
+	   			background-color:#fefefe;
 	   text-align: center;
 	position: fixed;
 		top: 60%;
@@ -204,6 +204,31 @@
 			  border-radius: 4px;
 			  margin: 4px;
 		  }
+
+		  .sticky-element {
+			text-align: center;
+			margin: 0 auto;
+			z-index: 100;
+			left: 0;
+			right: 0;
+			position: sticky;
+			bottom: 25px;
+		}
+
+		/* For screens smaller than 768px (adjust the breakpoint as needed) */
+@media (max-width: 768px) {
+    .sticky-element {
+        position: fixed;
+    }
+}
+
+/* For screens larger than 768px */
+@media (min-width: 769px) {
+    .sticky-element {
+        position: sticky;
+    }
+}
+		
 		</style>
    <!-- Import Library for Gtag -->
 
@@ -271,7 +296,7 @@
               
         
               <!-- STICKY -->
-              <div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: sticky; bottom: 30px;">
+              <div class="sticky-element">
                    <!-- GPT AdSlot 3 -->
                 {% block google_ad_3 %}
                    {% include 'google/ad_slots/int_3_ad_3.html' %}
