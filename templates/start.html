@@ -122,7 +122,7 @@
 				  watchAdButton.removeEventListener('click', makeVisibleFn);
 				  
 				  noThanksButton.removeEventListener('click', closeModalFn);
-				  firstTimer();
+				  
 				  trigger.style.display = 'none';
 				};
 
@@ -142,7 +142,7 @@
 				};
 				
 				noThanksButton.addEventListener('click', closeModalFn);
-				firstTimer();
+			
 			  });
 
 			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
@@ -176,8 +176,8 @@
 		  .modal-content {
 			  margin: auto;
 			  padding: 25px;
-	   background-color:#fefefe;
-	   text-align: center;
+	   		  background-color:#fefefe;
+	   		text-align: center;
 	position: fixed;
 		top: 50%;
 		left: 50%;
