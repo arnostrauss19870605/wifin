@@ -97,6 +97,13 @@
 			
 			  googletag.pubads().enableAsyncRendering();
 			  googletag.enableServices();
+
+			  function handleModalClosed() {
+				// Add your code here to execute when the modal is closed
+				console.log('Modal is closed');
+				alert('Button clicked!');
+				// You can add more code here
+			}
 			  
 			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
 				
@@ -112,6 +119,10 @@
 				  noThanksButton.removeEventListener('click', closeModalFn);
 				  
 				  trigger.style.display = 'none';
+
+				// Call your custom function to handle modal closed event
+				handleModalClosed();
+
 				};
 
 
@@ -127,7 +138,7 @@
 				  trigger.style.display = 'none';
 				  firstTimer();
 				  location.reload();
-				googletag.destroySlots([rewardedSlot]);
+			      googletag.destroySlots([rewardedSlot]);
 				};
 				
 				noThanksButton.addEventListener('click', closeModalFn);
@@ -336,16 +347,7 @@
 	</script>
 
 			  
-	<script type="text/javascript">
-
-		// Get a reference to the button element by its ID
-		const rewardCloseButton = document.getElementById('rewardCloseButton');
-
-		// Add a click event listener to the button
-		rewardCloseButton.addEventListener('click', function() {
-			// Place your code here to execute when the button is clicked
-			alert('Button clicked!'); // Replace this with your actual code
-		});
+	
 
 	  </script>
   
