@@ -98,13 +98,7 @@
 			  googletag.pubads().enableAsyncRendering();
 			  googletag.enableServices();
 
-			  function handleModalClosed() {
-				// Add your code here to execute when the modal is closed
-				console.log('Modal is closed');
-				alert('Button clicked!');
-				// You can add more code here
-			}
-			  
+	
 			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
 				
 				const makeVisibleFn = (e) => {
@@ -150,6 +144,15 @@
 				nextPage() ;
    
 		  		});
+
+				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+					const slot = event.slot;
+					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+				  
+					if (slot === targetSlot) {
+					  // Slot specific logic.
+					}
+				  });
 
 
 			  googletag.display(rewardedSlot);
