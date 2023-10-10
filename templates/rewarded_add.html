@@ -41,6 +41,7 @@
                 };
                 noThanksButton.addEventListener('click', closeModalFn);
             });
+            
             googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
                 const grantModal = document.getElementById('grantModal');
                 const reward = evt.payload;
