@@ -137,6 +137,16 @@
 				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
    
 		  		});
+
+				  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+					const slot = event.slot;
+					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+					location.reload();
+					if (slot === targetSlot) {
+					  // Slot specific logic.
+					}
+				  });
+
 			  googletag.display(rewardedSlot);
 			});
 		  </script>
