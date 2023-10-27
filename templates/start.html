@@ -61,7 +61,7 @@
             function firstTimer() {
               var timeleft = 20;
               var starttime = new Date();
-              const futuretime = addSeconds(20, starttime);
+              const futuretime = addSeconds(35, starttime);
       
               // Store the interval ID in the timerInterval variable
               timerInterval = setInterval(function () {
@@ -167,11 +167,11 @@
 			 
 		  <!-- Google Head Tag) -->
 		  {% block google_head %}
-			{% include 'google/head_tags/interstitial_3.html' %}
+			  {% include 'google/head_tags/interstitial_3.html' %}
 		  {% endblock google_head %}
 
 		  <!-- Adtelligent: Ad Exchange -->
-		  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
+		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
 		  <!--END Ad Exchange -->	
 
 
