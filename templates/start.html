@@ -61,7 +61,8 @@
                 
                 if (ex_actualtime >= ex_futuretime) {
                     clearInterval(ex_timerInterval); 
-                    nextPage();
+                    //nextPage();
+                    location.reload();
                 }
             }, 1000); 
         }
