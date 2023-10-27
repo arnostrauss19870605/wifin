@@ -47,28 +47,7 @@
         </script>
 
 		
-        <script type = "text/javascript">
 
-			function ExtendedTimer(ex_starttime = new Date()) {
-			  const ex_futuretime = addSeconds(35, ex_starttime);
-			  
-			  // Use let instead of var for block-scoped variable
-			  let ex_timerInterval = setInterval(() => {
-				  let ex_actualtime = new Date();
-  
-				  var remainingTimeInSeconds = Math.ceil((ex_futuretime - ex_actualtime) / 1000);
-				  console.log(`Remaining time: ${remainingTimeInSeconds} seconds`);
-		  
-				  
-				  if (ex_actualtime >= ex_futuretime) {
-					  clearInterval(ex_timerInterval); 
-					  nextPage();
-					  //location.reload();
-				  }
-			  }, 1000); 
-		  }
-  
-		  </script>
 
         <script type = "text/javascript">
             
@@ -353,7 +332,7 @@
 	  </body>
 	  <script type = "text/javascript">
 		firstTimer();
-		ExtendedTimer();
+		
 	</script>
   
 	</html>
