@@ -1,6 +1,6 @@
 from background_task import background
 from background_task.models import Task
-from .models import Registered_User,Country,Domain,Domain_User
+from .models import Registered_User,Country,Domain,Domain_User,Consolidated_Core_Quiz,Core_Quiz,Upload_Interval
 from logging import getLogger
 import requests, datetime,requests
 from django.shortcuts import  render, redirect, HttpResponse
@@ -12,6 +12,8 @@ from django.http import JsonResponse
 from django.utils import timezone
 import json
 import time
+from django.db.models import Q
+from datetime import timedelta
 
 
 logger = getLogger(__name__)
@@ -394,6 +396,255 @@ def populate_registered_users():
 
         
     return JsonResponse({}, status=302)
+
+def safe_int(value):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return 0
+
+
+
+
+
+
+def consolidate_quiz_results(id):
+    result_1 = Core_Quiz.objects.filter(
+        q_1__isnull=False,
+        hsUsersID=id
+    ).exclude(q_1='').first()
+
+    result_2 = Core_Quiz.objects.filter(
+        q_2__isnull=False,
+        hsUsersID=id
+    ).exclude(q_2='').first()
+
+    result_3 = Core_Quiz.objects.filter(
+        q_3__isnull=False,
+        hsUsersID=id
+    ).exclude(q_3='').first()
+
+    result_4 = Core_Quiz.objects.filter(
+        q_4__isnull=False,
+        hsUsersID=id
+    ).exclude(q_4='').first()
+
+    
+    contact_number = result_1.mobile_phone
+    
+    if result_4:  # Checks if result_4 is not None
+        contact_number = "0" + result_4.q_4[1:] 
+    else:
+        contact_number = "0" + result_1.mobile_phone[4:] 
+
+    contact_number = contact_number[:10]
+
+    
+    if not result_1.first_name:  # checks if it's empty or None
+        # Handle the case when first_name is empty or None
+        ys_first_name = "No data"
+    else:
+        ys_first_name = result_1.first_name 
+
+    if not result_1.last_name:  # checks if it's empty or None
+        # Handle the case when first_name is empty or None
+        ys_last_name_name = "No data"
+    else:
+        ys_last_name_name = result_1.last_name
+
+    if not result_1.email:  # checks if it's empty or None
+        # Handle the case when first_name is empty or None
+        if not result_1.username :
+             ys_email = 'nomail@ys.co.za'
+        else :            
+            ys_email= result_1.username + '.co.za'
+    else:
+        ys_email = result_1.email                          
+
+
+    consolidate_table = Consolidated_Core_Quiz(
+
+    reseller_name = result_1.reseller_name,
+    manager_name = result_1.manager_name,
+    domain_name = result_1.domain_name,
+    insertion_date = result_1.insertion_date,
+    question_type = result_1.question_type,
+    surveyID = result_1.surveyID,
+    hsUsersID = result_1.hsUsersID,
+    username = result_1.username,
+    first_name = ys_first_name,
+    last_name = ys_last_name_name,
+    company_name = result_1.company_name,
+    city = result_1.city,
+    address = result_1.address,
+    zip = result_1.zip,
+    state = result_1.state,
+    country = result_1.country,
+    gender = result_1.gender,
+    year_of_birth = result_1.year_of_birth,
+    month_of_birth = result_1.month_of_birth, 
+    day_of_birth = result_1.day_of_birth,
+    room_or_site = result_1.room_or_site,
+    hs_product_id = result_1.hs_product_id,
+    email = ys_email,
+    phone = result_1.phone,
+    mobile_phone = result_1.mobile_phone,
+    conditions_accepted = result_1.conditions_accepted,
+    privacy_policyAccepted = result_1.privacy_policyAccepted,
+    marketing_accepted = result_1.marketing_accepted,
+    newsletters_accepted = result_1.newsletters_accepted,
+    q_1 =  result_1.q_1,
+    q_2 =  result_2.q_2,
+    q_3 =  result_3.q_3,
+    q_4 =  contact_number,
+    score =  safe_int(result_1.score) + safe_int(result_2.score) +safe_int(result_3.score)
+
+    )
+
+    consolidate_table.save()
+
+    #Update After Consolidation
+    Core_Quiz.objects.filter(
+        consolidated=False,
+        hsUsersID=id
+        ).update(
+            consolidated=True,
+            date_consolidated = timezone.localtime(timezone.now())
+            )
+
+
+@background
+def consolidate_quiz():
+
+    unique_ids = Core_Quiz.objects.filter(consolidated=False).values_list('hsUsersID', flat=True).distinct()
+
+    if unique_ids:
+        for user_id in unique_ids:
+            consolidate_quiz_results(user_id)
+    else:
+        pass
+
+@background
+def push_to_dischem():
+    
+    
+    #Get Interval
+    interval = Upload_Interval.objects.all().first()
+
+    if interval:
+        current_time = timezone.now()
+        duration_value = int(interval.interval)
+        threshold_time = current_time - timedelta(hours=duration_value)
+        
+    else:
+        current_time = timezone.now()
+        threshold_time = current_time - timedelta(hours=24)
+
+        
+    # Filter objects older than 96 hours and haven't been uploaded
+    data_upload = Consolidated_Core_Quiz.objects.filter(uploaded=False, insertion_date__lt=threshold_time,upload_required = True)
+    
+    
+    for x in data_upload:
+        username = 'NowOnline'
+        password = 'whjTVmYQrJ2v6DFUn5dLGC'
+        url = f'https://api.scoutnet.co.za/api/CreateLeads?Username={username}&Password={password}'
+    
+           
+        payload = {
+                    "lead_id": x.hsUsersID,         
+                    "first_Name": x.first_name,      
+                    "last_Name": x.last_name,        
+                    "country_code": "+27",       
+                    "mobile": x.q_4,           
+                    "email": x.email,            
+                    "lead_Source": "NowOnline",     
+                    "source_campaign": "NowOnline_Stations",
+                    "product": x.product,        
+                    "keywords": "",       
+                    "lead_Status": "New",       
+                    "designation": "",     
+                    "consent": True               
+}
+        headers = {
+                "accept": "application/json",
+                "content-type": "application/json",
+                             
+                }
+
+        try:
+                          
+            response = requests.post(url, json=payload, headers=headers)
+          
+       
+            if response.status_code == 200 :
+                    code_value = response.json().get("Code", "Not Available")  
+                    if code_value == "SUCCESS" :
+                         state_chk = True
+                    else : 
+                         state_chk = False
+                        
+                    the_state = Consolidated_Core_Quiz.objects.get(id = x.pk)
+                    status_code = response.status_code
+                    the_state.uploaded = True
+                    the_state.status_check = state_chk 
+                    the_state.status_descript = f'{status_code} {response.json()}' 
+                    the_state.payload = payload 
+                    the_state.date_uploaded = timezone.localtime(timezone.now())
+                    the_state.save()
+                
+            else : 
+                    code_value = response.json().get("Code", "Not Available")  
+                    if code_value == "SUCCESS" :
+                         state_chk = True
+                    else : 
+                         state_chk = False
+
+                    the_state = Consolidated_Core_Quiz.objects.get(id = x.pk)
+                    status_code = response.status_code
+                    the_state.uploaded = False
+                    the_state.status_descript = f'{status_code}  {response.text}' 
+                    the_state.payload = payload 
+                    the_state.date_uploaded = timezone.localtime(timezone.now())
+                    the_state.save()
+            
+        except requests.exceptions.ConnectionError as e:
+                # Handle network-related errors
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'Connection Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("There was a connection error")
+
+        except requests.exceptions.HTTPError as e:
+                # Handle HTTP errors (e.g., status code is not 2xx)
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'HTTP Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("The request was not successful")
+
+        except requests.exceptions.RequestException as e:
+                # Handle other request-related errors
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'Request Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("There was an error with the request")
+            
+          
+    else:
+        # Handle the case when the queryset is empty
+         pass
+
+
+
 
 
           

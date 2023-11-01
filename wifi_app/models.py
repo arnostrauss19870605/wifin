@@ -11,6 +11,15 @@ from vouchers.sms import send_my_notification_sms
 from django.utils.translation import gettext_lazy as _
 
 
+DURATION_CHOICES = (
+    ('1',1),
+    ('3', 3),
+    ('6',6),
+    ('12',12),
+    ('24',24),
+    ('48',48),
+    ('96',96),
+)
 
 class CustomUserManager(BaseUserManager):
     """
@@ -260,6 +269,142 @@ class Domain_User(models.Model):
         self.last_updated = timezone.localtime(timezone.now())  
 
         super(Domain_User, self).save(*args, **kwargs)
+
+
+
+class Core_Quiz(models.Model):
+    reseller_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Reseller Company Name")
+    manager_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Manager Company Name")
+    domain_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Domain Name")
+    insertion_date = models.DateTimeField(blank=True, null=True,verbose_name = "Insertion Date ")
+    question_type =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question Type")
+    surveyID =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Survey ID")
+    hsUsersID =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "User ID")
+    username =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Username")
+    first_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Firstname")
+    last_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Lastname")
+    company_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Company Name")
+    city =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "City")
+    address =  models.CharField(blank=True, null=True,max_length=400,verbose_name = "Address")
+    zip =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Zip")
+    state =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "State")
+    country =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Country")
+    gender =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Gender")
+    year_of_birth =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Year Of Birth")
+    month_of_birth =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Month Of Birth")
+    day_of_birth =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Day Of Birth")
+    room_or_site =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Room Or Site")
+    hs_product_id =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Product ID")
+    email =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Email Address")
+    phone =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Phone")
+    mobile_phone =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Mobile Phone")
+    conditions_accepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Conditions Accepted")
+    privacy_policyAccepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Privacy PolicyAccepted")
+    marketing_accepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Marketing Accepted")
+    newsletters_accepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Newsletters Accepted")
+    q_1 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 1")
+    q_2 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 2")
+    q_3 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 3")
+    q_4 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 4")
+    score =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Score")
+    
+    date_imported = models.DateTimeField(blank=True, null=True,verbose_name = "Date Imported")
+    uploaded = models.BooleanField(default=False,verbose_name = "Upload Status")
+    status_descript =  models.CharField(blank=True, null=True,max_length=1000,verbose_name = "Status Description")
+    payload = models.JSONField(blank=True,null=True)
+    date_uploaded = models.DateTimeField(blank=True, null=True,verbose_name = "Date Uploaded to API")
+
+    consolidated = models.BooleanField(default=False)
+    date_consolidated = models.DateTimeField(blank=True, null=True,verbose_name = "Date Consolidated")
+
+
+    def __str__(self):
+        return f"{self.surveyID} : {self.first_name} - {self.last_name} "
+    
+    def save(self, *args, **kwargs):
+        if self.date_imported is None:
+            self.date_imported = timezone.localtime(timezone.now())
+
+        super(Core_Quiz, self).save(*args, **kwargs)  
+
+def safe_int(value):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return 0
   
+class Consolidated_Core_Quiz(models.Model):
+    reseller_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Reseller Company Name")
+    manager_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Manager Company Name")
+    domain_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Domain Name")
+    insertion_date = models.DateTimeField(blank=True, null=True,verbose_name = "Insertion Date ")
+    question_type =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question Type")
+    surveyID =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Survey ID")
+    hsUsersID =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "User ID")
+    username =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Username")
+    first_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Firstname")
+    last_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Lastname")
+    company_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Company Name")
+    city =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "City")
+    address =  models.CharField(blank=True, null=True,max_length=400,verbose_name = "Address")
+    zip =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Zip")
+    state =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "State")
+    country =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Country")
+    gender =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Gender")
+    year_of_birth =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Year Of Birth")
+    month_of_birth =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Month Of Birth")
+    day_of_birth =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Day Of Birth")
+    room_or_site =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Room Or Site")
+    hs_product_id =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Product ID")
+    email =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Email Address")
+    phone =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Phone")
+    mobile_phone =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Mobile Phone")
+    conditions_accepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Conditions Accepted")
+    privacy_policyAccepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Privacy PolicyAccepted")
+    marketing_accepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Marketing Accepted")
+    newsletters_accepted =  models.CharField(blank=True, null=True,max_length=10,verbose_name = "Newsletters Accepted")
+    q_1 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 1")
+    q_2 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 2")
+    q_3 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 3")
+    q_4 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 4")
+    score =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Score")
+    date_consolidated = models.DateTimeField(blank=True, null=True,verbose_name = "Date Consolidated")
+
+    status_descript =  models.JSONField(blank=True, null=True,verbose_name = "Status Description")
+    status_check = models.BooleanField(default=False)
+    payload = models.JSONField(blank=True,null=True)
+    date_uploaded = models.DateTimeField(blank=True, null=True,verbose_name = "Date Uploaded to API")
+    upload_required = models.BooleanField(default=False)
+    uploaded = models.BooleanField(default=False)
+    product =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Interested Product")
+
+    def __str__(self):
+        return f"{self.surveyID} : {self.first_name} - {self.last_name} "
+    
+    def save(self, *args, **kwargs):
+        if self.date_consolidated is None:
+            self.date_consolidated = timezone.localtime(timezone.now())
+            if safe_int(self.q_1) == 1 :
+                if safe_int(self.q_3) == 6 :
+                    self.upload_required = True
+                    self.product = "Medical Insurance"
+                elif safe_int(self.q_3) == 7 : 
+                    self.upload_required = True
+                    self.product = "GAP Cover"
+                else :
+                    self.upload_required = False
+                    self.product = "Not Intrested but Employed"
+            else :
+                    self.upload_required = False
+                    self.product = "Unemployed"
+        
+        super(Consolidated_Core_Quiz, self).save(*args, **kwargs)  
+
+class Upload_Interval(models.Model):
+    interval =  models.CharField(blank=True,null=True,max_length=3,choices=DURATION_CHOICES,default=24)
+
+    def __str__(self):
+        return f"Set Inerval : {self.interval}"
+   
 
   

@@ -39,6 +39,7 @@ urlpatterns = [
     path('home/',homepage, name="home-page"),
     path('index/',login_page, name="index-page"),
     path('test/',test, name="test-page"),
+    path('consolidate/',consolidate, name="consolidate"),
     path('interstitial/',interstitial, name="interstitial-page"),
     path('interstitial_1/',interstitial_1, name="interstitial-page-1"),
    

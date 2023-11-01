@@ -18,8 +18,9 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from wifin.local_settings import WIFIN_ROOTING, WIFIN_ROOTING_1
 from django.http import JsonResponse
 from wifi_app.hsnm_1 import RESTfulAPI
+#from wifi_app.hsnm import consolidate_quiz_results,push_to_dischem
 from logging import getLogger
-from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users
+from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users,consolidate_quiz,push_to_dischem
 import json
 from pprint import pprint
 from datetime import datetime
@@ -32,10 +33,17 @@ def test(request):
     pull_from_captive_portal()
     populate_registered_users()
     push_to_omnisend()
+    
    
     
     print('calling demo_task. message')
     #demo_task('My Test')
+    return JsonResponse({}, status=302)
+
+def consolidate(request):
+
+    consolidate_quiz()
+    push_to_dischem()
     return JsonResponse({}, status=302)
 
 

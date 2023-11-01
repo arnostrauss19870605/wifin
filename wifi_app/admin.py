@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User
+from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -41,7 +41,7 @@ admin.site.register(Category)
 admin.site.register(VoucherType)
 admin.site.register(Activation)
 admin.site.register(Location)
-
+admin.site.register(Upload_Interval)
 
 class LogResource(resources.ModelResource):
 
@@ -112,5 +112,49 @@ class DomainUserAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display=('user_id', 'domain_id','last_extracted_date','date_created','last_updated','extracted')
     search_fields = ('user_id', 'domain_id')
     list_filter = ('last_updated','date_created','last_extracted_date','domain_id','extracted')
+
+
+@admin.register(Core_Quiz)
+class Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=(
+        'reseller_name',
+        'domain_name',
+        'insertion_date',
+        'question_type',
+        'hsUsersID',
+        'first_name',
+        'last_name',
+        'mobile_phone',
+        'q_1',
+        'q_2',
+        'q_3',
+        'q_4',
+        'score',
+        'consolidated',
+        )
+    
+    search_fields = ('insertion_date', 'reseller_name','domain_name','username','first_name','last_name','hsUsersID')
+    list_filter = ('date_uploaded','insertion_date', 'reseller_name','domain_name','consolidated')
+
+@admin.register(Consolidated_Core_Quiz)
+class Consolidated_Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=(
+        'reseller_name',
+        'insertion_date',
+        'hsUsersID',
+        'username',
+        'q_1',
+        'q_2',
+        'q_3',
+        'q_4',
+        'score',
+        'upload_required',
+        'uploaded',
+        'product',
+        )
+    
+    search_fields = ('reseller_name','domain_name','username','first_name','last_name')
+    list_filter = ('insertion_date','date_consolidated', 'reseller_name','domain_name','upload_required','product','uploaded')
+
 
    
