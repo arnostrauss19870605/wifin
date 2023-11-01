@@ -148,7 +148,8 @@
    
 		  		});
 
-				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+				
+          googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
 					const slot = event.slot;
 					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
 					location.reload();
