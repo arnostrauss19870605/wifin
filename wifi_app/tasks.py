@@ -14,7 +14,7 @@ import json
 import time
 from django.db.models import Q
 from datetime import timedelta
-
+from django.core.exceptions import ObjectDoesNotExist
 
 logger = getLogger(__name__)
 current_date = timezone.now()
@@ -409,36 +409,36 @@ def safe_int(value):
 
 
 def consolidate_quiz_results(id):
-    result_1 = Core_Quiz.objects.filter(
-        q_1__isnull=False,
-        hsUsersID=id
-    ).exclude(q_1='').first()
+    try:
+        result_1 = Core_Quiz.objects.filter(q_1__isnull=False, hsUsersID=id).exclude(q_1='').first()
+        if not result_1:
+            raise ObjectDoesNotExist("Result 1 is missing for user with ID: " + str(id))
+        # Similarly for result_2, result_3, and result_4
+        result_2 = Core_Quiz.objects.filter(q_2__isnull=False, hsUsersID=id).exclude(q_2='').first()
+        if not result_2:
+            raise ObjectDoesNotExist("Result 2 is missing for user with ID: " + str(id))
+        result_3 = Core_Quiz.objects.filter(q_3__isnull=False, hsUsersID=id).exclude(q_3='').first()
+        if not result_3:
+            raise ObjectDoesNotExist("Result 3 is missing for user with ID: " + str(id))
+        result_4 = Core_Quiz.objects.filter(q_4__isnull=False, hsUsersID=id).exclude(q_4='').first()
 
-    result_2 = Core_Quiz.objects.filter(
-        q_2__isnull=False,
-        hsUsersID=id
-    ).exclude(q_2='').first()
 
-    result_3 = Core_Quiz.objects.filter(
-        q_3__isnull=False,
-        hsUsersID=id
-    ).exclude(q_3='').first()
+        # ... rest of your function code ...
 
-    result_4 = Core_Quiz.objects.filter(
-        q_4__isnull=False,
-        hsUsersID=id
-    ).exclude(q_4='').first()
+    except ObjectDoesNotExist as e:
+        # Handle the error or log it
+        print(e)
+        # Then exit the function. You can also use `return` if you just want to exit without raising an error.
+        return
 
-    
-    contact_number = result_1.mobile_phone
     
     if result_4:  # Checks if result_4 is not None
         contact_number = "0" + result_4.q_4[1:] 
-    else:
+    elif result_1 and hasattr(result_1, 'mobile_phone'):  # Checks if result_1 is not None and has attribute 'mobile_phone'
         contact_number = "0" + result_1.mobile_phone[4:] 
-
-    contact_number = contact_number[:10]
-
+    else:
+        # Handle the case where both result_4 is None and result_1 is None or doesn't have 'mobile_phone'
+        contact_number = "0000000000"  # Replace with an appropriate default or error handling
     
     if not result_1.first_name:  # checks if it's empty or None
         # Handle the case when first_name is empty or None
@@ -517,7 +517,7 @@ def consolidate_quiz_results(id):
 def consolidate_quiz():
 
     unique_ids = Core_Quiz.objects.filter(consolidated=False).values_list('hsUsersID', flat=True).distinct()
-
+    print("The Unique",unique_ids)
     if unique_ids:
         for user_id in unique_ids:
             consolidate_quiz_results(user_id)

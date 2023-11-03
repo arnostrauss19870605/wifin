@@ -30,9 +30,9 @@ import time
 # Create your views here.
 
 def test(request):
-    pull_from_captive_portal()
-    populate_registered_users()
-    push_to_omnisend()
+    #pull_from_captive_portal()
+    #populate_registered_users()
+    #push_to_omnisend()
     
    
     
