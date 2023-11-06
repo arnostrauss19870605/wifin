@@ -385,15 +385,27 @@ class Consolidated_Core_Quiz(models.Model):
         if self.date_consolidated is None:
             self.date_consolidated = timezone.localtime(timezone.now())
             if safe_int(self.q_1) == 1 :
-                if safe_int(self.q_3) == 6 :
-                    self.upload_required = True
-                    self.product = "Medical Insurance"
-                elif safe_int(self.q_3) == 7 : 
-                    self.upload_required = True
-                    self.product = "GAP Cover"
-                else :
-                    self.upload_required = False
-                    self.product = "Not Intrested but Employed"
+                if safe_int(self.q_2) != 3 :
+                    if safe_int(self.q_3) == 6 :
+                        self.upload_required = True
+                        self.product = "Medical Insurance"
+                    elif safe_int(self.q_3) == 7 : 
+                        self.upload_required = True
+                        self.product = "Medical Insurance"
+                    else :
+                        self.upload_required = False
+                        self.product = "Not Intrested but Employed"
+                else : 
+
+                    if safe_int(self.q_3) == 6 :
+                        self.upload_required = True
+                        self.product = "Medical Insurance"
+                    elif safe_int(self.q_3) == 7 : 
+                        self.upload_required = True
+                        self.product = "GAP Cover"
+                    else :
+                        self.upload_required = False
+                        self.product = "Not Intrested but Employed"
             else :
                     self.upload_required = False
                     self.product = "Unemployed"
