@@ -306,6 +306,7 @@ class Core_Quiz(models.Model):
     q_2 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 2")
     q_3 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 3")
     q_4 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 4")
+    q_5 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 5")
     score =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Score")
     
     date_imported = models.DateTimeField(blank=True, null=True,verbose_name = "Date Imported")
@@ -367,6 +368,7 @@ class Consolidated_Core_Quiz(models.Model):
     q_2 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 2")
     q_3 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 3")
     q_4 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 4")
+    q_5 =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Question 5")
     score =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Score")
     date_consolidated = models.DateTimeField(blank=True, null=True,verbose_name = "Date Consolidated")
 
@@ -385,30 +387,15 @@ class Consolidated_Core_Quiz(models.Model):
         if self.date_consolidated is None:
             self.date_consolidated = timezone.localtime(timezone.now())
             if safe_int(self.q_1) == 1 :
-                if safe_int(self.q_2) != 3 :
+                if 18 <= safe_int(self.q_2) <= 20 :
+                    
                     if safe_int(self.q_3) == 6 :
-                        self.upload_required = True
-                        self.product = "Medical Insurance"
-                    elif safe_int(self.q_3) == 7 : 
-                        self.upload_required = True
-                        self.product = "Medical Insurance"
-                    else :
-                        self.upload_required = False
-                        self.product = "Not Intrested but Employed"
-                else : 
 
-                    if safe_int(self.q_3) == 6 :
-                        self.upload_required = True
-                        self.product = "Medical Insurance"
-                    elif safe_int(self.q_3) == 7 : 
-                        self.upload_required = True
-                        self.product = "GAP Cover"
-                    else :
-                        self.upload_required = False
-                        self.product = "Not Intrested but Employed"
-            else :
-                    self.upload_required = False
-                    self.product = "Unemployed"
+                        if 10 <= safe_int(self.q_5) <= 12 :
+                            self.upload_required = True
+                            self.product = "Medical Insurance"
+                        
+
         
         super(Consolidated_Core_Quiz, self).save(*args, **kwargs)  
 
