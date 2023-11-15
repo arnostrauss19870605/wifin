@@ -48,46 +48,48 @@
 
 
 
-        <script type = "text/javascript">
-            
-            
-            function addSeconds(numOfSeconds, date = new Date()) {
-              date.setSeconds(date.getSeconds() + numOfSeconds);
-            
-              return date;
-              }    
-            
-            
-            let timerInterval;
-
-            function firstTimer() {
-              var timeleft = 20;
-              var starttime = new Date();
-              const futuretime = addSeconds(35, starttime);
+        <script type="text/javascript">
+          function addSeconds(numOfSeconds, date = new Date()) {
+            date.setSeconds(date.getSeconds() + numOfSeconds);
+            return date;
+        }
+        
+        let timerInterval;
+        
+        function firstTimer() {
+          const noticeTxt = document.getElementById("noticeTxt");
+          const noticeTxt2 = document.getElementById("noticeTxt2");
+          const noticeTxt3 = document.getElementById("noticeTxt3");
+          const noticeTxt4 = document.getElementById("noticeTxt4");
+          const timerLine = document.getElementById("timerLine");
       
-              // Store the interval ID in the timerInterval variable
-              timerInterval = setInterval(function () {
-                  var actualttime = new Date();
+          const totalTime = 35;
+          const futuretime = addSeconds(totalTime);
       
-                  if (actualttime >= futuretime || timeleft <= 1) {
-                      clearInterval(timerInterval); // Clear the interval when the condition is met
-                      nextPage();
-                  } else if (timeleft == 1 || timeleft == 2) {
-                      document.getElementById("noticeTxt4").style.display = "inherit";
-                      document.getElementById("noticeTxt").style.display = "none";
-                      document.getElementById("noticeTxt2").style.display = "none";
-                      document.getElementById("noticeTxt3").style.display = "none";
-                  } else {
-                      document.getElementById("noticeTxt").style.display = "inherit";
-                      document.getElementById("noticeTxt").innerHTML = "View these ads for ";
-                      document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  ";
-                      document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi ";
-                  }
+          function updateTimer() {
+              const timeleft = Math.floor((futuretime - new Date()) / 1000);
       
-                  timeleft = timeleft - 1;
-              }, 1000);
+              if (timeleft <= 0) {
+                  clearInterval(timerInterval);
+                  noticeTxt.style.display = "none";
+                  noticeTxt2.style.display = "none";
+                  noticeTxt3.style.display = "none";
+                  noticeTxt4.style.display = "inherit";
+                  timerLine.style.width = '0%';
+                  nextPage();
+              } else {
+                  noticeTxt.style.display = "inherit";
+                  noticeTxt2.innerHTML = timeleft + " seconds";
+                  noticeTxt3.style.display = "block";
+                  const percentage = (timeleft / totalTime) * 100;
+                  timerLine.style.width = percentage + '%';
+              }
           }
-
+      
+          updateTimer();
+          timerInterval = setInterval(updateTimer, 1000);
+      }
+      
         </script>
 
 		<script>
@@ -180,6 +182,35 @@
 
 
 		<style>
+      body {
+        background-color: #f0f0f0; /* Light gray background */
+        color: #333; /* Darker gray text */
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .modal, .modal-content, .btn, .row, #content, .content-wrap, .heading-section, .sticky-element {
+        color: #555; /* Gray text for general elements */
+        border-color: #ccc; /* Gray border */
+    }
+
+    .modal-content, .btn {
+        background-color: #e0e0e0; /* Medium gray background */
+    }
+
+    .modal {
+        background-color: rgba(128, 128, 128, 0.4); /* Semi-transparent gray */
+    }
+
+    .sticky-element, .heading-section {
+        background-color: #d9d9d9; /* Different shade of gray */
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        /* Your responsive grayscale styles */
+    }
+
+
 		  p    {text-align: center;}
 		  /* The Modal (background) */
 		  .modal {
@@ -229,7 +260,7 @@
   }
 
   /* Hide the sticky-element on desktop */
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     .sticky-element {
       display: none;
     }
@@ -254,6 +285,70 @@
     margin: 4px;
   }
 
+  /* Base styles for the centered container */
+.centered-container {
+    max-width: 600px; /* Adjust the width as needed */
+    margin: 0 auto; /* This centers the div */
+    padding: 20px; /* Adds some padding around the content */
+    box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
+
+/* Ensure all text and elements inside the container are centered */
+.centered-container * {
+    text-align: center;
+    margin: 0 auto; /* Center block-level elements */
+}
+
+/* Responsive Design: Adjust styles for smaller screens */
+@media (max-width: 768px) {
+    .centered-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+}
+
+.timer-line-container {
+  width: 100%;
+  height: 20px; /* Height of the timer line */
+  background-color: #f0f0f0; /* Background of the depleted area */
+  position: relative;
+  overflow: hidden; /* Ensure the line doesn't go outside the container */
+}
+
+.timer-line {
+  height: 100%;
+  background-color: #333; /* Color of the timer line */
+  width: 100%; /* Start with full width */
+  position: absolute;
+  left: 0; /* Start from the right */
+}
+
+#noticeTxt4 {
+  display: none; /* Initially hidden */
+  padding: 10px; /* Reduced padding */
+  background-color: #333; /* Button color */
+  color: white; /* Text color */
+  text-align: center;
+  border-radius: 50%; /* Round shape */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  font-size: 12px; /* Adjusted font size */
+  width: 50px; /* Reduced width for a smaller button */
+  height: 50px; /* Reduced height for a smaller button */
+  line-height: 40px; /* Adjusted line height to center the text vertically */
+  margin: 10px auto; /* Center the button horizontally */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+  user-select: none; /* Prevents text selection */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16); /* Adjusted shadow for depth */
+}
+
+#noticeTxt4:hover {
+  background-color: #d9d9d9; /* Darker color on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+
+
+
 		</style>
 
 		   <!-- Import Library for Gtag -->
@@ -261,6 +356,8 @@
 	
 
 	  </head>
+
+<div class="centered-container">    
 	  <body>
 		<div id="rewardModal" class="modal">
 		  <!-- Modal content -->
@@ -276,16 +373,17 @@
 			<input type="button" class="btn" id="grantCloseBtn" value="Close" onclick="nextPage()" />
 		  </div>
 		</div>
-		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #000080;color:#FF4644; font-size: 25px;">
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
-                <div class="logo" id="noticeTxt"  style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
-                <div class="logo" id="noticeTxt2" style="margin-bottom: 0px;text-align:center;word-break:break-all;"></div>
-                <div class="logo" id="noticeTxt3" style="margin-bottom: 5px;text-align:center;word-break:break-all;"></div>
-                <div class="button_2" id="noticeTxt4" style="display: none;margin-bottom: 0px;text-align:center; width: 110px; height: 110px; margin: auto;border-radius: 50%; border: 2px dotted #000080;font-size: 15px;" onclick="nextPage() ">
-                    <p style = "color :#FF4644; padding : 15px 0 0 0"> PRESS TO PROCEED</p>
-                </div>
-            </div>
-        </div>
+              <div id="noticeTxt" class="timer-text">View these ads for </div>
+              <div id="noticeTxt2" class="timer-text"></div>
+              <div id="noticeTxt3" class="timer-text">to get your free WiFi</div>
+              <div class="timer-line-container">
+              <div class="timer-line" id="timerLine"></div>
+              </div>
+                <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+
+              </div>
         
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
             <div class="content-wrap">
@@ -338,6 +436,8 @@
 
 
 	  </body>
+
+</div>    
 	  <script type = "text/javascript">
 		firstTimer();
  
@@ -349,4 +449,3 @@
 	  </script>
   
 	</html>
-	`
