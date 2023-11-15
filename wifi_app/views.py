@@ -504,6 +504,15 @@ def exit_index(request):
       
         }
         return render(request, "exit_index.html", context)
+
+def exit_index(request):
+    form = LoginForm(request.POST)
+    
+    if request.method == "POST" :
+       
+        return redirect('interstitial-page-nop') 
+    else :
+        return render(request, "cancel.html", )
     
 @xframe_options_exempt
 def test_page_1(request):

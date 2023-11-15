@@ -35,11 +35,11 @@
                       const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
                      
                       if (queryString.length === 0 ){
-                        window.location.assign("/home/" + queryString ); 
+                        window.location.assign("/landing/" + queryString ); 
 						console.log("Next PAge Function Triggered");
                       }
                       else {               
-                      window.location.assign("/home/" + queryString ); 
+                      window.location.assign("/landing/" + queryString ); 
 					  console.log("Next PAge Function Triggered");
                       }
               }
@@ -65,50 +65,7 @@
 
 
 
-        <script type="text/javascript">
-          function addSeconds(numOfSeconds, date = new Date()) {
-            date.setSeconds(date.getSeconds() + numOfSeconds);
-            return date;
-        }
-        
-        let timerInterval;
-        
-        function firstTimer() {
-          const noticeTxt = document.getElementById("noticeTxt");
-          const noticeTxt2 = document.getElementById("noticeTxt2");
-          const noticeTxt3 = document.getElementById("noticeTxt3");
-          const noticeTxt4 = document.getElementById("noticeTxt4");
-          const timerLine = document.getElementById("timerLine");
-      
-          const totalTime = 35;
-          const futuretime = addSeconds(totalTime);
-      
-          function updateTimer() {
-              const timeleft = Math.floor((futuretime - new Date()) / 1000);
-      
-              if (timeleft <= 0) {
-                  clearInterval(timerInterval);
-                  noticeTxt.style.display = "none";
-                  noticeTxt2.style.display = "none";
-                  noticeTxt3.style.display = "none";
-                  noticeTxt4.style.display = "inherit";
-                  timerLine.style.width = '0%';
-                  nextPage();
-              } else {
-                  noticeTxt.style.display = "inherit";
-                  noticeTxt2.innerHTML = timeleft + " seconds";
-                  noticeTxt3.style.display = "block";
-                  const percentage = (timeleft / totalTime) * 100;
-                  timerLine.style.width = percentage + '%';
-              }
-          }
-      
-          updateTimer();
-          timerInterval = setInterval(updateTimer, 1000);
-      }
-      
-        </script>
-
+     
 		<script>
 			googletag = window.googletag || {cmd: []};
 			googletag.cmd.push(() => {
@@ -151,7 +108,7 @@
 				const closeModalFn = () => {
 				  const trigger = document.getElementById('rewardModal');
 				  trigger.style.display = 'none';
-				  cancelPage();
+				  firstTimer();
 				  //location.reload();
 			      googletag.destroySlots([rewardedSlot]);
 				};
@@ -309,12 +266,12 @@
 
   .lg_btn {
     padding: 1rem; /* Increased padding for larger size */
-    background: #2990EA;
+    background: #FF0000;
     border: none;
     border-radius: 6px; /* Slightly larger border-radius for aesthetic */
     margin: 4px;
     font-size: 1rem; /* Adjust font size if needed */
-    color: #333; 
+     
 }
 
 .modal-content .lg_btn,
@@ -402,32 +359,16 @@
 
 <div class="centered-container">    
 	  <body>
-		<div id="rewardModal" class="modal">
-		  <!-- Modal content -->
-		  <div class="modal-content">
-        <p>To get free Wi-fi you need to watch these ads</p>
-        <input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-Fi!" />
-        <input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
-        <p>I don't want Free Wi-Fi and will remain on this page.</p>
+		
+      <div class="row" style="font-family: Arial, Helvetica, sans-serif; padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px; margin-bottom: 20px;">
+        <h2>You have opted not to access our free Wi-fi.</h2>
     </div>
-		</div>
-		<div id="grantModal" class="modal">
-		  <div class="modal-content">
-			<p id="grantParagraph"> </p>
-			<input type="button" class="btn" id="grantCloseBtn" value="Close" onclick="nextPage()" />
-		  </div>
-		</div>
-		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
-            <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
-              <div id="noticeTxt" class="timer-text">View these ads for </div>
-              <div id="noticeTxt2" class="timer-text"></div>
-              <div id="noticeTxt3" class="timer-text">to get your free WiFi</div>
-              <div class="timer-line-container">
-              <div class="timer-line" id="timerLine"></div>
-              </div>
-                <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
-
-              </div>
+    
+    <div class="lg_btn" onclick="nextPage()">
+        <p style="color: #FFFFFF; padding: 15px 15px 15px 15px">PRESS TO ACCESS FREE Wi-Fi</p>
+    </div>
+              
+         
         
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
             <div class="content-wrap">
@@ -482,14 +423,7 @@
 	  </body>
 
 </div>    
-	  <script type = "text/javascript">
-		firstTimer();
- 
-	</script>
 
-			  
-	
 
-	  </script>
   
 	</html>
