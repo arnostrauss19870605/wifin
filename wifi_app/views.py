@@ -513,6 +513,15 @@ def cancel_index(request):
         return redirect('interstitial-page-nop') 
     else :
         return render(request, "cancel.html", )
+
+def cancel_index_2(request):
+    form = LoginForm(request.POST)
+    
+    if request.method == "POST" :
+       
+        return redirect('interstitial-page-nop') 
+    else :
+        return render(request, "cancel_2.html", )
     
 @xframe_options_exempt
 def test_page_1(request):

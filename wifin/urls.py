@@ -48,6 +48,7 @@ urlpatterns = [
     path('exit_3/',exit_index, name="exit-index"),
 
     path('cancel/',cancel_index, name="cancel_index"),
+    path('cancel_2/',cancel_index_2, name="cancel_index_2"),
 
     path('test_page_1/',test_page_1, name="exit-index-test-1"),
     path('test_page_2/',test_page_2, name="exit-index-test-2"),
