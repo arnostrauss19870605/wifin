@@ -505,7 +505,7 @@ def exit_index(request):
         }
         return render(request, "exit_index.html", context)
 
-def exit_index(request):
+def cancel_index(request):
     form = LoginForm(request.POST)
     
     if request.method == "POST" :

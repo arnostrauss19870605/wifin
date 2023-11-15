@@ -64,45 +64,46 @@
 		</script>
 
         <script type = "text/javascript">
-            
-            
-            function addSeconds(numOfSeconds, date = new Date()) {
-              date.setSeconds(date.getSeconds() + numOfSeconds);
-            
-              return date;
-              }    
-            
-            
-            let timerInterval;
-
-            function firstTimer() {
-              var timeleft = 20;
-              var starttime = new Date();
-              const futuretime = addSeconds(20, starttime);
-      
-              // Store the interval ID in the timerInterval variable
-              timerInterval = setInterval(function () {
-                  var actualttime = new Date();
-      
-                  if (actualttime >= futuretime || timeleft <= 1) {
-                      clearInterval(timerInterval); // Clear the interval when the condition is met
-                      nextPage();
-                  } else if (timeleft == 1 || timeleft == 2) {
-                      document.getElementById("noticeTxt4").style.display = "inherit";
-                      document.getElementById("noticeTxt").style.display = "none";
-                      document.getElementById("noticeTxt2").style.display = "none";
-                      document.getElementById("noticeTxt3").style.display = "none";
-                  } else {
-                      document.getElementById("noticeTxt").style.display = "inherit";
-                      document.getElementById("noticeTxt").innerHTML = "View these ads for ";
-                      document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  ";
-                      document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi ";
-                  }
-      
-                  timeleft = timeleft - 1;
-              }, 1000);
-          }
-
+			function addSeconds(numOfSeconds, date = new Date()) {
+				date.setSeconds(date.getSeconds() + numOfSeconds);
+				return date;
+			}
+			
+			let timerInterval;
+			
+			function firstTimer() {
+			  const noticeTxt = document.getElementById("noticeTxt");
+			  const noticeTxt2 = document.getElementById("noticeTxt2");
+			  const noticeTxt3 = document.getElementById("noticeTxt3");
+			  const noticeTxt4 = document.getElementById("noticeTxt4");
+			  const timerLine = document.getElementById("timerLine");
+		  
+			  const totalTime = 20;
+			  const futuretime = addSeconds(totalTime);
+		  
+			  function updateTimer() {
+				  const timeleft = Math.floor((futuretime - new Date()) / 1000);
+		  
+				  if (timeleft <= 0) {
+					  clearInterval(timerInterval);
+					  noticeTxt.style.display = "none";
+					  noticeTxt2.style.display = "none";
+					  noticeTxt3.style.display = "none";
+					  noticeTxt4.style.display = "inherit";
+					  timerLine.style.width = '0%';
+					  nextPage();
+				  } else {
+					  noticeTxt.style.display = "inherit";
+					  noticeTxt2.innerHTML = timeleft + " seconds";
+					  noticeTxt3.style.display = "block";
+					  const percentage = (timeleft / totalTime) * 100;
+					  timerLine.style.width = percentage + '%';
+				  }
+			  }
+		  
+			  updateTimer();
+			  timerInterval = setInterval(updateTimer, 1000);
+		  }
         </script>
 
 		<script>
@@ -141,8 +142,7 @@
 				const closeModalFn = () => {
 				  const trigger = document.getElementById('rewardModal');
 				  trigger.style.display = 'none';
-				  firstTimer();
-				  location.reload();
+				  cancelPage();
 				googletag.destroySlots([rewardedSlot]);
 				};
 				
@@ -174,102 +174,18 @@
 		  
 	
 
-
-		<style>
-		  p    {text-align: center;}
-		  /* The Modal (background) */
-		  /* Default modal styles for larger screens */
-		  .modal {
-			  display: none;
-			  position: fixed;
-			  z-index: 1;
-			  padding-top: 300px;
-			  left: 0;
-			  top: 0;
-			  width: 100%;
-			  height: 100%;
-			  overflow: auto;
-			  background-color: rgba(0, 0, 0, 0.4);
-		  }
-		  
-		  .modal-content {
-			  margin: auto;
-			  padding: 25px;
-			  background-color: #fefefe;
-			  text-align: center;
-			  position: fixed;
-			  top: 50%;
-			  left: 50%;
-			  transform: translate(-50%, -50%);
-		  }
-	
-		  /* Responsive styles for smaller screens (e.g., mobile devices) */
-		  @media (max-width: 768px) {
-			  .modal {
-				  padding-top: 150px; /* Adjust as needed */
-			  }
-		  
-			  .modal-content {
-				  padding: 15px; /* Adjust as needed */
-			  }
-		  }
-		  
-		  /* Landscape orientation */
-		  @media all and (orientation: landscape) {
-			  .modal {
-				  padding-top: 200px; /* Adjust as needed */
-			  }
-		  
-			  .modal-content {
-				  padding: 20px; /* Adjust as needed */
-			  }
-		  }
-		 
-	
-		  .btn {
-			  padding: .5rem;
-			  background: #2990EA;
-			  border: none;
-			  border-radius: 4px;
-			  margin: 4px;
-		  }
-
-		  .sticky-element {
-			text-align: center;
-			margin: 0 auto;
-			z-index: 100;
-			left: 0;
-			right: 0;
-			position: sticky;
-			bottom: 25px;
-		}
-
-		/* For screens smaller than 768px (adjust the breakpoint as needed) */
-@media (max-width: 768px) {
-    .sticky-element {
-        position: fixed;
-    }
-}
-
-/* For screens larger than 768px */
-@media (min-width: 769px) {
-    .sticky-element {
-        position: sticky;
-    }
-}
-		</style>
-   <!-- Import Library for Gtag -->
-
 	
 
 	  </head>
+	  <div class="centered-container">    
 	  <body>
 		<div id="rewardModal" class="modal">
 		  <!-- Modal content -->
 		  <div class="modal-content">
-			<p>Watch this ad to get free Wifi</p>
-			<input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
+			<p>You are now logged in, your free Wi-fi will be active after watching this ad</p>
+			<input type="button" class="btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
 			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
+			<p>I don't want Free Wi-fi and will remain on this page.</p>
 		  </div>
 		</div>
 		<div id="grantModal" class="modal">
@@ -278,16 +194,17 @@
 			<input type="button" class="btn" id="grantCloseBtn" value="Close" />
 		  </div>
 		</div>
-		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center;border: 2px solid #000080;color:#FF4644; font-size: 25px;">
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
-                <div class="logo" id="noticeTxt"  style="margin-top: 5px;text-align:center;word-break:break-all;"></div>
-                <div class="logo" id="noticeTxt2" style="margin-bottom: 0px;text-align:center;word-break:break-all;"></div>
-                <div class="logo" id="noticeTxt3" style="margin-bottom: 5px;text-align:center;word-break:break-all;"></div>
-                <div class="button_2" id="noticeTxt4" style="display: none;margin-bottom: 0px;text-align:center; width: 110px; height: 110px; margin: auto;border-radius: 50%; border: 2px dotted #000080;font-size: 15px;" onclick="nextPage() ">
-                    <p style = "color :#FF4644; padding : 15px 0 0 0"> PRESS TO PROCEED</p>
-                </div>
-            </div>
-        </div>
+				<div id="noticeTxt" class="timer-text">View these ads for </div>
+				<div id="noticeTxt2" class="timer-text"></div>
+				<div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
+				<div class="timer-line-container">
+				<div class="timer-line" id="timerLine"></div>
+				</div>
+				  <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+  
+				</div>
         
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
             <div class="content-wrap">
@@ -340,6 +257,7 @@
 
 
 	  </body>
+	</div>
 	  <script type = "text/javascript">
 		firstTimer();
 	</script>

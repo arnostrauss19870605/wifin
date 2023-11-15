@@ -144,11 +144,11 @@
 		padding: 9px 22px 8px;
 		
 		color :White;
-		border-color: #FF4644;
+		border-color: #333;
 		
 		width: 210px;
 		height: 37px;
-		background: #FF4644;
+		background: #333;
 	
 		border-radius: 50px;
 	}
@@ -280,6 +280,14 @@
 				border-radius: 4px;
 				margin: 4px;
 			}
+
+			/* Wi-Fi Icon Container Styles */
+			.icon-container {
+				font-size: 1.5em; /* Size of the icon */
+				text-align: center; /* Center the icon horizontally */
+				width: 100%; /* Full width for consistent alignment */
+				padding: 5px 0; /* Padding for spacing */
+			}
 	
 		
 	
@@ -290,56 +298,30 @@
 	
 	
     </head>
+	<div class="centered-container">  
 	<body class="default">
 	
 
 
 	
 			<!-- Sidebar left -->
-			<nav id="sidebarleft" class="sidenav">
-				<div id="dismiss">
-					<i class="fas fa-times"></i>
-				</div>
-				<div class="sidebar-header">
-					<h3> </h3>
-				</div>
-				
-				<ul class="list-unstyled components">
-					<li>
-						<a href={% url 'login' %}><i class="fas fa-home" style="color:#FF4644"></i>Home</a>
-					</li>
+
+
+				<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+					<div class="icon-container">
 					
-						<li>
-							<a href={% url 'topic_list' %}><i class="fas fa-star" style="color:#FF4644"></i>Topics for Discussion</a>
-						</li>
-						<li>
-							<a href={% url 'allposts' %}><i class="fas fa-exclamation-circle" style="color:#FF4644"></i>Featured Articles </a>
-						</li>
-				
-						
-						</ul>
-				</nav>
+						<div class="logo"  style="padding-top: 0%;color:#333 ">
+
+							<img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" style="width: 300px; height: auto;" >
+	
+							</div>
+					</div>
+					
+				</div>
 				<!-- .Sidebar left -->
 				
 				<!-- Header  -->
-			
-				<nav class="navbar navbar-expand-lg navbar-light bg-header">
-					<div class="container-fluid">
-					
-							<button style="padding-bottom: 28px"; type="button" id="sidebarleftbutton" class="btn">
-								<i class="fas fa-align-left"></i>
-							</button>
-							
-							<div class="logo"  style="padding-top: 0%;color:#FF4644 ">
-
-							<img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" >
 	
-							</div>
-					
-					
-						
-					</div>
-				</nav>
 				<!-- .Header  -->
 				<!-- Content  -->
 			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-bottom: 8%; text-align: center;">
@@ -392,7 +374,7 @@
 							<div class="row">
 								<div class="col-md-6 offset-md-3">
 								
-									<h4 style="color:#FF4644"><a> {{ topics.title }}</a></h4>
+									<h4 style="color:#333"><a> {{ topics.title }}</a></h4>
 								
 									<ul class="timeline">
 										{% for comments in comments %}
@@ -439,7 +421,7 @@
 							<!-- item -->
 							{% for featured in object_list %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #000080;">
+								<div class="acr-box" style="border: 2px solid #333;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
@@ -472,7 +454,7 @@
 						<div class="default-carousel car-carousel" style="margin-top:20px;">
 							{% for featured in featured_other %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #000080;">
+								<div class="acr-box" style="border: 2px solid #333;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
@@ -516,7 +498,7 @@
 
 					<!-- section 1 -->
 					<div class="heading-section">
-						<div class="sa-title popcat" style="color:#FF4644 ">About Us </div>
+						<div class="sa-title popcat" style="color:#333 ">About Us </div>
 						<div class="heading-info">
 							<p>Our mission objective is to connect the unconnected to the internet. The way in which we intend to achieve this is by providing free and low costs Wi-Fi to the masses. 	</p>
 							<p>Over the past 10 years, we have developed, tested and implemented an ground-breaking digital Wi-Fi marketing system that we are using in high density commuter areas and shopping areas in South Africa. Working with advertisers, we have auditable campaigns results, verifiable sites, detailed campaign reports and straight forward guidelines to marketers. Working with consumers, we offer reliable, high speed internet access to the masses.</p>
@@ -620,4 +602,5 @@
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
 		</body>
+	</div>
 	</html>

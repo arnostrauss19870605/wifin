@@ -126,22 +126,52 @@
 		{% include 'taboola/taboola_header.html' %}
 	{% endblock taboola_head %}
 
+	
+	<script>
+		function addSeconds(numOfSeconds, date = new Date()) {
+			date.setSeconds(date.getSeconds() + numOfSeconds);
+			return date;
+		}
+		
+		let timerInterval;
+		
+		function firstTimer(){
+			
+			const noticeTxt2 = document.getElementById("noticeTxt2");
+			
+			const noticeTxt4 = document.getElementById("noticeTxt4");
+			const timerLine = document.getElementById("timerLine");
+		
+			const totalTime = 16;
+			const futuretime = addSeconds(totalTime);
+		
+			function updateTimer() {
+				const timeleft = Math.floor((futuretime - new Date()) / 1000);
+		
+				if (timeleft <= 0) {
+					clearInterval(timerInterval);
+					
+					noticeTxt2.style.display = "none";
+					
+					noticeTxt4.style.display = "inherit";
+					timerLine.style.width = '0%';
+					nextPage();
+				} else {
+				
+					noticeTxt2.innerHTML = timeleft + " seconds";
+				
+					const percentage = (timeleft / totalTime) * 100;
+					timerLine.style.width = percentage + '%';
+				}
+			}
+		
+			updateTimer();
+			timerInterval = setInterval(updateTimer, 1000);
+		}
+	</script>
+		
 		
 		<style>
-			.red_button {
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				padding: 9px 22px 8px;
-				color :White;
-				border-color: #FF4644;
-				width: 210px;
-				height: 37px;
-				background: #FF4644;
-			
-				border-radius: 50px;
-			}
 		
 			ul.timeline {
 				list-style-type: none;
@@ -210,6 +240,64 @@
 					float: left;
 					width: 10%;
 					}
+
+					/* Wi-Fi Icon Container Styles */
+					.icon-container {
+						font-size: 1.5em; /* Size of the icon */
+						text-align: center; /* Center the icon horizontally */
+						width: 100%; /* Full width for consistent alignment */
+						padding: 5px 0; /* Padding for spacing */
+					}
+					
+					/* Timer Text Styles */
+					.timer-text {
+					
+						text-align: center; /* Center the text */
+						font-size: 16px; /* Font size */
+						color: #333; /* Text color */
+						width: 100%; /* Full width for consistent alignment */
+						margin: 5px 0; /* Margin for spacing */
+					}
+					
+					/* Timer Line Container Styles */
+					.timer-line-container {
+						width: 100%; /* Full width of the navbar */
+						height: 20px; /* Height of the timer line */
+						background-color: #333; /* Background of the depleted area */
+					}
+					
+					/* Timer Line Styles */
+					.timer-line {
+						height: 100%;
+						background-color: #555; /* Color of the timer line */
+						width: 100%; /* Start with full width */
+					}
+					
+					/* 'Press' Button Styles */
+					#noticeTxt4 {
+						display: none; /* Initially hidden */
+						padding: 10px; /* Reduced padding */
+						background-color: #333; /* Button color */
+						color: white; /* Text color */
+						text-align: center;
+						border-radius: 50%; /* Round shape */
+						cursor: pointer; /* Cursor changes to pointer on hover */
+						font-size: 12px; /* Adjusted font size */
+						width: 50px; /* Reduced width for a smaller button */
+						height: 50px; /* Reduced height for a smaller button */
+						line-height: 40px; /* Adjusted line height to center the text vertically */
+						margin: 10px auto; /* Center the button horizontally */
+						transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+						user-select: none; /* Prevents text selection */
+						box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16); /* Adjusted shadow for depth */
+						}
+						
+						#noticeTxt4:hover {
+						background-color: #d9d9d9; /* Darker color on hover */
+						transform: scale(1.05); /* Slightly increase size on hover */
+						}
+					
+					
 			
 		</style>
 		
@@ -244,35 +332,28 @@
 	
 	
     </head>
+<div class="centered-container">    	
 	<body class="default">
 
 		
 	
+	
 			<!-- Header  -->
-			<nav class="navbar navbar-expand-lg navbar-light bg-header" style="border: 2px solid #000080;">
-				<div class="container-fluid">
-					
-					<div class="logo"  style="padding-top: 5pt;color:#FF4644 ">
-
-						<img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" >
-
-					</div>
-				
+			<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+				<div class="icon-container">
+					<i class="fa fa-wifi" aria-hidden="true"></i>
 				</div>
-			</nav>
+				<div id="noticeTxt2" class="timer-text"></div>
+				<div class="timer-line-container">
+					<div class="timer-line" id="timerLine"></div>
+				</div>
+				<div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+			</div>
+			
 			<!-- .Header  -->
 			<!-- Content  -->
-			
-			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 10%;margin-bottom: 5%; text-align: center;border: 2px solid #000080;background-color: #000080;color:#FF4644; font-size: 25px;">
-				<div id="myHeader" class="button" onclick="watchVidModal()" style="text-align: center; margin: 0 auto; width: 100%;">
-					<i class="fa fa-wifi" aria-hidden="true" style="font-size: 2.5em;"></i>
-					<h2 id="connectTxt" style="display: none; color:#FF4644;">Click HERE to connect to Wi-Fi NOW</h2>
-					<h2 id="countdown"></h2>
-					<p id="noticeTxt" ></p>
-				</div>
-			</div>
 
-		                  
+   
      
 			<div id="content"  style="padding-top: 0%; padding-bottom: 0px;">
 				<div class="content-wrap">
@@ -317,7 +398,7 @@
 							<div class="row">
 								<div class="col-md-6 offset-md-3">
 								
-									<h4 style="color:#FF4644"><a> {{ topics.title }}</a></h4>
+									<h4 style="color:#333"><a> {{ topics.title }}</a></h4>
 								
 									<ul class="timeline">
 										{% for comments in comments %}
@@ -363,7 +444,7 @@
 							<!-- item -->
 							{% for featured in object_list %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #000080;">
+								<div class="acr-box" style="border: 2px solid #333;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
@@ -439,7 +520,7 @@
 
 					<!-- section 1 -->
 					<div class="heading-section">
-						<div class="sa-title popcat" style="color:#FF4644 ">About Us </div>
+						<div class="sa-title popcat" style="color:#333 ">About Us </div>
 						<div class="heading-info">
 							<p>Our mission objective is to connect the unconnected to the internet. The way in which we intend to achieve this is by providing free and low costs Wi-Fi to the masses. 	</p>
 							<p>Over the past 10 years, we have developed, tested and implemented an ground-breaking digital Wi-Fi marketing system that we are using in high density commuter areas and shopping areas in South Africa. Working with advertisers, we have auditable campaigns results, verifiable sites, detailed campaign reports and straight forward guidelines to marketers. Working with consumers, we offer reliable, high speed internet access to the masses.</p>
@@ -525,40 +606,7 @@
 			<!--  Custom JS -->
 			<script src="{% static 'js/theme.js'  %}" ></script>
 
-		<script>
-			
-			function firstTimer() {
-				
-				var timeleft = 16;
-				
-				document.getElementById("connectTxt").style.display = "none";
-			
-				
-			
-				var firstTimer = setInterval(function () {
-					if (timeleft <= 0) {
-						clearInterval(firstTimer);
-						document.getElementById("countdown").style.display = "none";
-						document.getElementById("connectTxt").style.display = "Inherit";
-						document.getElementById("noticeTxt").style.display = "Inherit";
-						totalTimeout();
-			
-					} else {
-						document.getElementById("countdown").innerHTML = "Connect to WIFI in " + timeleft + " Seconds";
-					}
-			
-					timeleft = timeleft - 1;
-			
-				}, 1000)
-			}
-			
-			function totalTimeout(){
-				setTimeout(() => {
-						//document.redirect.submit();
-						nextPage();
-				}, 1000);
-			}
-			</script>
+	
 
 			<script data-cfasync="false" type="text/javascript">
 				function watchVidModal() {
@@ -573,7 +621,9 @@
 			<script type = "text/javascript">
 				firstTimer();
 			</script>
+	
 			  
 
 		</body>
+	</div>
 	</html>
