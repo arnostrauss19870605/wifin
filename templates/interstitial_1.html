@@ -102,6 +102,23 @@
             xhr.send();
         }
         </script> 
+
+        <script type="text/javascript">
+          function cancelPage() {
+                    const queryString = window.location.search;
+                    const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                   
+                    if (queryString.length === 0 ){
+                      window.location.assign("/cancel/" + queryString ); 
+                      
+                    }
+                    else {               
+                    window.location.assign("/cancel/" + queryString ); 
+                    
+                    }
+            }
+          
+      </script>
         
         <script async type="text/javascript">
           function nextPage() {

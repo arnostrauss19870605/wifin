@@ -30,52 +30,69 @@
                 window.location.assign("/home/" + queryString ); 
         }
       
-      </script> 	
-
-  <script type = "text/javascript">
-   
-    function addSeconds(numOfSeconds, date = new Date()) {
-      date.setSeconds(date.getSeconds() + numOfSeconds);
+    </script>
     
-      return date;
-      }    
-
-
-    function firstTimer() {
-      var timeleft = 10;
-      var starttime = new Date();
-      var firstTimer = null;
-      const futuretime = addSeconds(11, starttime)
-    
-      firstTimer = setInterval(function () {
+    <script type="text/javascript">
+      function cancelPage() {
+                const queryString = window.location.search;
+                const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+               
+                if (queryString.length === 0 ){
+                  window.location.assign("/cancel/" + queryString ); 
+                  
+                }
+                else {               
+                window.location.assign("/cancel/" + queryString ); 
+                
+                }
+        }
       
-      var actualttime = new Date();
-      
+  </script>
 
-      if (actualttime >= futuretime||timeleft <= 0)  {
-          clearInterval(firstTimer);
-          nextPage()
-      } 
-      else if ( timeleft == 1|| timeleft == 2) {
-        document.getElementById("noticeTxt4").style.display = "Inherit";
-        document.getElementById("noticeTxt").style.display = "none";
-        document.getElementById("noticeTxt2").style.display = "none";
-        document.getElementById("noticeTxt3").style.display = "none"
-      }
-  
-     else {
-        document.getElementById("noticeTxt").style.display = "Inherit";
-        document.getElementById("noticeTxt").innerHTML = "View these ads for " ;
-        document.getElementById("noticeTxt2").innerHTML = timeleft + " seconds  "  ;
-        document.getElementById("noticeTxt3").innerHTML = "to get your free WiFi " ;
-      }
-
-  timeleft = timeleft - 1;
-
-}, 1000)
-
+<script type="text/javascript">
+  function addSeconds(numOfSeconds, date = new Date()) {
+    date.setSeconds(date.getSeconds() + numOfSeconds);
+    return date;
 }
+
+let timerInterval;
+
+function firstTimer() {
+  const noticeTxt = document.getElementById("noticeTxt");
+  const noticeTxt2 = document.getElementById("noticeTxt2");
+  const noticeTxt3 = document.getElementById("noticeTxt3");
+  const noticeTxt4 = document.getElementById("noticeTxt4");
+  const timerLine = document.getElementById("timerLine");
+
+  const totalTime = 11;
+  const futuretime = addSeconds(totalTime);
+
+  function updateTimer() {
+      const timeleft = Math.floor((futuretime - new Date()) / 1000);
+
+      if (timeleft <= 0) {
+          clearInterval(timerInterval);
+          noticeTxt.style.display = "none";
+          noticeTxt2.style.display = "none";
+          noticeTxt3.style.display = "none";
+          noticeTxt4.style.display = "inherit";
+          timerLine.style.width = '0%';
+          nextPage();
+      } else {
+          noticeTxt.style.display = "inherit";
+          noticeTxt2.innerHTML = timeleft + " seconds";
+          noticeTxt3.style.display = "block";
+          const percentage = (timeleft / totalTime) * 100;
+          timerLine.style.width = percentage + '%';
+      }
+  }
+
+  updateTimer();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
 </script>
+
 
   <!-- Adtelligent: Ad Exchange -->
   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
