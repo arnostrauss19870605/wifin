@@ -418,11 +418,11 @@ def consolidate_quiz_results(id):
         if not result_3:
             raise ObjectDoesNotExist("Result 3 is missing for user with ID: " + str(id))
         
-        result_5 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
-        if not result_5:
+        result_4 = Core_Quiz.objects.filter(q_4__isnull=False, hsUsersID=id).exclude(q_4='').first()
+        if not result_4:
             raise ObjectDoesNotExist("Result 5 is missing for user with ID: " + str(id))
         
-        result_4 = Core_Quiz.objects.filter(q_4__isnull=False, hsUsersID=id).exclude(q_4='').first()
+        result_5 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
 
 
         # ... rest of your function code ...
@@ -434,8 +434,8 @@ def consolidate_quiz_results(id):
         return
 
     
-    if result_4:  # Checks if result_5 is not None
-        contact_number = "0" + result_4.q_4[1:] 
+    if result_5:  # Checks if result_5 is not None
+        contact_number = "0" + result_5.q_5[1:] 
     elif result_1 and hasattr(result_1, 'mobile_phone'):  # Checks if result_1 is not None and has attribute 'mobile_phone'
         contact_number = "0" + result_1.mobile_phone[4:] 
     else:
@@ -498,8 +498,8 @@ def consolidate_quiz_results(id):
     q_1 =  result_1.q_1,
     q_2 =  result_2.q_2,
     q_3 =  result_3.q_3,
-    q_4 =  contact_number,
-    q_5 =  result_5.q_5,
+    q_4 =  result_4.q_4,
+    q_5 =  contact_number,
     score =  safe_int(result_1.score) + safe_int(result_2.score) +safe_int(result_3.score)
 
     )
@@ -559,7 +559,7 @@ def push_to_dischem():
                     "first_Name": x.first_name,      
                     "last_Name": x.last_name,        
                     "country_code": "+27",       
-                    "mobile": x.q_4,           
+                    "mobile": x.q_5,           
                     "email": x.email,            
                     "lead_Source": "NowOnline",     
                     "source_campaign": "NowOnline_Stations",
