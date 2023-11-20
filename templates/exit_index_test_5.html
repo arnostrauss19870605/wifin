@@ -1,850 +1,295 @@
 {% load static %}
-<!doctype html>
 <html lang="en">
 	<head>
-
-
-	<script src="//www.googletagservices.com/tag/js/gpt.js">
-
-	</script>
-    
-  
-	  <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <title>Wifi News</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="mobile-web-app-capable" content="yes">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <meta name="apple-touch-fullscreen" content="yes">
-      <meta name="HandheldFriendly" content="True">
-      <meta name="propeller" content="81536ab60038f949842f70ea71b4593f">
-	  <meta name="site-verification" content="3e9b45f6cfba924eb4912c00aee1d325">
-	  <meta name="a.validate.02" content="sNt46z9r0NqpYvo35ih1iYyYpMfhO-C345fJ" />
-	  
-
-	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
-	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
-	  <!-- Bootstrap v4.3.1 CSS 
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
-	-->
-      <!-- Bootstrap v4.3.1 CSS -->
-      <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
-  
-      <!-- Custom CSS -->
-      <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-      <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-      
-      <!-- Slick CSS -->
-      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
-      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
-    
-      <!-- Font Awesome Free 5.10.2 CSS JS -->
-      <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
-      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
-
-
-
-        <!-- Start GPT Tag -->
-        <script
-        
-        async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
-        
 		
-		<script>
-	
-        
-		window.googletag = window.googletag || {cmd: []};
-		
-		const queryValues = window.location.search;
-		const urlParams = new URLSearchParams(queryValues);
-		const utm_medium = urlParams.get('utm_medium')
-        
-		googletag.cmd.push(function() {
-
-		googletag.pubads().collapseEmptyDivs();
-
-		var mapping1 = googletag.sizeMapping()	
-				
-
-			.addSize([1400, 0], [[728, 90], 'fluid'])
-			.addSize([1200, 0], [[728, 90], 'fluid'])
-			.addSize([1000, 0], [[728, 90], 'fluid'])
-			.addSize([700, 0], [[468, 60], 'fluid'])
-			.addSize([600, 0], [[468, 60], 'fluid'])
-			.addSize([300, 0], [[320, 50], [300, 100], [300, 250], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
-
-		var mapping2 = googletag.sizeMapping()
-			.addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-			.addSize([0, 0], [[0, 0]])
-			.build();
-
-		var mapping3 = googletag.sizeMapping()
-					.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
-					.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-					.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-					.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-					.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-					.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
-					.addSize([0, 0], [[0, 0]])
-					.build();
-
-		var mapping4 = googletag.sizeMapping()
-					.addSize([1400, 0], [[728, 90], 'fluid'])
-					.addSize([1200, 0], [[728, 90], 'fluid'])
-					.addSize([1000, 0], [[728, 90], 'fluid'])
-					.addSize([700, 0], [[468, 60], 'fluid'])
-					.addSize([600, 0], [[468, 60], 'fluid'])
-					.addSize([300, 0], [[320, 50], 'fluid'])
-					.addSize([0, 0], [[0, 0]])
-					.build();
-
-					   
-					   googletag.defineSlot('/147246189,22047902240/wifinews.co.za_300x250_1', [[300, 250]], 'wifinews_co_za_300x250_1')			
-					   
-					   			.defineSizeMapping(mapping1)
-								.setCollapseEmptyDiv(true, true)
-								.addService(googletag.pubads());
-							
-						
-					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,250],[300,600],'fluid',[468,60],[728,90],[320,100]], 'div-gpt-ad-8904840-2')
-								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads());
-
-								// Removed Slot Level Targeting
-          						//.setTargeting('Medium', [utm_medium]);
-					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[300,250],[300,600],[320,100],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-3')
-								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads());
-
-								// Removed Slot Level Targeting
-          						//.setTargeting('Medium', [utm_medium]);
-					   googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-4')
-								.defineSizeMapping(mapping4)
-								.addService(googletag.pubads());
-
-								// Removed Slot Level Targeting
-          						//.setTargeting('Medium', [utm_medium]);
-
-					   googletag.defineSlot('/22047902240/wifinews/Homepage_bottom_1', [320, 50], 'div-gpt-ad-1683741109953-0')
-								.addService(googletag.pubads());
-
-					   googletag.defineSlot('/22047902240/wifinews/Homepage_bottom_2', [320, 50], 'div-gpt-ad-1683741198271-0')
-						     	 .addService(googletag.pubads());
-
-						googletag.defineSlot('/22047902240/wifinews_test/testad', [320,480], 'div-gpt-ad-1687948187987-0')
-								.defineSizeMapping(mapping2)
-								.setCollapseEmptyDiv(true, true)
-								.addService(googletag.pubads());
-
-
-		      
-    // Configure page-level targeting.	
-		googletag.pubads().setTargeting('Medium', [utm_medium]);
-  	
-	
-
-  
-	// Enable SRA and services.						
-        googletag.pubads().enableSingleRequest();
-        googletag.pubads().setCentering(true);
-        googletag.enableServices();
-
-        });
-        </script>
-        <!-- End GPT Tag -->
-
+		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
+		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Wifi News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+        <!-- Slick CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 
 		
-
-     <!-- Google tag (gtag.js) -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154258676-1"></script>
-     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-154258676-1');
-     </script>
- 
-    <!-- Google tag (gtag.js) -->		
-
+        <!-- Font Awesome Free 5.10.2 CSS JS -->
+        <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
 
 		<script type="text/javascript">
-			window._taboola = window._taboola || [];
-			_taboola.push({
-				article: 'auto'
-			});
-			! function (e, f, u, i) {
-				if (!document.getElementById(i)) {
-					e.async = 1;
-					e.src = u;
-					e.id = i;
-					f.parentNode.insertBefore(e, f);
-				}
-			}(document.createElement('script'),
-				document.getElementsByTagName('script')[0],
-				'//cdn.taboola.com/libtrc/wifinewsnetwork/loader.js',
-				'tb_loader_script');
-			if (window.performance && typeof window.performance.mark == 'function') {
-				window.performance.mark('tbl_ic');
-			}
+            function nextPage() {
+                      const queryString = window.location.search;
+                      const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                     
+                      if (queryString.length === 0 ){
+                        //window.location.assign("/interstitial_1/" + queryString );
+						window.location.replace("https://cp.fattiengage.com/portal/10.45.255.8?server_ip=10.45.255.8&login_url=vpn%2Fexternalapauth&original_url=http%3A%2F%2Fwww.msftconnecttest.com%2Fredirect&ssid=%40Castle+Gate+Free+WiFi&station_mac=3c%3A91%3A80%3A7f%3A07%3A0f&station_ip=10.45.60.87&apid=21&apid_no=7&ap_floor=&ap_location=CG&ap_building=&ap_mac=00%3A0c%3Ae6%3Abe%3A92%3Ac0");   
+                      }
+                      else {               
+                      //window.location.assign("/interstitial_1/" + queryString ); 
+					  window.location.replace("https://cp.fattiengage.com/portal/10.45.255.8?server_ip=10.45.255.8&login_url=vpn%2Fexternalapauth&original_url=http%3A%2F%2Fwww.msftconnecttest.com%2Fredirect&ssid=%40Castle+Gate+Free+WiFi&station_mac=3c%3A91%3A80%3A7f%3A07%3A0f&station_ip=10.45.60.87&apid=21&apid_no=7&ap_floor=&ap_location=CG&ap_building=&ap_mac=00%3A0c%3Ae6%3Abe%3A92%3Ac0");  
+                      }
+              }
+            
+        </script>
+
+		<script type="text/javascript">
+			function cancelPage() {
+					  const queryString = window.location.search;
+					  const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+					 
+					  if (queryString.length === 0 ){
+						window.location.assign("/cancel_2/" + queryString ); 
+						
+					  }
+					  else {               
+					  window.location.assign("/cancel_2/" + queryString ); 
+					  
+					  }
+			  }
+			
 		</script>
 
 		
-		<script data-cfasync="false" type="text/javascript">
-	
-			function executeMyRewardedAd() {
-		
-			googletag = window.googletag || { cmd: [] };
-			googletag.cmd.push(() => {
-				const rewardedSlot = googletag.defineOutOfPageSlot('/302423036,22047902240/nowonline/NO_RewardedVideo',
-					googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-				rewardedSlot.setForceSafeFrame(true);
-				googletag.pubads().enableAsyncRendering();
-				googletag.enableServices();
-
-				googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-					const makeVisibleFn = (e) => {
-						evt.makeRewardedVisible();
-						e.preventDefault();
-						watchAdButton.removeEventListener('click', makeVisibleFn);
-						noThanksButton.removeEventListener('click', closeModalFn);
-						trigger.style.display = 'none';
-					};
-					const trigger = document.getElementById('rewardModal');
-					trigger.style.display = 'block';
-					const watchAdButton = document.getElementById('watchAdBtn');
-					watchAdButton.addEventListener('click', makeVisibleFn);
-					const noThanksButton = document.getElementById('noThanksBtn');
-					const closeModalFn = () => {
-						const trigger = document.getElementById('rewardModal');
-						trigger.style.display = 'none';
-					};
-					noThanksButton.addEventListener('click', closeModalFn);
-				});
-
-				googletag.pubads().addEventListener('rewardedSlotGranted', evt => {
-					const grantModal = document.getElementById('grantModal');
-					const reward = evt.payload;
-					const grantParagraph = document.getElementById('grantParagraph');
-					grantParagraph.innerHTML = "Thanks for watching our Ad! Click close to access your free Wifi."
-						+ reward.type + "!";
-					const grantCloseBtn = document.getElementById('grantCloseBtn');
-					const closeGrantFn = () => {
-						grantCloseBtn.removeEventListener('click', closeGrantFn);
-						grantModal.style.display = 'none';
-					}
-					grantCloseBtn.addEventListener('click', closeGrantFn);
-					grantModal.style.display = 'block';
-				});
-				googletag.display(rewardedSlot);
-			});
-			console.log("The Rewarded Add");
-		};
-	</script>
 
 
-
-  <style>
-	.red_button {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		padding: 9px 22px 8px;
-		
-		color :White;
-		border-color: #FF4644;
-		
-		width: 210px;
-		height: 37px;
-		background: #FF4644;
-	
-		border-radius: 50px;
-	}
-
-	ul.timeline {
-		list-style-type: none;
-		position: relative;
-	}
-	ul.timeline:before {
-		content: ' ';
-		background: #2450a6;
-		display: inline-block;
-		position: absolute;
-		left: 29px;
-		width: 2px;
-		height: 100%;
-		z-index: 400;
-	}
-	ul.timeline > li {
-		margin: 20px 0;
-		padding-left: 20px;
-	}
-	ul.timeline > li:before {
-		content: ' ';
-		background: white;
-		display: inline-block;
-		position: absolute;
-		border-radius: 50%;
-		border: 3px solid #FF4644;
-		left: 20px;
-		width: 20px;
-		height: 20px;
-		z-index: 400;
-	}
-
-	
-	.text {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-line-clamp: 3; /* number of lines to show */
-				line-clamp: 3; 
-		-webkit-box-orient: vertical;
-	 }
-		
-	 #wrapper {
-		width: 400px;
-		
-		position: relative;
-		float: left;
-		}
-		#first {
-		width: 40%;
-		text-align: right;
-		position: relative;
-		float: left;
-		}
-		#second {
-	  
-		color : black;
-		position: relative;
-		float: left;
-		width: 30%;
-		}
-		#third {
-		 
-			color : black;
-			position: relative;
-			float: left;
-			width: 10%;
+        <script type = "text/javascript">
+            
+			function addSeconds(numOfSeconds, date = new Date()) {
+				date.setSeconds(date.getSeconds() + numOfSeconds);
+				return date;
 			}
-
-			/* The Modal (background) */
-			.modal {
-				display: none;
-				/* Hidden by default */
-				position: fixed;
-				/* Stay in place */
-				z-index: 1;
-				/* Sit on top */
-				padding-top: 300px;
-				/* Location of the box */
-				left: 0;
-				top: 0;
-				width: 100%;
-				/* Full width */
-				height: 100%;
-				/* Full height */
-				overflow: auto;
-				/* Enable scroll if needed */
-				background-color: rgb(0, 0, 0);
-				/* Fallback color */
-				background-color: rgba(0, 0, 0, 0.4);
-				/* Black w/ opacity */
-			}
-	
-			/* Modal Content */
-			.modal-content {
-				margin: auto;
-				padding: 25px;
-				background-color: #fefefe;
-				text-align: center;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-	
-			@media all and (orientation: landscape) {
-	
-				/* Modal Content */
-				.modal-content {
-					margin: auto;
-					padding: 25px;
-					background-color: #fefefe;
-					text-align: center;
-					position: fixed;
-					top: 60%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
-			}
-	
-	
-			.btn {
-				padding: .5rem;
-				background: #2990EA;
-				border: none;
-				border-radius: 4px;
-				margin: 4px;
-			}
-	
-			div.ad-container {
-				border: solid;
-				
-
-
-  				
-			  }
-		
-			  div.ad-slot {
-				border-style: dashed;
-				display: inline-block;
-
-			  }
-		
-	
-</style>
-
-
-	
-    </head>
-	<body class="default">
 			
-
-			<!-- Sidebar left -->
-			<nav id="sidebarleft" class="sidenav">
-				<div id="dismiss">
-					<i class="fas fa-times"></i>
-				</div>
-				<div class="sidebar-header">
-					<h3> </h3>
-				</div>
+			let timerInterval;
+			
+			function firstTimer(){
 				
-				<ul class="list-unstyled components">
-					<li>
-						<a href={% url 'login' %}><i class="fas fa-home" style="color:#FF4644"></i>Home</a>
-					</li>
-					
-						<li>
-							<a href={% url 'topic_list' %}><i class="fas fa-star" style="color:#FF4644"></i>Topics for Discussion</a>
-						</li>
-						<li>
-							<a href={% url 'allposts' %}><i class="fas fa-exclamation-circle" style="color:#FF4644"></i>Featured Articles </a>
-						</li>
+				const noticeTxt2 = document.getElementById("noticeTxt2");
 				
+				const noticeTxt4 = document.getElementById("noticeTxt4");
+				const timerLine = document.getElementById("timerLine");
+			
+				const totalTime = 20;
+				const futuretime = addSeconds(totalTime);
+			
+				function updateTimer() {
+					const timeleft = Math.floor((futuretime - new Date()) / 1000);
+			
+					if (timeleft <= 0) {
+						clearInterval(timerInterval);
 						
-						</ul>
-				</nav>
-				<!-- .Sidebar left -->
-				
-				<!-- Header  -->
-			
-				<nav class="navbar navbar-expand-lg navbar-light bg-header">
-					<div class="container-fluid">
-					
-							<button style="padding-bottom: 28px"; type="button" id="sidebarleftbutton" class="btn">
-								<i class="fas fa-align-left"></i>
-							</button>
-							
-							<div class="logo"  style="padding-top: 0%;color:#FF4644 ">
-
-							<img  alt="hero" src="{% static 'img/WIFINEWSLOGO.jpeg' %}" >
-	
-							</div>
-					
-					
+						noticeTxt2.style.display = "none";
 						
-					</div>
-				</nav>
-				<!-- .Header  -->
-				<!-- Content  -->
-			<div class="row"  style="padding-top: 7%; padding-bottom: 0px; margin-top: 0%; text-align: center;">
-				
-				
-			</div>
-
-			<div id="rewardModal" class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<p>Would you like to watch an ad in exchange for some coins?</p>
-					<input type="button" class="btn" id="watchAdBtn" value="Watch Ad" />
-					<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
-				</div>
-			</div>
-			
-			<div id="grantModal" class="modal">
-				<div class="modal-content">
-					<p id="grantParagraph"> </p>
-					<input type="button" class="btn" id="grantCloseBtn" value="Close" />
-				</div>
-			</div>
-	                  
-     
-			<div id="content"  style="padding-top: 0%; padding-bottom: 0px; margin-top: 2%;">
-
-			
-				<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 2%;">
-					<br>
-					<p>Test Page 5 - Svorn </p>
-				</div>	
-
-
-				
-			
-
-				<div class="content-wrap">
-					
-					
-					
-					<!-- slider -->
-					
-						
-					<!-- /22047902240/wifinews_test/testad -->
-				
-
-					<div id = "my_container" class="ad-container">
-						<p>Ad slot #1</p>
-						<div id="wifinews_co_za_300x250_1" class="ad-slot"></div>
-					</div>
-							
-                            <!-- End AdSlot 1 -->
-						
-					
-				
-					<!-- .slider -->
-
-
-
-
-					<!-- section 2 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">Have Your Say! </div>
-						<div class="heading-info">
-							With all the happenings in out country, good and bad, we have created a forum where you can have your say and discuss these matters with others in your comunity in an open public form.
-						</div>
-						<div class="clear"></div>
-					</div>
-
-				
-					<div onclick="location.href={% url 'topic_list' %};" style="cursor: pointer;">
-						<div class="container mt-5 mb-5">
-							<div class="row">
-								<div class="col-md-6 offset-md-3">
-								
-									<h4 style="color:#FF4644"><a> {{ topics.title }}</a></h4>
-								
-									<ul class="timeline">
-										{% for comments in comments %}
-										<li>
-										 <strong> {{ comments.name }} : </strong>
-											<p class="text"> {{ comments.body }} 	</p>
-										</li>
-										{% endfor %}
-										
-									</ul>
-									<fbutton type="submit" class="red_button">HAVE YOUR SAY!</fbutton>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-			
-				
-
-
-
-
-
-
-
-					<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-					
-					
-				
-							<div>
-								
-						<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[728,90],[300,250],[468,60],[300,600],'fluid'] -->
-						<div id='div-gpt-ad-8904840-2' style="margin-top: 20px; margin-bottom: 20px;">
-							<script>
-								
-								googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-2'); });
-							</script>
-							</div>
-						<!-- End AdSlot 2 -->
-							</div>
-							
-					
-					
-			
-
-					<!-- section 2 -->
-					<div class="heading-section">
-						<div class="sa-title popcat">Featured Articles </div>
-						<div class="heading-info">
-							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
-						</div>
-						<div class="clear"></div>
-					</div>
-
-					<div class="section-home available-car"  >
-						
-						<div class="default-carousel car-carousel">
-							<!-- item -->
-							{% for featured in object_list %}
-							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #000080;">
-									<div class="acr-box-in" style="background-color: #ffff">
-										
-										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
-											
-											<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
-												
-												<div  class="heading-section" >
-													<div class="sa-title popcat">{{ featured.title }} </div>
-													<div  >
-													
-															<span style = "color:#000000;" >
-																																{{ featured.overview }} 
-															<span>
-													</div>
-													<div class="clear"></div>
-												</div>																					
-											</div>
-										</a>
-									</div>
-									
-								</div>
-							</div>
-					
-							{% endfor %}
-						</div>
-				
-						
-				
-						
-						<div class="default-carousel car-carousel" style="margin-top:20px;">
-							{% for featured in featured_other %}
-							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #000080;">
-									<div class="acr-box-in" style="background-color: #ffff">
-										
-										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
-											
-											<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
-												
-												<div  class="heading-section" >
-													<div class="sa-title popcat">{{ featured.title }} </div>
-													<div  >
-													
-															<span style = "color:#000000;" >
-																																{{ featured.overview }} 
-															<span>
-													</div>
-													<div class="clear"></div>
-												</div>																					
-											</div>
-										</a>
-									</div>
-									
-								</div>
-							</div>
-					
-							{% endfor %}
-							<!-- .item -->
-						</div>
-						<!-- .section 2-->
-
-
-						
-							<div>
-								
-																<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-								<div id='div-gpt-ad-8904840-3' style="margin-top: 20px; margin-bottom: 20px;">
-									
-									<script>
-									   
-										googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-3'); });
-									</script>
-									</div>
-									<!-- End AdSlot 3 -->
-
-							</div>
-							
-							
-
-
-					
-					<!-- section 1 -->
-					<div class="heading-section">
-						<div class="sa-title popcat" style="color:#FF4644 ">About Us </div>
-						<div class="heading-info">
-							<p>Our mission objective is to connect the unconnected to the internet. The way in which we intend to achieve this is by providing free and low costs Wi-Fi to the masses. 	</p>
-							<p>Over the past 10 years, we have developed, tested and implemented an ground-breaking digital Wi-Fi marketing system that we are using in high density commuter areas and shopping areas in South Africa. Working with advertisers, we have auditable campaigns results, verifiable sites, detailed campaign reports and straight forward guidelines to marketers. Working with consumers, we offer reliable, high speed internet access to the masses.</p>
-							<p>We provide Wi-Fi to users across south Africa and a certain point managed close to 1000 hotspots and 200 000 visitors daily makes use of our deployments and Wi-Fi authentication platform.</p>
-						</div>
-						<div class="clear"></div>
-					</div>
-					
-					<!-- .section 1 -->	
-
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 2%;">
-						<div>
-
-							<!-- /22047902240/wifinews/Homepage_bottom_2 -->
-							<div id='div-gpt-ad-1683741198271-0' style='min-width: 320px; min-height: 50px;'>
-								<script>
-								googletag.cmd.push(function() { googletag.display('div-gpt-ad-1683741198271-0'); });
-								</script>
-							</div>
-   
-						</div>
-						
-					</div>
-					<!-- .slider -->
-					
-					
-		<!-- section 3 -->
-				
-		<div class="heading-section" style="margin-bottom: 90px;">
-			<div class="sa-title popcat">Popular Reading</div>
-			<div class="heading-info">
-				
-				<div id="taboola-below-article-thumbnails-1"></div>
-
-				
-				<div id="taboola-below-article-thumbnails"></div>
-				<script type="text/javascript">
-				  window._taboola = window._taboola || [];
-				  _taboola.push({
-					mode: 'alternating-thumbnails-a',
-					container: 'taboola-below-article-thumbnails',
-					placement: 'Below Article Thumbnails',
-					target_type: 'mix'
-				  });
-				</script>
-			</div>
-		</div>
-		
-
-
-
-
-	<!-- .section 3 -->
-					</div>
-					
-				
-					
-					
-									
-					
-				</div>
-			</div>
-
-			
-		<!-- .Content  -->
-			<!-- STICKY -->
-			
-
-			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: sticky; bottom: 30px;">
-				  
-				<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
-				<div id='div-gpt-ad-8904840-4' style="margin-bottom: 0;">
-					<script>
-						googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-4'); });
-					</script>
-				</div>
-				
-			
-			</div>
-
-			<!-- END STICKY -->
-			
-
-
-			<!-- Botom Panel  -->
-			
-			
-			<!-- .Bottom Panel  -->
-			
-	
-
-			
-			<div class="overlay"></div>
-
-			<script>
-				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1687948187987-0'); });
-			</script>
-			
-
-			
-
-			<!-- Optional JavaScript -->
-			<!-- jQuery v3.4.1 -->
-			<script src="{% static 'lib/jquery/jquery-3.4.1.min.js'  %}"></script>
-			<!--  Bootstrap v4.3.1 JS -->
-			<script src="{% static 'lib/bootstrap/js/bootstrap.min.js'  %}"></script>
-			<!-- Magnific Popup core JS file 
-			<script src="{% static 'lib/Magnific-Popup-master/dist/jquery.magnific-popup.js'  %}"></script>
-			-->
-			<!-- Slick JS -->
-			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
-			<!--  Custom JS -->
-			<script src="{% static 'js/theme.js'  %}" ></script>
-
-			<script data-cfasync="false" type="text/javascript">
-	
-				function executeRewardedAdTag() {
-					
-			
-				var displayAdTag = document.getElementById('wifinews_co_za_300x250_1')
-				var displayAdContainer = document.getElementById('my_container')
-				
-				setTimeout(function(){
-
-					if (displayAdTag.offsetHeight == 0 ){
-
-						console.log("Initiate Rewarded Add Slot - Collapsed");
-						console.log("My Offset Height : " + displayAdTag.offsetHeight);
-						console.log("My Container Height : " + displayAdContainer.offsetHeight);
-
-						
-				
-						
-						executeMyRewardedAd();
-				
+						noticeTxt4.style.display = "inherit";
+						timerLine.style.width = '0%';
+						nextPage();
 					} else {
-
-						console.log("Initiate Rewarded Add Slot - NOT Collapsed");
-						console.log("My Offset Height : " + displayAdTag.offsetHeight);
-
+					
+						noticeTxt2.innerHTML = timeleft + " seconds";
+					
+						const percentage = (timeleft / totalTime) * 100;
+						timerLine.style.width = percentage + '%';
 					}
-					console.log("Executed after 1 second");
-
-				}, 1000);
-				
-				
-			};
+				}
 			
-			executeRewardedAdTag(); 
-			
-			</script>
+				updateTimer();
+				timerInterval = setInterval(updateTimer, 1000);
+			}
+        </script>
 
+		<script>
+			googletag = window.googletag || {cmd: []};
+			googletag.cmd.push(() => {
+			
+			const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			  rewardedSlot.setForceSafeFrame(true);
+			
+			  googletag.pubads().enableAsyncRendering();
+			  googletag.enableServices();
+			  
+			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+				
+				const makeVisibleFn = (e) => {
+				
+				  clearInterval(timerInterval);
+				  
+				  evt.makeRewardedVisible();
+				  e.preventDefault();
+				  
+				  watchAdButton.removeEventListener('click', makeVisibleFn);
+				  
+				  noThanksButton.removeEventListener('click', closeModalFn);
+				  trigger.style.display = 'none';
+				};
+
+
+				const trigger = document.getElementById('rewardModal');
+				trigger.style.display = 'block';
+				clearInterval(timerInterval);
+				const watchAdButton = document.getElementById('watchAdBtn');
+				watchAdButton.addEventListener('click', makeVisibleFn);
+				
+				const noThanksButton = document.getElementById('noThanksBtn');
+				const closeModalFn = () => {
+				  const trigger = document.getElementById('rewardModal');
+				  trigger.style.display = 'none';
+				cancelPage();
+				googletag.destroySlots([rewardedSlot]);
+				};
+				
+				noThanksButton.addEventListener('click', closeModalFn);
+			  });
+
+			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+				googletag.destroySlots([rewardedSlot]);
+				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+   
+		  		});
+
+				  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+					const slot = event.slot;
+					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+					//location.reload();
+					cancelPage();
+					if (slot === targetSlot) {
+					  // Slot specific logic.
+					}
+				  });
+
+			  googletag.display(rewardedSlot);
+			});
+		  </script>
+
+
+	
+		   <!-- Import Library for Gtag -->
+		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+		  <!-- Google Head Tag) -->
+		  {% block google_head %}
+			{% include 'google/head_tags/interstitial_3.html' %}
+		  {% endblock google_head %}
+
+		  <!-- Adtelligent: Ad Exchange -->
+		 <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->
+		  
 	
 
 
-		</body>
+	  </head>
+	  <div class="centered-container">  
+	  <body>
+		<div id="rewardModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<p>To get free Wi-fi you need to watch these ads</p>
+			<input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
+			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
+			<p>I don't want Free Wi-fi and will remain on this page.</p>
+		  </div>
+		</div>
+		<div id="grantModal" class="modal">
+		  <div class="modal-content">
+			<p id="grantParagraph"> </p>
+			<input type="button" class="btn" id="grantCloseBtn" value="Close" />
+		  </div>
+		</div>
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+            <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+				<div id="noticeTxt" class="timer-text">View these ads for </div>
+				<div id="noticeTxt2" class="timer-text"></div>
+				<div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
+				<div class="timer-line-container">
+				<div class="timer-line" id="timerLine"></div>
+				</div>
+				  <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+  
+				</div>
+        
+        <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+            <div class="content-wrap">
+               
+                <!-- slider -->
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 1 -->
+                  {% block google_ad_1 %}
+                    {% include 'google/ad_slots/int_3_ad_1.html' %}
+                  {% endblock google_ad_1 %}
+                  <!-- End AdSlot 1 -->
+                </div>
+        
+        
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 2 -->
+                  {% block google_ad_2 %}
+                    {% include 'google/ad_slots/int_3_ad_2.html' %}
+                  {% endblock google_ad_2 %}
+                  <!-- End AdSlot 2 -->
+                </div>
+        
+                <div class="heading-section" style="margin-bottom: 90px;">
+                  <div class="sa-title popcat">Popular Reading</div>
+                  <div class="heading-info">
+                    <!-- Taboola Slot -->
+                    {% block taboola %}
+                      {% include 'taboola/taboola.html' %}
+                    {% endblock taboola %}
+                    <!-- End Taboola Slot -->
+                  </div>
+                </div>
+        
+              
+        
+              <!-- STICKY -->
+              <div class="sticky-element">
+                   <!-- GPT AdSlot 3 -->
+                {% block google_ad_3 %}
+                   {% include 'google/ad_slots/int_3_ad_3.html' %}
+                {% endblock google_ad_3 %}
+                 <!-- End AdSlot 3 -->
+              </div>
+              <!-- END STICKY -->
+        
+            </div>
+          </div> 
+               
+
+
+
+	  </body>
+	</div>
+	  <script type = "text/javascript">
+		firstTimer();
+		
+	</script>
+  
 	</html>
+	`
+	</div>
+	
+	
+	
+	</div>
+				</div>
+			</div>
+		  </div>
+	
+		</div>
+	</div>
+	</div>
+	
+</html>
