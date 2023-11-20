@@ -420,7 +420,7 @@ def consolidate_quiz_results(id):
         
         result_4 = Core_Quiz.objects.filter(q_4__isnull=False, hsUsersID=id).exclude(q_4='').first()
         if not result_4:
-            raise ObjectDoesNotExist("Result 5 is missing for user with ID: " + str(id))
+            raise ObjectDoesNotExist("Result 4 is missing for user with ID: " + str(id))
         
         result_5 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
 

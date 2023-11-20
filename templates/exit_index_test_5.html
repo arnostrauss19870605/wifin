@@ -35,15 +35,17 @@
 				const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
 			
 				// Check if queryString is not empty and starts with '?'
-				if (queryString.length > 0 && queryString[0] === '?') {
+				
+				//if (queryString.length > 0 && queryString[0] === '?') {
+					
 					// Replace the first character ('?') with '&'
-					queryString = '&' + queryString.substring(1);
-				}
+				//	queryString = '&' + queryString.substring(1);
+				//}
 			
 				if (queryString.length === 0) {
-					window.location.replace("https://cp.fattiengage.com/portal/10.45.255.8?server_ip=10.45.255.8&login_url=vpn%2Fexternalapauth&original_url=http%3A%2F%2Fwww.msftconnecttest.com%2Fredirect&ssid=%40Castle+Gate+Free+WiFi&station_mac=3c%3A91%3A80%3A7f%3A07%3A0f&station_ip=10.45.60.87&apid=21&apid_no=7&ap_floor=&ap_location=CG&ap_building=&ap_mac=00%3A0c%3Ae6%3Abe%3A92%3Ac0" + queryString);
+					window.location.replace("https://cp.fattiengage.com/portal/192.169.210.200" + queryString);
 				} else {
-					window.location.replace("https://cp.fattiengage.com/portal/10.45.255.8?server_ip=10.45.255.8&login_url=vpn%2Fexternalapauth&original_url=http%3A%2F%2Fwww.msftconnecttest.com%2Fredirect&ssid=%40Castle+Gate+Free+WiFi&station_mac=3c%3A91%3A80%3A7f%3A07%3A0f&station_ip=10.45.60.87&apid=21&apid_no=7&ap_floor=&ap_location=CG&ap_building=&ap_mac=00%3A0c%3Ae6%3Abe%3A92%3Ac0" + queryString);
+					window.location.replace("https://cp.fattiengage.com/portal/192.169.210.200" + queryString);
 				}
 			}
 			
