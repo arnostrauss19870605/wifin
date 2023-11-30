@@ -61,6 +61,9 @@ urlpatterns = [
     path('test_page_9/',test_page_9, name="exit-index-test-9"),
     path('test_page_10/',test_page_10, name="exit-index-test-10"),
 
+    #Forti
+    path('forti/',forti, name="forti"),
+
     path('schedule_task_123456/',test, name="test-page"),
     path('admin/', admin.site.urls),
     path('clinix/activation', ActivationView.as_view(), name="activation"),

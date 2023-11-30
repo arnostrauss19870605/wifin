@@ -1,0 +1,352 @@
+{% load static %}
+<html lang="en">
+	<head>
+		
+		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
+		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Wifi News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+        <!-- Slick CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+
+		
+        <!-- Font Awesome Free 5.10.2 CSS JS -->
+        <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+		<script type="text/javascript">
+
+				// Data table as a dictionary
+				const utmToRedirectMap = {
+					"NTJ" : "https://cp.fattiengage.com/portal/172.16.255.1",
+					"Lynnwoodbridge" : "https://cp.fattiengage.com/portal/172.18.255.1",
+					"MallofAfrica" : "https://cp.fattiengage.com/portal/172.19.255.1",
+					"DesignQuarter" : "https://cp.fattiengage.com/portal/172.22.255.1",
+					"PanAfrica" : "https://cp.fattiengage.com/portal/172.23.255.1",
+					"Brooklyn" : "https://cp.fattiengage.com/portal/172.24.255.1",
+					"Eikestad" : "https://cp.fattiengage.com/portal/172.25.255.1",
+					"Zone" : "https://cp.fattiengage.com/portal/172.30.255.1",
+					"Hillfox" : "https://cp.fattiengage.com/portal/172.31.255.1",
+					"Pumulani" : "https://cp.fattiengage.com/portal/10.12.255.1",
+					"Kagiso" : "https://cp.fattiengage.com/portal/10.13.255.1",
+					"Dobsonville" : "https://cp.fattiengage.com/portal/10.14.255.1",
+					"Bedford" : "https://cp.fattiengage.com/portal/10.15.255.1",
+					"Cavendish" : "https://cp.fattiengage.com/portal/10.16.255.1",
+					"Riverdisde" : "https://cp.fattiengage.com/portal/10.17.255.1",
+					"Gateway" : "https://cp.fattiengage.com/portal/10.18.255.1",
+					"Vincentpark" : "https://cp.fattiengage.com/portal/10.19.255.1",
+					"Eastrandmall" : "https://cp.fattiengage.com/portal/10.21.255.1",
+					"Soneike" : "https://cp.fattiengage.com/portal/10.22.255.1",
+					"Aurora" : "https://cp.fattiengage.com/portal/10.23.255.1",
+					"Kendrige" : "https://cp.fattiengage.com/portal/10.24.255.1",
+					"Sonstraal" : "https://cp.fattiengage.com/portal/10.25.255.1",
+					"Habitat" : "https://cp.fattiengage.com/portal/10.26.255.1",
+					"Boord" : "https://cp.fattiengage.com/portal/10.27.255.1",
+					"Hermanus" : "https://cp.fattiengage.com/portal/10.28.255.1",
+					"Vredenburg" : "https://cp.fattiengage.com/portal/10.29.255.1",
+					"Randridge" : "https://cp.fattiengage.com/portal/10.30.255.1",
+					"Randburgsquare" : "https://cp.fattiengage.com/portal/10.31.255.1",
+					"Durbanworkshop" : "https://cp.fattiengage.com/portal/10.32.255.1",
+					"Bloemfontein" : "https://cp.fattiengage.com/portal/10.34.255.1",
+					"Atlantis" : "https://cp.fattiengage.com/portal/10.35.255.1",
+					"Hammersdale" : "https://cp.fattiengage.com/portal/10.36.255.1",
+					"Queenstown" : "https://cp.fattiengage.com/portal/10.37.255.1",
+					"Gugulethu" : "https://cp.fattiengage.com/portal/10.38.255.1",
+					"Mdatsane" : "https://cp.fattiengage.com/portal/10.39.255.1",
+					"Pinecrest" : "https://cp.fattiengage.com/portal/10.40.255.1",
+					"Higlandmews" : "https://cp.fattiengage.com/portal/10.41.255.1",
+					"Maluticrest" : "https://cp.fattiengage.com/portal/10.42.255.1",
+					"Phoenix" : "https://cp.fattiengage.com/portal/10.43.255.1",
+					"Moruleng" : "https://cp.fattiengage.com/portal/10.44.255.1",
+					"Mooirivier" : "https://cp.fattiengage.com/portal/10.46.255.1",
+					"GardenRoute" : "https://cp.fattiengage.com/portal/10.47.255.1",
+					"Daveyton" : "https://cp.fattiengage.com/portal/10.48.255.1",
+					"Balfour" : "https://cp.fattiengage.com/portal/10.49.255.1",
+					"Zeevenwacht" : "https://cp.fattiengage.com/portal/10.50.255.1",
+					"Liberty Park" : "https://cp.fattiengage.com/portal/10.51.255.1",
+					"Kolonade": "https://cp.fattiengage.com/portal/10.33.255.1",
+					"Castelgate": "https://cp.fattiengage.com/portal/10.45.255.1",
+
+					// ... Add all other mappings here
+				};
+			
+				function nextPage() 
+				{
+					let queryString = window.location.search;
+					const urlParams = new URLSearchParams(queryString);
+					const utmMedium = urlParams.get('utm_medium');
+					let redirectUrl = "https://bobbies.hotspot.yourspot.co.za/lv/login"; // Default redirect URL
+			
+					// Lookup utm_medium in the dictionary and set the redirect URL if found
+					if (utmMedium && utmToRedirectMap[utmMedium]) {
+						redirectUrl = utmToRedirectMap[utmMedium];
+						console.log("Redirect URL : ", redirectUrl);
+					}
+			
+					// Append the query string to the redirect URL and navigate to it
+					window.location.replace(redirectUrl + queryString);
+				}
+		</script>
+
+		<script type="text/javascript">
+			function cancelPage() {
+					  const queryString = window.location.search;
+					  const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+					 
+					  if (queryString.length === 0 ){
+						window.location.assign("/cancel_2/" + queryString ); 
+						
+					  }
+					  else {               
+					  window.location.assign("/cancel_2/" + queryString ); 
+					  
+					  }
+			  }
+			
+		</script>
+
+		
+
+
+        <script type = "text/javascript">
+            
+			function addSeconds(numOfSeconds, date = new Date()) {
+				date.setSeconds(date.getSeconds() + numOfSeconds);
+				return date;
+			}
+			
+			let timerInterval;
+			
+			function firstTimer(){
+				
+				const noticeTxt2 = document.getElementById("noticeTxt2");
+				
+				const noticeTxt4 = document.getElementById("noticeTxt4");
+				const timerLine = document.getElementById("timerLine");
+			
+				const totalTime = 20;
+				const futuretime = addSeconds(totalTime);
+			
+				function updateTimer() {
+					const timeleft = Math.floor((futuretime - new Date()) / 1000);
+			
+					if (timeleft <= 0) {
+						clearInterval(timerInterval);
+						
+						noticeTxt2.style.display = "none";
+						
+						noticeTxt4.style.display = "inherit";
+						timerLine.style.width = '0%';
+						nextPage();
+					} else {
+					
+						noticeTxt2.innerHTML = timeleft + " seconds";
+					
+						const percentage = (timeleft / totalTime) * 100;
+						timerLine.style.width = percentage + '%';
+					}
+				}
+			
+				updateTimer();
+				timerInterval = setInterval(updateTimer, 1000);
+			}
+        </script>
+
+		<script>
+			googletag = window.googletag || {cmd: []};
+			googletag.cmd.push(() => {
+			
+			const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			  rewardedSlot.setForceSafeFrame(true);
+			
+			  googletag.pubads().enableAsyncRendering();
+			  googletag.enableServices();
+			  
+			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+				
+				const makeVisibleFn = (e) => {
+				
+				  clearInterval(timerInterval);
+				  
+				  evt.makeRewardedVisible();
+				  e.preventDefault();
+				  
+				  watchAdButton.removeEventListener('click', makeVisibleFn);
+				  
+				  noThanksButton.removeEventListener('click', closeModalFn);
+				  trigger.style.display = 'none';
+				};
+
+
+				const trigger = document.getElementById('rewardModal');
+				trigger.style.display = 'block';
+				clearInterval(timerInterval);
+				const watchAdButton = document.getElementById('watchAdBtn');
+				watchAdButton.addEventListener('click', makeVisibleFn);
+				
+				const noThanksButton = document.getElementById('noThanksBtn');
+				const closeModalFn = () => {
+				  const trigger = document.getElementById('rewardModal');
+				  trigger.style.display = 'none';
+				cancelPage();
+				googletag.destroySlots([rewardedSlot]);
+				};
+				
+				noThanksButton.addEventListener('click', closeModalFn);
+			  });
+
+			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+				googletag.destroySlots([rewardedSlot]);
+				nextPage();
+   
+		  		});
+
+				  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+					const slot = event.slot;
+					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+					//location.reload();
+					cancelPage();
+					if (slot === targetSlot) {
+					  // Slot specific logic.
+					}
+				  });
+
+			  googletag.display(rewardedSlot);
+			});
+		  </script>
+
+
+	
+		   <!-- Import Library for Gtag -->
+		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+		  <!-- Google Head Tag) -->
+		  {% block google_head %}
+			{% include 'google/head_tags/interstitial_3.html' %}
+		  {% endblock google_head %}
+
+		  <!-- Adtelligent: Ad Exchange -->
+		 <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->
+		  
+	
+
+
+	  </head>
+	  <div class="centered-container">  
+	  <body>
+		<div id="rewardModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<p>To get free Wi-fi you need to watch these ads</p>
+			<input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
+			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
+			<p>I don't want Free Wi-fi and will remain on this page.</p>
+		  </div>
+		</div>
+		<div id="grantModal" class="modal">
+		  <div class="modal-content">
+			<p id="grantParagraph"> </p>
+			<input type="button" class="btn" id="grantCloseBtn" value="Close" />
+		  </div>
+		</div>
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+            <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+				<div id="noticeTxt" class="timer-text">View these ads for </div>
+				<div id="noticeTxt2" class="timer-text"></div>
+				<div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
+				<div class="timer-line-container">
+				<div class="timer-line" id="timerLine"></div>
+				</div>
+				  <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+  
+				</div>
+        
+        <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+            <div class="content-wrap">
+               
+                <!-- slider -->
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 1 -->
+                  {% block google_ad_1 %}
+                    {% include 'google/ad_slots/int_3_ad_1.html' %}
+                  {% endblock google_ad_1 %}
+                  <!-- End AdSlot 1 -->
+                </div>
+        
+        
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 2 -->
+                  {% block google_ad_2 %}
+                    {% include 'google/ad_slots/int_3_ad_2.html' %}
+                  {% endblock google_ad_2 %}
+                  <!-- End AdSlot 2 -->
+                </div>
+        
+                <div class="heading-section" style="margin-bottom: 90px;">
+                  <div class="sa-title popcat">Popular Reading</div>
+                  <div class="heading-info">
+                    <!-- Taboola Slot -->
+                    {% block taboola %}
+                      {% include 'taboola/taboola.html' %}
+                    {% endblock taboola %}
+                    <!-- End Taboola Slot -->
+                  </div>
+                </div>
+        
+              
+        
+              <!-- STICKY -->
+              <div class="sticky-element">
+                   <!-- GPT AdSlot 3 -->
+                {% block google_ad_3 %}
+                   {% include 'google/ad_slots/int_3_ad_3.html' %}
+                {% endblock google_ad_3 %}
+                 <!-- End AdSlot 3 -->
+              </div>
+              <!-- END STICKY -->
+        
+            </div>
+          </div> 
+               
+
+
+
+	  </body>
+	</div>
+	  <script type = "text/javascript">
+		firstTimer();
+		
+	</script>
+  
+	</html>
+	`
+	</div>
+	
+	
+	
+	</div>
+				</div>
+			</div>
+		  </div>
+	
+		</div>
+	</div>
+	</div>
+	
+</html>

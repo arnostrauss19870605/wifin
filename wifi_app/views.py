@@ -658,6 +658,34 @@ def test_page_5(request):
         }
         return render(request, "exit_index_test_5.html", context)
     
+
+@xframe_options_exempt
+def forti(request):
+    form = LoginForm(request.POST)
+    
+    if request.method == "POST" :
+       
+        return redirect('interstitial-page-nop') 
+    else :
+        categories = Category.objects.all()[0:10]
+        featured = Post.objects.filter(featured=True)[0:5]
+        featured_other = Post.objects.filter(featured=True)[6:10]
+        latest = Post.objects.order_by('-timestamp')[0:10]
+        topics = Topic.objects.all().latest('pk')
+        the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
+        comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
+        context= {
+            'object_list': featured,
+            'featured_other': featured_other,
+            'latest': latest,
+            'categories':categories,
+            'topics':topics,
+            'comments':comments,
+           
+      
+        }
+        return render(request, "forti.html", context)
+    
 @xframe_options_exempt
 def test_page_6(request):
     form = LoginForm(request.POST)
