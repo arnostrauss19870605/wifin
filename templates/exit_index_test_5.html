@@ -97,6 +97,7 @@
 					// Lookup utm_medium in the dictionary and set the redirect URL if found
 					if (utmMedium && utmToRedirectMap[utmMedium]) {
 						redirectUrl = utmToRedirectMap[utmMedium];
+						console.log("Redirect URL : ", redirectUrl);
 					}
 			
 					// Append the query string to the redirect URL and navigate to it
