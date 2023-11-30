@@ -30,27 +30,81 @@
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
 
 		<script type="text/javascript">
-			function nextPage() {
-				let queryString = window.location.search;
-				const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+
+				// Data table as a dictionary
+				const utmToRedirectMap = {
+					"NTJ" : "https//cp.fattiengage.com/portal/172.16.255.1",
+					"Lynnwood Bridge" : "https//cp.fattiengage.com/portal/172.18.255.1",
+					"Mall of Africa" : "https//cp.fattiengage.com/portal/172.19.255.1",
+					"Design Quarter" : "https//cp.fattiengage.com/portal/172.22.255.1",
+					"Pan Africa" : "https//cp.fattiengage.com/portal/172.23.255.1",
+					"Brooklyn Mall" : "https//cp.fattiengage.com/portal/172.24.255.1",
+					"Eikestad Mall" : "https//cp.fattiengage.com/portal/172.25.255.1",
+					"Zone Old Mutual" : "https//cp.fattiengage.com/portal/172.30.255.1",
+					"Hillfox Vukeli" : "https//cp.fattiengage.com/portal/172.31.255.1",
+					"Pumulani Old Mutual" : "https//cp.fattiengage.com/portal/10.12.255.1",
+					"Kagiso Old Mutual" : "https//cp.fattiengage.com/portal/10.13.255.1",
+					"Dobsonville Old Mutual" : "https//cp.fattiengage.com/portal/10.14.255.1",
+					"Bedford Mall Old Mutual" : "https//cp.fattiengage.com/portal/10.15.255.1",
+					"Cavendish Mall Old Mutual" : "https//cp.fattiengage.com/portal/10.16.255.1",
+					"Riverdisde Mall Old Mutual" : "https//cp.fattiengage.com/portal/10.17.255.1",
+					"Gateway Mall Old Mutual" : "https//cp.fattiengage.com/portal/10.18.255.1",
+					"Vincent Park Old Mutual" : "https//cp.fattiengage.com/portal/10.19.255.1",
+					"East Rand Mall Vukeli" : "https//cp.fattiengage.com/portal/10.21.255.1",
+					"IPIC Soneike" : "https//cp.fattiengage.com/portal/10.22.255.1",
+					"IPIC Aurora" : "https//cp.fattiengage.com/portal/10.23.255.1",
+					"IPIC Kendrige" : "https//cp.fattiengage.com/portal/10.24.255.1",
+					"IPIC Sonstraal" : "https//cp.fattiengage.com/portal/10.25.255.1",
+					"IPIC Habitat" : "https//cp.fattiengage.com/portal/10.26.255.1",
+					"IPIC Die Boord" : "https//cp.fattiengage.com/portal/10.27.255.1",
+					"IPIC Hermanus" : "https//cp.fattiengage.com/portal/10.28.255.1",
+					"IPIC Vredenburg" : "https//cp.fattiengage.com/portal/10.29.255.1",
+					"Randridge Mall - Vukile" : "https//cp.fattiengage.com/portal/10.30.255.1",
+					"Randburg Square - Vukile" : "https//cp.fattiengage.com/portal/10.31.255.1",
+					"Durban Workshop - Vukile" : "https//cp.fattiengage.com/portal/10.32.255.1",
+					"Kollenade - Vukile" : "https//cp.fattiengage.com/portal/10.33.255.1",
+					"Bloemfontein - Vukile" : "https//cp.fattiengage.com/portal/10.34.255.1",
+					"Atlantis Mall - Vukile" : "https//cp.fattiengage.com/portal/10.35.255.1",
+					"Hammersdale - Vukile" : "https//cp.fattiengage.com/portal/10.36.255.1",
+					"Queenstown - Vukile" : "https//cp.fattiengage.com/portal/10.37.255.1",
+					"Gugulethu - Vukile" : "https//cp.fattiengage.com/portal/10.38.255.1",
+					"Mdatsane - Vukile" : "https//cp.fattiengage.com/portal/10.39.255.1",
+					"Pinecrest - Vukile" : "https//cp.fattiengage.com/portal/10.40.255.1",
+					"Higland Mews - Vukile" : "https//cp.fattiengage.com/portal/10.41.255.1",
+					"Maluti Crest - Vukile" : "https//cp.fattiengage.com/portal/10.42.255.1",
+					"Phoenix - Vukile" : "https//cp.fattiengage.com/portal/10.43.255.1",
+					"Moruleng - Vukile" : "https//cp.fattiengage.com/portal/10.44.255.1",
+					"Castle Gate" : "https//cp.fattiengage.com/portal/10.45.255.1",
+					"Mooirivier" : "https//cp.fattiengage.com/portal/10.46.255.1",
+					"Garden Route" : "https//cp.fattiengage.com/portal/10.47.255.1",
+					"Daveyton Mall - Vukile" : "https//cp.fattiengage.com/portal/10.48.255.1",
+					"Balfour Mall " : "https//cp.fattiengage.com/portal/10.49.255.1",
+					"Zeevenwacht Mall" : "https//cp.fattiengage.com/portal/10.50.255.1",
+					"Liberty Park" : "https//cp.fattiengage.com/portal/10.51.255.1",
+					"Kolonade": "https//cp.fattiengage.com/portal/10.33.255.1",
+					"Castelgate": "https//cp.fattiengage.com/portal/10.45.255.1",
+
+					// ... Add all other mappings here
+				};
 			
-				// Check if queryString is not empty and starts with '?'
-				
-				//if (queryString.length > 0 && queryString[0] === '?') {
-					
-					// Replace the first character ('?') with '&'
-				//	queryString = '&' + queryString.substring(1);
-				//}
+				function nextPage() {
+					let queryString = window.location.search;
+					const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+					let redirectUrl = "https://bobbies.hotspot.yourspot.co.za/lv/login"; // Default redirect URL
 			
-				if (queryString.length === 0) {
-					window.location.replace("https://cp.fattiengage.com/portal/10.45.255.1" + queryString);
-				} else {
-					window.location.replace("https://cp.fattiengage.com/portal/10.45.255.1" + queryString);
+					// Extract utm_medium from the query string
+					const urlParams = new URLSearchParams(queryString);
+					const utmMedium = urlParams.get('utm_medium');
+			
+					// Lookup utm_medium in the dictionary and set the redirect URL if found
+					if (utmMedium && utmToRedirectMap[utmMedium]) {
+						redirectUrl = utmToRedirectMap[utmMedium];
+					}
+			
+					// Append the query string to the redirect URL and navigate to it
+					window.location.replace(redirectUrl + queryString);
 				}
-			}
-			
-            
-        </script>
+		</script>
 
 		<script type="text/javascript">
 			function cancelPage() {
