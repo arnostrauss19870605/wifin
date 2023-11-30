@@ -87,23 +87,21 @@
 					// ... Add all other mappings here
 				};
 			
-				function nextPage() {
-					let queryString = window.location.search;
-					const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
-					let redirectUrl = "https://bobbies.hotspot.yourspot.co.za/lv/login"; // Default redirect URL
-			
-					// Extract utm_medium from the query string
-					const urlParams = new URLSearchParams(queryString);
-					const utmMedium = urlParams.get('utm_medium');
-			
-					// Lookup utm_medium in the dictionary and set the redirect URL if found
-					if (utmMedium && utmToRedirectMap[utmMedium]) {
-						redirectUrl = utmToRedirectMap[utmMedium];
+				function nextPage() 
+					{
+						let queryString = window.location.search;
+						const urlParams = new URLSearchParams(queryString);
+						const utmMedium = urlParams.get('utm_medium');
+						let redirectUrl = "https://bobbies.hotspot.yourspot.co.za/lv/login"; // Default redirect URL
+				
+						// Lookup utm_medium in the dictionary and set the redirect URL if found
+						if (utmMedium && utmToRedirectMap[utmMedium]) {
+							redirectUrl = utmToRedirectMap[utmMedium];
+						}
+				
+						// Append the query string to the redirect URL and navigate to it
+						window.location.replace(redirectUrl + queryString);
 					}
-			
-					// Append the query string to the redirect URL and navigate to it
-					window.location.replace(redirectUrl + queryString);
-				}
 		</script>
 
 		<script type="text/javascript">
