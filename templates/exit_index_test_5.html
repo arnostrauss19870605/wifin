@@ -88,20 +88,20 @@
 				};
 			
 				function nextPage() 
-					{
-						let queryString = window.location.search;
-						const urlParams = new URLSearchParams(queryString);
-						const utmMedium = urlParams.get('utm_medium');
-						let redirectUrl = "https://bobbies.hotspot.yourspot.co.za/lv/login"; // Default redirect URL
-				
-						// Lookup utm_medium in the dictionary and set the redirect URL if found
-						if (utmMedium && utmToRedirectMap[utmMedium]) {
-							redirectUrl = utmToRedirectMap[utmMedium];
-						}
-				
-						// Append the query string to the redirect URL and navigate to it
-						window.location.replace(redirectUrl + queryString);
+				{
+					let queryString = window.location.search;
+					const urlParams = new URLSearchParams(queryString);
+					const utmMedium = urlParams.get('utm_medium');
+					let redirectUrl = "https://bobbies.hotspot.yourspot.co.za/lv/login"; // Default redirect URL
+			
+					// Lookup utm_medium in the dictionary and set the redirect URL if found
+					if (utmMedium && utmToRedirectMap[utmMedium]) {
+						redirectUrl = utmToRedirectMap[utmMedium];
 					}
+			
+					// Append the query string to the redirect URL and navigate to it
+					window.location.replace(redirectUrl + queryString);
+				}
 		</script>
 
 		<script type="text/javascript">
