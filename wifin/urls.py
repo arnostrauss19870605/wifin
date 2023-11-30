@@ -62,7 +62,7 @@ urlpatterns = [
     path('test_page_10/',test_page_10, name="exit-index-test-10"),
 
     #Forti
-    #path('forti/',forti, name="forti"),
+    path('forti/',forti, name="forti"),
 
     path('schedule_task_123456/',test, name="test-page"),
     path('admin/', admin.site.urls),
