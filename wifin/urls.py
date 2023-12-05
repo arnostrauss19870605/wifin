@@ -37,6 +37,7 @@ urlpatterns = [
     path('marketing/',marketing_page, name="Marketing"),
     path('landing_1/',landing_page_1, name="landing-page-1"),
     path('home/',homepage, name="home-page"),
+    path('home_2/',homepage_2, name="home-page-2"),
     path('index/',login_page, name="index-page"),
     path('test/',test, name="test-page"),
     path('consolidate/',consolidate, name="consolidate"),
