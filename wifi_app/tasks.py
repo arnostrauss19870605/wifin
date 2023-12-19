@@ -1,6 +1,6 @@
 from background_task import background
 from background_task.models import Task
-from .models import Registered_User,Country,Domain,Domain_User,Consolidated_Core_Quiz,Core_Quiz,Upload_Interval
+from .models import Registered_User,Country,Domain,Domain_User,Consolidated_Core_Quiz,Core_Quiz,Upload_Interval,Survey_settings
 from logging import getLogger
 import requests, datetime,requests
 from django.shortcuts import  render, redirect, HttpResponse
@@ -15,6 +15,7 @@ import time
 from django.db.models import Q
 from datetime import timedelta
 from django.core.exceptions import ObjectDoesNotExist
+from pprint import pprint
 
 logger = getLogger(__name__)
 current_date = timezone.now()
@@ -280,9 +281,164 @@ def pull_from_captive_portal():
             api = None
 
 
+def pull_survey_answers(): 
 
+    active_surveys = Survey_settings.objects.filter(is_active=True)
+
+    for x in active_surveys:
+
+        if active_surveys:
+            api_key = '38XG46Q3NPM63THRMB9984YJ7V6MY5QQ'
+            api_secret = '47TY45RDHY77DDNNDNNBD7J8RDL97WQ1'
+            domain_api_url = 'http://www.hotspot.yourspot.co.za/'
+            domain_api_endpoint = 'wpsurveyanswersRead'
             
-    #Extract user related to above ID and Update Registrerd User Model
+            pk = x.pk
+            survey_id = x.survey_id
+            domain_id = x.domain_id
+            creation_date = x.creation_date
+           
+            api = RESTfulAPI(domain_api_url, api_key, api_secret)
+
+             # Given string
+            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND user.CreationDate >= \\"{creation_date}\\""}}'
+            
+            # Parse the string as a Python dictionary
+            data_dict = json.loads(data_str)
+
+            # Serialize the dictionary as a JSON string
+            json_data = json.dumps(data_dict)
+
+            endpoint = domain_api_endpoint
+            data = json_data
+
+            json_ret_val = api.api_call(endpoint, data)
+            
+            if "error" in json_ret_val and json_ret_val["error"] != "":
+                print("Error:", json_ret_val["error"])
+            else:
+                if isinstance(json_ret_val, list):
+                    # Process each dictionary in the list
+                    for item in json_ret_val:
+                        creation_date = item['CreationDate']
+                        score = item['Score']
+                        answers = item['answers']
+                        domain_id = item['domain.id']
+                        user_id = item['user.id']
+                        survey_id = item['wpsurvey.id']
+
+       
+                        Core_Quiz.objects.create(
+                            surveyID = survey_id,
+                            insertion_date = creation_date,
+                            hsUsersID = user_id,  
+                            domain_id = domain_id,
+                            q_1 = answers[0],
+                            q_2 = answers[1],
+                            q_3 = answers[2],
+                            q_4 = answers[4],
+                            q_5 = answers[3],
+                            score = score,
+                            # Add other fields as necessary
+                        )
+            x.creation_date = timezone.now()        
+            x.save()
+                    
+        else:
+            # Handle the case when no "Development" domain is found
+            api_key = None
+            api_secret = None
+            domain_api_url = None
+            domain_api_endpoint = None
+            domain_id = None
+            api = None
+
+
+def update_survey_personal_info():
+#def populate_registered_users():
+    core_quiz_users = Core_Quiz.objects.filter(personal_info=False)
+    
+    for y in core_quiz_users:
+        
+        queryset = Core_Quiz.objects.filter(hsUsersID=y.hsUsersID)
+        
+        if queryset.exists():
+            api_key = '38XG46Q3NPM63THRMB9984YJ7V6MY5QQ'
+            api_secret = '47TY45RDHY77DDNNDNNBD7J8RDL97WQ1'
+            url = 'http://www.hotspot.yourspot.co.za/'
+            
+       
+            if core_quiz_users:
+               
+
+                pk = y.pk
+                hs_user_id = y.hsUsersID
+                
+                api = RESTfulAPI(url, api_key, api_secret)
+
+                # Given string
+                data_str_1 = f'{{"id":"{hs_user_id}"}}'
+                
+                # Parse the string as a Python dictionary
+                data_dict_1 = json.loads(data_str_1)
+
+                # Serialize the dictionary as a JSON string
+                json_data_1 = json.dumps(data_dict_1)
+
+                endpoint_1 = 'userRead'
+                data_1 = json_data_1
+                json_ret_val_1 = api.api_call(endpoint_1, data_1)
+                
+        
+                if "error" in json_ret_val_1 and json_ret_val_1["error"] != "":
+                    print("Error:", json_ret_val_1["error"])
+                else:
+
+                    username = json_ret_val_1["UserName"]
+                    first_name = json_ret_val_1["FirstName"]
+                    last_name = json_ret_val_1["LastName"]
+                    email = json_ret_val_1["EmailAddress"]
+                    mobile_phone = json_ret_val_1["MobilePhone"]
+                    address = json_ret_val_1["Address"]
+                    city = json_ret_val_1["City"]
+                    state = json_ret_val_1["State"]
+                    zip = json_ret_val_1["ZIP"]
+                    country = json_ret_val_1["Country"]
+                    gender = json_ret_val_1["Gender"]
+                    year_of_birth = json_ret_val_1["YearOfBirth"]
+                    month_of_birth = json_ret_val_1["MonthOfBirth"]
+                    day_of_birth = json_ret_val_1["DayOfBirth"]
+                    hs_product_id = json_ret_val_1["ProductID"]
+
+
+                    core_quiz_update = Core_Quiz.objects.get(pk=pk)
+                    core_quiz_update.username = username
+                    core_quiz_update.first_name = first_name
+                    core_quiz_update.last_name = last_name
+                    core_quiz_update.email = email
+                    core_quiz_update.mobile_phone = mobile_phone
+                    core_quiz_update.address = address
+                    core_quiz_update.city = city
+                    core_quiz_update.state = state
+                    core_quiz_update.zip = zip
+                    core_quiz_update.country = country
+                    core_quiz_update.gender = gender
+                    core_quiz_update.year_of_birth = year_of_birth
+                    core_quiz_update.month_of_birth = month_of_birth
+                    core_quiz_update.day_of_birth = day_of_birth
+                    core_quiz_update.hs_product_id = hs_product_id
+                    core_quiz_update.personal_info = True
+                    core_quiz_update.save()
+                        
+
+            else:
+                # Handle the case when no "Development" domain is found
+                hs_user_id = None
+                print("Does Not")
+
+
+        
+    return JsonResponse({}, status=302)
 
 @background
 def populate_registered_users():
@@ -424,7 +580,6 @@ def consolidate_quiz_results(id):
         
         result_5 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
 
-
         # ... rest of your function code ...
 
     except ObjectDoesNotExist as e:
@@ -516,10 +671,10 @@ def consolidate_quiz_results(id):
             )
 
 
-@background
+#@background
 def consolidate_quiz():
 
-    unique_ids = Core_Quiz.objects.filter(consolidated=False).values_list('hsUsersID', flat=True).distinct()
+    unique_ids = Core_Quiz.objects.filter(consolidated=False,personal_info=True).values_list('hsUsersID', flat=True).distinct()
     print("The Unique",unique_ids)
     if unique_ids:
         for user_id in unique_ids:
@@ -645,6 +800,120 @@ def push_to_dischem():
     else:
         # Handle the case when the queryset is empty
          pass
+    
+
+def push_to_dripcel():
+    # Filter objects older than 96 hours and haven't been uploaded
+    #data_upload = Consolidated_Core_Quiz.objects.filter(uploaded=False, personal_info=True, upload_required=True)
+    data_upload = Consolidated_Core_Quiz.objects.filter(uploaded=False, upload_required=True)
+
+    #Welcome Tags
+    #GAP: 6572c53c05671e159ae23495
+    #"NowOnline_GAP"
+
+
+    #MI: 6572c414a918866a54580439
+    #"NowOnline_MI"
+
+    for x in data_upload:
+        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7'
+        url = 'https://api.dripcel.com/contacts/single'
+
+        payload = {
+            "country": "ZA",
+            "tags": ["NowOnline_MI"],
+            "welcome_send_campaign_id": "6572c414a918866a54580439",
+            "contact": 
+                {
+                    "cell": x.q_5,
+                    "firstname": x.first_name,
+                    "c1": x.last_name,
+                    "c2": "TEST",
+                    "tags": ["NowOnline_MI"],
+                }
+            
+        }
+
+
+
+        pprint(payload)
+
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+
+        try:
+            response = requests.put(url, json=payload, headers=headers)
+            if response.status_code == 200 :
+                    code_value = response.json().get("Code", "Not Available")  
+                    if code_value == "SUCCESS" :
+                         state_chk = True
+                    else : 
+                         state_chk = False
+                        
+                    the_state = Consolidated_Core_Quiz.objects.get(id = x.pk)
+                    status_code = response.status_code
+                    the_state.uploaded = True
+                    the_state.status_check = state_chk 
+                    the_state.status_descript = f'{status_code} {response.json()}' 
+                    the_state.payload = payload 
+                    the_state.date_uploaded = timezone.localtime(timezone.now())
+                    the_state.save()
+                
+            else : 
+                    code_value = response.json().get("Code", "Not Available")  
+                    if code_value == "SUCCESS" :
+                         state_chk = True
+                    else : 
+                         state_chk = False
+
+                    the_state = Consolidated_Core_Quiz.objects.get(id = x.pk)
+                    status_code = response.status_code
+                    the_state.uploaded = False
+                    the_state.status_descript = f'{status_code}  {response.text}' 
+                    the_state.payload = payload 
+                    the_state.date_uploaded = timezone.localtime(timezone.now())
+                    the_state.save()
+            
+        except requests.exceptions.ConnectionError as e:
+                # Handle network-related errors
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'Connection Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("There was a connection error")
+
+        except requests.exceptions.HTTPError as e:
+                # Handle HTTP errors (e.g., status code is not 2xx)
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'HTTP Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("The request was not successful")
+
+        except requests.exceptions.RequestException as e:
+                # Handle other request-related errors
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'Request Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("There was an error with the request")
+            
+          
+    else:
+        # Handle the case when the queryset is empty
+         pass
+
+
+
 
 
 

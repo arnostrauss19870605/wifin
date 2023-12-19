@@ -251,6 +251,26 @@ class Domain(models.Model):
 
         super(Domain, self).save(*args, **kwargs)
 
+class Survey_settings(models.Model):
+    description =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Description")
+    domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
+    survey_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Survey ID")
+    creation_date = models.DateTimeField(blank=True, null=True,verbose_name = "Creation Date")
+    is_active = models.BooleanField(default=False)
+    date_created = models.DateTimeField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.id} : {self.description} - {self.survey_id} "
+    
+    def save(self, *args, **kwargs):
+        if self.date_created is None:
+            self.date_created = timezone.localtime(timezone.now())
+
+        self.last_updated = timezone.localtime(timezone.now())  
+
+        super(Survey_settings, self).save(*args, **kwargs)
+
 class Domain_User(models.Model):
     user_id =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Description")
     domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
@@ -317,6 +337,9 @@ class Core_Quiz(models.Model):
 
     consolidated = models.BooleanField(default=False)
     date_consolidated = models.DateTimeField(blank=True, null=True,verbose_name = "Date Consolidated")
+    
+    personal_info = models.BooleanField(default=False)
+    domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
 
 
     def __str__(self):

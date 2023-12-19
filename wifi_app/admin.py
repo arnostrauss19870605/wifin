@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval
+from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval,Survey_settings
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -42,6 +42,7 @@ admin.site.register(VoucherType)
 admin.site.register(Activation)
 admin.site.register(Location)
 admin.site.register(Upload_Interval)
+admin.site.register(Survey_settings)
 
 class LogResource(resources.ModelResource):
 
@@ -117,10 +118,8 @@ class DomainUserAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 @admin.register(Core_Quiz)
 class Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display=(
-        'reseller_name',
-        'domain_name',
+        'domain_id',
         'insertion_date',
-        'question_type',
         'hsUsersID',
         'first_name',
         'last_name',
@@ -129,9 +128,11 @@ class Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
         'q_2',
         'q_3',
         'q_4',
+        'q_5',
         'score',
         'consolidated',
-        )
+        'personal_info',
+    )
     
     search_fields = ('insertion_date', 'reseller_name','domain_name','username','first_name','last_name','hsUsersID')
     list_filter = ('date_uploaded','insertion_date', 'reseller_name','domain_name','consolidated')
