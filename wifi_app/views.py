@@ -18,6 +18,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from wifin.local_settings import WIFIN_ROOTING, WIFIN_ROOTING_1
 from django.http import JsonResponse
 from wifi_app.hsnm_1 import RESTfulAPI
+from wifi_app.hsnm import pull_from_captive_portal as hsnm
 #from wifi_app.hsnm import consolidate_quiz_results,push_to_dischem
 from logging import getLogger
 from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel,delete_old_quizzes
@@ -44,7 +45,9 @@ def test(request):
     #delete_old_quizzes()
 
     #consolidate_quiz()
-    push_to_dripcel()
+    #push_to_dripcel()
+
+    #hsnm()
 
     print('calling demo_task. message')
     #demo_task('My Test')

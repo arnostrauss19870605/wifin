@@ -17,6 +17,7 @@ from pprint import pprint
 from .models import Consolidated_Core_Quiz,Core_Quiz,Upload_Interval
 from django.db.models import Q
 from datetime import timedelta
+import csv
 
 class RESTfulAPI:
     
@@ -52,22 +53,26 @@ class RESTfulAPI:
 
 
 def pull_from_captive_portal(): 
+          
+          print("My API")
 
           api_key = '38XG46Q3NPM63THRMB9984YJ7V6MY5QQ'
           api_secret = '47TY45RDHY77DDNNDNNBD7J8RDL97WQ1'
           domain_api_url = 'http://www.hotspot.yourspot.co.za/'
-          domain_api_endpoint = 'wpsurveyFind'
+          domain_api_endpoint = 'wpsurveyanswersRead'
           #domain_api_endpoint = 'wpsurveyRead'
 
        
           domain_id = 2185
-          domain_api_lastdate = '2023-01-01'
+          creation_date = '2023-12-18'
+          survey_id = 1213
           api = RESTfulAPI(domain_api_url, api_key, api_secret)
 
           # Given string
           #data_str = f'{{"Where":"domain.id={domain_id} AND user.CreationDate >= \\"{domain_api_lastdate}\\""}}'
+          data_str = f'{{"Where":"wpsurvey.id={survey_id} AND wpsurveyanswer.CreationDate >= \\"{creation_date}\\""}}'
          
-          data_str = f'{{"Where":"wpsurvey.id={domain_id}"}}'
+          #data_str = f'{{"Where":"wpsurvey.id={domain_id}"}}'
 
           #data_str = f'{{"id":"{domain_id}"}}'
             
@@ -83,10 +88,21 @@ def pull_from_captive_portal():
 
           json_ret_val = api.api_call(endpoint, data)
             
-          if "error" in json_ret_val and json_ret_val["error"] != "":
-            print("Error:", json_ret_val["error"])
-          else:
-            pprint(json_ret_val)
+          pprint(json_ret_val)
+
+        # Save the result to a CSV file
+          csv_file = 'output.csv'
+          try:
+            with open(csv_file, 'w', newline='', encoding='utf-8') as file:
+                if json_ret_val:  # Check if there is data to write
+                    writer = csv.DictWriter(file, fieldnames=json_ret_val[0].keys())
+                    writer.writeheader()
+                    for data in json_ret_val:
+                        writer.writerow(data)
+            print(f"Data successfully written to {csv_file}")
+          except IOError:
+            print("I/O error")
+
 
 def safe_int(value):
     try:
