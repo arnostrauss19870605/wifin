@@ -35,13 +35,13 @@ def test(request):
     #push_to_omnisend()
     
    
-    pull_survey_answers()
+    #pull_survey_answers()
     #time.sleep(10)  # 10 second delay
 
-    update_survey_personal_info()
+    #update_survey_personal_info()
     #time.sleep(10)  # 10 second delay
 
-    #delete_old_quizzes()
+    delete_old_quizzes()
 
     #consolidate_quiz()
     #push_to_dripcel()
