@@ -820,7 +820,7 @@ def push_to_dripcel():
     #"NowOnline_MI"
 
     for x in data_upload:
-        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7---REMOVE--'
+        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7'
         url = 'https://api.dripcel.com/contacts/single'
 
         payload = {
@@ -926,6 +926,7 @@ async def delete_old_quizzes():
 
     # Delete instances in Consolidated_Core_Quiz where date_created is more than one day ago
     await sync_to_async(Consolidated_Core_Quiz.objects.filter(date_consolidated__lt=one_day_ago).delete)()
+
 
 asyncio.run(delete_old_quizzes())
 
