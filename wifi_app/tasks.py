@@ -282,7 +282,7 @@ def pull_from_captive_portal():
             domain_api_lastdate = None
             api = None
 
-#@background
+@background
 def pull_survey_answers(): 
 
     active_surveys = Survey_settings.objects.filter(is_active=True)
@@ -356,7 +356,7 @@ def pull_survey_answers():
             domain_id = None
             api = None
 
-#@background
+@background
 def update_survey_personal_info():
 #def populate_registered_users():
     core_quiz_users = Core_Quiz.objects.filter(personal_info=False)
@@ -674,7 +674,7 @@ def consolidate_quiz_results(id):
             )
 
 
-#@background
+@background
 def consolidate_quiz():
 
     unique_ids = Core_Quiz.objects.filter(consolidated=False,personal_info=True).values_list('hsUsersID', flat=True).distinct()
@@ -707,8 +707,8 @@ def push_to_dischem():
     
     
     for x in data_upload:
-        username = 'NowOnline'
-        password = 'whjTVmYQrJ2v6DFUn5dLGC'
+        username = 'NowOnline---REMOVE--'
+        password = 'whjTVmYQrJ2v6DFUn5dLGC---REMOVE--'
         url = f'https://api.scoutnet.co.za/api/CreateLeads?Username={username}&Password={password}'
     
            
@@ -819,7 +819,7 @@ def push_to_dripcel():
     #"NowOnline_MI"
 
     for x in data_upload:
-        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7'
+        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7---REMOVE--'
         url = 'https://api.dripcel.com/contacts/single'
 
         payload = {
