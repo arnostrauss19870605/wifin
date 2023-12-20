@@ -16,6 +16,7 @@ from django.db.models import Q
 from datetime import timedelta
 from django.core.exceptions import ObjectDoesNotExist
 from pprint import pprint
+from datetime import timedelta
 
 logger = getLogger(__name__)
 current_date = timezone.now()
@@ -280,7 +281,7 @@ def pull_from_captive_portal():
             domain_api_lastdate = None
             api = None
 
-
+#@background
 def pull_survey_answers(): 
 
     active_surveys = Survey_settings.objects.filter(is_active=True)
@@ -302,6 +303,7 @@ def pull_survey_answers():
 
              # Given string
             data_str = f'{{"Where":"wpsurvey.id={survey_id} AND user.CreationDate >= \\"{creation_date}\\""}}'
+            pprint(data_str)
             
             # Parse the string as a Python dictionary
             data_dict = json.loads(data_str)
@@ -353,7 +355,7 @@ def pull_survey_answers():
             domain_id = None
             api = None
 
-
+#@background
 def update_survey_personal_info():
 #def populate_registered_users():
     core_quiz_users = Core_Quiz.objects.filter(personal_info=False)
@@ -682,7 +684,7 @@ def consolidate_quiz():
     else:
         pass
 
-@background
+#@background
 def push_to_dischem():
     
     
@@ -801,7 +803,7 @@ def push_to_dischem():
         # Handle the case when the queryset is empty
          pass
     
-
+@background
 def push_to_dripcel():
     # Filter objects older than 96 hours and haven't been uploaded
     #data_upload = Consolidated_Core_Quiz.objects.filter(uploaded=False, personal_info=True, upload_required=True)
@@ -912,6 +914,16 @@ def push_to_dripcel():
         # Handle the case when the queryset is empty
          pass
 
+@background
+def delete_old_quizzes():
+    # Calculate the time threshold (one day ago from now)
+    one_day_ago = timezone.now() - timedelta(days=1)
+
+    # Delete instances in Core_Quiz where date_created is more than one day ago
+    Core_Quiz.objects.filter(date_imported__lt=one_day_ago).delete()
+
+    # Delete instances in Consolidated_Core_Quiz where date_created is more than one day ago
+    Consolidated_Core_Quiz.objects.filter(date_consolidated__lt=one_day_ago).delete()
 
 
 

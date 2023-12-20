@@ -427,6 +427,9 @@ class Upload_Interval(models.Model):
 
     def __str__(self):
         return f"Set Inerval : {self.interval}"
+    
+
+
    
 
   
