@@ -41,7 +41,7 @@ def test(request):
     update_survey_personal_info()
     #time.sleep(10)  # 10 second delay
 
-    delete_old_quizzes()
+    #delete_old_quizzes()
 
     #consolidate_quiz()
     #push_to_dripcel()
