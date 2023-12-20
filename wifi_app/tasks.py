@@ -304,7 +304,7 @@ def pull_survey_answers():
             api = RESTfulAPI(domain_api_url, api_key, api_secret)
 
              # Given string
-            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND user.CreationDate >= \\"{creation_date}\\""}}'
+            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND wpsurveyanswer.CreationDate >= \\"{creation_date}\\""}}'
             pprint(data_str)
             
             # Parse the string as a Python dictionary
