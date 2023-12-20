@@ -18,6 +18,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from pprint import pprint
 from datetime import timedelta
 from asgiref.sync import sync_to_async
+import asyncio
 
 logger = getLogger(__name__)
 current_date = timezone.now()
@@ -915,7 +916,7 @@ def push_to_dripcel():
         # Handle the case when the queryset is empty
          pass
 
-@background
+#@background
 async def delete_old_quizzes():
     # Calculate the time threshold (one day ago from now)
     one_day_ago = timezone.now() - timedelta(days=1)
@@ -925,6 +926,8 @@ async def delete_old_quizzes():
 
     # Delete instances in Consolidated_Core_Quiz where date_created is more than one day ago
     await sync_to_async(Consolidated_Core_Quiz.objects.filter(date_consolidated__lt=one_day_ago).delete)()
+
+asyncio.run(delete_old_quizzes())
 
 
 
