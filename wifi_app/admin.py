@@ -120,6 +120,8 @@ class Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display=(
         'domain_id',
         'insertion_date',
+        'date_extracted',
+        'date_personal_info',
         'hsUsersID',
         'first_name',
         'last_name',
@@ -140,7 +142,7 @@ class Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 @admin.register(Consolidated_Core_Quiz)
 class Consolidated_Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display=(
-        'reseller_name',
+        
         'insertion_date',
         'hsUsersID',
         'username',
@@ -154,7 +156,7 @@ class Consolidated_Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
         'product',
         )
     
-    search_fields = ('reseller_name','domain_name','username','first_name','last_name')
+    search_fields = ('reseller_name','domain_name','username','first_name','last_name','hsUsersID')
     list_filter = ('insertion_date','date_consolidated', 'reseller_name','domain_name','upload_required','product','uploaded')
 
 

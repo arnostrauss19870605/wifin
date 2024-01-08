@@ -339,7 +339,10 @@ class Core_Quiz(models.Model):
     date_consolidated = models.DateTimeField(blank=True, null=True,verbose_name = "Date Consolidated")
     
     personal_info = models.BooleanField(default=False)
+    date_personal_info = models.DateTimeField(blank=True, null=True,verbose_name = "Date Personal Info Updated")
     domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
+    date_extracted = models.DateTimeField(blank=True, null=True,verbose_name = "Date Extracted From Captive Portal")
+
 
 
     def __str__(self):

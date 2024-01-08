@@ -18,6 +18,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from pprint import pprint
 from datetime import timedelta
 from asgiref.sync import sync_to_async
+import pytz
 import asyncio
 
 logger = getLogger(__name__)
@@ -298,13 +299,17 @@ def pull_survey_answers():
             
             pk = x.pk
             survey_id = x.survey_id
+            
             domain_id = x.domain_id
             creation_date = x.creation_date
+            local_creation_date = timezone.localtime(creation_date)
+           
+           
            
             api = RESTfulAPI(domain_api_url, api_key, api_secret)
 
              # Given string
-            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND wpsurveyanswer.CreationDate >= \\"{creation_date}\\""}}'
+            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND wpsurveyanswer.CreationDate >= \\"{local_creation_date}\\""}}'
             pprint(data_str)
             
             # Parse the string as a Python dictionary
@@ -323,8 +328,7 @@ def pull_survey_answers():
             else:
                 if isinstance(json_ret_val, list):
                     # Process each dictionary in the list
-                    latest_date = timezone.now() 
-
+                    
                     for item in json_ret_val:
                         creation_date = item['CreationDate']
                         score = item['Score']
@@ -345,18 +349,13 @@ def pull_survey_answers():
                             q_4 = answers[4],
                             q_5 = answers[3],
                             score = score,
+                            date_extracted = timezone.localtime(timezone.now())
                             # Add other fields as necessary
                         )
                         # Convert the CreationDate string to a datetime object
                         
-                        try:
-                            creation_date_obj = datetime.strptime(item['CreationDate'], '%Y-%m-%dT%H:%M:%S')
-                            if creation_date_obj > latest_date:
-                                latest_date = creation_date_obj
-                        except (ValueError, KeyError):
-                        # Handle cases where CreationDate is missing or in the wrong format
-                            pass
 
+            latest_date = timezone.localtime(timezone.now())
             x.creation_date = latest_date.strftime('%Y-%m-%dT%H:%M:%S')
             x.save()
         else:
@@ -370,7 +369,7 @@ def pull_survey_answers():
 
 @background
 def update_survey_personal_info():
-#def populate_registered_users():
+
     core_quiz_users = Core_Quiz.objects.filter(personal_info=False)
     
     for y in core_quiz_users:
@@ -443,6 +442,7 @@ def update_survey_personal_info():
                     core_quiz_update.day_of_birth = day_of_birth
                     core_quiz_update.hs_product_id = hs_product_id
                     core_quiz_update.personal_info = True
+                    core_quiz_update.date_personal_info = timezone.localtime(timezone.now())
                     core_quiz_update.save()
                         
 
@@ -816,7 +816,7 @@ def push_to_dischem():
         # Handle the case when the queryset is empty
          pass
     
-@background
+#@background
 def push_to_dripcel():
     # Filter objects older than 96 hours and haven't been uploaded
     #data_upload = Consolidated_Core_Quiz.objects.filter(uploaded=False, personal_info=True, upload_required=True)
@@ -928,18 +928,19 @@ def push_to_dripcel():
          pass
 
 #@background
-#async def delete_old_quizzes():
-#    # Calculate the time threshold (one day ago from now)
-#    one_day_ago = timezone.now() - timedelta(days=1)#
+async def delete_old_quizzes():
+    # Calculate the time threshold (one day ago from now)
+    one_day_ago = timezone.now() - timedelta(days=1)#
 
     # Delete instances in Core_Quiz where date_created is more than one day ago
-#    await sync_to_async(Core_Quiz.objects.filter(date_imported__lt=one_day_ago).delete)()
+    #await sync_to_async(Core_Quiz.objects.filter(date_imported__lt=one_day_ago).delete)()
+    await sync_to_async(Core_Quiz.objects.all().delete)()
 
     # Delete instances in Consolidated_Core_Quiz where date_created is more than one day ago
- #   await sync_to_async(Consolidated_Core_Quiz.objects.filter(date_consolidated__lt=one_day_ago).delete)()
+    #await sync_to_async(Consolidated_Core_Quiz.objects.filter(date_consolidated__lt=one_day_ago).delete)()
+    await sync_to_async(Consolidated_Core_Quiz.objects.all().delete)()
 
-
-#asyncio.run(delete_old_quizzes())
+asyncio.run(delete_old_quizzes())
 
 
 
