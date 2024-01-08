@@ -356,7 +356,7 @@ def pull_survey_answers():
                         
 
             latest_date = timezone.localtime(timezone.now())
-            x.creation_date = latest_date.strftime('%Y-%m-%dT%H:%M:%S')
+            x.creation_date = latest_date
             x.save()
         else:
             # Handle the case when no "Development" domain is found
