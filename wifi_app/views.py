@@ -21,7 +21,7 @@ from wifi_app.hsnm_1 import RESTfulAPI
 from wifi_app.hsnm import pull_from_captive_portal as hsnm
 #from wifi_app.hsnm import consolidate_quiz_results,push_to_dischem
 from logging import getLogger
-from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel,delete_old_quizzes
+from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel
 import json
 from pprint import pprint
 from datetime import datetime
@@ -36,16 +36,16 @@ def test(request):
     #push_to_omnisend()
     
    
-    #pull_survey_answers()
-    #time.sleep(10)  # 10 second delay
+    pull_survey_answers()
+    time.sleep(10)  # 10 second delay
 
     
-    #update_survey_personal_info()
-    #time.sleep(10)  # 10 second delay
+    update_survey_personal_info()
+    time.sleep(10)  # 10 second delay
 
     #delete_old_quizzes()
 
-    #consolidate_quiz()
+    consolidate_quiz()
     #push_to_dripcel()
 
     #hsnm()
