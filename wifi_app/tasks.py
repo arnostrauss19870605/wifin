@@ -816,7 +816,7 @@ def push_to_dischem():
         # Handle the case when the queryset is empty
          pass
     
-#@background
+@background
 def push_to_dripcel():
     # Filter objects older than 96 hours and haven't been uploaded
     #data_upload = Consolidated_Core_Quiz.objects.filter(uploaded=False, personal_info=True, upload_required=True)
