@@ -36,6 +36,7 @@ def test(request):
     #push_to_omnisend()
     
    
+    
     #pull_survey_answers()
     #time.sleep(10)  # 10 second delay
 
@@ -45,8 +46,8 @@ def test(request):
 
     #delete_old_quizzes()
 
-    #consolidate_quiz()
-    push_to_dripcel()
+    consolidate_quiz()
+    #push_to_dripcel()
 
     #hsnm()
 

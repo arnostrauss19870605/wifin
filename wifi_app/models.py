@@ -417,7 +417,7 @@ class Consolidated_Core_Quiz(models.Model):
                     
                     if safe_int(self.q_3) == 6 :
 
-                        if 10 <= safe_int(self.q_4) <= 12 :
+                        if 10 <= safe_int(self.q_5) <= 12 :
                             self.upload_required = True
                             self.product = "Medical Insurance"
                         
