@@ -594,8 +594,10 @@ def consolidate_quiz_results(id):
             raise ObjectDoesNotExist("Result 4 is missing for user with ID: " + str(id))
         
         result_5 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
-
+        
         # ... rest of your function code ...
+
+        
 
     except ObjectDoesNotExist as e:
         # Handle the error or log it
@@ -603,8 +605,10 @@ def consolidate_quiz_results(id):
         # Then exit the function. You can also use `return` if you just want to exit without raising an error.
         return
 
-    
-    if result_5:  # Checks if result_5 is not None
+    if result_4 and len(result_4.q_4) >= 8:
+        contact_number = "0" + result_4.q_4[1:]
+        result_4 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
+    elif result_5:  
         contact_number = "0" + result_5.q_5[1:] 
     elif result_1 and hasattr(result_1, 'mobile_phone'):  # Checks if result_1 is not None and has attribute 'mobile_phone'
         contact_number = "0" + result_1.mobile_phone[4:] 
