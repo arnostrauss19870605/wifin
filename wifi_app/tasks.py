@@ -607,14 +607,17 @@ def consolidate_quiz_results(id):
 
     if result_4 and len(result_4.q_4) >= 8:
         contact_number = "0" + result_4.q_4[1:]
-        result_4 = Core_Quiz.objects.filter(q_5__isnull=False, hsUsersID=id).exclude(q_5='').first()
+        result_4 = result_4.q_5
     elif result_5:  
         contact_number = "0" + result_5.q_5[1:] 
+        result_4 = result_4.q_4
     elif result_1 and hasattr(result_1, 'mobile_phone'):  # Checks if result_1 is not None and has attribute 'mobile_phone'
         contact_number = "0" + result_1.mobile_phone[4:] 
+        result_4 = result_4.q_4
     else:
         # Handle the case where both result_5 is None and result_1 is None or doesn't have 'mobile_phone'
         contact_number = "0000000000"  # Replace with an appropriate default or error handling
+        result_4 = result_4.q_4
     
     if not result_1.first_name:  # checks if it's empty or None
         # Handle the case when first_name is empty or None
@@ -672,7 +675,7 @@ def consolidate_quiz_results(id):
     q_1 =  result_1.q_1,
     q_2 =  result_2.q_2,
     q_3 =  result_3.q_3,
-    q_4 =  result_4.q_4,
+    q_4 =  result_4,
     q_5 =  contact_number,
     score =  safe_int(result_1.score) + safe_int(result_2.score) +safe_int(result_3.score)
 
