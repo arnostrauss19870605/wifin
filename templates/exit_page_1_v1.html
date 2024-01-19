@@ -133,6 +133,11 @@
 		  googletag.enableServices();
 		});
 	  </script>
+
+	     	<!-- Taboola Head Tag) -->
+	{% block taboola_head %}
+	{% include 'taboola/taboola_header.html' %}
+{% endblock taboola_head %}
 	  <!-- End GPT Tag -->
 
 		  
@@ -172,6 +177,12 @@
 					</div>
 					<!-- .slider -->
 
+					
+				<div class="lg_btn" onclick="nextPage()">
+					<p style="color: #FFFFFF; padding: 15px 15px 15px 15px">CLICK HERE TO BROWSE</p>
+				</div>
+        
+
 					<!-- slider -->
 					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1%;">
 						<!-- GPT AdSlot 2 for Ad unit 'wifinews/exit_middle' ### Size: [[728,90],[468,60],'fluid',[300,250],[320,50],[300,50],[320,100],[300,100],[300,600]] -->
@@ -184,10 +195,6 @@
 					</div>
 					<!-- .slider -->
 
-				<div class="lg_btn" onclick="nextPage()">
-					<p style="color: #FFFFFF; padding: 15px 15px 15px 15px">CLICK HERE TO BROWSE</p>
-				</div>
-        
                 <div class="heading-section" style="margin-bottom: 90px;">
 					
                   <div class="sa-title popcat">Popular Reading</div>
