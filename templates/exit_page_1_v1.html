@@ -1,0 +1,145 @@
+{% load static %}
+<html lang="en">
+	<head>
+		
+		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
+		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Wifi News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+        <!-- Slick CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+
+		
+        <!-- Font Awesome Free 5.10.2 CSS JS -->
+        <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+		<script type="text/javascript">
+            function nextPage() {
+                      const queryString = window.location.search;
+                      const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                     
+                      if (queryString.length === 0 ){
+                        //window.location.assign("/interstitial_1/" + queryString );
+						window.location.replace("https://google.co.za");   
+                      }
+                      else {               
+                      //window.location.assign("/interstitial_1/" + queryString ); 
+					  window.location.replace("https://google.co.za");  
+                      }
+              }
+            
+        </script>
+
+		
+	
+		   <!-- Import Library for Gtag -->
+		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+		  <!-- Google Head Tag) -->
+		  {% block google_head %}
+			{% include 'google/head_tags/interstitial_5.html' %}
+		  {% endblock google_head %}
+
+		  <!-- Adtelligent: Ad Exchange -->
+		 <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->
+		  
+	
+		  <style>
+			.first-div {
+				padding-bottom: 20px; /* Adjust the value as needed */
+			}
+		</style>
+	
+
+	  </head>
+	  <div class="centered-container">    
+	  <body>
+
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+            <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+				<div class="first-div">
+					<p>You are now connected to the internet</p>
+				</div>
+				
+			
+				<div class="lg_btn" onclick="nextPage()">
+					<p style="color: #FFFFFF; padding: 15px 15px 15px 15px">PRESS TO ACCESS FREE Wi-fi</p>
+				</div>
+					   
+  
+			</div>
+        
+        <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+            <div class="content-wrap">
+               
+                <!-- slider -->
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 1 -->
+                  {% block google_ad_1 %}
+                    {% include 'google/ad_slots/int_3_ad_1.html' %}
+                  {% endblock google_ad_1 %}
+                  <!-- End AdSlot 1 -->
+                </div>
+        
+        
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 2 -->
+                  {% block google_ad_2 %}
+                    {% include 'google/ad_slots/int_3_ad_2.html' %}
+                  {% endblock google_ad_2 %}
+                  <!-- End AdSlot 2 -->
+                </div>
+        
+                <div class="heading-section" style="margin-bottom: 90px;">
+					
+                  <div class="sa-title popcat">Popular Reading</div>
+                  <div class="heading-info">
+                    <!-- Taboola Slot -->
+                    {% block taboola %}
+                      {% include 'taboola/taboola.html' %}
+                    {% endblock taboola %}
+                    <!-- End Taboola Slot -->
+                  </div>
+                </div>
+        
+              
+        
+              <!-- STICKY -->
+              <div class="sticky-element">
+                   <!-- GPT AdSlot 3 -->
+                {% block google_ad_3 %}
+                   {% include 'google/ad_slots/int_3_ad_3.html' %}
+                {% endblock google_ad_3 %}
+                 <!-- End AdSlot 3 -->
+              </div>
+              <!-- END STICKY -->
+        
+            </div>
+          </div> 
+               
+
+
+
+	  </body>
+	</div>
+
+  
+	</html>
+

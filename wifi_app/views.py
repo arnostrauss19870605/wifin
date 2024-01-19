@@ -540,7 +540,7 @@ def exit_page_1(request):
     else :
        
         try :
-            return render(request, 'exit_page_1.html')
+            return render(request, 'exit_page_1_v1.html')
           
         except Exception:
                 
