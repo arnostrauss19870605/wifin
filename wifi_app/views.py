@@ -590,6 +590,18 @@ def exit_page_2(request):
         return render(request, 'exit_page_2.html', context)
     
 @xframe_options_exempt
+def search_engine(request):
+    
+   
+    if request.method == "POST":
+       
+       return redirect('exit-index') 
+   
+    else :
+  
+        return render(request, 'search_engine.html')
+    
+@xframe_options_exempt
 def exit_index(request):
     form = LoginForm(request.POST)
     
