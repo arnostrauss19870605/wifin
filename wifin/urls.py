@@ -51,7 +51,9 @@ urlpatterns = [
     path('cancel/',cancel_index, name="cancel_index"),
     path('cancel_2/',cancel_index_2, name="cancel_index_2"),
 
+    path('exit_1_v1/',exit_page_1_htmx, name="htmx"),
     path('search/',search_engine, name="search_enigine"),
+    path('load-content/', load_content, name='load-content'),
 
     path('test_page_1/',test_page_1, name="exit-index-test-1"),
     path('test_page_2/',test_page_2, name="exit-index-test-2"),

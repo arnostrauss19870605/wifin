@@ -564,7 +564,22 @@ def exit_page_1(request):
                 
             pass
 
-       
+
+@xframe_options_exempt          
+def exit_page_1_htmx(request):
+    
+   
+    if request.method == "GET":
+      
+        try :
+                   
+            return render(request, 'exit_page_1_v2.html')
+          
+        except Exception:
+                
+            pass
+
+
 @xframe_options_exempt
 def exit_page_2(request):
     form = LoginForm(request.POST)
@@ -600,7 +615,10 @@ def search_engine(request):
     else :
   
         return render(request, 'search_engine.html')
-    
+
+def load_content(request):
+    return render(request, 'test_1.html')  # Replace 'your_template.html' with your HTML file
+
 @xframe_options_exempt
 def exit_index(request):
     form = LoginForm(request.POST)

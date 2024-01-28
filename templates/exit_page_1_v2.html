@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
 
-		
+		<script src="{% static 'js/htmx.min.js'  %}" ></script>
         <!-- Font Awesome Free 5.10.2 CSS JS -->
         <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
         <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
@@ -134,11 +134,6 @@
 		});
 	  </script>
 
-	     	<!-- Taboola Head Tag) -->
-	{% block taboola_head %}
-	{% include 'taboola/taboola_header.html' %}
-{% endblock taboola_head %}
-	  <!-- End GPT Tag -->
 
 		  
 	
@@ -162,7 +157,7 @@
 		</div>
         
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
-            <div class="content-wrap">
+            <div class="content-wrap" >
                
 					<!-- slider -->
 					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1px; margin-bottom: 1%;">
@@ -176,9 +171,10 @@
 					</div>
 					<!-- .slider -->
 
-					
-					<div class="lg_btn" onclick="nextPage()" >
-						<p style="color: #FFFFFF; padding: 15px 15px 15px 15px">CLICK HERE TO BROWSE</p>
+					<div id="replace">
+						<div hx-get="/load-content/" hx-target="#replace" hx-trigger="click" class="lg_btn">
+							<p style="color: #FFFFFF; padding: 15px 15px 15px 15px">CLICK HERE TO BROWSE</p>
+						</div>
 					</div>
 			
 
