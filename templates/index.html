@@ -179,7 +179,7 @@
 			}
 			ul.timeline:before {
 				content: ' ';
-				background: #2450a6;
+				background: #3333;
 				display: inline-block;
 				position: absolute;
 				left: 29px;
@@ -197,7 +197,7 @@
 				display: inline-block;
 				position: absolute;
 				border-radius: 50%;
-				border: 3px solid #FF4644;
+				border: 3px solid #333;
 				left: 20px;
 				width: 20px;
 				height: 20px;
@@ -384,7 +384,7 @@
 				
 
 					<!-- section 2 -->
-					<div class="heading-section">
+					<div class="heading-section" style="margin-top: 2%;">
 						<div class="sa-title popcat">Have Your Say! </div>
 						<div class="heading-info">
 							With all the happenings in out country, good and bad, we have created a forum where you can have your say and discuss these matters with others in your comunity in an open public form.
@@ -409,7 +409,10 @@
 										{% endfor %}
 										
 									</ul>
-									<fbutton type="submit" class="red_button">HAVE YOUR SAY!</fbutton>
+									
+									<div class="lg_btn" >
+										<fbutton type="submit" class="red_button">HAVE YOUR SAY!</fbutton>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -430,7 +433,7 @@
 
 
 					<!-- section 2 -->
-					<div class="heading-section">
+					<div class="heading-section" style="margin-top: 2%;">
 						<div class="sa-title popcat">Featured Articles </div>
 						<div class="heading-info">
 							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
@@ -444,15 +447,16 @@
 							<!-- item -->
 							{% for featured in object_list %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #333;">
+								<div class="acr-box" style="border: 3px solid #333;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
-										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
+										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;color:#000000;">
 											
 											<div class="acr-content" style="background-color: #ffff;padding : 1px;" >
 												
-												<div  class="heading-section" >
+												<div class="heading-section"style="background-color: #ffff;">
 													<div class="sa-title popcat">{{ featured.title }} </div>
+													
 													<div  >
 													
 															<span style = "color:#000000;" >
@@ -475,7 +479,7 @@
 						<div class="default-carousel car-carousel" style="margin-top:20px;">
 							{% for featured in featured_other %}
 							<div class="item" >
-								<div class="acr-box" style="border: 2px solid #000080;">
+								<div class="acr-box" style="border: 3px solid #000080;">
 									<div class="acr-box-in" style="background-color: #ffff">
 										
 										<a href="{% url 'post' featured.slug %}" class="theme-button" style="background-color: #ffff;">
@@ -519,7 +523,7 @@
 					<!-- .slider -->						
 
 					<!-- section 1 -->
-					<div class="heading-section">
+					<div class="heading-section"  style="margin-top: 1%;">
 						<div class="sa-title popcat" style="color:#333 ">About Us </div>
 						<div class="heading-info">
 							<p>Our mission objective is to connect the unconnected to the internet. The way in which we intend to achieve this is by providing free and low costs Wi-Fi to the masses. 	</p>
@@ -546,7 +550,7 @@
 					
 		<!-- section 3 -->
 				
-		<div class="heading-section" style="margin-bottom: 90px;">
+		<div class="heading-section" style="margin-bottom: 90px;margin-top:2%;">
 			<div class="sa-title popcat">Popular Reading</div>
 			<div class="heading-info">
                 <!-- Taboola Slot -->
