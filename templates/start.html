@@ -191,7 +191,7 @@
 			 
 		  <!-- Google Head Tag) -->
 		  {% block google_head %}
-			  {% include 'google/head_tags/interstitial_3.html' %}
+			  {% include 'google/head_tags/landing.html' %}
 		  {% endblock google_head %}
 
       	<!-- Taboola Head Tag) -->
@@ -226,6 +226,7 @@
 			<input type="button" class="btn" id="grantCloseBtn" value="Close" onclick="nextPage()" />
 		  </div>
 		</div>
+    
 		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
               <div id="noticeTxt" class="timer-text">View these ads for </div>
@@ -245,7 +246,7 @@
                 <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
                   <!-- GPT AdSlot 1 -->
                   {% block google_ad_1 %}
-                    {% include 'google/ad_slots/int_3_ad_1.html' %}
+                  {% include 'google/ad_slots/20240201/landing_ad_1.html' %}
                   {% endblock google_ad_1 %}
                   <!-- End AdSlot 1 -->
                 </div>
@@ -254,7 +255,7 @@
                 <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 5px;">
                   <!-- GPT AdSlot 2 -->
                   {% block google_ad_2 %}
-                    {% include 'google/ad_slots/int_3_ad_2.html' %}
+                  {% include 'google/ad_slots/20240201/landing_ad_2.html' %}
                   {% endblock google_ad_2 %}
                   <!-- End AdSlot 2 -->
                 </div>
@@ -277,7 +278,7 @@
               <div class="sticky-element">
                    <!-- GPT AdSlot 3 -->
                 {% block google_ad_3 %}
-                   {% include 'google/ad_slots/int_3_ad_3.html' %}
+                {% include 'google/ad_slots/20240201/landing_sticky.html' %}
                 {% endblock google_ad_3 %}
                  <!-- End AdSlot 3 -->
               </div>
