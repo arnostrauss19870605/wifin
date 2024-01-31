@@ -215,16 +215,24 @@
             <div class="content-wrap">
                
 					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1px; margin-bottom: 1%;">
-						<!-- GPT AdSlot 1 for Ad unit 'wifinews/exit_top' ### Size: [[728,90],[468,60],'fluid',[320,50],[300,50],[320,100],[300,100],[300,250]] -->
-						<div id='div-gpt-ad-5958200-1'>
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-5958200-1'); });
-							</script>
-						</div>
+					<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+						<!-- GPT AdSlot 1 -->
+						{% block google_ad_1 %}
+						  {% include 'google/ad_slots/20240201/exit_1_ad_1.html' %}
+						{% endblock google_ad_1 %}
 						<!-- End AdSlot 1 -->
-					</div>
+					  </div>
 					<!-- .slider -->
+
+					<!-- slider -->
+					<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+						<!-- GPT AdSlot 2 -->
+						{% block google_ad_2 %}
+						  {% include 'google/ad_slots/20240201/exit_1_ad_2.html' %}
+						{% endblock google_ad_2 %}
+						<!-- End AdSlot 2 -->
+					  </div>
+					<!-- .slider -->					
 
 					
 					<div class="lg_btn" onclick="nextPage()" >
@@ -233,18 +241,24 @@
 			
 
 					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1%;">
-						<!-- GPT AdSlot 2 for Ad unit 'wifinews/exit_middle' ### Size: [[728,90],[468,60],'fluid',[300,250],[320,50],[300,50],[320,100],[300,100],[300,600]] -->
-						<div id='div-gpt-ad-5958200-2' >
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-5958200-2'); });
-							</script>
-						</div>
-						<!-- End AdSlot 2 -->
-					</div>
+					<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+						<!-- GPT AdSlot 3 -->
+						{% block google_ad_3 %}
+						  {% include 'google/ad_slots/20240201/exit_1_ad_3.html' %}
+						{% endblock google_ad_1 %}
+						<!-- End AdSlot 3 -->
+					  </div>
 					<!-- .slider -->
 
-                
+					<!-- slider -->
+					<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+						<!-- GPT AdSlot 4 -->
+						{% block google_ad_4 %}
+						  {% include 'google/ad_slots/20240201/exit_1_ad_4.html' %}
+						{% endblock google_ad_4 %}
+						<!-- End AdSlot 4 -->
+					  </div>
+					<!-- .slider -->                
 					
                 
                 
@@ -262,13 +276,15 @@
 
 			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: sticky; bottom: 30px;">
 	  
-				<!-- GPT AdSlot 4 for Ad unit 'wifinews/articles_sticky' ### Size: [[728,90],[468,60],'fluid',[320,50],[300,50],[320,100],[300,100]] -->
-				<div id='div-gpt-ad-5958200-4'>
-					<script>
-					googletag.cmd.push(function() { googletag.display('div-gpt-ad-5958200-4'); });
-					</script>
-				</div>
-				<!-- End AdSlot 4 -->
+					<!-- slider -->
+					<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+						<!-- GPT AdSlot Sticky -->
+						{% block google_ad_5 %}
+						  {% include 'google/ad_slots/20240201/exit_1_sticky.html' %}
+						{% endblock google_ad_5 %}
+						<!-- End AdSlot 1 -->
+					  </div>
+					<!-- .slider -->
 			</div>
 
 		<!-- END STICKY -->
