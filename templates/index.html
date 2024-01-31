@@ -35,90 +35,16 @@
 	  <!-- Adtelligent: Ad Exchange -->
 	  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script>
   	  <!--END Ad Exchange -->
+		   
+	  <!-- Import Library for Gtag -->
 
-	  <!-- Google tag (gtag.js) --> 
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
-	<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7X2TTB6954'); </script>
-
-
-       <!-- Start GPT Tag -->
-	   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
-       <script>
-		window.googletag = window.googletag || {cmd: []};
-	  
-	  const queryValues = window.location.search;
-			  const urlParams = new URLSearchParams(queryValues);
-			  
-			  var utm_medium = "NULL"
-			  if (urlParams.has('utm_medium') === true){
-		
-				  utm_medium = urlParams.get('utm_medium');
-				  console.log("Utm Medium does exisit as :" ,utm_medium );
-		
-			  } else {
-				console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
-		
-			  }
-		googletag.cmd.push(function() {
-		  var mapping1 = googletag.sizeMapping()
-								  .addSize([1400, 0], [[728, 90], 'fluid'])
-								  .addSize([1200, 0], [[728, 90], 'fluid'])
-								  .addSize([1000, 0], [[728, 90], 'fluid'])
-								  .addSize([700, 0], [[468, 60], [320, 50], [300, 50], 'fluid', [300, 250], [320, 100], [300, 100]])
-								  .addSize([600, 0], [[468, 60], [320, 50], [300, 50], 'fluid', [300, 100], [320, 100], [300, 250]])
-								  .addSize([400, 0], [[320, 50], [300, 50], 'fluid', [320, 100], [300, 250], [300, 100]])
-								  .addSize([300, 0], [[320, 50], [300, 250], [320, 100], [300, 50], [300, 100], 'fluid'])
-								  .build();
-	  
-			 var mapping3 = googletag.sizeMapping()
-								  .addSize([1400, 0], ['fluid', [728, 90], [300, 250], [300, 600], [468, 60]])
-								  .addSize([1200, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
-								  .addSize([1000, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
-								  .addSize([700, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .addSize([600, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .addSize([400, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .addSize([300, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .build();
-	  
-		  var mapping4 = googletag.sizeMapping()
-								  .addSize([1400, 0], [[728, 90], 'fluid'])
-								  .addSize([1200, 0], [[728, 90], 'fluid'])
-								  .addSize([1000, 0], [[728, 90], 'fluid'])
-								  .addSize([700, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .addSize([600, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .addSize([400, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .addSize([300, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .build();
-	  
-		  googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,50],[320,100],[300,100],'fluid',[300,250],[728,90],[468,60]], 'div-gpt-ad-4338359-1')
-				   .defineSizeMapping(mapping1)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,50],[320,100],[300,100],[300,250],[300,600],[728,90],[468,60],'fluid'], 'div-gpt-ad-4338359-2')
-				   .defineSizeMapping(mapping3)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[300,50],[320,100],[300,100],[300,250],[300,600],[728,90],[468,60],'fluid'], 'div-gpt-ad-4338359-3')
-				   .defineSizeMapping(mapping3)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[728,90],[468,60],[320,50],[300,50],[320,100],[300,100],'fluid'], 'div-gpt-ad-4338359-4')
-				   .defineSizeMapping(mapping4)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/Homepage_bottom_1', [[468,60],'fluid',[320,50],[300,50],[320,100],[300,100],[300,250],[728,90]], 'div-gpt-ad-4338359-5')
-				   .defineSizeMapping(mapping1)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/Homepage_bottom_2', [[728,90],[468,60],'fluid',[320,50],[300,50],[320,100],[300,100],[300,250]], 'div-gpt-ad-4338359-6')
-				   .defineSizeMapping(mapping1)
-				   .addService(googletag.pubads());
-
-			
-	  
-		  googletag.pubads().enableSingleRequest();
-		  googletag.pubads().setTargeting('Medium', [utm_medium]);
-		  googletag.pubads().collapseEmptyDivs();
-		  googletag.pubads().setCentering(true);
-		  googletag.enableServices();
-		});
-	  </script>
-	  <!-- End GPT Tag -->
+		   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+	
+		   <!-- Google Head Tag) -->
+		   {% block google_head %}
+			   {% include 'google/head_tags/20240201/home.html' %}
+		   {% endblock google_head %}	
 	  
    
 	<!-- Taboola Head Tag) -->
@@ -357,29 +283,25 @@
      
 			<div id="content"  style="padding-top: 0%; padding-bottom: 0px;">
 				<div class="content-wrap">
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
-						<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[300,50],[320,100],[300,100],'fluid',[300,250],[728,90],[468,60]] -->
-						<div id='div-gpt-ad-4338359-1'>
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-4338359-1'); });
-							</script>
-						</div>
-						<!-- End AdSlot 1 -->
-					</div>
-					<!-- .slider -->
+				<!-- slider -->
+				<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+					<!-- GPT AdSlot 1 -->
+					{% block google_ad_1 %}
+					  {% include 'google/ad_slots/20240201/home_ad_1.html' %}
+					{% endblock google_ad_1 %}
+					<!-- End AdSlot 1 -->
+				  </div>
+				<!-- .slider -->
 
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1%;">
-						<!-- GPT AdSlot 2 for Ad unit 'wifinews/homepage_mpu_hpa' ### Size: [[320,50],[300,50],[320,100],[300,100],[300,250],[300,600],[728,90],[468,60],'fluid'] -->
-						<div id='div-gpt-ad-4338359-2'>
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-4338359-2'); });
-							</script>
-						</div>
-						<!-- End AdSlot 2 -->
-					</div>
-					<!-- .slider -->
+				<!-- slider -->
+				<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+					<!-- GPT AdSlot 1 -->
+					{% block google_ad_2 %}
+					  {% include 'google/ad_slots/20240201/home_ad_2.html' %}
+					{% endblock google_ad_2 %}
+					<!-- End AdSlot 1 -->
+				  </div>
+				<!-- .slider -->
 					
 				
 
@@ -418,18 +340,15 @@
 						</div>
 					</div>
 				
-					
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1%;">
-						<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_mpu_hpa_2' ### Size: [[320,50],[300,50],[320,100],[300,100],[300,250],[300,600],[728,90],[468,60],'fluid'] -->
-						<div id='div-gpt-ad-4338359-3'>
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-4338359-3'); });
-							</script>
-						</div>
-						<!-- End AdSlot 3 -->
-					</div>
-					<!-- .slider -->	
+				<!-- slider -->
+				<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+					<!-- GPT AdSlot 1 -->
+					{% block google_ad_3 %}
+					  {% include 'google/ad_slots/20240201/home_ad_3.html' %}
+					{% endblock google_ad_3 %}
+					<!-- End AdSlot 1 -->
+				  </div>
+				<!-- .slider -->
 
 
 					<!-- section 2 -->
@@ -509,18 +428,15 @@
 						<!-- .section 2-->
 					
 
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1%;">
-
-						<!-- GPT AdSlot 5 for Ad unit 'wifinews/Homepage_bottom_1' ### Size: [[468,60],'fluid',[320,50],[300,50],[320,100],[300,100],[300,250],[728,90]] -->
-						<div id='div-gpt-ad-4338359-5'>
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-4338359-5'); });
-							</script>
-						</div>
-						<!-- End AdSlot 5 -->
-					</div>
-					<!-- .slider -->						
+				<!-- slider -->
+				<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+					<!-- GPT AdSlot 1 -->
+					{% block google_ad_4 %}
+					  {% include 'google/ad_slots/20240201/home_ad_4.html' %}
+					{% endblock google_ad_4 %}
+					<!-- End AdSlot 1 -->
+				  </div>
+				<!-- .slider -->					
 
 					<!-- section 1 -->
 					<div class="heading-section"  style="margin-top: 1%;">
@@ -534,18 +450,16 @@
 					</div>
 					
 					<!-- .section 1 -->	
-					
-					<!-- slider -->
-					<div style="padding-top: 0%; padding-bottom: 0px; margin-top: 1%;">
-						<!-- GPT AdSlot 6 for Ad unit 'wifinews/Homepage_bottom_2' ### Size: [[728,90],[468,60],'fluid',[320,50],[300,50],[320,100],[300,100],[300,250]] -->
-						<div id='div-gpt-ad-4338359-6'>
-							<script>
-							googletag.cmd.push(function() { googletag.display('div-gpt-ad-4338359-6'); });
-							</script>
-						</div>
-						<!-- End AdSlot 6 -->
-					</div>
-					<!-- .slider -->	
+
+				<!-- slider -->
+				<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+					<!-- GPT AdSlot 1 -->
+					{% block google_ad_5 %}
+					  {% include 'google/ad_slots/20240201/home_ad_5.html' %}
+					{% endblock google_ad_5 %}
+					<!-- End AdSlot 1 -->
+				  </div>
+				<!-- .slider -->
 					
 					
 		<!-- section 3 -->
@@ -582,11 +496,15 @@
           <!-- STICKY -->
           <div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: sticky; bottom: 30px;">
 			<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[728,90],[468,60],[320,50],[300,50],[320,100],[300,100],'fluid'] -->
-			<div id='div-gpt-ad-4338359-4'>
-				<script>
-				googletag.cmd.push(function() { googletag.display('div-gpt-ad-4338359-4'); });
-				</script>
-			</div>
+				<!-- slider -->
+				<div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+					<!-- GPT AdSlot 1 -->
+					{% block google_ad_1 %}
+					  {% include 'google/ad_slots/20240201/home_sticky.html' %}
+					{% endblock google_ad_1 %}
+					<!-- End AdSlot 1 -->
+				  </div>
+				<!-- .slider -->
 	      </div>
 	   <!-- END STICKY -->
 
