@@ -49,93 +49,15 @@
 		
 	
 		   <!-- Import Library for Gtag -->
-		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+		   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
 			 
-<!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7X2TTB6954'); </script>
-
-	<!-- Start GPT Tag -->
-	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
-
-
-	<script>
-		window.googletag = window.googletag || {cmd: []};
-	  
-			  
-			  const queryValues = window.location.search;
-			  const urlParams = new URLSearchParams(queryValues);
-			  
-			  var utm_medium = "NULL"
-			  if (urlParams.has('utm_medium') === true){
-		
-				  utm_medium = urlParams.get('utm_medium');
-				  console.log("Utm Medium does exisit as :" ,utm_medium );
-		
-			  } else {
-				console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
-		
-			  }
-		googletag.cmd.push(function() {
-		  var mapping1 = googletag.sizeMapping()
-								  .addSize([1400, 0], [[728, 90], 'fluid'])
-								  .addSize([1200, 0], [[728, 90], 'fluid'])
-								  .addSize([1000, 0], [[728, 90], 'fluid'])
-								  .addSize([700, 0], [[468, 60], [320, 50], [300, 50], 'fluid', [300, 250], [320, 100], [300, 100]])
-								  .addSize([600, 0], [[468, 60], [320, 50], [300, 50], 'fluid', [300, 100], [320, 100], [300, 250]])
-								  .addSize([400, 0], [[320, 50], [300, 50], 'fluid', [320, 100], [300, 250], [300, 100]])
-								  .addSize([300, 0], [[320, 50], [300, 250], [320, 100], [300, 50], [300, 100], 'fluid'])
-								  .build();
-	  
-			 var mapping3 = googletag.sizeMapping()
-								  .addSize([1400, 0], ['fluid', [728, 90], [300, 250], [300, 600], [468, 60]])
-								  .addSize([1200, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
-								  .addSize([1000, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
-								  .addSize([700, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .addSize([600, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .addSize([400, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .addSize([300, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
-								  .build();
-	  
-		  var mapping4 = googletag.sizeMapping()
-								  .addSize([1400, 0], [[728, 90], 'fluid'])
-								  .addSize([1200, 0], [[728, 90], 'fluid'])
-								  .addSize([1000, 0], [[728, 90], 'fluid'])
-								  .addSize([700, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .addSize([600, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .addSize([400, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .addSize([300, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100]])
-								  .build();
-	  
-		  googletag.defineSlot('/22047902240/wifinews/exit_top', [[728,90],[468,60],'fluid',[320,50],[300,50],[320,100],[300,100],[300,250]], 'div-gpt-ad-5958200-1')
-				   .defineSizeMapping(mapping1)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/exit_middle', [[728,90],[468,60],'fluid',[300,250],[320,50],[300,50],[320,100],[300,100],[300,600]], 'div-gpt-ad-5958200-2')
-				   .defineSizeMapping(mapping3)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/exit_middle2', [[728,90],[468,60],'fluid',[300,250],[320,50],[300,50],[320,100],[300,100],[300,600]], 'div-gpt-ad-5958200-3')
-				   .defineSizeMapping(mapping3)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/exit_sticky', [[728,90],[468,60],'fluid',[320,50],[300,50],[320,100],[300,100]], 'div-gpt-ad-5958200-4')
-				   .defineSizeMapping(mapping4)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/exit_bottom1', [[728,90],[468,60],'fluid',[300,250],[320,50],[300,50],[320,100],[300,100]], 'div-gpt-ad-5958200-5')
-				   .defineSizeMapping(mapping1)
-				   .addService(googletag.pubads());
-		  googletag.defineSlot('/22047902240/wifinews/exit_bottom2', [[728,90],[468,60],'fluid',[300,250],[320,50],[300,50],[320,100],[300,100]], 'div-gpt-ad-5958200-6')
-				   .defineSizeMapping(mapping1)
-				   .addService(googletag.pubads());
-	  
-		  googletag.pubads().enableSingleRequest();
-		  googletag.pubads().setTargeting('Medium', [utm_medium]);
-		  googletag.pubads().collapseEmptyDivs();
-		  googletag.pubads().setCentering(true);
-		  googletag.enableServices();
-		});
-	  </script>
-	  
-
-	  <script>
+	
+		   <!-- Google Head Tag) -->
+		   {% block google_head %}
+			   {% include 'google/head_tags/20240201/exit_1.html' %}
+		   {% endblock google_head %}	 
+		   
+		 <script>
 		googletag = window.googletag || {cmd: []};
 		googletag.cmd.push(() => {
 		
