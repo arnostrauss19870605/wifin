@@ -1,0 +1,46 @@
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7X2TTB6954"></script>
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7X2TTB6954'); </script>
+
+
+<!-- Start GPT Tag -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+
+  const queryValues = window.location.search;
+  const urlParams = new URLSearchParams(queryValues);
+  var utm_medium = "NULL"
+  if (urlParams.has('utm_medium') === true){
+          utm_medium = urlParams.get('utm_medium');
+          console.log("Utm Medium does exisit as :" ,utm_medium );
+      } else {
+        console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
+      }
+
+      googletag.cmd.push(function() {
+        var mapping3 = googletag.sizeMapping()
+                                  .addSize([1400, 0], ['fluid', [728, 90], [300, 250], [300, 600], [468, 60]])
+                                  .addSize([1200, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
+                                  .addSize([1000, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
+                                  .addSize([700, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+                                  .addSize([600, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+                                  .addSize([400, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+                                  .addSize([300, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+                                  .build();
+      
+      
+          googletag.defineSlot('/22047902240/wifinews/cancel_middle300x250', ['fluid',[300,250],[300,600],[320,50],[320,100],[468,60],[728,90]], 'div-gpt-ad-7923782-1')
+                   .defineSizeMapping(mapping3)
+                   .addService(googletag.pubads());
+          googletag.defineSlot('/22047902240/wifinews/cancel_top300x250', ['fluid',[300,250],[300,600],[320,50],[320,100],[468,60],[728,90]], 'div-gpt-ad-7923782-2')
+                   .defineSizeMapping(mapping3)
+                   .addService(googletag.pubads());
+      
+          googletag.pubads().enableSingleRequest();
+          googletag.pubads().setTargeting('Medium', [utm_medium]);
+          googletag.pubads().collapseEmptyDivs();
+          googletag.pubads().setCentering(true);
+          googletag.enableServices();
+        });
+      </script>
+      <!-- End GPT Tag -->
