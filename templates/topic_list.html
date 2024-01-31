@@ -54,79 +54,45 @@
 
 
         googletag.cmd.push(function() {
-            var mapping1 = googletag.sizeMapping()
-                            .addSize([1400, 0], [[728, 90], 'fluid'])
-                            .addSize([1200, 0], [[728, 90], 'fluid'])
-                            .addSize([1000, 0], [[728, 90], 'fluid'])
-                            .addSize([700, 0], [[468, 60], 'fluid'])
-                            .addSize([600, 0], [[468, 60], 'fluid'])
-                            .addSize([300, 0], [[320, 50], [300, 100], [300, 250], 'fluid'])
-                            .addSize([0, 0], [[0, 0]])
-                            .build();
-
-			var mapping2 = googletag.sizeMapping()
-									.addSize([1400, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-									.addSize([1200, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-									.addSize([1000, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-									.addSize([700, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-									.addSize([600, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-									.addSize([300, 0], [[320, 480], [300, 250], [300, 600], 'fluid'])
-									.addSize([0, 0], [[0, 0]])
-									.build();
-
+			var mapping1 = googletag.sizeMapping()
+									  .addSize([1400, 0], [[728, 90], 'fluid'])
+									  .addSize([1200, 0], [[728, 90], 'fluid'])
+									  .addSize([1000, 0], [[728, 90], 'fluid'])
+									  .addSize([700, 0], [[468, 60], [320, 50], [300, 50], 'fluid', [300, 250], [320, 100], [300, 100]])
+									  .addSize([600, 0], [[468, 60], [320, 50], [300, 50], 'fluid', [300, 100], [320, 100], [300, 250]])
+									  .addSize([400, 0], [[320, 50], [300, 50], 'fluid', [320, 100], [300, 250], [300, 100]])
+									  .addSize([300, 0], [[320, 50], [300, 250], [320, 100], [300, 50], [300, 100], 'fluid'])
+									  .build();
+		  
 			var mapping3 = googletag.sizeMapping()
-									.addSize([1400, 0], [[300, 250], [300, 600], [728, 90], 'fluid'])
-									.addSize([1200, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-									.addSize([1000, 0], [[728, 90], [300, 250], [300, 600], 'fluid'])
-									.addSize([700, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-									.addSize([600, 0], [[468, 60], [300, 250], [300, 600], 'fluid'])
-									.addSize([300, 0], [[320, 50], [320, 100], [300, 250], [300, 600], 'fluid'])
-									.addSize([0, 0], [[0, 0]])
-									.build();
-
-			var mapping4 = googletag.sizeMapping()
-									.addSize([1400, 0], [[728, 90], 'fluid'])
-									.addSize([1200, 0], [[728, 90], 'fluid'])
-									.addSize([1000, 0], [[728, 90], 'fluid'])
-									.addSize([700, 0], [[468, 60], 'fluid'])
-									.addSize([600, 0], [[468, 60], 'fluid'])
-									.addSize([300, 0], [[320, 50], 'fluid'])
-									.addSize([0, 0], [[0, 0]])
-									.build();
-   // Configure slot-level targeting.
-					   googletag.defineSlot('/22047902240/wifinews/homepage_top_leaderboard', [[320,50],[300,100],[300,250],[468,60],[728,90],'fluid'], 'div-gpt-ad-8904840-1')
-								.defineSizeMapping(mapping1)
-								.addService(googletag.pubads())
-								.setTargeting('Medium', [utm_medium]);
-					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa', [[320,50],[300,250],[300,600],[468,60],[728,90],[320,100],'fluid'],'div-gpt-ad-8904840-2')
-								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads())
-								.setTargeting('Medium', [utm_medium]);
-					   googletag.defineSlot('/22047902240/wifinews/homepage_mpu_hpa_2', [[320,50],[300,250],[300,600],[320,100],[468,60],[728,90],'fluid'],  'div-gpt-ad-8904840-3')
-								.defineSizeMapping(mapping3)
-								.addService(googletag.pubads())
-								.setTargeting('Medium', [utm_medium]);
-					   googletag.defineSlot('/22047902240/wifinews/homepage_sticky', [[320,50],[468,60],[728,90],'fluid'],'div-gpt-ad-8904840-4')
-								.defineSizeMapping(mapping4)
-								.addService(googletag.pubads())
-								.setTargeting('Medium', [utm_medium]);
-
-
-	  // Configure page-level targeting.	
-		googletag.pubads().setTargeting('Medium', [utm_medium]);
-  	
-		// Enable SRA and services.
-		googletag.pubads().enableSingleRequest();
-		googletag.pubads().collapseEmptyDivs();
-		googletag.pubads().setCentering(true);
-		
-		googletag.enableServices();
-		console.log("The UTM Medium value is : " + [utm_medium]);
-
-
-        });
-        </script>
-        <!-- End GPT Tag -->
+									  .addSize([1400, 0], ['fluid', [728, 90], [300, 250], [300, 600], [468, 60]])
+									  .addSize([1200, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
+									  .addSize([1000, 0], ['fluid', [728, 90], [468, 60], [300, 250], [300, 600]])
+									  .addSize([700, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+									  .addSize([600, 0], ['fluid', [468, 60], [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+									  .addSize([400, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+									  .addSize([300, 0], ['fluid', [320, 50], [300, 50], [320, 100], [300, 100], [300, 250], [300, 600]])
+									  .build();
+		  
+		  
+			  googletag.defineSlot('/22047902240/wifinews/topics_top320x50', ['fluid',[300,250],[320,50],[320,100],[468,60],[728,90]], 'div-gpt-ad-7313400-1')
+					   .defineSizeMapping(mapping1)
+					   .addService(googletag.pubads());
+			  googletag.defineSlot('/22047902240/wifinews/topics_top300x250', ['fluid',[300,250],[300,600],[320,50],[320,100],[468,60],[728,90]], 'div-gpt-ad-7313400-2')
+					   .defineSizeMapping(mapping3)
+					   .addService(googletag.pubads());
+			  googletag.defineSlot('/22047902240/wifinews/topics_middle300x250', ['fluid',[300,250],[300,600],[320,50],[320,100],[468,60],[728,90]], 'div-gpt-ad-7313400-3')
+					   .defineSizeMapping(mapping3)
+					   .addService(googletag.pubads());
+		  
+			  googletag.pubads().enableSingleRequest();
+			  googletag.pubads().setTargeting('Medium', [utm_medium]);
+			  googletag.pubads().collapseEmptyDivs();
+			  googletag.pubads().setCentering(true);
+			  googletag.enableServices();
+			});
+		  </script>
+		  <!-- End GPT Tag -->
 
 		<!-- Google tag (gtag.js) -->
 			 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154258676-1"></script>
@@ -265,12 +231,11 @@
 					<div >
 						<div>
 							<!-- GPT AdSlot 1 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-                            <div id='div-gpt-ad-8904840-1' style="margin-top: 70px; margin-bottom: 20px;">
-                            <script>
-                               
-                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-1'); });
-                            </script>
-                            </div>
+							<div id='div-gpt-ad-7313400-1'>
+								<script>
+								  googletag.cmd.push(function() { googletag.display('div-gpt-ad-7313400-1'); });
+								</script>
+							  </div>
                             <!-- End AdSlot 1 -->
 						</div>
 						
@@ -308,14 +273,11 @@
 							<div>
 								
 								<!-- GPT AdSlot 3 for Ad unit 'wifinews/homepage_top_leaderboard' ### Size: [[320,50],[728,90],[300,250],[468,60],'fluid'] -->
-								<div id='div-gpt-ad-8904840-3' style="margin-top: 20px; margin-bottom: 20px;">
-									
-								<script>
-								   
-									googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-3'); });
-								</script>
-								
-							</div>
+								<div id='div-gpt-ad-7313400-2'>
+									<script>
+									  googletag.cmd.push(function() { googletag.display('div-gpt-ad-7313400-2'); });
+									</script>
+								  </div>
 								<!-- End AdSlot 3 -->
 							</div>
 							
@@ -365,11 +327,11 @@
 			<div style="text-align: center; margin: 0 auto; z-index:100; left: 0; right: 0; position: fixed; bottom: 30px;">
 				  
 				<!-- GPT AdSlot 4 for Ad unit 'wifinews/homepage_sticky' ### Size: [[320,50],[728,90],[468,60],'fluid'] -->
-				<div id='div-gpt-ad-8904840-4' style="margin-bottom: 0px;">
+				<div id='div-gpt-ad-7313400-3'>
 					<script>
-						googletag.cmd.push(function() { googletag.display('div-gpt-ad-8904840-4'); });
+					  googletag.cmd.push(function() { googletag.display('div-gpt-ad-7313400-3'); });
 					</script>
-				</div>
+				  </div>
 				
 		
 			</div>
