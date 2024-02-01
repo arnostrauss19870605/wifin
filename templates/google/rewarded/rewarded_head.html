@@ -1,0 +1,59 @@
+<script>
+    googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(() => {
+    
+    const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+      rewardedSlot.setForceSafeFrame(true);
+    
+      googletag.pubads().enableAsyncRendering();
+      googletag.enableServices();
+      
+      googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+        
+        const makeVisibleFn = (e) => {
+        
+          clearInterval(timerInterval);
+          
+          evt.makeRewardedVisible();
+          e.preventDefault();
+          
+          watchAdButton.removeEventListener('click', makeVisibleFn);
+          
+          noThanksButton.removeEventListener('click', closeModalFn);
+          trigger.style.display = 'none';
+        };
+
+
+        const trigger = document.getElementById('rewardModal');
+        trigger.style.display = 'block';
+        clearInterval(timerInterval);
+        const watchAdButton = document.getElementById('watchAdBtn');
+        watchAdButton.addEventListener('click', makeVisibleFn);
+        
+        const noThanksButton = document.getElementById('noThanksBtn');
+        const closeModalFn = () => {
+          const trigger = document.getElementById('rewardModal');
+          trigger.style.display = 'none';
+          cancelPage();
+        googletag.destroySlots([rewardedSlot]);
+        };
+        
+        noThanksButton.addEventListener('click', closeModalFn);
+      });
+
+       googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+        googletag.destroySlots([rewardedSlot]);
+        window.location.replace("/search/");   
+
+          });
+      googletag.display(rewardedSlot);
+    });
+  </script>
+
+  <script>
+    function showAlert() {
+      alert('This is an alert message!');
+    }
+
+    showAlert()
+    </script>

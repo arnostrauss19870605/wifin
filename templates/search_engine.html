@@ -74,6 +74,10 @@
 			  {% include 'google/head_tags/20240201/search.html' %}
 		  {% endblock google_head %}
 
+		   	<!-- Google Rewarded Tag) -->
+		   {% block google_reward %}
+			   {% include 'google/rewarded/rewarded_head.html' %}
+		   {% endblock google_reward %}	
 
 		  <!-- Adtelligent: Ad Exchange -->
 		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
@@ -284,7 +288,10 @@
 
 <div class="centered-container">    
 	  <body>
-		
+				<!-- Google Rewarded Body Tag) -->
+		   {% block google_body %}
+			   {% include 'google/rewarded/rewarded_body.html' %}
+		   {% endblock google_body %}	
    
               
          
