@@ -46,7 +46,18 @@
         googletag.destroySlots([rewardedSlot]);
         nextPage(); 
 
-          });
+          });googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+            const slot = event.slot;
+            console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+            //location.reload();
+            cancelPage();
+            if (slot === targetSlot) {
+              // Slot specific logic.
+            }
+            });
+  
+
+
       googletag.display(rewardedSlot);
     });
   </script>
