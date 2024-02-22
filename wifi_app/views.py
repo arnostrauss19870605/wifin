@@ -1102,3 +1102,24 @@ def comment_detail_optout(request, pk):
 
 
     return render(request, 'comment_detail_oo.html',{'comment':the_comment, 'form':form})
+
+
+def game_page_1(request):
+    
+    if request.method == "POST":
+       
+       return redirect('exit-index') 
+   
+    else :
+  
+        return render(request, 'game_page_1.html')
+    
+def game_page_2(request):
+    
+    if request.method == "POST":
+       
+       return redirect('exit-index') 
+   
+    else :
+  
+        return render(request, 'search_engine.html')

@@ -66,6 +66,10 @@ urlpatterns = [
     path('test_page_9/',test_page_9, name="exit-index-test-9"),
     path('test_page_10/',test_page_10, name="exit-index-test-10"),
 
+    #Game Pages
+    path('game_page_1/',game_page_1, name="game-page-1"),
+    path('game_page_2/',game_page_2, name="game-page-2"),
+
     #Forti
     path('forti/',forti, name="forti"),
 
