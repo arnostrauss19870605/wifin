@@ -1122,4 +1122,4 @@ def game_page_2(request):
    
     else :
   
-        return render(request, 'search_engine.html')
+        return render(request, 'game_page_1.html')
