@@ -131,9 +131,8 @@ def login_page(request):
             }
             return render(request, "exit_index.html", context)
              
-@xframe_options_exempt
-def landing_page(request):
 
+def landing_page(request):
            
     if request.method == "POST" :
         # create a form instance and populate it with data from the request:
@@ -615,6 +614,19 @@ def search_engine(request):
     else :
   
         return render(request, 'search_engine.html')
+    
+
+@xframe_options_exempt
+def my_test(request):
+    
+   
+    if request.method == "POST":
+       
+       return redirect('exit-index') 
+   
+    else :
+  
+        return render(request, 'my_test.html')
 
 def load_content(request):
     return render(request, 'test_1.html')  # Replace 'your_template.html' with your HTML file

@@ -1,0 +1,229 @@
+{% load static %}
+<html lang="en">
+	<head>
+		
+		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
+		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Wifi News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+        <!-- Slick CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+
+		
+        <!-- Font Awesome Free 5.10.2 CSS JS -->
+        <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+		<script type="text/javascript">
+            function nextPage() {
+                      const queryString = window.location.search;
+                      const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                     
+                      if (queryString.length === 0 ){
+                        window.location.assign("/home/" + queryString ); 
+						console.log("Next PAge Function Triggered");
+                      }
+                      else {               
+                      window.location.assign("/home/" + queryString ); 
+					  console.log("Next PAge Function Triggered");
+                      }
+              }
+            
+        </script>
+
+        <script type="text/javascript">
+          function cancelPage() {
+                    const queryString = window.location.search;
+                    const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                   
+                    if (queryString.length === 0 ){
+                      window.location.assign("/cancel/" + queryString ); 
+                      
+                    }
+                    else {               
+                    window.location.assign("/cancel/" + queryString ); 
+                    
+                    }
+            }
+          
+      </script>
+
+
+
+        <script type="text/javascript">
+          function addSeconds(numOfSeconds, date = new Date()) {
+            date.setSeconds(date.getSeconds() + numOfSeconds);
+            return date;
+        }
+        
+        let timerInterval;
+        
+        function firstTimer() {
+          const noticeTxt = document.getElementById("noticeTxt");
+          const noticeTxt2 = document.getElementById("noticeTxt2");
+          const noticeTxt3 = document.getElementById("noticeTxt3");
+          const noticeTxt4 = document.getElementById("noticeTxt4");
+          const timerLine = document.getElementById("timerLine");
+      
+          const totalTime = 35;
+          const futuretime = addSeconds(totalTime);
+      
+          function updateTimer() {
+              const timeleft = Math.floor((futuretime - new Date()) / 1000);
+      
+              if (timeleft <= 0) {
+                  clearInterval(timerInterval);
+                  noticeTxt.style.display = "none";
+                  noticeTxt2.style.display = "none";
+                  noticeTxt3.style.display = "none";
+                  noticeTxt4.style.display = "inherit";
+                  timerLine.style.width = '0%';
+                  nextPage();
+              } else {
+                  noticeTxt.style.display = "inherit";
+                  noticeTxt2.innerHTML = timeleft + " seconds";
+                  noticeTxt3.style.display = "block";
+                  const percentage = (timeleft / totalTime) * 100;
+                  timerLine.style.width = percentage + '%';
+              }
+          }
+      
+          updateTimer();
+          timerInterval = setInterval(updateTimer, 1000);
+      }
+      
+        </script>
+
+
+
+
+		   <!-- Import Library for Gtag -->
+		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+		  <!-- Google Head Tag) -->
+		  {% block google_head %}
+			  {% include 'google/head_tags/20240201/landing.html' %}
+		  {% endblock google_head %}
+
+      	<!-- Taboola Head Tag) -->
+      {% block taboola_head %}
+        {% include 'taboola/taboola_header.html' %}
+      {% endblock taboola_head %}
+
+
+		  <!-- Adtelligent: Ad Exchange -->
+		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->	
+
+
+	
+
+	  </head>
+
+<div class="centered-container">    
+	  <body>
+		<div id="rewardModal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+        <p>To get free Wi-fi you need to watch these ads</p>
+        <input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
+        <input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
+        <p>I don't want Free Wi-fi and will remain on this page.</p>
+    </div>
+		</div>
+		<div id="grantModal" class="modal">
+		  <div class="modal-content">
+			<p id="grantParagraph"> </p>
+			<input type="button" class="btn" id="grantCloseBtn" value="Close" onclick="nextPage()" />
+		  </div>
+		</div>
+    
+		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+            <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+              <div id="noticeTxt" class="timer-text">View these ads for </div>
+              <div id="noticeTxt2" class="timer-text"></div>
+              <div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
+              <div class="timer-line-container">
+              <div class="timer-line" id="timerLine"></div>
+              </div>
+                <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+
+              </div>
+        
+        <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
+            <div class="content-wrap">
+               
+                <!-- slider -->
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 1 -->
+                  {% block google_ad_1 %}
+                  {% include 'google/ad_slots/20240201/landing_ad_1.html' %}
+                  {% endblock google_ad_1 %}
+                  <!-- End AdSlot 1 -->
+                </div>
+        
+        
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 5px;">
+                  <!-- GPT AdSlot 2 -->
+                  {% block google_ad_2 %}
+                  {% include 'google/ad_slots/20240201/landing_ad_2.html' %}
+                  {% endblock google_ad_2 %}
+                  <!-- End AdSlot 2 -->
+                </div>
+        
+                <div class="heading-section" style="margin-top: 5px;margin-bottom: 90px;">
+                  <div class="sa-title popcat">Popular Reading</div>
+                  <div class="heading-info">
+                    <!-- Taboola Slot -->
+                    {% block taboola %}
+                      {% include 'taboola/taboola.html' %}
+                    {% endblock taboola %}
+                    <!-- End Taboola Slot -->
+                  </div>
+                </div>
+        
+        
+              
+        
+              <!-- STICKY -->
+              <div class="sticky-element">
+                   <!-- GPT AdSlot 3 -->
+                {% block google_ad_3 %}
+                {% include 'google/ad_slots/20240201/landing_sticky.html' %}
+                {% endblock google_ad_3 %}
+                 <!-- End AdSlot 3 -->
+              </div>
+              <!-- END STICKY -->
+        
+            </div>
+          </div> 
+               
+
+
+
+	  </body>
+
+</div>    
+	  <script type = "text/javascript">
+		firstTimer();
+ 
+	</script>
+
+			  
+  
+	</html>
