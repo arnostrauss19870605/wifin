@@ -31,15 +31,15 @@
 
 		<script type="text/javascript">
             function nextPage() {
-                      const queryString = window.location.search;
+                      const queryString_1 = window.location.search;
                       const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
                      
-                      if (queryString.length === 0 ){
-                        window.location.assign("/home/" + queryString ); 
+                      if (queryString_1.length === 0 ){
+                        window.location.assign("/home/" + queryString_1 ); 
 						console.log("Next PAge Function Triggered");
                       }
                       else {               
-                      window.location.assign("/home/" + queryString ); 
+                      window.location.assign("/home/" + queryString_1 ); 
 					  console.log("Next PAge Function Triggered");
                       }
               }
