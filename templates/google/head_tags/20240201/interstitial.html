@@ -7,11 +7,11 @@
 <script>
   window.googletag = window.googletag || {cmd: []};
 
-  const queryValues = window.location.search;
-  const urlParams = new URLSearchParams(queryValues);
+  const my_queryValues = window.location.search;
+  const my_urlParams = new URLSearchParams(my_queryValues);
   var utm_medium = "NULL"
-  if (urlParams.has('utm_medium') === true){
-          utm_medium = urlParams.get('utm_medium');
+  if (my_urlParams.has('utm_medium') === true){
+          utm_medium = my_urlParams.get('utm_medium');
           console.log("Utm Medium does exisit as :" ,utm_medium );
       } else {
         console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
