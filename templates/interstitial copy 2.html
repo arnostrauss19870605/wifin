@@ -35,101 +35,102 @@
                       const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
                      
                       if (queryString.length === 0 ){
-                        window.location.assign("/home/" + queryString ); 
-						console.log("Next PAge Function Triggered");
+                        //window.location.assign("/interstitial_1/" + queryString );
+						window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
                       }
                       else {               
-                      window.location.assign("/home/" + queryString ); 
-					  console.log("Next PAge Function Triggered");
+                      //window.location.assign("/interstitial_1/" + queryString ); 
+					  window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");  
                       }
               }
             
         </script>
 
-        <script type="text/javascript">
-          function cancelPage() {
-                    const queryString = window.location.search;
-                    const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
-                   
-                    if (queryString.length === 0 ){
-                      window.location.assign("/cancel/" + queryString ); 
-                      
-                    }
-                    else {               
-                    window.location.assign("/cancel/" + queryString ); 
-                    
-                    }
-            }
-          
-      </script>
+		<script type="text/javascript">
+			function cancelPage() {
+					  const queryString = window.location.search;
+					  const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+					 
+					  if (queryString.length === 0 ){
+						window.location.assign("/cancel_2/" + queryString ); 
+						
+					  }
+					  else {               
+					  window.location.assign("/cancel_2/" + queryString ); 
+					  
+					  }
+			  }
+			
+		</script>
+
+		
 
 
-
-        <script type="text/javascript">
-          function addSeconds(numOfSeconds, date = new Date()) {
-            date.setSeconds(date.getSeconds() + numOfSeconds);
-            return date;
-        }
-        
-        let timerInterval;
-        
-        function firstTimer() {
-          const noticeTxt = document.getElementById("noticeTxt");
-          const noticeTxt2 = document.getElementById("noticeTxt2");
-          const noticeTxt3 = document.getElementById("noticeTxt3");
-          const noticeTxt4 = document.getElementById("noticeTxt4");
-          const timerLine = document.getElementById("timerLine");
-      
-          const totalTime = 35;
-          const futuretime = addSeconds(totalTime);
-      
-          function updateTimer() {
-              const timeleft = Math.floor((futuretime - new Date()) / 1000);
-      
-              if (timeleft <= 0) {
-                  clearInterval(timerInterval);
-                  noticeTxt.style.display = "none";
-                  noticeTxt2.style.display = "none";
-                  noticeTxt3.style.display = "none";
-                  noticeTxt4.style.display = "inherit";
-                  timerLine.style.width = '0%';
-                  nextPage();
-              } else {
-                  noticeTxt.style.display = "inherit";
-                  noticeTxt2.innerHTML = timeleft + " seconds";
-                  noticeTxt3.style.display = "block";
-                  const percentage = (timeleft / totalTime) * 100;
-                  timerLine.style.width = percentage + '%';
-              }
-          }
-      
-          updateTimer();
-          timerInterval = setInterval(updateTimer, 1000);
-      }
-      
+        <script type = "text/javascript">
+            
+			function addSeconds(numOfSeconds, date = new Date()) {
+				date.setSeconds(date.getSeconds() + numOfSeconds);
+				return date;
+			}
+			
+			let timerInterval;
+			
+			function firstTimer(){
+				
+				const noticeTxt2 = document.getElementById("noticeTxt2");
+				
+				const noticeTxt4 = document.getElementById("noticeTxt4");
+				const timerLine = document.getElementById("timerLine");
+			
+				const totalTime = 20;
+				const futuretime = addSeconds(totalTime);
+			
+				function updateTimer() {
+					const timeleft = Math.floor((futuretime - new Date()) / 1000);
+			
+					if (timeleft <= 0) {
+						clearInterval(timerInterval);
+						
+						noticeTxt2.style.display = "none";
+						
+						noticeTxt4.style.display = "inherit";
+						timerLine.style.width = '0%';
+						nextPage();
+					} else {
+					
+						noticeTxt2.innerHTML = timeleft + " seconds";
+					
+						const percentage = (timeleft / totalTime) * 100;
+						timerLine.style.width = percentage + '%';
+					}
+				}
+			
+				updateTimer();
+				timerInterval = setInterval(updateTimer, 1000);
+			}
         </script>
 
 		<script>
 			googletag = window.googletag || {cmd: []};
-      const queryValues = window.location.search;
-      const urlParams = new URLSearchParams(queryValues);
-      var utm_medium = "NULL"
-      if (urlParams.has('utm_medium') === true){
-            utm_medium = urlParams.get('utm_medium');
-            console.log("Utm Medium does exisit as :" ,utm_medium );
-        } else {
-          console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
-        }
+			const queryValues = window.location.search;
+			const urlParams = new URLSearchParams(queryValues);
+			var utm_medium = "NULL"
+			if (urlParams.has('utm_medium') === true){
+				  utm_medium = urlParams.get('utm_medium');
+				  console.log("Utm Medium does exisit as :" ,utm_medium );
+			  } else {
+				console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
+			  }
+			  
 			googletag.cmd.push(() => {
 			
 			const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
 			  rewardedSlot.setForceSafeFrame(true);
 			
-        googletag.pubads().setTargeting("utm_medium", [utm_medium]);
+			  googletag.pubads().setTargeting("utm_medium", [utm_medium]);
 			  googletag.pubads().enableAsyncRendering();
 			  googletag.enableServices();
-
-	
+			  
 			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
 				
 				const makeVisibleFn = (e) => {
@@ -142,12 +143,7 @@
 				  watchAdButton.removeEventListener('click', makeVisibleFn);
 				  
 				  noThanksButton.removeEventListener('click', closeModalFn);
-				  
 				  trigger.style.display = 'none';
-
-				// Call your custom function to handle modal closed event
-				//handleModalClosed();
-
 				};
 
 
@@ -161,114 +157,105 @@
 				const closeModalFn = () => {
 				  const trigger = document.getElementById('rewardModal');
 				  trigger.style.display = 'none';
-				  cancelPage();
-				  //location.reload();
-			      googletag.destroySlots([rewardedSlot]);
+				cancelPage();
+				googletag.destroySlots([rewardedSlot]);
 				};
 				
 				noThanksButton.addEventListener('click', closeModalFn);
-			
 			  });
 
 			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
-         console.log("Rewarded Add Granted Event");
-				 googletag.destroySlots([rewardedSlot]);
-				 nextPage() ;
+				googletag.destroySlots([rewardedSlot]);
+				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
    
 		  		});
 
-				
-          googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+				  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
 					const slot = event.slot;
 					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
 					//location.reload();
-          cancelPage();
+					cancelPage();
 					if (slot === targetSlot) {
 					  // Slot specific logic.
 					}
 				  });
-
 
 			  googletag.display(rewardedSlot);
 			});
 		  </script>
 
 
-
-
+	
 		   <!-- Import Library for Gtag -->
 		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
 			 
 		  <!-- Google Head Tag) 
-
-      -->
-
-      	<!-- Taboola Head Tag) -->
-      {% block taboola_head %}
-        {% include 'taboola/taboola_header.html' %}
-      {% endblock taboola_head %}
-
+		  {% block google_head %}
+			{% include 'google/head_tags/20240201/interstitial.html' %}
+		  {% endblock google_head %}
+		  -->
 
 		  <!-- Adtelligent: Ad Exchange -->
-		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
-		  <!--END Ad Exchange -->	
-
-
+		 <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->
+		  
 	
 
-	  </head>
 
-<div class="centered-container">    
+	  </head>
+	  <div class="centered-container">  
 	  <body>
 		<div id="rewardModal" class="modal">
 		  <!-- Modal content -->
 		  <div class="modal-content">
-        <p>To get free Wi-fi you need to watch these ads</p>
-        <input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
-        <input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
-        <p>I don't want Free Wi-fi and will remain on this page.</p>
-    </div>
+			<p>To get free Wi-fi you need to watch these ads</p>
+			<input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
+			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
+			<p>I don't want Free Wi-fi and will remain on this page.</p>
+		  </div>
 		</div>
 		<div id="grantModal" class="modal">
 		  <div class="modal-content">
 			<p id="grantParagraph"> </p>
-			<input type="button" class="btn" id="grantCloseBtn" value="Close" onclick="nextPage()" />
+			<input type="button" class="btn" id="grantCloseBtn" value="Close" />
 		  </div>
 		</div>
-    
 		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
-              <div id="noticeTxt" class="timer-text">View these ads for </div>
-              <div id="noticeTxt2" class="timer-text"></div>
-              <div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
-              <div class="timer-line-container">
-              <div class="timer-line" id="timerLine"></div>
-              </div>
-                <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
-
-              </div>
+				<div id="noticeTxt" class="timer-text">View these ads for </div>
+				<div id="noticeTxt2" class="timer-text"></div>
+				<div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
+				<div class="timer-line-container">
+				<div class="timer-line" id="timerLine"></div>
+				</div>
+				  <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+  
+				</div>
         
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
             <div class="content-wrap">
                
                 <!-- slider -->
                 <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
-                  <!-- GPT AdSlot 1
-           
-                -->
-
-                             <!-- End AdSlot 1 -->
+                  <!-- GPT AdSlot 1 
+                  {% block google_ad_1 %}
+                    {% include 'google/ad_slots/20240201/interstitial_ad_1.html' %}
+                  {% endblock google_ad_1 %}
+				  -->
+                  <!-- End AdSlot 1 -->
                 </div>
         
         
-                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 5px;">
-                  <!-- GPT AdSlot 2
-                
-                   -->
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  <!-- GPT AdSlot 2 
+                  {% block google_ad_2 %}
+				  {% include 'google/ad_slots/20240201/interstitial_ad_2.html' %}
+                  {% endblock google_ad_2 %}
+				  -->
                   <!-- End AdSlot 2 -->
                 </div>
         
-                <div class="heading-section" style="margin-top: 5px;margin-bottom: 90px;">
+                <div class="heading-section" style="margin-bottom: 90px;">
                   <div class="sa-title popcat">Popular Reading</div>
                   <div class="heading-info">
                     <!-- Taboola Slot -->
@@ -279,14 +266,15 @@
                   </div>
                 </div>
         
-        
               
         
               <!-- STICKY -->
               <div class="sticky-element">
                    <!-- GPT AdSlot 3 
-
-                -->
+                {% block google_ad_3 %}
+				{% include 'google/ad_slots/20240201/interstitial_sticky.html' %}
+                {% endblock google_ad_3 %}
+				-->
                  <!-- End AdSlot 3 -->
               </div>
               <!-- END STICKY -->
@@ -298,13 +286,25 @@
 
 
 	  </body>
-
-</div>    
+	</div>
 	  <script type = "text/javascript">
 		firstTimer();
- 
+		
 	</script>
-
-			  
   
 	</html>
+	`
+	</div>
+	
+	
+	
+	</div>
+				</div>
+			</div>
+		  </div>
+	
+		</div>
+	</div>
+	</div>
+	
+</html>
