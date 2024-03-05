@@ -1149,6 +1149,19 @@ def sms_webhook(request):
                 # Assuming sms_received_meta is a JSONField or similar. You may need to serialize message_request if it's not already in a suitable format.
                 quiz_instance.sms_received_meta = str(message_request)
                 quiz_instance.save()
+
+                if 'yes' in incoming_msg.lower():
+                    response_message = "Thank you, you can expect a call from Dischem Health shortly."
+                else:
+                    response_message = "Thank you, you hvae opted out and we will not be contacting you."
+            
+                # Start our TwiML response
+                resp = MessagingResponse()
+
+                # Determine the right reply for this message
+                resp.message(response_message)
+
+
             else:
                 print(f"SMS already received for quiz instance ID {quiz_instance.id}. No update performed.")
 
@@ -1159,13 +1172,7 @@ def sms_webhook(request):
         except Exception as e:
             # Log any other exceptions
             Webhook_log(detail=str(e)).save()
-            print(f"An error occurred: {str(e)}")
-        
-        # Start our TwiML response
-        resp = MessagingResponse()
-
-        # Determine the right reply for this message
-        resp.message("Thanks for sending us a message!")
+            print(f"An error occurred: {str(e)}")        
 
         return HttpResponse(str(resp), content_type="application/xml")
     
