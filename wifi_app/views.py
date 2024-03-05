@@ -1155,7 +1155,7 @@ def sms_webhook(request):
                     quiz_instance.save()
                     response_message = "Thank you, you can expect a call from Dischem Health shortly."
                 else:
-                    response_message = "Thank you, you hvae opted out and we will not be contacting you."
+                    response_message = "Thank you, you have opted out and Dischem Health will not be contacting you."
             
                 # Start our TwiML response
                 resp = MessagingResponse()
