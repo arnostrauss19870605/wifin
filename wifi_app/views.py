@@ -35,7 +35,7 @@ from vouchers.sms import *
 
 def test(request):
 
-    send_lead_sms('0726124698','Arno','')
+    send_lead_sms('0726124698','Arno','35737')
     #pull_from_captive_portal()
     #populate_registered_users()
     #push_to_omnisend()
