@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval,Survey_settings
+from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval,Survey_settings,Webhook_log
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -43,6 +43,7 @@ admin.site.register(Activation)
 admin.site.register(Location)
 admin.site.register(Upload_Interval)
 admin.site.register(Survey_settings)
+admin.site.register(Webhook_log)
 
 class LogResource(resources.ModelResource):
 
