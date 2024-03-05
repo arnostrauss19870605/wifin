@@ -1139,7 +1139,7 @@ def sms_webhook(request):
         
         try:
             # Look up the corresponding instance in Consolidated_Core_Quiz
-            quiz_instance = Consolidated_Core_Quiz.objects.get(q_4=local_sending_number)
+            quiz_instance = Consolidated_Core_Quiz.objects.filter(q_4=local_sending_number).first()
             print(f"Found quiz instance for number {local_sending_number}: {quiz_instance.id}")
             
             if not quiz_instance.sms_received_date:
