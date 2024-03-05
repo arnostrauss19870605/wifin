@@ -26,11 +26,16 @@ import json
 from pprint import pprint
 from datetime import datetime
 import time
+from django.http import HttpResponse
+from twilio.twiml.messaging_response import MessagingResponse
+from vouchers.sms import *
 
 
 # Create your views here.
 
 def test(request):
+
+    send_lead_sms('0726124698')
     #pull_from_captive_portal()
     #populate_registered_users()
     #push_to_omnisend()
@@ -46,7 +51,7 @@ def test(request):
 
     #delete_old_quizzes()
 
-    consolidate_quiz()
+    #consolidate_quiz()
     #push_to_dripcel()
 
     #hsnm()
@@ -1114,6 +1119,23 @@ def comment_detail_optout(request, pk):
 
 
     return render(request, 'comment_detail_oo.html',{'comment':the_comment, 'form':form})
+
+def sms_webhook(request):
+    # Get the message the user sent our Twilio number
+    incoming_msg = request.POST.get('Body', '')
+    message_sid = request.POST.get('MessageSid', '')
+    print(incoming_msg)
+    print(message_sid)
+
+    # Start our TwiML response
+    resp = MessagingResponse()
+
+    # Determine the right reply for this message
+    resp.message("Thanks for sending us a message!")
+
+    return HttpResponse(str(resp), content_type="application/xml")
+
+
 
 
 def game_page_1(request):

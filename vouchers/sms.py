@@ -1,5 +1,6 @@
 import os
 from twilio.rest import Client
+from twilio.twiml.messaging_response import MessagingResponse
 
 
 # Find your Account SID and Auth Token at twilio.com/console
@@ -37,5 +38,24 @@ def send_my_notification_sms(cell_number,id):
                  )
     except Exception as e:
         raise e
+    
+
+def send_lead_sms(cell_number):
+    account_sid = 'AC190616ccaefefa6265e93ab4926aad21'
+    auth_token = 'bcccfdb22d4e60c3a0c3f2c245090064'
+    cell_number = cell_number
+    client = Client(account_sid, auth_token)
+
+    try :
+        message = client.messages \
+                .create(
+                    messaging_service_sid='MG129e521f06b4de98b3a7792486925d66',
+                    body="Hey!, You recently showed interest in Dischem Health Insurance when compleiting the Wifi New survey, would you like us to give you a call to discuss the benefits of dischem Health Insurance in more detail ?", 
+                    to='+27' + cell_number[1:10]
+                 )
+        print(message.sid)
+    except Exception as e:
+        raise e
+    
 
 

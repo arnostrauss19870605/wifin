@@ -76,6 +76,9 @@ urlpatterns = [
     #Forti
     path('forti/',forti, name="forti"),
 
+    #SMS Webhook
+    path('sms/', sms_webhook, name='sms_webhook'),
+
     path('schedule_task_123456/',test, name="test-page"),
     path('admin/', admin.site.urls),
     path('clinix/activation', ActivationView.as_view(), name="activation"),
