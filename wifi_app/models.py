@@ -438,6 +438,13 @@ class Upload_Interval(models.Model):
     def __str__(self):
         return f"Set Inerval : {self.interval}"
     
+class Webhook_log(models.Model):
+    detail =  models.TextField(blank=True,null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Date : {self.timestamp}"
+    
 
 
    

@@ -1150,8 +1150,13 @@ def sms_webhook(request):
             print(f"SMS already received for quiz instance ID {quiz_instance.id}. No update performed.")
 
     except Consolidated_Core_Quiz.DoesNotExist:
-        print(f"No quiz instance found for number {local_sending_number}")
-        # Handle cases where no matching instance is found, if necessary
+        detail = f"No quiz instance found for number {local_sending_number}"
+        Webhook_log(detail=detail).save()
+        print(detail)
+    except Exception as e:
+        # Log any other exceptions
+        Webhook_log(detail=str(e)).save()
+        print(f"An error occurred: {str(e)}")
     
     # Start our TwiML response
     resp = MessagingResponse()
