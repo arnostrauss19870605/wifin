@@ -1,7 +1,6 @@
 import os
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
-from wifi_app.models import Consolidated_Core_Quiz
 from django.utils import timezone
 
 
@@ -43,6 +42,7 @@ def send_my_notification_sms(cell_number,id):
     
 
 def send_lead_sms(cell_number,first_name, id):
+    from wifi_app.models import Consolidated_Core_Quiz  # Local import to avoid circular dependency
     account_sid = 'AC190616ccaefefa6265e93ab4926aad21'
     auth_token = 'bcccfdb22d4e60c3a0c3f2c245090064'
     client = Client(account_sid, auth_token)
