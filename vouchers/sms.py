@@ -1,6 +1,8 @@
 import os
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
+from wifi_app.models import Consolidated_Core_Quiz
+from django.utils import timezone
 
 
 # Find your Account SID and Auth Token at twilio.com/console
@@ -40,20 +42,26 @@ def send_my_notification_sms(cell_number,id):
         raise e
     
 
-def send_lead_sms(cell_number):
+def send_lead_sms(cell_number,first_name, id):
     account_sid = 'AC190616ccaefefa6265e93ab4926aad21'
     auth_token = 'bcccfdb22d4e60c3a0c3f2c245090064'
-    cell_number = cell_number
     client = Client(account_sid, auth_token)
+    sms_body = "Dear {}, You recently showed interest in Dischem Health Insurance when completing the Wifi News survey, would you like someone from Dischem Health to give you a call to discuss the benefits of Dischem Health Insurance in more detail ? Reply YES or NO to Opt out".format(first_name)
 
-    try :
-        message = client.messages \
-                .create(
-                    messaging_service_sid='MG129e521f06b4de98b3a7792486925d66',
-                    body="Hey!, You recently showed interest in Dischem Health Insurance when compleiting the Wifi New survey, would you like us to give you a call to discuss the benefits of dischem Health Insurance in more detail ?", 
-                    to='+27' + cell_number[1:10]
-                 )
+    try:
+        message = client.messages.create(
+            messaging_service_sid='MG129e521f06b4de98b3a7792486925d66',
+            body=sms_body, 
+            to='+27' + cell_number[1:10]
+        )
         print(message.sid)
+
+        quiz_instance = Consolidated_Core_Quiz.objects.get(pk=id)
+        quiz_instance.sms_date_sent = timezone.now().strftime("%Y-%m-%d %H:%M:%S")  # Adjust format as needed
+        quiz_instance.sms_sent_text = sms_body
+        quiz_instance.sms_sent_meta = message.sid
+        quiz_instance.save()
+
     except Exception as e:
         raise e
     

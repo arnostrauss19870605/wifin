@@ -142,7 +142,7 @@ class Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 @admin.register(Consolidated_Core_Quiz)
 class Consolidated_Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display=(
-        
+        'id'
         'insertion_date',
         'hsUsersID',
         'username',
