@@ -1151,6 +1151,8 @@ def sms_webhook(request):
                 quiz_instance.save()
 
                 if 'yes' in incoming_msg.lower():
+                    quiz_instance.sms_opt_in = True
+                    quiz_instance.save()
                     response_message = "Thank you, you can expect a call from Dischem Health shortly."
                 else:
                     response_message = "Thank you, you hvae opted out and we will not be contacting you."

@@ -412,7 +412,7 @@ class Consolidated_Core_Quiz(models.Model):
     sms_received_text =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "SMS Received Text")
     sms_received_date =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Date SMS Response Received")
     sms_received_meta =  models.TextField(blank=True, null=True,verbose_name = "SMS Response Meta Info")
-    sms_opt_in = models.BooleanField(default=True)
+    sms_opt_in = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.surveyID} : {self.first_name} - {self.last_name} "
