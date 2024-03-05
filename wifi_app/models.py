@@ -406,7 +406,7 @@ class Consolidated_Core_Quiz(models.Model):
     uploaded = models.BooleanField(default=False)
     product =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Interested Product")
 
-    sms_sent_text =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "SMS Text")
+    sms_sent_text =  models.TextField(blank=True, null=True,verbose_name = "SMS Text")
     sms_sent_meta =  models.TextField(blank=True, null=True,verbose_name = "SMS Sent Meta Info")
     sms_date_sent =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Date SMS Text")
     sms_received_text =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "SMS Received Text")

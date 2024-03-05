@@ -35,7 +35,7 @@ from vouchers.sms import *
 
 def test(request):
 
-    send_lead_sms('0726124698','Arno','35737')
+    send_lead_sms('35737')
     #pull_from_captive_portal()
     #populate_registered_users()
     #push_to_omnisend()
@@ -1120,13 +1120,39 @@ def comment_detail_optout(request, pk):
 
     return render(request, 'comment_detail_oo.html',{'comment':the_comment, 'form':form})
 
-def sms_webhook(request):
-    # Get the message the user sent our Twilio number
-    incoming_msg = request.POST.get('Body', '')
-    message_sid = request.POST.get('MessageSid', '')
-    print(incoming_msg)
-    print(message_sid)
 
+def sms_webhook(request):
+    # Extract the sending number and message details
+    sending_number = request.POST.get('From', '')
+    incoming_msg = request.POST.get('Body', '')
+    message_request = request.POST
+    
+    # Convert the sending number from international format to local format
+    # Assuming all numbers are South African (+27)
+    if sending_number.startswith('+27'):
+        local_sending_number = '0' + sending_number[3:]
+    else:
+        local_sending_number = sending_number  # Fallback in case the number doesn't start with +27
+    
+    try:
+        # Look up the corresponding instance in Consolidated_Core_Quiz
+        quiz_instance = Consolidated_Core_Quiz.objects.get(q_4=local_sending_number)
+        print(f"Found quiz instance for number {local_sending_number}: {quiz_instance.id}")
+        
+        if not quiz_instance.sms_received_date:
+            # Update the instance with the received SMS text and the current date and time
+            quiz_instance.sms_received_text = incoming_msg
+            quiz_instance.sms_received_date = timezone.localtime(timezone.now()).strftime("%Y-%m-%d %H:%M:%S")
+            # Assuming sms_received_meta is a JSONField or similar. You may need to serialize message_request if it's not already in a suitable format.
+            quiz_instance.sms_received_meta = str(message_request)
+            quiz_instance.save()
+        else:
+            print(f"SMS already received for quiz instance ID {quiz_instance.id}. No update performed.")
+
+    except Consolidated_Core_Quiz.DoesNotExist:
+        print(f"No quiz instance found for number {local_sending_number}")
+        # Handle cases where no matching instance is found, if necessary
+    
     # Start our TwiML response
     resp = MessagingResponse()
 
@@ -1134,7 +1160,6 @@ def sms_webhook(request):
     resp.message("Thanks for sending us a message!")
 
     return HttpResponse(str(resp), content_type="application/xml")
-
 
 
 
