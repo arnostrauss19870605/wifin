@@ -187,20 +187,22 @@
 
 	
 		   <!-- Import Library for Gtag -->
-		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
-			 
+		<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+		{% block google_head %}
+		  {% include 'google/head_tags/20240201/interstitial.html' %}
+	  	{% endblock google_head %}
+
+		<!-- Taboola Head Tag) -->
+      {% block taboola_head %}
+        {% include 'taboola/taboola_header.html' %}
+      {% endblock taboola_head %}
 
 
-		  <!-- Adtelligent: Ad Exchange -->
-		 <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
-		  <!--END Ad Exchange -->
-		  
-	
+	</head>
 
-
-	  </head>
-	  <div class="centered-container">  
+	<div class="centered-container">  
 	  <body>
+
 		<div id="rewardModal" class="modal">
 		  <!-- Modal content -->
 		  <div class="modal-content">
@@ -210,26 +212,49 @@
 			<p>I don't want Free Wi-fi and will remain on this page.</p>
 		  </div>
 		</div>
+
 		<div id="grantModal" class="modal">
 		  <div class="modal-content">
 			<p id="grantParagraph"> </p>
 			<input type="button" class="btn" id="grantCloseBtn" value="Close" />
 		  </div>
 		</div>
+
 		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
 				<div id="noticeTxt" class="timer-text">View these ads for </div>
 				<div id="noticeTxt2" class="timer-text"></div>
 				<div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
 				<div class="timer-line-container">
-				<div class="timer-line" id="timerLine"></div>
+					<div class="timer-line" id="timerLine"></div>
 				</div>
-				  <div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+				<div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
   
-				</div>
+			</div>
         
         <div id="content"  style="padding-top: 0%; padding-bottom: 0px; ">
             <div class="content-wrap">
+
+				<!-- slider -->
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                  
+                  {% block google_ad_1 %}
+                  {% include 'google/ad_slots/20240201/interstitial_ad_1.html' %}
+                  {% endblock google_ad_1 %}
+            
+
+                             <!-- End AdSlot 1 -->
+                </div>
+        
+        
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 5px;">
+                 
+                  {% block google_ad_2 %}
+                  {% include 'google/ad_slots/20240201/interstitial_ad_2.html' %}
+                  {% endblock google_ad_2 %}
+                  
+                  <!-- End AdSlot 2 -->
+                </div>
                
 
 
@@ -244,19 +269,23 @@
                     <!-- End Taboola Slot -->
                   </div>
                 </div>
-        
-              
-        
-              <!-- STICKY -->
 
+				<!-- STICKY -->
+              <div class="sticky-element">
+                
+                {% block google_ad_3 %}
+                {% include 'google/ad_slots/20240201/interstitial_sticky.html' %}
+                {% endblock google_ad_3 %}
+             
+                 <!-- End AdSlot 3 -->
+              </div>
+              <!-- END STICKY -->
+        
         
             </div>
-          </div> 
+        </div> 
                
-
-
-
-	  </body>
+		</body>
 	</div>
 	  <script type = "text/javascript">
 		firstTimer();
@@ -264,18 +293,5 @@
 	</script>
   
 	</html>
-	`
-	</div>
 	
 	
-	
-	</div>
-				</div>
-			</div>
-		  </div>
-	
-		</div>
-	</div>
-	</div>
-	
-</html>
