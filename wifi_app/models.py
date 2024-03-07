@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 from vouchers.sms import send_my_notification_sms
 from django.utils.translation import gettext_lazy as _
-
+import re
 
 DURATION_CHOICES = (
     ('1',1),
@@ -134,6 +134,12 @@ class Topic(models.Model):
 def validate_length(value,length=10):
     if len(str(value))!=length:
         raise ValidationError(u'%s number needs to be 10 digits e.g 0726124698' % value)
+
+def validate_sa_cell_number(value):
+    # Pattern to match 10-digit numbers starting with 06, 07, or 08
+    pattern = re.compile(r'^0[678]\d{8}$')
+    if not pattern.match(value):
+        raise ValidationError('Enter a valid 10-digit South African cell phone number.')
 
 # comment model    
 class Comment(models.Model):
@@ -446,6 +452,44 @@ class Webhook_log(models.Model):
     def __str__(self):
         return f"Date : {self.timestamp}"
     
+
+class GameUser(models.Model):
+    display_name =  models.CharField(blank=False, null=False,max_length=100,verbose_name = "Your Username")
+    first_name =  models.CharField(blank=False, null=False,max_length=100,verbose_name = "Name")
+    last_name =  models.CharField(blank=False, null=False,max_length=100,verbose_name = "Surname")
+    cell_number = models.CharField(blank=False, null=False,max_length=10, validators=[validate_sa_cell_number],verbose_name = "Cell Number")
+    email = models.EmailField(blank=False, null=False,verbose_name = "Email Address")
+    timestamp = models.DateTimeField(auto_now_add=True)
+    username =  models.CharField(blank=True, null=True,max_length=120,verbose_name = "Unique Username")
+
+    def save(self, *args, **kwargs):
+        # Check for an existing user with the same cell_number
+        existing_user = GameUser.objects.filter(cell_number=self.cell_number).exclude(id=self.id).first()
+        if existing_user:
+            # If found, use the existing user's username
+            self.username = existing_user.username
+        else:
+            # If not found and this is a new instance, we'll set the username after the initial save
+            
+            is_new = self._state.adding
+            
+        # Initial save to ensure the instance has an ID and to persist any immediate changes like the username from an existing user
+        super(GameUser, self).save(*args, **kwargs)
+
+        if not existing_user and is_new:
+            # Only for new instances where no existing user was found, set the username based on display_name and id
+            existing_user_by_display_name = GameUser.objects.filter(display_name=self.display_name).exclude(id=self.id).exists()
+            if existing_user_by_display_name:
+                # If display_name exists, append ID to the display_name for username
+                self.username = f"{self.display_name}_{self.id}"
+            else :
+                self.username = f"{self.display_name}"
+            # Save again to update the username
+            super(GameUser, self).save(*args, **kwargs)
+
+
+    def __str__(self):
+        return f"User : {self.username}"
 
 
    

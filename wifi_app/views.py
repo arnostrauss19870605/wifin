@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect, reverse,get_object_or_404
 from django.urls import NoReverseMatch, reverse_lazy
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.http import HttpResponseRedirect
-from .forms import LoginForm,CommentForm,OptOutForm
+from .forms import LoginForm,CommentForm,OptOutForm,GameForm
 from .models import *
 from data.models import *
 from django.utils.http import urlencode
@@ -30,6 +30,7 @@ from django.http import HttpResponse
 from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from vouchers.sms import *
+from django.contrib import messages
 
 
 # Create your views here.
@@ -1193,6 +1194,31 @@ def game_page_1(request):
         return render(request, 'game_page_1.html')
     
 def game_page_2(request):
+    form = GameForm
+    
+    if request.method == "POST":
+       form = GameForm(request.POST)
+           
+       if form.is_valid():
+            
+            form.save()
+           
+            return redirect("game-page-3", )
+       
+       else :
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
+
+
+    context = {
+        "form": form,
+    }
+    return render(request, "game_page_2.html", context)
+  
+
+
+def game_page_3(request):
     
     if request.method == "POST":
        
@@ -1200,4 +1226,4 @@ def game_page_2(request):
    
     else :
   
-        return render(request, 'game_page_2.html')
+        return render(request, 'game_page_3.html')

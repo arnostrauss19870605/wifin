@@ -1,35 +1,90 @@
+{% extends "wifin_base.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
-<html lang="en">
-	<head>
-		
-		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
-		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <title>Wifi News</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-touch-fullscreen" content="yes">
-        <meta name="HandheldFriendly" content="True">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-        <!-- Slick CSS -->
-        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
- 
-		</head>
-
+{% block container %}
+<div class="centered-container">    
 	  <body>
-					
-            
-              <iframe style="border:none;width:100%;height:100%;display:block;margin:auto" src="https://branded.mini-games.io/?php=landing@twkqDpWvlu&campaign_no=43219&userid=Jono"></iframe>
-              
+   
        
+  
+            <div class="content-wrap">
+               
+                <!-- slider -->
+                <div class="heading-section">
+                  <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                    <!-- GPT AdSlot 1 -->
+                    {% block google_ad_1 %}
+                    {% include 'google/ad_slots/20240201/landing_ad_1.html' %}
+                    {% endblock google_ad_1 %}
+                    <!-- End AdSlot 1 -->
+                  </div>
+                </div>
+
+                 <!-- Form -->
+               
+                 <div class="heading-section">
+                  <div class="sa-title popcat">Complete your details below to start playing </div>
+                  <div class="heading-info">
+                
+             
+                  <form  method="post" >
+                    
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    {% if messages %}
+                      {% for message in messages %}
+                          <div class="text-center alert alert-{{ message.tags }}">
+                              {{ message|safe }}
+                            
+                          </div>
+                      {% endfor %}
+                    {% endif %}
+
+                    
+                    &nbsp;&nbsp;
+                   
+                    <br>
+                    <button type="submit" class="lg_btn" >Submit</button>
+                    &nbsp;&nbsp;  
+                  </form>
+                    <!-- End Taboola Slot -->
+                  </div>
+                </div>
+                
+                <div class="heading-section">
+                  <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
+                    <!-- GPT AdSlot 2 -->
+                    {% block google_ad_2 %}
+                    {% include 'google/ad_slots/20240201/landing_ad_2.html' %}
+                    {% endblock google_ad_2 %}
+                    <!-- End AdSlot 2 -->
+                  </div>
+               </div>  
+        
+
+        
+        
+              
+        
+              <!-- STICKY -->
+              <div class="sticky-element">
+                   <!-- GPT AdSlot 3 -->
+                {% block google_ad_3 %}
+                {% include 'google/ad_slots/20240201/landing_sticky.html' %}
+                {% endblock google_ad_3 %}
+                 <!-- End AdSlot 3 -->
+              </div>
+              <!-- END STICKY -->
+        
+            </div>
+     
+               
+
+
+
 	  </body>
 
+</div>    
+  
 </html>
-
+{% endblock %}

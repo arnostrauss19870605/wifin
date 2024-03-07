@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+from .models import Comment,GameUser
 
 class LoginForm(forms.Form):
     domain = forms.CharField(max_length=100)
@@ -54,3 +54,13 @@ class OptOutForm(forms.ModelForm):
         super(OptOutForm, self).__init__(*args, **kwargs)
        
         self.fields['notify'].widget.attrs = {'class':'form-control'}
+
+class GameForm(forms.ModelForm):
+   class Meta:
+      model=GameUser
+      fields="__all__"
+      exclude = (
+         'timestamp',
+         'username',
+
+               )

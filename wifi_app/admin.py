@@ -5,7 +5,7 @@ from import_export.admin import ExportActionMixin,ImportExportModelAdmin
 from import_export import resources
 
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval,Survey_settings,Webhook_log
+from .models import  Category, Post, Topic, Comment,Registered_User,Country,Domain,Domain_User,Core_Quiz,Consolidated_Core_Quiz,Upload_Interval,Survey_settings,Webhook_log,GameUser
 from vouchers.models import Voucher,Location,Activation,VoucherType
 from data.models import Log
 from markdownx.admin import MarkdownxModelAdmin
@@ -159,6 +159,24 @@ class Consolidated_Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     
     search_fields = ('reseller_name','domain_name','username','first_name','last_name','hsUsersID')
     list_filter = ('insertion_date','date_consolidated', 'reseller_name','domain_name','upload_required','product','uploaded')
+
+
+@admin.register(GameUser)
+class GameUser_Admin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=(
+        'id',
+        'display_name',
+        'first_name',
+        'last_name',
+        'cell_number',
+        'email',
+        'username',
+        'timestamp',
+
+        )
+    
+    search_fields = ('display_name','cell_number','email','username','last_name')
+    list_filter = ('display_name','cell_number','email','username','last_name','timestamp')
 
 
    

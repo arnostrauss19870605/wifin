@@ -1,0 +1,212 @@
+{% load i18n %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static "css/pico/pico.min.css" %}">
+
+		
+		<!-- For more info check out https://sites.google.com/a/google.com/pub-tags/engineering/tools/manual-tests -->
+		<!-- NOTE: not expected to no fill unless isReward param is commented out in GPT -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Wifi News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+
+		
+        <!-- Font Awesome Free 5.10.2 CSS JS -->
+        <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+        <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+		<script type="text/javascript">
+            function nextPage() {
+                      const queryString = window.location.search;
+                      const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                     
+                      if (queryString.length === 0 ){
+                        window.location.assign("/game_page_2/" + queryString ); 
+						console.log("Next PAge Function Triggered");
+                      }
+                      else {               
+                      window.location.assign("/game_page_2/" + queryString ); 
+					  console.log("Next PAge Function Triggered");
+                      }
+              }
+            
+        </script>
+
+        <script type="text/javascript">
+          function cancelPage() {
+                    const queryString = window.location.search;
+                    const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                   
+                    if (queryString.length === 0 ){
+                      window.location.assign("/search/" + queryString ); 
+                      
+                    }
+                    else {               
+                    window.location.assign("/search/" + queryString ); 
+                    
+                    }
+            }
+          
+      </script>
+
+
+
+        <script type="text/javascript">
+          function addSeconds(numOfSeconds, date = new Date()) {
+            date.setSeconds(date.getSeconds() + numOfSeconds);
+            return date;
+        }
+        
+        let timerInterval;
+        
+        function firstTimer() {
+          const noticeTxt = document.getElementById("noticeTxt");
+          const noticeTxt2 = document.getElementById("noticeTxt2");
+          const noticeTxt3 = document.getElementById("noticeTxt3");
+          const noticeTxt4 = document.getElementById("noticeTxt4");
+          const timerLine = document.getElementById("timerLine");
+      
+          const totalTime = 35;
+          const futuretime = addSeconds(totalTime);
+      
+          function updateTimer() {
+              const timeleft = Math.floor((futuretime - new Date()) / 1000);
+      
+              if (timeleft <= 0) {
+                  clearInterval(timerInterval);
+                  noticeTxt.style.display = "none";
+                  noticeTxt2.style.display = "none";
+                  noticeTxt3.style.display = "none";
+                  noticeTxt4.style.display = "inherit";
+                  timerLine.style.width = '0%';
+                  nextPage();
+              } else {
+                  noticeTxt.style.display = "inherit";
+                  noticeTxt2.innerHTML = timeleft + " seconds";
+                  noticeTxt3.style.display = "block";
+                  const percentage = (timeleft / totalTime) * 100;
+                  timerLine.style.width = percentage + '%';
+              }
+          }
+      
+          updateTimer();
+          timerInterval = setInterval(updateTimer, 1000);
+      }
+      
+        </script>
+
+		<script>
+			googletag = window.googletag || {cmd: []};
+			const queryValues = window.location.search;
+			const urlParams = new URLSearchParams(queryValues);
+			var utm_medium = "NULL";
+			var actionAfterAd = ""; // Variable to track which action to take after the ad
+		
+			if (urlParams.has('utm_medium')) {
+				utm_medium = urlParams.get('utm_medium');
+				console.log("Utm Medium does exist as:", utm_medium);
+			} else {
+				console.log("Utm Medium does not exist, value to be populated:", utm_medium);
+			}
+		
+			googletag.cmd.push(() => {
+				const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+				rewardedSlot.setForceSafeFrame(true);
+		
+				googletag.pubads().setTargeting("utm_medium", [utm_medium]);
+				googletag.pubads().enableAsyncRendering();
+				googletag.enableServices();
+		
+				googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+					const trigger = document.getElementById('rewardModal');
+					trigger.style.display = 'block';
+					clearInterval(timerInterval);
+		
+					const makeVisibleFn = (e) => {
+						evt.makeRewardedVisible();
+						e.preventDefault();
+						// Determine which action to take after the ad is closed
+						actionAfterAd = e.target.id === 'watchAdBtn' ? 'next' : 'cancel';
+					};
+		
+					const watchAdButton = document.getElementById('watchAdBtn');
+					const noThanksButton = document.getElementById('noThanksBtn');
+					watchAdButton.addEventListener('click', makeVisibleFn);
+					noThanksButton.addEventListener('click', makeVisibleFn);
+				});
+		
+				googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+					console.log("Rewarded Ad Granted Event");
+					// Perform the appropriate action based on the button clicked
+					if (actionAfterAd === 'next') {
+						nextPage();
+					} else if (actionAfterAd === 'cancel') {
+						cancelPage();
+					}
+					googletag.destroySlots([rewardedSlot]);
+				});
+		
+				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+					const slot = event.slot;
+					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+					// Perform the cancel action if the ad is closed without being granted
+					if (actionAfterAd !== 'next') {
+						cancelPage();
+					}
+				});
+		
+				googletag.display(rewardedSlot);
+			});
+		</script>
+		
+
+
+
+		   <!-- Import Library for Gtag -->
+		  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+		  <!-- Google Head Tag) -->
+		  {% block google_head %}
+			  {% include 'google/head_tags/20240201/landing.html' %}
+		  {% endblock google_head %}
+
+
+		  <!-- Adtelligent: Ad Exchange -->
+		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->	
+
+
+	
+
+	 
+  <title>Wifi News</title>
+  {% block header %}
+  {% endblock %}
+</head>
+<body>
+  
+<main class="container">
+  {% block container %}
+  {% endblock %}
+</main>
+</body>
+</html>
