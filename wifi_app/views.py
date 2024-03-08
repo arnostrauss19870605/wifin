@@ -1181,6 +1181,24 @@ def sms_webhook(request):
     
     else:
         return HttpResponse("Only POST requests are accepted.", status=405)
+    
+
+@csrf_exempt
+def mail_webhook(request):
+    if request.method == 'POST':
+            try :
+                request_body_str = request.body.decode('utf-8')
+
+                Webhook_log(detail=request_body_str).save()
+        
+                return HttpResponse("Success", content_type="application/xml",status=200)
+    
+            except Exception as e:
+            # Log the error here (e.g., print(e) or logging)
+                return HttpResponse("Error processing request", status=500)
+    else:
+        return HttpResponse("Only POST requests are accepted.", status=405)
+
 
 
 def game_page_1(request):

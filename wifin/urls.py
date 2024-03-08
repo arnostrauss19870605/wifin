@@ -79,6 +79,7 @@ urlpatterns = [
 
     #SMS Webhook
     path('sms/', sms_webhook, name='sms_webhook'),
+    path('mail/', mail_webhook, name='mail_webhook'),
 
     path('schedule_task_123456/',test, name="test-page"),
     path('admin/', admin.site.urls),
