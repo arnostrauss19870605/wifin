@@ -55,12 +55,14 @@ class OptOutForm(forms.ModelForm):
        
         self.fields['notify'].widget.attrs = {'class':'form-control'}
 
-class GameForm(forms.ModelForm):
-   class Meta:
-      model=GameUser
-      fields="__all__"
-      exclude = (
-         'timestamp',
-         'username',
 
-               )
+class GameForm(forms.ModelForm):
+    class Meta:
+        model = GameUser
+        fields = "__all__"
+        exclude = ('timestamp', 'username',)
+
+    def __init__(self, *args, **kwargs):
+        super(GameForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'large-font'

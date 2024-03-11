@@ -3,27 +3,41 @@
 {% load static %}
 {% block container %}
 <div class="centered-container">    
+  
 	  <body>
-   
+
        
   
             <div class="content-wrap">
                
-                <!-- slider -->
-                <div class="heading-section">
-                  <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 1px;">
-                    <!-- GPT AdSlot 1 -->
-                    {% block google_ad_1 %}
-                    {% include 'google/ad_slots/20240201/landing_ad_1.html' %}
-                    {% endblock google_ad_1 %}
-                    <!-- End AdSlot 1 -->
-                  </div>
-                </div>
 
+              <div class="heading-section">
+                <div style="padding-top: 0%; padding-bottom: 0px;margin-top: 0px;">
+                  <!-- GPT AdSlot 2 -->
+                  <div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+                    <div class="icon-container">
+                    
+                      <div class="logo"  style="padding-top: 0%;color:#333 ">
+            
+                        <img  alt="hero" src="{% static 'img/WIFINEWSLOGO_transparent.png' %}" style="width: 300px; height: auto;margin-top: 1%;" >
+            
+                        </div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 5%; text-align: center; font-size: 25px;">
+                  If you would Like to stand a chance to WIN R150 of airtime monthly by playing our SOCCER game, compelte your detials below and select SUBMIT!
+                  </div>
+                    <!-- End AdSlot 2 -->
+                </div>
+             </div>  
+                
                  <!-- Form -->
                
-                 <div class="heading-section">
-                  <div class="sa-title popcat">Complete your details below to start playing </div>
+                 <div class="heading-section" style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-top: 5%; margin-bottom: 0%; text-align: center; font-size: 25px;">
+                  
+                  
                   <div class="heading-info">
                 
              
@@ -44,8 +58,9 @@
                     &nbsp;&nbsp;
                    
                     <br>
-                    <button type="submit" class="lg_btn" >Submit</button>
+                    <button type="submit" class="lg_btn" >Submit & Play</button>
                     &nbsp;&nbsp;  
+                    <button type="button" class="lg_btn" onclick="cancelPage()">Browse</button>
                   </form>
                     <!-- End Taboola Slot -->
                   </div>
