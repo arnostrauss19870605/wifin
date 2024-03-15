@@ -1211,15 +1211,17 @@ def game_page_1(request):
   
         return render(request, 'game_page_1.html')
     
+
 def game_page_2(request):
     form = GameForm()
 
     if request.method == "POST":
         form = GameForm(request.POST)
         if form.is_valid():
-            # Assuming the model has a 'username' field
-            username = form.cleaned_data['username']
-            form.save()
+            user_instance = form.save()  # This saves the form and returns the instance
+
+            # Since username might be generated in the save method, fetch it from the instance
+            username = user_instance.username
 
             # Store the username in the session
             request.session['username'] = username
