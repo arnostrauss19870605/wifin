@@ -73,6 +73,7 @@ urlpatterns = [
     path('game_page_1/',game_page_1, name="game-page-1"),
     path('game_page_2/',game_page_2, name="game-page-2"),
     path('game_page_3/',game_page_3, name="game-page-3"),
+    path('game_page_4/',game_page_4, name="game-page-4"),
 
     #Forti
     path('forti/',forti, name="forti"),

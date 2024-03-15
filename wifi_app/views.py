@@ -1252,3 +1252,13 @@ def game_page_3(request):
             "username": username,
         }
         return render(request, "game_page_3.html", context)
+    
+def game_page_4(request):
+    
+    if request.method == "POST":
+       
+       return redirect('exit-index') 
+   
+    else :
+  
+        return render(request, 'game_page_4.html')
