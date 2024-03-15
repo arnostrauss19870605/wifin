@@ -1212,26 +1212,26 @@ def game_page_1(request):
         return render(request, 'game_page_1.html')
     
 def game_page_2(request):
-    form = GameForm
-    
+    form = GameForm()
+
     if request.method == "POST":
-       form = GameForm(request.POST)
-           
-       if form.is_valid():
-            
+        form = GameForm(request.POST)
+        if form.is_valid():
+            # Assuming the model has a 'username' field
+            username = form.cleaned_data['username']
             form.save()
-           
-            return redirect("game-page-3", )
-       
-       else :
+
+            # Store the username in the session
+            request.session['username'] = username
+            
+            # Redirect to game-page-3
+            return redirect("game-page-3")
+        else:
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f"{field}: {error}")
 
-
-    context = {
-        "form": form,
-    }
+    context = {"form": form}
     return render(request, "game_page_2.html", context)
   
 
@@ -1244,4 +1244,9 @@ def game_page_3(request):
    
     else :
   
-        return render(request, 'game_page_3.html')
+        username = request.session.get('username', 'Guest')  # Default to 'Guest' or similar if not found
+
+        context = {
+            "username": username,
+        }
+        return render(request, "game_page_3.html", context)

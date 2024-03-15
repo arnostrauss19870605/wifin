@@ -2340,6 +2340,8 @@ body {
 .modal, .modal-content, .btn, .row, #content, .content-wrap, .heading-section, .sticky-element {
   color: #555; /* Gray text for general elements */
   border-color: #ccc; /* Gray border */
+  border-radius: 10px; /* Adjust the radius as needed for the desired roundness */
+  border: 1px solid #ccc; 
 }
 
 .modal-content, .btn {
