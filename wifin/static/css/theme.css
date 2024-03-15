@@ -2340,8 +2340,7 @@ body {
 .modal, .modal-content, .btn, .row, #content, .content-wrap, .heading-section, .sticky-element {
   color: #555; /* Gray text for general elements */
   border-color: #ccc; /* Gray border */
-  border-radius: 10px; /* Adjust the radius as needed for the desired roundness */
-  border: 1px solid #ccc; 
+
 }
 
 .modal-content, .btn {
@@ -2460,6 +2459,7 @@ margin-left: 20px; /* Space between the two buttons */
 /* Base styles for the centered container */
 .centered-container {
 max-width: 600px; /* Adjust the width as needed */
+height: 100vh;
 margin: 0 auto; /* This centers the div */
 padding: 20px; /* Adds some padding around the content */
 box-sizing: border-box; /* Ensures padding doesn't affect the width */
@@ -2516,5 +2516,14 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16); /* Adjusted shadow for depth */
 #noticeTxt4:hover {
 background-color: #d9d9d9; /* Darker color on hover */
 transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
