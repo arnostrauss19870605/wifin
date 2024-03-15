@@ -455,10 +455,10 @@ class Webhook_log(models.Model):
 
 class GameUser(models.Model):
     display_name =  models.CharField(blank=False, null=False,max_length=100,verbose_name = "Your Username")
-    first_name =  models.CharField(blank=False, null=False,max_length=100,verbose_name = "Name")
-    last_name =  models.CharField(blank=False, null=False,max_length=100,verbose_name = "Surname")
+    first_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Name")
+    last_name =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Surname")
     cell_number = models.CharField(blank=False, null=False,max_length=10, validators=[validate_sa_cell_number],verbose_name = "Cell Number")
-    email = models.EmailField(blank=False, null=False,verbose_name = "Email Address")
+    email = models.EmailField(blank=True, null=True,verbose_name = "Email Address")
     timestamp = models.DateTimeField(auto_now_add=True)
     username =  models.CharField(blank=True, null=True,max_length=120,verbose_name = "Unique Username")
 

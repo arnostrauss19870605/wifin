@@ -60,7 +60,7 @@ class GameForm(forms.ModelForm):
     class Meta:
         model = GameUser
         fields = "__all__"
-        exclude = ('timestamp', 'username',)
+        exclude = ('timestamp', 'username','first_name','last_name','email')
 
     def __init__(self, *args, **kwargs):
         super(GameForm, self).__init__(*args, **kwargs)
