@@ -1192,6 +1192,15 @@ def mail_webhook(request):
                 pattern = r"[\?&](hssurveysid|HsSurveysUsersID)=([^&]+)"
                 matches = re.findall(pattern, request_body_str)
                 values = {match[0]: match[1] for match in matches}
+
+                 # Remove "3D" prefix if present
+                if 'hssurveysid' in values:
+                    if values['hssurveysid'].startswith("3D"):
+                        values['hssurveysid'] = values['hssurveysid'][2:]
+
+                if 'HsSurveysUsersID' in values:
+                    if values['HsSurveysUsersID'].startswith("3D"):
+                        values['HsSurveysUsersID'] = values['HsSurveysUsersID'][2:]
                 
                 if 'hssurveysid' in values and 'HsSurveysUsersID' in values:
                     # Create a new Webhook_log instance and save the extracted values
