@@ -31,6 +31,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from vouchers.sms import *
 from django.contrib import messages
+import re
 
 
 # Create your views here.
@@ -1188,8 +1189,22 @@ def mail_webhook(request):
     if request.method == 'POST':
             try :
                 request_body_str = request.body.decode('utf-8')
-
-                Webhook_log(detail=request_body_str).save()
+                pattern = r"[\?&](hssurveysid|HsSurveysUsersID)=([^&]+)"
+                matches = re.findall(pattern, request_body_str)
+                values = {match[0]: match[1] for match in matches}
+                
+                if 'hssurveysid' in values and 'HsSurveysUsersID' in values:
+                    # Create a new Webhook_log instance and save the extracted values
+                    webhook_log = Webhook_log(
+                        detail=request_body_str,  
+                        hssurveysid=values['hssurveysid'],
+                        hsuserid=values['HsSurveysUsersID'],
+                    )
+                    webhook_log.save()
+                    
+                else:
+                    pass
+                    
         
                 return HttpResponse("Success", content_type="application/xml",status=200)
     
