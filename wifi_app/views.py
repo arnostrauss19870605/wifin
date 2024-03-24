@@ -55,7 +55,7 @@ def test(request):
     #update_survey_personal_info()
     #time.sleep(10)  # 10 second delay
 
-    delete_old_quizzes()
+    #delete_old_quizzes()
 
     #consolidate_quiz()
     #push_to_dripcel()
@@ -1214,7 +1214,9 @@ def mail_webhook(request):
                         hssurveysid=values['hssurveysid'],
                         hsuserid=values['HsSurveysUsersID'],
                     )
+                    
                     webhook_log.save()
+                    pull_survey_answers_per_event(webhook_log.hssurveysid,webhook_log.hsuserid)
                     
                 else:
                     pass
