@@ -930,18 +930,18 @@ def push_to_dripcel():
         # Handle the case when the queryset is empty
          pass
 
-#@background
-#async def delete_old_quizzes():
+
+def delete_old_quizzes():
     # Calculate the time threshold (one day ago from now)
-#    one_day_ago = timezone.now() - timedelta(days=1)#
+    one_day_ago = timezone.now() - timedelta(days=1)#
 
     # Delete instances in Core_Quiz where date_created is more than one day ago
     #await sync_to_async(Core_Quiz.objects.filter(date_imported__lt=one_day_ago).delete)()
-#    await sync_to_async(Core_Quiz.objects.all().delete)()
+    Core_Quiz.objects.all().delete
 
     # Delete instances in Consolidated_Core_Quiz where date_created is more than one day ago
     #await sync_to_async(Consolidated_Core_Quiz.objects.filter(date_consolidated__lt=one_day_ago).delete)()
-#    await sync_to_async(Consolidated_Core_Quiz.objects.all().delete)()
+    Consolidated_Core_Quiz.objects.all().delete
 
 #asyncio.run(delete_old_quizzes())
 
