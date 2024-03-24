@@ -18,6 +18,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from pprint import pprint
 from datetime import timedelta
 from vouchers.sms import *
+from .om_api import post_OM_contact_API
+from django.apps import apps
 
 
 
@@ -132,6 +134,27 @@ def consolidate_quiz_results(id,survey_id):
     )
 
     consolidate_table.save()
+
+    #Check If Dischem
+    try:
+        Survey_settings = apps.get_model('wifi_app', 'Survey_settings')
+        survey_setting = Survey_settings.objects.get(survey_id=consolidate_table.surveyID)
+        the_client = survey_setting.client_api
+        
+        if consolidate_table.upload_required == True :
+            if the_client == "DC":
+                send_lead_sms(consolidate_table.pk)
+            elif the_client == "OM" :
+                post_OM_contact_API(consolidate_table.first_name,consolidate_table.last_name,consolidate_table.q_4,consolidate_table.pk)
+            else :
+                pass
+          
+    except Survey_settings.DoesNotExist:
+                            # Handle the case where there is no object with the given survey_id
+        print(f"No survey setting found for survey_id {consolidate_table.surveyID}")
+                            
+
+
 
       #Update After Consolidation - Doe moet gefix for om na die specifiekek user te lyl
     Core_Quiz.objects.filter(

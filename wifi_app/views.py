@@ -39,8 +39,8 @@ import re
 # Create your views here.
 
 def test(request):
-    #pull_survey_answers_per_event(1219,7829655)
-    #post_OM_contact_API("Entelek Test","Test Entelek",27726124698)
+    pull_survey_answers_per_event(1219,7753191)
+    #post_OM_contact_API("Entelek Test","Test Entelek",27726124698,1613)
     #send_lead_sms('35737')
     #pull_from_captive_portal()
     #populate_registered_users()
@@ -1176,7 +1176,7 @@ def sms_webhook(request):
 
         except Consolidated_Core_Quiz.DoesNotExist:
             detail = f"No quiz instance found for number {local_sending_number}"
-            Webhook_log(detail=detail).save()
+            Webhook_log(detail=detail,type="SMS").save()
             print(detail)
         except Exception as e:
             # Log any other exceptions

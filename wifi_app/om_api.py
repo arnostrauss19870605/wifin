@@ -5,6 +5,10 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import  render, redirect, HttpResponse
 from django.utils import timezone
 
+import logging
+logger = logging.getLogger(__name__)
+
+
 def post_OM_contact_API(name,surname,cell_nr,consolidated_id):
     url = 'https://scstagethistle-oldmutual.scprod.yonder.cloud/api/leadgen/v2/lead/entelek'
     headers = {
@@ -41,20 +45,16 @@ def post_OM_contact_API(name,surname,cell_nr,consolidated_id):
                     the_state.save()
                 
         else : 
-                    Consolidated_Core_Quiz = apps.get_model('wifi_app', 'Consolidated_Core_Quiz')
-                    code_value = response.json().get("Code", "Not Available")  
-                    if code_value == "SUCCESS" :
-                         state_chk = True
-                    else : 
-                         state_chk = False
 
+                    Consolidated_Core_Quiz = apps.get_model('wifi_app', 'Consolidated_Core_Quiz')
+                    state_chk = False
                     the_state = Consolidated_Core_Quiz.objects.get(id = consolidated_id)
-                    status_code = response.status_code
-                    the_state.uploaded = False
-                    the_state.status_descript = f'{status_code}  {response.text}' 
+                    the_state.uploaded = True
+                    the_state.status_descript = f'{response.status_code}  {response.text}' 
                     the_state.payload = data 
                     the_state.date_uploaded = timezone.localtime(timezone.now())
                     the_state.save()
+                    
             
     except requests.exceptions.ConnectionError as e:
                 # Handle network-related errors
@@ -99,7 +99,7 @@ def push_to_dischem_per_event(consolidated_id):
             
     # Filter objects older than 96 hours and haven't been uploaded
     Consolidated_Core_Quiz = apps.get_model('wifi_app', 'Consolidated_Core_Quiz')
-    data_upload = Consolidated_Core_Quiz.objects.filter(pk=consolidated_id)
+    data_upload = Consolidated_Core_Quiz.objects.filter(pk=consolidated_id,uploaded = False)
         
     for x in data_upload:
         username = 'NowOnline---REMOVE--'

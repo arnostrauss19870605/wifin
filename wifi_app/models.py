@@ -453,15 +453,6 @@ class Consolidated_Core_Quiz(models.Model):
                                 survey_setting = Survey_settings.objects.get(survey_id=self.surveyID)
                                 the_client = survey_setting.client_api
                                 self.client = the_client
-                                if the_client == "DC" :
-                                    self.client
-                                    send_lead_sms(self.pk)
-                                elif the_client == "OM" :
-                                    post_OM_contact_API(self.first_name,self.last_name,self.q_4,self.pk)
-                                else :
-                                    pass
-                                    
-                        
                             except Survey_settings.DoesNotExist:
                             # Handle the case where there is no object with the given survey_id
                                 print(f"No survey setting found for survey_id {self.surveyID}")
