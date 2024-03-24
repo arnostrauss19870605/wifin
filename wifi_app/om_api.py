@@ -99,7 +99,7 @@ def push_to_dischem_per_event(consolidated_id):
             
     # Filter objects older than 96 hours and haven't been uploaded
     Consolidated_Core_Quiz = apps.get_model('wifi_app', 'Consolidated_Core_Quiz')
-    data_upload = Consolidated_Core_Quiz.objects.filter(pk=consolidated_id,uploaded = False)
+    data_upload = Consolidated_Core_Quiz.objects.filter(pk=consolidated_id,uploaded = False,upload_required = True)
         
     for x in data_upload:
         username = 'NowOnline---REMOVE--'
@@ -112,7 +112,7 @@ def push_to_dischem_per_event(consolidated_id):
                     "first_Name": x.first_name,      
                     "last_Name": x.last_name,        
                     "country_code": "+27",       
-                    "mobile": x.q_5,           
+                    "mobile": x.q_4,           
                     "email": x.email,            
                     "lead_Source": "NowOnline",     
                     "source_campaign": "NowOnline_Stations",

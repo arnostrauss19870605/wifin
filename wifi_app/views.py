@@ -39,7 +39,7 @@ import re
 # Create your views here.
 
 def test(request):
-    pull_survey_answers_per_event(1219,7753191)
+    #pull_survey_answers_per_event(1219,7753191)
     #post_OM_contact_API("Entelek Test","Test Entelek",27726124698,1613)
     #send_lead_sms('35737')
     #pull_from_captive_portal()
