@@ -94,3 +94,107 @@ def post_OM_contact_API(name,surname,cell_nr,consolidated_id):
     
     print("The OM Response : ",response)
     return response
+
+def push_to_dischem_per_event(consolidated_id):
+            
+    # Filter objects older than 96 hours and haven't been uploaded
+    Consolidated_Core_Quiz = apps.get_model('wifi_app', 'Consolidated_Core_Quiz')
+    data_upload = Consolidated_Core_Quiz.objects.filter(pk=consolidated_id)
+        
+    for x in data_upload:
+        username = 'NowOnline---REMOVE--'
+        password = 'whjTVmYQrJ2v6DFUn5dLGC---REMOVE--'
+        url = f'https://api.scoutnet.co.za/api/CreateLeads?Username={username}&Password={password}'
+    
+           
+        payload = {
+                    "lead_id": x.hsUsersID,         
+                    "first_Name": x.first_name,      
+                    "last_Name": x.last_name,        
+                    "country_code": "+27",       
+                    "mobile": x.q_5,           
+                    "email": x.email,            
+                    "lead_Source": "NowOnline",     
+                    "source_campaign": "NowOnline_Stations",
+                    "product": x.product,        
+                    "keywords": "",       
+                    "lead_Status": "New",       
+                    "designation": "",     
+                    "consent": True               
+}
+        headers = {
+                "accept": "application/json",
+                "content-type": "application/json",
+                             
+                }
+
+        try:
+                          
+            response = requests.post(url, json=payload, headers=headers)
+          
+       
+            if response.status_code == 200 :
+                    code_value = response.json().get("Code", "Not Available")  
+                    if code_value == "SUCCESS" :
+                         state_chk = True
+                    else : 
+                         state_chk = False
+                        
+                    the_state = Consolidated_Core_Quiz.objects.get(id = x.pk)
+                    status_code = response.status_code
+                    the_state.uploaded = True
+                    the_state.status_check = state_chk 
+                    the_state.status_descript = f'{status_code} {response.json()}' 
+                    the_state.payload = payload 
+                    the_state.date_uploaded = timezone.localtime(timezone.now())
+                    the_state.save()
+                
+            else : 
+                    code_value = response.json().get("Code", "Not Available")  
+                    if code_value == "SUCCESS" :
+                         state_chk = True
+                    else : 
+                         state_chk = False
+
+                    the_state = Consolidated_Core_Quiz.objects.get(id = x.pk)
+                    status_code = response.status_code
+                    the_state.uploaded = False
+                    the_state.status_descript = f'{status_code}  {response.text}' 
+                    the_state.payload = payload 
+                    the_state.date_uploaded = timezone.localtime(timezone.now())
+                    the_state.save()
+            
+        except requests.exceptions.ConnectionError as e:
+                # Handle network-related errors
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'Connection Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("There was a connection error")
+
+        except requests.exceptions.HTTPError as e:
+                # Handle HTTP errors (e.g., status code is not 2xx)
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'HTTP Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("The request was not successful")
+
+        except requests.exceptions.RequestException as e:
+                # Handle other request-related errors
+                the_state = get_object_or_404(Consolidated_Core_Quiz, id=x.pk)
+                the_state.uploaded = False
+                the_state.status_descript = f'Request Error: {e}'
+                the_state.payload = payload
+                the_state.date_uploaded = timezone.localtime(timezone.now())
+                the_state.save()
+                return HttpResponse("There was an error with the request")
+            
+          
+    else:
+        # Handle the case when the queryset is empty
+         pass

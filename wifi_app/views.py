@@ -22,6 +22,7 @@ from wifi_app.hsnm import pull_from_captive_portal as hsnm
 from wifi_app.myfunctions import pull_survey_answers_per_event
 from logging import getLogger
 from .tasks import push_to_omnisend,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel
+from om_api import push_to_dischem_per_event
 
 import json
 from pprint import pprint
@@ -1158,6 +1159,8 @@ def sms_webhook(request):
                     quiz_instance.sms_opt_in = True
                     quiz_instance.save()
                     response_message = "Thank you, you can expect a call from Dischem Health shortly."
+                    push_to_dischem_per_event(quiz_instance.id)
+
                 else:
                     response_message = "Thank you, you have opted out and Dischem Health will not be contacting you."
             

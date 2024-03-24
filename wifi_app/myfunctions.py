@@ -276,3 +276,7 @@ def pull_survey_answers_per_event(survey_id,user_id):
                     consolidate_quiz(user_id,survey_id)
 
 
+
+
+
+
