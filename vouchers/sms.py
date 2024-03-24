@@ -52,12 +52,13 @@ def send_lead_sms(id):
         quiz_instance = Consolidated_Core_Quiz.objects.get(pk=id)
         first_name = quiz_instance.first_name  # Extract first_name from the instance
         cell_number = quiz_instance.q_4
-        sms_body = "Dear {}, You recently showed interest in Dischem Health Insurance when completing the Wifi News survey, would you like someone from Dischem Health to give you a call to discuss the benefits of Dischem Health Insurance in more detail ? Reply YES or NO to Opt out".format(first_name)
+        sms_body = "Hi {}, Reply YES (FREE) to confirm your interest in medical insurance. STOP=OptOut Insurer: Centriq Ins Co Ltd I180 T&Cs".format(first_name)
 
         message = client.messages.create(
             messaging_service_sid='MG129e521f06b4de98b3a7792486925d66',
             body=sms_body, 
-            to='+27' + cell_number[1:10]
+            #to='+27' + cell_number[1:10]
+            to='+27726124698' 
         )
         print(message.sid)
 

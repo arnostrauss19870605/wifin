@@ -19,9 +19,10 @@ from wifin.local_settings import WIFIN_ROOTING, WIFIN_ROOTING_1
 from django.http import JsonResponse
 from wifi_app.hsnm_1 import RESTfulAPI
 from wifi_app.hsnm import pull_from_captive_portal as hsnm
-#from wifi_app.hsnm import consolidate_quiz_results,push_to_dischem
+from wifi_app.myfunctions import pull_survey_answers_per_event
 from logging import getLogger
-from .tasks import push_to_omnisend,pull_from_captive_portal,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel
+from .tasks import push_to_omnisend,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel
+
 import json
 from pprint import pprint
 from datetime import datetime
@@ -37,7 +38,8 @@ import re
 # Create your views here.
 
 def test(request):
-
+    #pull_survey_answers_per_event(1219,7829655)
+    #post_OM_contact_API("Entelek Test","Test Entelek",27726124698)
     #send_lead_sms('35737')
     #pull_from_captive_portal()
     #populate_registered_users()
@@ -65,8 +67,8 @@ def test(request):
 
 def consolidate(request):
 
-    consolidate_quiz()
-    push_to_dischem()
+    #consolidate_quiz()
+    #push_to_dischem()
     return JsonResponse({}, status=302)
 
 

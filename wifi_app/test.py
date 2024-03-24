@@ -59,8 +59,8 @@ def pull_from_captive_portal():
           #domain_api_endpoint = 'userRead'
 
        
-          survey_id = 1215
-          user_id = 7482975
+          survey_id = 1219
+          user_id = 7829655
           domain_id = 203
           creation_date = '2023-11-01'
           api = RESTfulAPI(domain_api_url, api_key, api_secret)
@@ -71,7 +71,10 @@ def pull_from_captive_portal():
           #data_str = f'{{"Where":"wpsurvey.id={domain_id}"}}'
 
           #Get Survey Result
-          data_str = f'{{"Where":"wpsurvey.id={survey_id} AND domain.id={domain_id} AND user.CreationDate >= \\"{creation_date}\\""}}'
+          #data_str = f'{{"Where":"wpsurvey.id={survey_id} AND domain.id={domain_id} AND user.CreationDate >= \\"{creation_date}\\""}}'
+
+          #Get Result Based on User ID
+          data_str = f'{{"Where":"wpsurvey.id={survey_id} AND user.id={user_id}"}}'
 
           #Fet User Detail  
           #data_str = f'{{"id":"{user_id}"}}'  

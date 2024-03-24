@@ -9,7 +9,6 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from wifi_app.hsnm_1 import RESTfulAPI
 from django.http import JsonResponse
-from django.utils import timezone
 import json
 import time
 from django.db.models import Q
@@ -835,8 +834,8 @@ def push_to_dripcel():
     #"NowOnline_MI"
 
     for x in data_upload:
-        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7'
-        url = 'https://api.dripcel.com/contacts/single'
+        api_key = 'Z1ngJ2TuTsKynZylysTW4zruDjMjD7---REMOVE--'
+        url = 'https://api.dripcel.com/contacts/single---REMOVE--'
 
         payload = {
             "country": "ZA",

@@ -1,5 +1,6 @@
 """Declare models for YOUR_APP app."""
 from django.contrib.auth.models import AbstractUser, BaseUserManager ## A new class is imported. ##
+from vouchers.sms import *
 from django.db import models
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
@@ -9,6 +10,7 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 from vouchers.sms import send_my_notification_sms
 from django.utils.translation import gettext_lazy as _
+from .om_api import post_OM_contact_API
 import re
 
 DURATION_CHOICES = (
@@ -19,6 +21,14 @@ DURATION_CHOICES = (
     ('24',24),
     ('48',48),
     ('96',96),
+)
+
+
+CLIENT = (
+    ('OM','OM'),
+    ('DC', 'DC'),
+    ('TT', 'TT'),
+
 )
 
 class CustomUserManager(BaseUserManager):
@@ -262,6 +272,8 @@ class Survey_settings(models.Model):
     domain_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Domain ID")
     survey_id =  models.CharField(blank=True, null=True,max_length=15,verbose_name = "Survey ID")
     creation_date = models.DateTimeField(blank=True, null=True,verbose_name = "Creation Date")
+    client_api = models.CharField(blank=False, null=False,max_length=15,default="TT",choices=CLIENT, verbose_name = "Client API")
+    double_optin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     date_created = models.DateTimeField(blank=True, null=True)
     last_updated = models.DateTimeField(blank=True, null=True)
@@ -411,6 +423,7 @@ class Consolidated_Core_Quiz(models.Model):
     upload_required = models.BooleanField(default=False)
     uploaded = models.BooleanField(default=False)
     product =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Interested Product")
+    client =  models.CharField(blank=True, null=True,max_length=100,verbose_name = "Client")
 
     sms_sent_text =  models.TextField(blank=True, null=True,verbose_name = "SMS Text")
     sms_sent_meta =  models.TextField(blank=True, null=True,verbose_name = "SMS Sent Meta Info")
@@ -434,6 +447,24 @@ class Consolidated_Core_Quiz(models.Model):
                         if 10 <= safe_int(self.q_5) <= 12 :
                             self.upload_required = True
                             self.product = "Medical Insurance"
+
+                            #Check If Dischem
+                            try:
+                                survey_setting = Survey_settings.objects.get(survey_id=self.surveyID)
+                                the_client = survey_setting.client_api
+                                self.client = the_client
+                                if the_client == "DC" :
+                                    self.client
+                                    send_lead_sms(self.pk)
+                                elif the_client == "OM" :
+                                    post_OM_contact_API(self.first_name,self.last_name,self.q_4,self.pk)
+                                else :
+                                    pass
+                                    
+                        
+                            except Survey_settings.DoesNotExist:
+                            # Handle the case where there is no object with the given survey_id
+                                print(f"No survey setting found for survey_id {self.surveyID}")
                         
 
         
