@@ -1230,7 +1230,7 @@ def mail_webhook(request):
                     )
                     
                     webhook_log.save()
-                    pull_survey_answers_per_event(webhook_log.hssurveysid,webhook_log.hsuserid)
+                    pull_survey_answers_per_event(webhook_log.hssurveysid,webhook_log.username)
                     
                 else:
                     pass
