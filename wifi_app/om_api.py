@@ -9,8 +9,27 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+
+def post_OM_contact_API_test(name,surname,cell_nr):
+    url = 'https://thistle-oldmutual.yonder.cloud/api/leadgen/v2/lead/entelek'
+    headers = {
+        'Content-Type': 'application/json',
+        'yomotoken': 'db0ba19b0e47b0440356f30bd0fcdbc5'
+    }
+    data = {
+        "msisdn": cell_nr,
+        "product": "YONDIGITAL10",
+        "source": "Entelek",
+        "name": name,
+        "surname": surname
+    }
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+
+    print("The OM Response : ",response)
+    return response
+
 def post_OM_contact_API(name,surname,cell_nr,consolidated_id):
-    url = 'https://scstagethistle-oldmutual.scprod.yonder.cloud/api/leadgen/v2/lead/entelek'
+    url = 'https://thistle-oldmutual.yonder.cloud/api/leadgen/v2/lead/entelek'
     headers = {
         'Content-Type': 'application/json',
         'yomotoken': 'db0ba19b0e47b0440356f30bd0fcdbc5'

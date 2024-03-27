@@ -473,6 +473,7 @@ class Webhook_log(models.Model):
     type = models.CharField(blank=False, null=False,max_length=10,default='Email',verbose_name = "SMS or Email")
     hssurveysid = models.CharField(blank=True, null=True,max_length=50,verbose_name = "Survey ID")
     hsuserid = models.CharField(blank=True, null=True,max_length=50,verbose_name = "Survey's User ID")
+    username = models.CharField(blank=True, null=True,max_length=50,verbose_name = "User Name")
 
     def __str__(self):
         return f"Date : {self.timestamp}"

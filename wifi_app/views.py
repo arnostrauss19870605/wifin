@@ -22,7 +22,7 @@ from wifi_app.hsnm import pull_from_captive_portal as hsnm
 from wifi_app.myfunctions import pull_survey_answers_per_event
 from logging import getLogger
 from .tasks import push_to_omnisend,populate_registered_users,consolidate_quiz,push_to_dischem,pull_survey_answers,update_survey_personal_info,push_to_dripcel,delete_old_quizzes
-from .om_api import push_to_dischem_per_event
+from .om_api import push_to_dischem_per_event,post_OM_contact_API_test
 
 import json
 from pprint import pprint
@@ -40,11 +40,15 @@ import re
 
 def test(request):
     #pull_survey_answers_per_event(1219,7753191)
+    #post_OM_contact_API_test("Entelek Test","Test Entelek",27726124698)
+    #pull_survey_answers_per_event(1219,776999)
     #post_OM_contact_API("Entelek Test","Test Entelek",27726124698,1613)
     #send_lead_sms('35737')
     #pull_from_captive_portal()
     #populate_registered_users()
     #push_to_omnisend()
+
+    #pull_survey_answers()
     
    
     
@@ -1198,6 +1202,15 @@ def mail_webhook(request):
                 matches = re.findall(pattern, request_body_str)
                 values = {match[0]: match[1] for match in matches}
 
+                # Extracting the numeric part of the username
+                username_pattern = r"User Name:\s*(\d+)@"
+                username_match = re.search(username_pattern, request_body_str)
+                if username_match:
+                    username_numeric = username_match.group(1)  # Extracted numeric part of the username
+                else:
+                    username_numeric = None  # Or handle the absence of a username as needed
+
+
                  # Remove "3D" prefix if present
                 if 'hssurveysid' in values:
                     if values['hssurveysid'].startswith("3D"):
@@ -1213,6 +1226,7 @@ def mail_webhook(request):
                         detail=request_body_str,  
                         hssurveysid=values['hssurveysid'],
                         hsuserid=values['HsSurveysUsersID'],
+                        username=username_numeric, 
                     )
                     
                     webhook_log.save()

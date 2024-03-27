@@ -283,7 +283,7 @@ def pull_from_captive_portal():
             domain_api_lastdate = None
             api = None
 
-@background
+
 def pull_survey_answers(): 
 
     active_surveys = Survey_settings.objects.filter(is_active=True)
