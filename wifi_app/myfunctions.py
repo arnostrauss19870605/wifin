@@ -242,7 +242,7 @@ def update_survey_personal_info_per_event(userid,pk):
 
 
 
-def pull_survey_answers_per_event(survey_id,user_id): 
+def pull_survey_answers_per_event(survey_id,username): 
                   
             api_key = '38XG46Q3NPM63THRMB9984YJ7V6MY5QQ'
             api_secret = '47TY45RDHY77DDNNDNNBD7J8RDL97WQ1'
@@ -251,7 +251,7 @@ def pull_survey_answers_per_event(survey_id,user_id):
             api = RESTfulAPI(domain_api_url, api_key, api_secret)
 
             # Given string
-            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND user.id={user_id}"}}'
+            data_str = f'{{"Where":"wpsurvey.id={survey_id} AND user.username={username}"}}'
                     
             # Parse the string as a Python dictionary
             data_dict = json.loads(data_str)

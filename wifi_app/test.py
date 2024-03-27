@@ -60,7 +60,7 @@ def pull_from_captive_portal():
 
        
           survey_id = 1213
-          user_id = '0027799737302'
+          user_id = '00211610497594'
           domain_id = 203
           creation_date = '2024-01-01'
           api = RESTfulAPI(domain_api_url, api_key, api_secret)
