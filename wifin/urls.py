@@ -78,6 +78,7 @@ urlpatterns = [
 
     #Forti
     path('forti/',forti, name="forti"),
+    path('forti_2/',forti_2, name="forti_2"),
 
     #SMS Webhook
     path('sms/', sms_webhook, name='sms_webhook'),

@@ -829,6 +829,94 @@ def test_page_5(request):
 
 @xframe_options_exempt
 def forti(request):
+    if request.method == "POST" :
+        the_session =  request.GET['sid']
+
+        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+            utm_source = request.GET['utm_source']
+            utm_medium = request.GET['utm_medium']
+            utm_campaign = request.GET['utm_campaign']
+            redirect_destination = f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
+        else :
+            redirect_destination = f"{reverse('interstitial-page')}?{urlencode({'sid': the_session })}"
+        
+        try :
+        
+   
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                return redirect(redirect_destination)
+            else :
+            
+                return redirect(redirect_destination)  
+   
+        except Exception:
+
+            pass
+
+        finally : 
+
+            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
+                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='home',counter=1,session = the_session )
+                data_entry.save()
+                               
+            else :
+               
+                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='home',counter=1,session = the_session)
+                data_entry.save()
+   
+   
+   
+   
+    else :
+      
+        categories = Category.objects.all()[4:10]
+        featured = Post.objects.order_by('-timestamp')[3:11]
+        featured_other = Post.objects.filter(featured=True)[6:11]
+        latest = Post.objects.order_by('-timestamp')[4:11]
+        topics = Topic.objects.all().latest('pk')
+        the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
+        comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
+       
+        context= {
+                'object_list': featured,
+                'featured_other': featured_other,
+                'latest': latest,
+                'categories':categories,
+                'topics':topics,
+                'comments':comments,
+            
+        
+            }
+       
+        try :
+
+            categories = Category.objects.all()[0:10]
+            featured = Post.objects.filter(featured=True)[0:5]
+            featured_other = Post.objects.filter(featured=True)[6:10]
+            latest = Post.objects.order_by('-timestamp')[0:10]
+            topics = Topic.objects.all().latest('pk')
+            the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
+            comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
+            context= {
+                'object_list': featured,
+                'featured_other': featured_other,
+                'latest': latest,
+                'categories':categories,
+                'topics':topics,
+                'comments':comments,
+            
+        
+            }
+
+            return render(request, 'forti_index.html', context)
+          
+        except Exception:
+                
+            pass
+    
+    
+@xframe_options_exempt
+def forti_2(request):
     form = LoginForm(request.POST)
     
     if request.method == "POST" :
