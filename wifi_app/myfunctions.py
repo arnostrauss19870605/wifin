@@ -63,8 +63,8 @@ def consolidate_quiz_results(id,survey_id):
         return
 
     
-    if result_4:  # Checks if result_5 is not None
-        contact_number = "0" + result_4.q_4[1:] 
+    if result_5:  # Checks if result_5 is not None
+        contact_number = "0" + result_5.q_5[4:] 
     elif result_1 and hasattr(result_1, 'mobile_phone'):  # Checks if result_1 is not None and has attribute 'mobile_phone'
         contact_number = "0" + result_1.mobile_phone[4:] 
     else:
@@ -287,8 +287,8 @@ def pull_survey_answers_per_event(survey_id,username):
                             q_1=answers[0],
                             q_2=answers[1],
                             q_3=answers[2],
-                            q_4=answers[4],  # Ensure this index exists in your 'answers'
-                            q_5=answers[3],  # Ensure this index exists in your 'answers'
+                            q_4=answers[3],  # Ensure this index exists in your 'answers'
+                            q_5=answers[4],  # Ensure this index exists in your 'answers'
                             score=score,
                             date_extracted=timezone.localtime(timezone.now())
                     
