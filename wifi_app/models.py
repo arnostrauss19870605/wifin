@@ -439,26 +439,35 @@ class Consolidated_Core_Quiz(models.Model):
     def save(self, *args, **kwargs):
         if self.date_consolidated is None:
             self.date_consolidated = timezone.localtime(timezone.now())
-            if safe_int(self.q_1) == 1 :
-                if 18 <= safe_int(self.q_2) <= 20 :
+            try:
+                survey_setting = Survey_settings.objects.get(survey_id=self.surveyID)
+                the_client = survey_setting.client_api
+                self.client = the_client
+                if self.client == "OM" :
+                    if safe_int(self.q_1) == 1 :
+                        if safe_int(self.q_2) == 3 :
+                            if safe_int(self.q_3) == 5 :
+                                if safe_int(self.q_4) == 7 :
+                                    self.upload_required = True
+                                    self.mobile_phone = self.q_5
+                                    self.product = "OM Funeral Cover"
+                
+                elif self.client == "DC" :
+                     if safe_int(self.q_1) == 1 :
+                        if 18 <= safe_int(self.q_2) <= 20 :
                     
-                    if safe_int(self.q_3) == 6 :
+                            if safe_int(self.q_3) == 6 :
 
-                        if 10 <= safe_int(self.q_5) <= 12 :
-                            self.upload_required = True
-                            self.product = "Medical Insurance"
+                                if 10 <= safe_int(self.q_5) <= 12 :
+                                    self.upload_required = True
+                                    self.product = "Medical Insurance"
+                else :
+                    pass
 
-                            #Check If Dischem
-                            try:
-                                survey_setting = Survey_settings.objects.get(survey_id=self.surveyID)
-                                the_client = survey_setting.client_api
-                                self.client = the_client
-                            except Survey_settings.DoesNotExist:
-                            # Handle the case where there is no object with the given survey_id
-                                print(f"No survey setting found for survey_id {self.surveyID}")
-                        
-
-        
+            except Survey_settings.DoesNotExist:
+                print(f"No survey setting found for survey_id {self.surveyID}")
+                pass
+                   
         super(Consolidated_Core_Quiz, self).save(*args, **kwargs)  
 
 class Upload_Interval(models.Model):

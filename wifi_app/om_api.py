@@ -29,10 +29,10 @@ def post_OM_contact_API_test(name,surname,cell_nr):
     return response
 
 def post_OM_contact_API(name,surname,cell_nr,consolidated_id):
-    url = 'https://thistle-oldmutual.yonder.cloud/api/leadgen/v2/lead/entelek'
+    url = 'https://thistle-oldmutual.yonder.cloud/api/leadgen/v2/lead/entelekTEST'
     headers = {
         'Content-Type': 'application/json',
-        'yomotoken': 'db0ba19b0e47b0440356f30bd0fcdbc5'
+        'yomotoken': 'db0ba19b0e47b0440356f30bd0fcdbc5TEST'
     }
     data = {
         "msisdn": cell_nr,

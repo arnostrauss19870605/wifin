@@ -43,7 +43,7 @@ admin.site.register(Activation)
 admin.site.register(Location)
 admin.site.register(Upload_Interval)
 admin.site.register(Survey_settings)
-admin.site.register(Webhook_log)
+
 
 class LogResource(resources.ModelResource):
 
@@ -177,6 +177,22 @@ class GameUser_Admin(ImportExportModelAdmin,admin.ModelAdmin):
     
     search_fields = ('display_name','cell_number','email','username','last_name')
     list_filter = ('display_name','cell_number','email','username','last_name','timestamp')
+
+
+@admin.register(Webhook_log)
+class Webhook_log_Core_QuizAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display=(
+        'id',
+        'timestamp',
+        'type',
+        'username',
+        'hssurveysid',
+        
+        )
+    
+    search_fields = ('username','hssurveysid')
+    list_filter = ('type','hssurveysid')
+
 
 
    

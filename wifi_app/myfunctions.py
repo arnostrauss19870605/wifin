@@ -145,7 +145,7 @@ def consolidate_quiz_results(id,survey_id):
             if the_client == "DC":
                 send_lead_sms(consolidate_table.pk)
             elif the_client == "OM" :
-                post_OM_contact_API(consolidate_table.first_name,consolidate_table.last_name,consolidate_table.q_4,consolidate_table.pk)
+                post_OM_contact_API(consolidate_table.first_name,consolidate_table.last_name,consolidate_table.mobile_phone,consolidate_table.pk)
             else :
                 pass
           
@@ -287,8 +287,8 @@ def pull_survey_answers_per_event(survey_id,username):
                             q_1=answers[0],
                             q_2=answers[1],
                             q_3=answers[2],
-                            q_4=answers[4],  # Ensure this index exists in your 'answers'
-                            q_5=answers[3],  # Ensure this index exists in your 'answers'
+                            q_4=answers[3],  # Ensure this index exists in your 'answers'
+                            q_5=answers[4],  # Ensure this index exists in your 'answers'
                             score=score,
                             date_extracted=timezone.localtime(timezone.now())
                     
