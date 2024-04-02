@@ -145,7 +145,7 @@ def consolidate_quiz_results(id,survey_id):
             if the_client == "DC":
                 send_lead_sms(consolidate_table.pk)
             elif the_client == "OM" :
-                post_OM_contact_API(consolidate_table.first_name,consolidate_table.last_name,consolidate_table.q_4,consolidate_table.pk)
+                post_OM_contact_API(consolidate_table.first_name,consolidate_table.last_name,consolidate_table.q_5,consolidate_table.pk)
             else :
                 pass
           
