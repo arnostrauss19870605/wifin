@@ -127,8 +127,8 @@ def consolidate_quiz_results(id,survey_id):
     q_1 =  result_1.q_1,
     q_2 =  result_2.q_2,
     q_3 =  result_3.q_3,
-    q_4 =  contact_number,
-    q_5 =  result_5.q_5,
+    q_4 =  result_4.q_4,
+    q_5 =  contact_number,
     score =  safe_int(result_1.score) + safe_int(result_2.score) +safe_int(result_3.score)
 
     )
