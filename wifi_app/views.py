@@ -1303,6 +1303,8 @@ def mail_webhook(request):
                 if 'hssurveysid' in values:
                     if values['hssurveysid'].startswith("3D"):
                         values['hssurveysid'] = values['hssurveysid'][2:]
+                    if values['hssurveysid'].startswith("=3D"):
+                        values['hssurveysid'] = values['hssurveysid'][3:]
 
                 if 'HsSurveysUsersID' in values:
                     if values['HsSurveysUsersID'].startswith("3D"):
