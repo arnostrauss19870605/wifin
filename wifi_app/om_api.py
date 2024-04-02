@@ -29,8 +29,9 @@ def post_OM_contact_API_test(name,surname,cell_nr):
     return response
 
 def post_OM_contact_API(name,surname,cell_nr,consolidated_id):
-    #contact_number = "27" + cell_nr[1:]
-    contact_number = cell_nr
+    
+    contact_number = "27" + cell_nr[2:]
+   
     url = 'https://thistle-oldmutual.yonder.cloud/api/leadgen/v2/lead/entelekTEST'
     headers = {
         'Content-Type': 'application/json',
