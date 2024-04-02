@@ -64,7 +64,7 @@ def consolidate_quiz_results(id,survey_id):
 
     
     if result_5:  # Checks if result_5 is not None
-        contact_number = "0" + result_5.q_5[4:] 
+        contact_number = "0" + result_5.q_5[1:] 
     elif result_1 and hasattr(result_1, 'mobile_phone'):  # Checks if result_1 is not None and has attribute 'mobile_phone'
         contact_number = "0" + result_1.mobile_phone[4:] 
     else:
