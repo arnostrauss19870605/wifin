@@ -1327,9 +1327,13 @@ def mail_webhook(request):
                 return HttpResponse("Success", content_type="application/xml",status=200)
     
             except Exception as e:
-            # Log the error here (e.g., print(e) or logging)
-                return HttpResponse("Error processing request", status=500)
+            # Log the error here
+                print(e)  # Or use a logging framework
+
+        # This response is now outside the try-except block
+            return HttpResponse("Success", content_type="application/xml", status=200)
     else:
+        
         return HttpResponse("Only POST requests are accepted.", status=405)
 
 
