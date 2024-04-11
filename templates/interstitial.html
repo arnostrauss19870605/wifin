@@ -122,29 +122,54 @@
 				console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
 			  }
 			  
-			googletag.cmd.push(() => {
-			
-			const rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-			  rewardedSlot.setForceSafeFrame(true);
-			
-			  googletag.pubads().setTargeting("Medium", [utm_medium]);
-			  googletag.pubads().enableAsyncRendering();
-			  googletag.enableServices();
-			  
-			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-				
-				const makeVisibleFn = (e) => {
-				
-				  clearInterval(timerInterval);
-				  
-				  evt.makeRewardedVisible();
-				  e.preventDefault();
-				  
-				  watchAdButton.removeEventListener('click', makeVisibleFn);
-				  
-				  noThanksButton.removeEventListener('click', closeModalFn);
-				  trigger.style.display = 'none';
-				};
+			  googletag.cmd.push(() => {
+				const rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+				const SetupAdRewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+				rewardedSlot.setForceSafeFrame(true);
+		
+				googletag.pubads().setTargeting("Medium", [utm_medium]);
+				googletag.pubads().enableAsyncRendering();
+				googletag.enableServices();
+		
+				let rewardedSlotReady = false;
+		
+				googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+					rewardedSlotReady = true;
+					console.log('rewardedSlot is ready and being served.');
+					// rewardedSlotReady logic
+					const trigger = document.getElementById('rewardModal');
+					trigger.style.display = 'block';
+					const watchAdButton = document.getElementById('watchAdBtn');
+					const noThanksButton = document.getElementById('noThanksBtn');
+		
+					const makeVisibleFn = (e) => {
+						evt.makeRewardedVisible();
+						e.preventDefault();
+						watchAdButton.removeEventListener('click', makeVisibleFn);
+						noThanksButton.removeEventListener('click', closeModalFn);
+						trigger.style.display = 'none';
+					};
+		
+					watchAdButton.addEventListener('click', makeVisibleFn);
+		
+					const closeModalFn = () => {
+						trigger.style.display = 'none';
+						googletag.destroySlots([rewardedSlot]);
+					};
+		
+					noThanksButton.addEventListener('click', closeModalFn);
+				});
+		
+				// Check if rewardedSlot is not ready after 5 seconds
+				setTimeout(() => {
+					if (!rewardedSlotReady) {
+						console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
+						googletag.display(SetupAdRewardedSlot);
+					}
+				}, 2000); // 5 seconds
+		
+				googletag.display(rewardedSlot);
+						
 
 
 				const trigger = document.getElementById('rewardModal');
@@ -180,8 +205,7 @@
 					}
 				  });
 
-			  googletag.display(rewardedSlot);
-			});
+			 
 		  </script>
 
 
