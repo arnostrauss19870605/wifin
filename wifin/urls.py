@@ -25,6 +25,7 @@ from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap 
 from django.contrib.auth import views as auth_views
 
+
 from wifi_app.models import Post
 
 info_dict = {
@@ -88,11 +89,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('clinix/activation', ActivationView.as_view(), name="activation"),
     path('clinix/login/', auth_views.LoginView.as_view(template_name='sms_login.html')),
-    path(
-        "ads.txt",
-        RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),
-    ),
+    #path(
+    #    "ads.txt",
+    #    RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),
+    #),
 
+    path('ads.txt', RedirectView.as_view(url='https://wb.setupad.com/api/getAdsTXT/2272/file/5199', permanent=True)),
     path(
         "app-ads.txt",
         RedirectView.as_view(url=staticfiles_storage.url("app-ads.txt")),
