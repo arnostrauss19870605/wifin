@@ -115,6 +115,7 @@
 			const queryValues = window.location.search;
 			const urlParams = new URLSearchParams(queryValues);
 			var utm_medium = "NULL"
+			
 			if (urlParams.has('utm_medium') === true){
 				  utm_medium = urlParams.get('utm_medium');
 				  console.log("Utm Medium does exisit as :" ,utm_medium );
@@ -126,11 +127,13 @@
 			
 			const rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
 			
+
 			  rewardedSlot.setForceSafeFrame(true);
 			
 			  googletag.pubads().setTargeting("Medium", [utm_medium]);
 			  googletag.pubads().enableAsyncRendering();
 			  googletag.enableServices();
+			  let rewardedSlotReady = false;
 			  
 			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
 				
@@ -147,6 +150,18 @@
 				  trigger.style.display = 'none';
 				};
 
+				 // Check if rewardedSlot is not ready after 2 seconds
+				 setTimeout(() => {
+					if (!rewardedSlotReady) {
+						console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
+						rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+
+					}
+				}, 2000); // Adjust the timeout as needed
+		
+				
+
+
 
 				const trigger = document.getElementById('rewardModal');
 				trigger.style.display = 'block';
@@ -156,16 +171,16 @@
 				
 				const noThanksButton = document.getElementById('noThanksBtn');
 				const closeModalFn = () => {
-				  const trigger = document.getElementById('rewardModal');
-				  trigger.style.display = 'none';
-				cancelPage();
-				googletag.destroySlots([rewardedSlot]);
+				  	const trigger = document.getElementById('rewardModal');
+				  	trigger.style.display = 'none';
+					cancelPage();
+					googletag.destroySlots([rewardedSlot]);
 				};
 				
 				noThanksButton.addEventListener('click', closeModalFn);
 			  });
 
-			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+			    googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
 				googletag.destroySlots([rewardedSlot]);
 				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
    
