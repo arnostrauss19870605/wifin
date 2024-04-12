@@ -169,68 +169,85 @@
 
 		<script>
 			googletag = window.googletag || {cmd: []};
+			const queryValues = window.location.search;
+			const urlParams = new URLSearchParams(queryValues);
+			var utm_medium = "NULL";
+		  
+			if (urlParams.has('utm_medium')) {
+			  utm_medium = urlParams.get('utm_medium');
+			  console.log("Utm Medium does exist as:", utm_medium);
+			} else {
+			  console.log("Utm Medium does not exist, value to be populated:", utm_medium);
+			}
+		  
 			googletag.cmd.push(() => {
-			
-			const rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			  let rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
 			  rewardedSlot.setForceSafeFrame(true);
-			
-			  googletag.pubads().setTargeting("Medium", [utm_medium]); 
+			  googletag.pubads().setTargeting("Medium", [utm_medium]);
 			  googletag.pubads().enableAsyncRendering();
 			  googletag.enableServices();
-			  
+		  
+			  let rewardedSlotReady = false;
+		  
 			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-				
-				const makeVisibleFn = (e) => {
-				
-				  clearInterval(timerInterval);
-				  
-				  evt.makeRewardedVisible();
-				  e.preventDefault();
-				  
-				  watchAdButton.removeEventListener('click', makeVisibleFn);
-				  
-				  noThanksButton.removeEventListener('click', closeModalFn);
-				  trigger.style.display = 'none';
-				};
-
-
+				rewardedSlotReady = true;
 				const trigger = document.getElementById('rewardModal');
 				trigger.style.display = 'block';
 				clearInterval(timerInterval);
 				const watchAdButton = document.getElementById('watchAdBtn');
-				watchAdButton.addEventListener('click', makeVisibleFn);
-				
 				const noThanksButton = document.getElementById('noThanksBtn');
-				const closeModalFn = () => {
-				  const trigger = document.getElementById('rewardModal');
+		  
+				const makeVisibleFn = (e) => {
+				  clearInterval(timerInterval);
+				  evt.makeRewardedVisible();
+				  e.preventDefault();
+				  watchAdButton.removeEventListener('click', makeVisibleFn);
+				  noThanksButton.removeEventListener('click', closeModalFn);
 				  trigger.style.display = 'none';
-				cancelPage();
-				googletag.destroySlots([rewardedSlot]);
 				};
-				
+		  
+				watchAdButton.addEventListener('click', makeVisibleFn);
+		  
+				const closeModalFn = () => {
+				  trigger.style.display = 'none';
+				  googletag.destroySlots([rewardedSlot]);
+				};
+		  
 				noThanksButton.addEventListener('click', closeModalFn);
+				
 			  });
-
-			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+	  
+			  googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+				console.log("Rewarded Add Granted Event");
 				googletag.destroySlots([rewardedSlot]);
-				nextPage();
-   
-		  		});
-
-				  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
-					const slot = event.slot;
-					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
-					//location.reload();
-					cancelPage();
-					if (slot === targetSlot) {
-					  // Slot specific logic.
-					}
-				  });
-
+				nextPage() ;
+		  
+				 }); 
+		   
+		  
+	  
+			  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+				const slot = event.slot;
+				console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+				//location.reload();
+				cancelPage();
+				if (slot === targetSlot) {
+				  // Slot specific logic.
+				}
+			  });
+		  
+			  // Check if rewardedSlot is not ready after 2 seconds
+			  setTimeout(() => {
+				if (!rewardedSlotReady) {
+				  console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
+				  let SetupAdRewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+				  googletag.display(SetupAdRewardedSlot);
+				}
+			  }, 2000);
+		  
 			  googletag.display(rewardedSlot);
 			});
 		  </script>
-
 
 	
 		   <!-- Import Library for Gtag -->
