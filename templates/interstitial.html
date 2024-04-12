@@ -110,64 +110,67 @@
 			}
         </script>
 
-
-		  <script>
+		<script>
 			googletag = window.googletag || {cmd: []};
 			const queryValues = window.location.search;
 			const urlParams = new URLSearchParams(queryValues);
-			var utm_medium = "NULL";
-		
-			if (urlParams.has('utm_medium')) {
-				utm_medium = urlParams.get('utm_medium');
-				console.log("Utm Medium does exist as:", utm_medium);
-			} else {
-				console.log("Utm Medium does not exist, value to be populated:", utm_medium);
-			}
-		
+			var utm_medium = "NULL"
+			if (urlParams.has('utm_medium') === true){
+				  utm_medium = urlParams.get('utm_medium');
+				  console.log("Utm Medium does exisit as :" ,utm_medium );
+			  } else {
+				console.log("Utm Medium does not exisit exisit, value to be populated : ", utm_medium);
+			  }
+			  
 			googletag.cmd.push(() => {
-				let rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-				rewardedSlot.setForceSafeFrame(true);
-				googletag.pubads().setTargeting("Medium", [utm_medium]);
-				googletag.pubads().enableAsyncRendering();
-				googletag.enableServices();
-		
-				let rewardedSlotReady = false;
-		
-				googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-					rewardedSlotReady = true;
-					const trigger = document.getElementById('rewardModal');
-					trigger.style.display = 'block';
-					clearInterval(timerInterval);
-					const watchAdButton = document.getElementById('watchAdBtn');
-					const noThanksButton = document.getElementById('noThanksBtn');
-		
-					const makeVisibleFn = (e) => {
-						clearInterval(timerInterval);
-						evt.makeRewardedVisible();
-						e.preventDefault();
-						watchAdButton.removeEventListener('click', makeVisibleFn);
-						noThanksButton.removeEventListener('click', closeModalFn);
-						trigger.style.display = 'none';
-					};
-		
-					watchAdButton.addEventListener('click', makeVisibleFn);
-		
-					const closeModalFn = () => {
-						trigger.style.display = 'none';
-						googletag.destroySlots([rewardedSlot]);
-					};
-		
-					noThanksButton.addEventListener('click', closeModalFn);
-					
-				});
+			
+			const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded',googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			  rewardedSlot.setForceSafeFrame(true);
+			
+			  googletag.pubads().setTargeting("utm_medium", [utm_medium]);
+			  googletag.pubads().enableAsyncRendering();
+			  googletag.enableServices();
+			  
+			  googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+				
+				const makeVisibleFn = (e) => {
+				
+				  clearInterval(timerInterval);
+				  
+				  evt.makeRewardedVisible();
+				  e.preventDefault();
+				  
+				  watchAdButton.removeEventListener('click', makeVisibleFn);
+				  
+				  noThanksButton.removeEventListener('click', closeModalFn);
+				  trigger.style.display = 'none';
+				};
 
-					googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
-					googletag.destroySlots([rewardedSlot]);
-					window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
-	   
-				});
 
-				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+				const trigger = document.getElementById('rewardModal');
+				trigger.style.display = 'block';
+				clearInterval(timerInterval);
+				const watchAdButton = document.getElementById('watchAdBtn');
+				watchAdButton.addEventListener('click', makeVisibleFn);
+				
+				const noThanksButton = document.getElementById('noThanksBtn');
+				const closeModalFn = () => {
+				  const trigger = document.getElementById('rewardModal');
+				  trigger.style.display = 'none';
+				cancelPage();
+				googletag.destroySlots([rewardedSlot]);
+				};
+				
+				noThanksButton.addEventListener('click', closeModalFn);
+			  });
+
+			   googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+				googletag.destroySlots([rewardedSlot]);
+				window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+   
+		  		});
+
+				  googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
 					const slot = event.slot;
 					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
 					//location.reload();
@@ -175,21 +178,11 @@
 					if (slot === targetSlot) {
 					  // Slot specific logic.
 					}
-				});
-		
-				// Check if rewardedSlot is not ready after 2 seconds
-				setTimeout(() => {
-					if (!rewardedSlotReady) {
-						console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
-						let SetupAdRewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-						googletag.display(SetupAdRewardedSlot);
-					}
-				}, 2000);
-		
-				googletag.display(rewardedSlot);
+				  });
+
+			  googletag.display(rewardedSlot);
 			});
-		</script>
-		
+		  </script>
 
 
 	
@@ -199,7 +192,10 @@
 		  {% include 'google/head_tags/20240201/interstitial.html' %}
 	  	{% endblock google_head %}
 
-
+		<!-- Taboola Head Tag) -->
+      {% block taboola_head %}
+        {% include 'taboola/taboola_header.html' %}
+      {% endblock taboola_head %}
 
 
 	</head>
@@ -212,7 +208,7 @@
 		  <div class="modal-content">
 			<p>To get free Wi-fi you need to watch these ads</p>
 			<input type="button" class="lg_btn" id="watchAdBtn" value="Yes, I want free Wi-fi!" />
-			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" onclick="cancelPage();" />
+			<input type="button" class="btn" id="noThanksBtn" value="No Thanks" />
 			<p>I don't want Free Wi-fi and will remain on this page.</p>
 		  </div>
 		</div>
@@ -267,7 +263,9 @@
                   <div class="sa-title popcat">Popular Reading</div>
                   <div class="heading-info">
                     <!-- Taboola Slot -->
-
+                    {% block taboola %}
+                      {% include 'taboola/taboola.html' %}
+                    {% endblock taboola %}
                     <!-- End Taboola Slot -->
                   </div>
                 </div>
