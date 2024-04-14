@@ -109,70 +109,87 @@
       
         </script>
 
-		<script>
-			googletag = window.googletag || {cmd: []};
-			const queryValues = window.location.search;
-			const urlParams = new URLSearchParams(queryValues);
-			var utm_medium = "NULL";
-			var actionAfterAd = ""; // Variable to track which action to take after the ad
-		
-			if (urlParams.has('utm_medium')) {
-				utm_medium = urlParams.get('utm_medium');
-				console.log("Utm Medium does exist as:", utm_medium);
-			} else {
-				console.log("Utm Medium does not exist, value to be populated:", utm_medium);
-			}
-		
-			googletag.cmd.push(() => {
-				const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-				rewardedSlot.setForceSafeFrame(true);
-		
-				googletag.pubads().setTargeting("utm_medium", [utm_medium]);
-				googletag.pubads().enableAsyncRendering();
-				googletag.enableServices();
-		
-				googletag.pubads().addEventListener('rewardedSlotReady', evt => {
-					const trigger = document.getElementById('rewardModal');
-					trigger.style.display = 'block';
-					clearInterval(timerInterval);
-		
-					const makeVisibleFn = (e) => {
-						evt.makeRewardedVisible();
-						e.preventDefault();
-						// Determine which action to take after the ad is closed
-						actionAfterAd = e.target.id === 'watchAdBtn' ? 'next' : 'cancel';
-					};
-		
-					const watchAdButton = document.getElementById('watchAdBtn');
-					const noThanksButton = document.getElementById('noThanksBtn');
-					watchAdButton.addEventListener('click', makeVisibleFn);
-					noThanksButton.addEventListener('click', makeVisibleFn);
-				});
-		
-				googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
-					console.log("Rewarded Ad Granted Event");
-					// Perform the appropriate action based on the button clicked
-					if (actionAfterAd === 'next') {
-						nextPage();
-					} else if (actionAfterAd === 'cancel') {
-						cancelPage();
-					}
-					googletag.destroySlots([rewardedSlot]);
-				});
-		
-				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
-					const slot = event.slot;
-					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
-					// Perform the cancel action if the ad is closed without being granted
-					if (actionAfterAd !== 'next') {
-						cancelPage();
-					}
-				});
-		
-				googletag.display(rewardedSlot);
-			});
-		</script>
-		
+        <script>
+          googletag = window.googletag || {cmd: []};
+          const queryValues = window.location.search;
+          const urlParams = new URLSearchParams(queryValues);
+          var utm_medium = "NULL";
+        
+          if (urlParams.has('utm_medium')) {
+            utm_medium = urlParams.get('utm_medium');
+            console.log("Utm Medium does exist as:", utm_medium);
+          } else {
+            console.log("Utm Medium does not exist, value to be populated:", utm_medium);
+          }
+        
+          googletag.cmd.push(() => {
+            let rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+            rewardedSlot.setForceSafeFrame(true);
+            googletag.pubads().setTargeting("Medium", [utm_medium]);
+            googletag.pubads().enableAsyncRendering();
+            googletag.enableServices();
+        
+            let rewardedSlotReady = false;
+        
+            googletag.pubads().addEventListener('rewardedSlotReady', evt => {
+              rewardedSlotReady = true;
+              const trigger = document.getElementById('rewardModal');
+              trigger.style.display = 'block';
+              clearInterval(timerInterval);
+              const watchAdButton = document.getElementById('watchAdBtn');
+              const noThanksButton = document.getElementById('noThanksBtn');
+        
+              const makeVisibleFn = (e) => {
+                clearInterval(timerInterval);
+                evt.makeRewardedVisible();
+                e.preventDefault();
+                watchAdButton.removeEventListener('click', makeVisibleFn);
+                noThanksButton.removeEventListener('click', closeModalFn);
+                trigger.style.display = 'none';
+              };
+        
+              watchAdButton.addEventListener('click', makeVisibleFn);
+        
+              const closeModalFn = () => {
+                trigger.style.display = 'none';
+                googletag.destroySlots([rewardedSlot]);
+              };
+        
+              noThanksButton.addEventListener('click', closeModalFn);
+              
+            });
+    
+            googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+              console.log("Rewarded Add Granted Event");
+              googletag.destroySlots([rewardedSlot]);
+              nextPage() ;
+        
+               }); 
+         
+        
+    
+            googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
+              const slot = event.slot;
+              console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
+              //location.reload();
+              cancelPage();
+              if (slot === targetSlot) {
+                // Slot specific logic.
+              }
+            });
+        
+            // Check if rewardedSlot is not ready after 2 seconds
+            setTimeout(() => {
+              if (!rewardedSlotReady) {
+                console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
+                let SetupAdRewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+                googletag.display(SetupAdRewardedSlot);
+              }
+            }, 2000);
+        
+            googletag.display(rewardedSlot);
+          });
+        </script>
 
 
 
@@ -190,9 +207,6 @@
       {% endblock taboola_head %}
 
 
-		  <!-- Adtelligent: Ad Exchange -->
-		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
-		  <!--END Ad Exchange -->	
 
 
 	
@@ -207,7 +221,7 @@
         <p>Play our Goal Shoot Out game and compete to win your share of R 300 in airtime every week by leading the scoreboard.</p>
         <input type="button" class="lg_btn" id="watchAdBtn" value="Play and Win" />
 		<p>I would rather browse the internet.</p>
-        <input type="button" class="lg_btn" id="noThanksBtn" value="Browse" />
+        <input type="button" class="lg_btn" id="noThanksBtn" value="Browse" onclick="cancelPage();" />
       
     </div>
 		</div>
