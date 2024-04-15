@@ -127,7 +127,7 @@
               const rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
               rewardedSlot.setForceSafeFrame(true);
       
-              googletag.pubads().setTargeting("Medium", [utm_medium]);
+              googletag.pubads().setTargeting("utm_medium", [utm_medium]);
               googletag.pubads().enableAsyncRendering();
               googletag.enableServices();
       
@@ -181,6 +181,16 @@
 			  {% include 'google/head_tags/20240201/landing.html' %}
 		  {% endblock google_head %}
 
+      	<!-- Taboola Head Tag) -->
+      {% block taboola_head %}
+        {% include 'taboola/taboola_header.html' %}
+      {% endblock taboola_head %}
+
+
+		  <!-- Adtelligent: Ad Exchange -->
+		   <!--  <script src="{% static 'js/publisher/adtelligent.js' %}"> </script> -->
+		  <!--END Ad Exchange -->	
+
 
 	
 
@@ -233,7 +243,9 @@
                   <div class="sa-title popcat">Popular Reading</div>
                   <div class="heading-info">
                     <!-- Taboola Slot -->
-
+                    {% block taboola %}
+                      {% include 'taboola/taboola.html' %}
+                    {% endblock taboola %}
                     <!-- End Taboola Slot -->
                   </div>
                 </div>
