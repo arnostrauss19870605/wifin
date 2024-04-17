@@ -183,6 +183,7 @@
             if (!rewardedSlotReady) {
               console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
               let SetupAdRewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+              googletag.destroySlots([rewardedSlot]);
               googletag.display(SetupAdRewardedSlot);
             }
           }, 2000);
