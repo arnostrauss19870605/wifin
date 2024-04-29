@@ -219,9 +219,11 @@
 	  
 			  googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
 				console.log("Rewarded Add Granted Event");
-				googletag.destroySlots([rewardedSlot]);
-				nextPage() ;
-		  
+				setTimeout(function() {
+				  googletag.destroySlots([rewardedSlot]);
+				  nextPage();
+			  }, 4000);
+				
 				 }); 
 		   
 		  

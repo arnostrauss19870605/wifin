@@ -162,9 +162,12 @@
 				});
 
 					googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
-					googletag.destroySlots([rewardedSlot]);
-					window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
-	   
+						setTimeout(function() {
+							googletag.destroySlots([rewardedSlot]);
+							window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
+						}, 4000);
+					
+					
 				});
 
 				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
