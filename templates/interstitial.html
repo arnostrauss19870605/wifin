@@ -177,6 +177,9 @@
 					//location.reload();
 					if (!grantedState) {
 						cancelPage();
+					} else {
+						googletag.destroySlots([rewardedSlot]);
+						window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
 					}
 					
 					if (slot === targetSlot) {
