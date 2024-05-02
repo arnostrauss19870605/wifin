@@ -160,9 +160,10 @@
 					noThanksButton.addEventListener('click', closeModalFn);
 					
 				});
-
+					let grantedState = false;
 					googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
 						setTimeout(function() {
+							grantedState = true;
 							googletag.destroySlots([rewardedSlot]);
 							window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
 						}, 4000);
@@ -174,7 +175,10 @@
 					const slot = event.slot;
 					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
 					//location.reload();
-					cancelPage();
+					if (!grantedState) {
+						cancelPage();
+					}
+					
 					if (slot === targetSlot) {
 					  // Slot specific logic.
 					}
