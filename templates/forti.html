@@ -216,8 +216,9 @@
 				noThanksButton.addEventListener('click', closeModalFn);
 				
 			  });
-	  
+			  let grantedState = false;
 			  googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+				grantedState = true;
 				console.log("Rewarded Add Granted Event");
 				setTimeout(function() {
 				  googletag.destroySlots([rewardedSlot]);
@@ -232,7 +233,13 @@
 				const slot = event.slot;
 				console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
 				//location.reload();
-				cancelPage();
+				if (!grantedState) {
+					console.log('rewardedSlot granted 3: ' +  grantedState);
+					cancelPage();
+				  } else {
+					googletag.destroySlots([rewardedSlot]);
+					nextPage();   
+				  }
 				if (slot === targetSlot) {
 				  // Slot specific logic.
 				}
