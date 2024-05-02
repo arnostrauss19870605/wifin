@@ -162,10 +162,10 @@
 				});
 					let grantedState = false;
 					googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
+						grantedState = true;
+						console.log('rewardedSlot granted : ' +  grantedState);
 						setTimeout(function() {
-							
-							grantedState = true;
-							console.log('rewardedSlot granted : ' +  grantedState);
+														
 							googletag.destroySlots([rewardedSlot]);
 							window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
 						}, 4000);
