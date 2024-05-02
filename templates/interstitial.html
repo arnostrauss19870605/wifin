@@ -163,7 +163,9 @@
 					let grantedState = false;
 					googletag.pubads().addEventListener('rewardedSlotGranted', function(evt) {
 						setTimeout(function() {
+							
 							grantedState = true;
+							console.log('rewardedSlot granted : ' +  grantedState);
 							googletag.destroySlots([rewardedSlot]);
 							window.location.replace("https://bobbies.hotspot.yourspot.co.za/lv/login");   
 						}, 4000);
@@ -173,9 +175,11 @@
 
 				googletag.pubads().addEventListener("rewardedSlotClosed", (event) => {
 					const slot = event.slot;
+					console.log('rewardedSlot granted 2: ' +  grantedState);
 					console.log("Rewarded ad slot", slot.getSlotElementId(), "has been closed.");
 					//location.reload();
 					if (!grantedState) {
+						console.log('rewardedSlot granted 3: ' +  grantedState);
 						cancelPage();
 					} else {
 						googletag.destroySlots([rewardedSlot]);
