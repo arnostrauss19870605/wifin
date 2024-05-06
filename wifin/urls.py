@@ -110,6 +110,10 @@ urlpatterns = [
     path('topics/comment/reply/', reply_page, name="reply"),
     path('topics/optout/<int:pk>/', comment_detail_optout, name="optout"),
 
+    #Automated Topics
+    path('exit_topics/',exit_topics, name="exit-topics"),
+
+
     path('sitemap.xml', sitemap, # new
         {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.65)}},
         name='django.contrib.sitemaps.views.sitemap'),

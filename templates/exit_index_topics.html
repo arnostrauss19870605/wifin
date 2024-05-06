@@ -1,0 +1,361 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+
+	  <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <title>Wifi News</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-touch-fullscreen" content="yes">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="site-verification" content="3e9b45f6cfba924eb4912c00aee1d325">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-16x16.png' %}">
+	  <!-- Bootstrap v4.3.1 CSS 
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+	-->
+      <!-- Bootstrap v4.3.1 CSS -->
+      <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+  
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+      <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+      
+      <!-- Slick CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'lib/slick/slick/slick-theme.css' %}">
+
+   
+      <!-- Font Awesome Free 5.10.2 CSS JS -->
+      <link href="{% static 'lib/fontawesome-free-5.10.2-web/css/all.css' rel="stylesheet" %}">
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/brands.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/solid.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/regular.min.js' %}"></script>
+      <script defer src="{% static 'lib/fontawesome-free-5.10.2-web/js/fontawesome.min.js' %}"></script>
+
+
+			   
+	  <!-- Import Library for Gtag -->
+
+	  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"> </script> 
+			 
+	
+	  <!-- Google Head Tag) -->
+	  {% block google_head %}
+		  {% include 'google/head_tags/20240201/exit_index.html' %}
+	  {% endblock google_head %}
+
+
+
+
+  <style>
+	<style>
+		
+		ul.timeline {
+			list-style-type: none;
+			position: relative;
+		}
+		ul.timeline:before {
+			content: ' ';
+			background: #3333;
+			display: inline-block;
+			position: absolute;
+			left: 29px;
+			width: 2px;
+			height: 100%;
+			z-index: 400;
+		}
+		ul.timeline > li {
+			margin: 20px 0;
+			padding-left: 20px;
+		}
+		ul.timeline > li:before {
+			content: ' ';
+			background: white;
+			display: inline-block;
+			position: absolute;
+			border-radius: 50%;
+			border: 3px solid #333;
+			left: 20px;
+			width: 20px;
+			height: 20px;
+			z-index: 400;
+		}
+	
+		
+		.text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 3; /* number of lines to show */
+					line-clamp: 3; 
+			-webkit-box-orient: vertical;
+		 }
+			
+		 #wrapper {
+			width: 400px;
+			
+			position: relative;
+			float: left;
+			}
+			#first {
+			width: 40%;
+			text-align: right;
+			position: relative;
+			float: left;
+			}
+			#second {
+		  
+			color : black;
+			position: relative;
+			float: left;
+			width: 30%;
+			}
+			#third {
+			 
+				color : black;
+				position: relative;
+				float: left;
+				width: 10%;
+				}
+
+				/* Wi-Fi Icon Container Styles */
+				.icon-container {
+					font-size: 1.5em; /* Size of the icon */
+					text-align: center; /* Center the icon horizontally */
+					width: 100%; /* Full width for consistent alignment */
+					padding: 5px 0; /* Padding for spacing */
+				}
+				
+				/* Timer Text Styles */
+				.timer-text {
+				
+					text-align: center; /* Center the text */
+					font-size: 16px; /* Font size */
+					color: #333; /* Text color */
+					width: 100%; /* Full width for consistent alignment */
+					margin: 5px 0; /* Margin for spacing */
+				}
+				
+				/* Timer Line Container Styles */
+				.timer-line-container {
+					width: 100%; /* Full width of the navbar */
+					height: 20px; /* Height of the timer line */
+					background-color: #333; /* Background of the depleted area */
+				}
+				
+				/* Timer Line Styles */
+				.timer-line {
+					height: 100%;
+					background-color: #555; /* Color of the timer line */
+					width: 100%; /* Start with full width */
+				}
+				
+				/* 'Press' Button Styles */
+				#noticeTxt4 {
+					display: none; /* Initially hidden */
+					padding: 10px; /* Reduced padding */
+					background-color: #333; /* Button color */
+					color: white; /* Text color */
+					text-align: center;
+					border-radius: 50%; /* Round shape */
+					cursor: pointer; /* Cursor changes to pointer on hover */
+					font-size: 12px; /* Adjusted font size */
+					width: 50px; /* Reduced width for a smaller button */
+					height: 50px; /* Reduced height for a smaller button */
+					line-height: 40px; /* Adjusted line height to center the text vertically */
+					margin: 10px auto; /* Center the button horizontally */
+					transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+					user-select: none; /* Prevents text selection */
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16); /* Adjusted shadow for depth */
+					}
+					
+					#noticeTxt4:hover {
+					background-color: #d9d9d9; /* Darker color on hover */
+					transform: scale(1.05); /* Slightly increase size on hover */
+					}
+				
+				
+		
+
+			/* The Modal (background) */
+			.modal {
+				display: none;
+				/* Hidden by default */
+				position: fixed;
+				/* Stay in place */
+				z-index: 1;
+				/* Sit on top */
+				padding-top: 300px;
+				/* Location of the box */
+				left: 0;
+				top: 0;
+				width: 100%;
+				/* Full width */
+				height: 100%;
+				/* Full height */
+				overflow: auto;
+				/* Enable scroll if needed */
+				background-color: rgb(0, 0, 0);
+				/* Fallback color */
+				background-color: rgba(0, 0, 0, 0.4);
+				/* Black w/ opacity */
+			}
+	
+			/* Modal Content */
+			.modal-content {
+				margin: auto;
+				padding: 25px;
+				background-color: #fefefe;
+				text-align: center;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+	
+			@media all and (orientation: landscape) {
+	
+				/* Modal Content */
+				.modal-content {
+					margin: auto;
+					padding: 25px;
+					background-color: #fefefe;
+					text-align: center;
+					position: fixed;
+					top: 60%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+	
+	
+			.btn {
+				padding: .5rem;
+				background: #2990EA;
+				border: none;
+				border-radius: 4px;
+				margin: 4px;
+			}
+
+			/* Wi-Fi Icon Container Styles */
+			.icon-container {
+				font-size: 1.5em; /* Size of the icon */
+				text-align: center; /* Center the icon horizontally */
+				width: 100%; /* Full width for consistent alignment */
+				padding: 5px 0; /* Padding for spacing */
+			}
+	
+		
+	
+</style>
+
+	
+	
+	
+	
+    </head>
+	<div class="centered-container">  
+		<body class="default">
+
+			<!-- Sidebar left -->
+
+
+			<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
+				<div class="icon-container">
+				
+					<div class="logo"  style="padding-top: 0%;color:#333 ">
+
+						<img  alt="hero" src="{% static 'img/WIFINEWSLOGO_transparent.png' %}" style="width: 300px; height: auto;" >
+					</div>
+				</div>
+				
+			</div>
+
+
+     
+			<div id="content"  style="padding-top: 0%; padding-bottom: 0px;">
+
+				<div class="content-wrap">
+					
+
+					<!-- section 2 -->
+					<div class="heading-section">
+						<div class="sa-title popcat">Have Your Say! </div>
+						<div class="heading-info">
+							With all the happenings in out country, good and bad, we have created a forum where you can have your say and discuss these matters with others in your comunity in an open public form.
+						</div>
+						<div class="clear"></div>
+						<div class="lg_btn" >
+							<fbutton type="submit" class="red_button">HAVE YOUR SAY!</fbutton>
+						</div>
+					</div>
+
+					<!-- section 2 -->
+					<div class="heading-section">
+						<div class="sa-title popcat">Trending Topics </div>
+						<div class="heading-info">
+							Wi-Fi news keeps you up to date with all things relating to your connectivity and data access.
+						</div>
+						<div class="clear"></div>
+					</div>
+
+					<!-- section 2 -->
+					<!-- Begin post loop -->
+				{% for post in posts %}
+				<div class="row news-row">
+					<div class="col-md-12">
+						<div class="news-card">
+							<div class="nc-top">
+								<div class="nc-left">
+									<div class="ncl-image">
+										<img alt="hero" src="{% static 'img/WIFINEWSLOGO_transparent.png' %}" style="width: 300px; height: auto;">
+									</div>
+								</div>
+								<div class="nc-right">
+									<a href="{% url 'post' post.slug %}">
+										<div class="ncr-row-a" style="color:#FF4644">
+											{{ post.title }}
+										</div>
+									</a>
+									<div class="ncr-row-b">
+										{{ post.overview }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- End post loop -->
+
+
+				</div>
+			</div>
+
+
+	
+
+				
+									
+
+			
+			<!-- Optional JavaScript -->
+			<!-- jQuery v3.4.1 -->
+			<script src="{% static 'lib/jquery/jquery-3.4.1.min.js'  %}"></script>
+			<!--  Bootstrap v4.3.1 JS -->
+			<script src="{% static 'lib/bootstrap/js/bootstrap.min.js'  %}"></script>
+			<!-- Magnific Popup core JS file 
+			<script src="{% static 'lib/Magnific-Popup-master/dist/jquery.magnific-popup.js'  %}"></script>
+			-->
+			<!-- Slick JS -->
+			<script src="{% static 'lib/slick/slick/slick.min.js'  %}" ></script>
+			<!--  Custom JS -->
+			<script src="{% static 'js/theme.js'  %}" ></script>
+
+		</body>
+	</div>
+</html>
