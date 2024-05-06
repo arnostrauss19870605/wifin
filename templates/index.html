@@ -38,9 +38,7 @@
 			 
 	
 		   <!-- Google Head Tag) -->
-		   {% block google_head %}
-			   {% include 'google/head_tags/20240201/home.html' %}
-		   {% endblock google_head %}	
+
 
 
 	
@@ -252,6 +250,11 @@
 <div class="centered-container">    	
 	<body class="default">
 
+		<form id="postForm" action="{% url 'interstitial-page' %}" method="POST" style="display: none;">
+			{% csrf_token %}
+			<input type="submit" value="Submit">
+		</form>
+
 		
 	
 	
@@ -268,7 +271,7 @@
 						    
 					</div>
 				</div>
-				<div id="noticeTxt4" style="display: none;" onclick="nextPage();">Press</div>
+				<div id="noticeTxt4" onclick="document.getElementById('postForm').submit();">Press</div>
 			</div>
 			
 			<!-- .Header  -->

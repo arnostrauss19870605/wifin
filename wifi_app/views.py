@@ -416,47 +416,7 @@ def homepage_2(request):
 
 @xframe_options_exempt
 def interstitial(request):
-    form = LoginForm(request.POST)
-   
-    if request.method == "POST":
-
-        the_session =  request.GET['sid']
-
-        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-            utm_source = request.GET['utm_source']
-            utm_medium = request.GET['utm_medium']
-            utm_campaign = request.GET['utm_campaign']
-            redirect_destination = f"{reverse('interstitial-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
-        else :
-            redirect_destination = f"{reverse('interstitial-page-1')}?{urlencode({'sid': the_session })}"
-        
-        
-        try :
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-               
-                return redirect(redirect_destination)
-            else :
-               
-                return redirect(redirect_destination) 
-
-        except Exception:
-
-            pass
-
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='interstitial',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-               
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='interstitial',counter=1,session = the_session)
-                data_entry.save() 
       
-    else :
-       
         try :
             return render(request, 'interstitial.html')
           
@@ -1346,7 +1306,7 @@ def game_page_1(request):
    
     else :
   
-        return render(request, 'exit_page_1_v1.html')
+        return render(request, 'exit_page_1_v1')
     
 
 def game_page_2(request):
