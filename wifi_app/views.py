@@ -1244,39 +1244,69 @@ def sms_webhook(request):
 @csrf_exempt
 def mail_webhook(request):
     if request.method == 'POST':
+            try :
+                request_body_str = request.body.decode('utf-8')
+                pattern = r"[\?&](hssurveysid|HsSurveysUsersID)=([^&]+)"
+                matches = re.findall(pattern, request_body_str)
+                values = {match[0]: match[1] for match in matches}
+
+                # Extracting the numeric part of the username
+                username_pattern = r"User Name:\s*(\d+)@"
+                username_match = re.search(username_pattern, request_body_str)
+                if username_match:
+                    username_numeric = username_match.group(1)  # Extracted numeric part of the username
+                else:
+                    username_numeric = None  # Or handle the absence of a username as needed
+
+
+                 # Remove "3D" prefix if present
+                if 'hssurveysid' in values:
+                    if values['hssurveysid'].startswith("3D"):
+                        values['hssurveysid'] = values['hssurveysid'][2:]
+                    if values['hssurveysid'].startswith("=3D"):
+                        values['hssurveysid'] = values['hssurveysid'][3:]
+
+                if 'HsSurveysUsersID' in values:
+                    if values['HsSurveysUsersID'].startswith("3D"):
+                        values['HsSurveysUsersID'] = values['HsSurveysUsersID'][2:]
+                
+                if 'hssurveysid' in values and 'HsSurveysUsersID' in values:
+                    # Create a new Webhook_log instance and save the extracted values
+                    webhook_log = Webhook_log(
+                        detail=request_body_str,  
+                        hssurveysid=values['hssurveysid'],
+                        hsuserid=values['HsSurveysUsersID'],
+                        username=username_numeric, 
+                    )
+                    
+                    webhook_log.save()
+                    pull_survey_answers_per_event(webhook_log.hssurveysid,webhook_log.username)
+                    
+                   
+        
+                return HttpResponse("Success", content_type="application/xml",status=200)
+    
+            except Exception as e:
+            # Log the error here
+                print(e)  # Or use a logging framework
+
+        # This response is now outside the try-except block
+            return HttpResponse("Success", content_type="application/xml", status=200)
+    else:
+        
+        return HttpResponse("Only POST requests are accepted.", status=405)
+
+
+
+@csrf_exempt
+def http_webhook(request):
+    if request.method == 'POST':
         try:
             # Decode the request body
             request_body_str = request.body.decode('utf-8')
 
             # Check the content type to differentiate between email and HTTP POST request
-            if request.content_type == 'multipart/form-data':
-                # Process email
-                pattern = r"[\?&](hssurveysid|HsSurveysUsersID)=([^&]+)"
-                matches = re.findall(pattern, request_body_str)
-                values = {match[0]: match[1] for match in matches}
-
-                # Extract the numeric part of the username
-                username_pattern = r"User Name:\s*(\d+)"
-                username_match = re.search(username_pattern, request_body_str)
-                username_numeric = username_match.group(1) if username_match else None
-
-                # Remove "3D" prefix if present
-                if 'hssurveysid' in values:
-                    values['hssurveysid'] = values['hssurveysid'].lstrip("3D=")
-                if 'HsSurveysUsersID' in values:
-                    values['HsSurveysUsersID'] = values['HsSurveysUsersID'].lstrip("3D=")
-
-                if 'hssurveysid' in values and 'HsSurveysUsersID' in values:
-                    webhook_log = Webhook_log(
-                        detail=request_body_str,
-                        hssurveysid=values['hssurveysid'],
-                        hsuserid=values['HsSurveysUsersID'],
-                        username=username_numeric,
-                    )
-                    webhook_log.save()
-                    pull_survey_answers_per_event(webhook_log.hssurveysid, webhook_log.username)
-
-            elif request.content_type == 'application/json':
+            if request.content_type == 'application/json':
                 # Process HTTP POST request
                 import json
                 request_data = json.loads(request_body_str)
@@ -1286,14 +1316,14 @@ def mail_webhook(request):
                 hsuserid = ''
                 username_numeric = '123'
 
-                if hssurveysid and hsuserid:
-                    webhook_log = Webhook_log(
+
+                webhook_log = Webhook_log(
                         detail=json.dumps(request_data),
                         hssurveysid=hssurveysid,
                         hsuserid=hsuserid,
                         username=username_numeric,
                     )
-                    webhook_log.save()
+                webhook_log.save()
                   
             else:
                 return HttpResponse("Unsupported content type", status=400)
