@@ -1306,7 +1306,7 @@ def game_page_1(request):
    
     else :
   
-        return render(request, 'exit_page_1_v1')
+        return render(request, 'exit_page_1_v1.html')
     
 
 def game_page_2(request):
