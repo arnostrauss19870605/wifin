@@ -214,7 +214,18 @@
 		  {% include 'google/head_tags/20240201/interstitial.html' %}
 	  	{% endblock google_head %}
 
+		  <style>
 
+			.timer-text {
+						
+			  text-align: center; /* Center the text */
+			  font-size: 16px; /* Font size */
+			  color: #333; /* Text color */
+			  width: 100%; /* Full width for consistent alignment */
+			  margin: 5px 0; /* Margin for spacing */
+			}
+	
+		  </style> 
 
 
 	</head>
@@ -245,6 +256,10 @@
 
 		<div class="row"  style="font-family: Arial, Helvetica, sans-serif;padding-top: 0%; padding-bottom: 0px; margin-top: 0%; text-align: center; font-size: 25px;">
             <div  class="button"  style="text-align: center; margin: 0 auto; width: 100%;">
+				<div id="noticeTxt">
+					<strong>Step 3 of 3</strong><br>
+	  
+				  </div>
 				<div id="noticeTxt" class="timer-text">View these ads for </div>
 				<div id="noticeTxt2" class="timer-text"></div>
 				<div id="noticeTxt3" class="timer-text">to get your free Wi-fi</div>
