@@ -76,7 +76,6 @@
         function firstTimer() {
           const noticeTxt = document.getElementById("noticeTxt");
           const noticeTxt2 = document.getElementById("noticeTxt2");
-          const noticeTxt3 = document.getElementById("noticeTxt3");
           const noticeTxt4 = document.getElementById("noticeTxt4");
           const timerLine = document.getElementById("timerLine");
       
@@ -90,14 +89,12 @@
                   clearInterval(timerInterval);
                   noticeTxt.style.display = "none";
                   noticeTxt2.style.display = "none";
-                  noticeTxt3.style.display = "none";
                   noticeTxt4.style.display = "inherit";
                   timerLine.style.width = '0%';
                   nextPage();
               } else {
                   noticeTxt.style.display = "inherit";
                   noticeTxt2.innerHTML = timeleft + " seconds";
-                  noticeTxt3.style.display = "block";
                   const percentage = (timeleft / totalTime) * 100;
                   timerLine.style.width = percentage + '%';
               }
@@ -326,10 +323,11 @@
 	  </body>
 
 </div>    
-	  <script type = "text/javascript">
-		firstTimer();
- 
-	</script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+      firstTimer();
+  });
+</script>
 
 			  
   
