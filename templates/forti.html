@@ -181,7 +181,7 @@
 			}
 		  
 			googletag.cmd.push(() => {
-			  let rewardedSlot = googletag.defineOutOfPageSlot('22047902240/wifinews/wfn_rewardad', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
+			  let rewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
 			  rewardedSlot.setForceSafeFrame(true);
 			  googletag.pubads().setTargeting("Medium", [utm_medium]);
 			  googletag.pubads().enableAsyncRendering();
@@ -245,16 +245,7 @@
 				}
 			  });
 		  
-			  // Check if rewardedSlot is not ready after 2 seconds
-			  setTimeout(() => {
-				if (!rewardedSlotReady) {
-				  console.log('rewardedSlot not ready, initializing and serving SetupAdRewardedSlot...');
-				  let SetupAdRewardedSlot = googletag.defineOutOfPageSlot('147246189,22047902240/wifinews.co.za_rewarded', googletag.enums.OutOfPageFormat.REWARDED).addService(googletag.pubads());
-				  googletag.destroySlots([rewardedSlot]);
-				  googletag.display(SetupAdRewardedSlot);
-				}
-			  }, 4000);
-		  
+			  	  
 			  googletag.display(rewardedSlot);
 			});
 		  </script>
@@ -358,13 +349,7 @@
               
         
               <!-- STICKY -->
-              <div class="sticky-element">
-                   <!-- GPT AdSlot 3 -->
-				   {% block google_sticky %}
-				   {% include 'google/ad_slots/20240201/forti_sticky.html' %}
-				 {% endblock google_sticky %}
-                 <!-- End AdSlot 3 -->
-              </div>
+
               <!-- END STICKY -->
         
             </div>
