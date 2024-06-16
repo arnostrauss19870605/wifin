@@ -149,48 +149,7 @@ def login_page(request):
 
 def landing_page(request):
            
-    if request.method == "POST" :
-        # create a form instance and populate it with data from the request:
-        the_session = str(uuid4())
-        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-            utm_source = request.GET['utm_source']
-            utm_medium = request.GET['utm_medium']
-            utm_campaign = request.GET['utm_campaign']
-            redirect_destination = f"{reverse('landing-page-1')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
-        else :
-            redirect_destination = f"{reverse('landing-page-1')}?{urlencode({'sid': the_session })}"
-
-        try :
-            
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                return redirect(redirect_destination)
-            else :
-                return redirect(redirect_destination)
-        
-        except Exception:
-
-            pass
-
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='landing',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='landing',counter=1,session = the_session)
-                data_entry.save()
-
-    else:
-
-             
-        try :
-            return render(request, "start.html")
-          
-        except Exception:
-                
-            pass
-
+    return redirect('https://wifinews.co.za/landing/')
 
        
 @xframe_options_exempt
@@ -246,93 +205,7 @@ def landing_page_1(request):
        
 @xframe_options_exempt
 def homepage(request):
-    
-   
-    
-    if request.method == "POST" :
-        the_session =  request.GET['sid']
-
-        if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-            utm_source = request.GET['utm_source']
-            utm_medium = request.GET['utm_medium']
-            utm_campaign = request.GET['utm_campaign']
-            redirect_destination = f"{reverse('interstitial-page')}?{urlencode({'utm_source': utm_source })}&{urlencode({'utm_medium': utm_medium })}&{urlencode({'utm_campaign': utm_campaign })}&{urlencode({'sid': the_session })}"
-        else :
-            redirect_destination = f"{reverse('interstitial-page')}?{urlencode({'sid': the_session })}"
-        
-        try :
-        
-   
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                return redirect(redirect_destination)
-            else :
-            
-                return redirect(redirect_destination)  
-   
-        except Exception:
-
-            pass
-
-        finally : 
-
-            if 'utm_source' in request.GET or 'utm_medium' in request.GET or 'utm_campaign' in request.GET:
-                data_entry = Log(utm_1=utm_source,utm_2=utm_medium,utm_3=utm_campaign,page='home',counter=1,session = the_session )
-                data_entry.save()
-                               
-            else :
-               
-                data_entry = Log(utm_1='Unknown',utm_2='Unknown',utm_3='Unknown',page='home',counter=1,session = the_session)
-                data_entry.save()
-   
-   
-   
-   
-    else :
-      
-        categories = Category.objects.all()[4:10]
-        featured = Post.objects.order_by('-timestamp')[3:11]
-        featured_other = Post.objects.filter(featured=True)[6:11]
-        latest = Post.objects.order_by('-timestamp')[4:11]
-        topics = Topic.objects.all().latest('pk')
-        the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
-        comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
-       
-        context= {
-                'object_list': featured,
-                'featured_other': featured_other,
-                'latest': latest,
-                'categories':categories,
-                'topics':topics,
-                'comments':comments,
-            
-        
-            }
-       
-        try :
-
-            categories = Category.objects.all()[0:10]
-            featured = Post.objects.filter(featured=True)[0:5]
-            featured_other = Post.objects.filter(featured=True)[6:10]
-            latest = Post.objects.order_by('-timestamp')[0:10]
-            topics = Topic.objects.all().latest('pk')
-            the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
-            comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
-            context= {
-                'object_list': featured,
-                'featured_other': featured_other,
-                'latest': latest,
-                'categories':categories,
-                'topics':topics,
-                'comments':comments,
-            
-        
-            }
-
-            return render(request, 'index.html', context)
-          
-        except Exception:
-                
-            pass
+    return redirect('https://wifinews.co.za/landing/')
       
 
 @xframe_options_exempt
@@ -417,12 +290,7 @@ def homepage_2(request):
 @xframe_options_exempt
 def interstitial(request):
       
-        try :
-            return render(request, 'interstitial.html')
-          
-        except Exception:
-                
-            pass
+    return redirect('https://wifinews.co.za/landing/')
 
        
 @xframe_options_exempt        
@@ -608,30 +476,7 @@ def load_content(request):
 
 @xframe_options_exempt
 def exit_index(request):
-    form = LoginForm(request.POST)
-    
-    if request.method == "POST" :
-       
-        return redirect('interstitial-page-nop') 
-    else :
-        categories = Category.objects.all()[0:10]
-        featured = Post.objects.filter(featured=True)[0:5]
-        featured_other = Post.objects.filter(featured=True)[6:10]
-        latest = Post.objects.order_by('-timestamp')[0:10]
-        topics = Topic.objects.all().latest('pk')
-        the_id = Topic.objects.values_list('pk', flat=True).latest('pk')
-        comments = Comment.objects.filter(topic = the_id).order_by('-pk')[0:4]
-        context= {
-            'object_list': featured,
-            'featured_other': featured_other,
-            'latest': latest,
-            'categories':categories,
-            'topics':topics,
-            'comments':comments,
-           
-      
-        }
-        return render(request, "exit_index.html", context)
+    return redirect('https://wifinews.co.za/landing/')
 
 def cancel_index(request):
     form = LoginForm(request.POST)
@@ -1338,15 +1183,7 @@ def http_webhook(request):
 
 
 def game_page_1(request):
-    
-    if request.method == "POST":
-       
-       return redirect('exit-index') 
-   
-    else :
-  
-        return render(request, 'exit_page_1_v1.html')
-    
+    return redirect('https://wifinews.co.za/landing/')
 
 def game_page_2(request):
     form = GameForm()
